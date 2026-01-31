@@ -4,7 +4,7 @@ import { supabase } from '../../lib/supabase';
 import { useInstagram } from '../../hooks/useInstagram';
 
 const InstagramManager = () => {
-    const { posts, loading, refresh } = useInstagram();
+    const { posts, refresh } = useInstagram();
     const [isFormOpen, setIsFormOpen] = useState(false);
     const [formData, setFormData] = useState({
         image_url: '',

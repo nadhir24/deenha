@@ -49,11 +49,7 @@ const FilterSidebar = ({ filters, onFilterChange }: FilterSidebarProps) => {
         onFilterChange({ ...filters, colors: newColors });
     };
 
-    const handlePriceChange = (value: number, index: 0 | 1) => {
-        const newRange: [number, number] = [...filters.priceRange] as [number, number];
-        newRange[index] = value;
-        onFilterChange({ ...filters, priceRange: newRange });
-    };
+
 
     const clearFilters = () => {
         onFilterChange({
@@ -64,12 +60,7 @@ const FilterSidebar = ({ filters, onFilterChange }: FilterSidebarProps) => {
         });
     };
 
-    const formatPrice = (price: number) => {
-        if (price >= 1000000) {
-            return `${(price / 1000000).toFixed(1)}M`;
-        }
-        return `${(price / 1000).toFixed(0)}K`;
-    };
+
 
     // Local state for smooth slider interaction
     const [localPrice, setLocalPrice] = useState<number>(filters.priceRange[1]);
