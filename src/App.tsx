@@ -16,6 +16,7 @@ import ProtectedRoute from './components/layout/ProtectedRoute';
 import AboutPage from './pages/AboutPage';
 import ProductDetailsPage from './pages/ProductDetailsPage';
 import ShopPage from './pages/ShopPage';
+import WishlistPage from './pages/WishlistPage';
 import LoginPage from './pages/LoginPage';
 import AdminDashboard from './pages/AdminDashboard';
 
@@ -67,6 +68,9 @@ function App() {
 
                                 {/* Product Details Route */}
                                 <Route path="/product/:id" element={<ProductDetailsPage />} />
+
+                                {/* Wishlist Route */}
+                                <Route path="/wishlist" element={<WishlistPage />} />
 
                                 {/* Auth Routes */}
                                 <Route path="/login" element={<LoginPage />} />
