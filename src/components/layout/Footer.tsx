@@ -96,24 +96,11 @@ const Footer = () => {
 
                     {/* Legal & Payments */}
                     <div className="flex flex-col items-center md:items-end gap-6">
-                        <div className="flex items-center gap-6 opacity-40 grayscale hover:opacity-100 transition-opacity duration-500">
-                            {/* Visa */}
-                            <svg className="h-4 w-auto" viewBox="0 0 48 32" fill="none">
-                                <rect width="48" height="32" rx="4" fill="#F7F7F7" />
-                                <path d="M18.14 21.36l2.3-11.44h3.69l-2.3 11.44h-3.69zM36.1 10.15c-.88-.34-2.25-.7-3.95-.7-4.34 0-7.39 2.31-7.41 5.62-.02 2.44 2.18 3.8 3.85 4.62 1.71.84 2.29 1.38 2.28 2.12-.02 1.13-1.36 1.65-2.62 1.65-1.75 0-2.69-.26-4.13-.88l-.58-.27-.61 3.81c1.03.47 2.93.88 4.9.9 4.62 0 7.62-2.28 7.66-5.81.02-1.94-1.16-3.41-3.69-4.62-1.53-.78-2.47-1.31-2.46-2.11.01-.72.8-.49 2.53-.49.5-.02 1.83.1 3.42.75l.41.19.4-.38zm-11.3 6.94c0-.12.06-.23.16-.3l4.57-7.87h-5.22l-3.3 8.17h3.79zM42 9.92h-3.13c-.97 0-1.71.28-2.13 1.28l-6.04 14.4h3.87s.63-1.75.77-2.13h4.72c.11.51.44 2.13.44 2.13h3.42L42 9.92zm-3.6 10.3l1.88-5.13s.38-1.03.62-1.68l1.05 6.81h-3.55z" fill="#1A1F71" />
-                            </svg>
-                            {/* Mastercard */}
-                            <svg className="h-5 w-auto" viewBox="0 0 32 20" fill="none">
-                                <rect width="32" height="20" rx="3" fill="#F7F7F7" />
-                                <circle cx="12" cy="10" r="7" fill="#EB001B" />
-                                <circle cx="20" cy="10" r="7" fill="#F79E1B" />
-                                <path d="M16 10c0 1.23-.33 2.39-.9 3.39-1.21-2.13-1.21-4.65 0-6.78.57 1 0.9 2.16 0.9 3.39z" fill="#FF5F00" />
-                            </svg>
-                            {/* American Express */}
-                            <svg className="h-4 w-auto" viewBox="0 0 40 24" fill="none">
-                                <rect width="40" height="24" rx="2" fill="#0070D1" />
-                                <path d="M6 8h1.5v8H6V8zm8.5 0h1.5v3.5h3.5V8h1.5v8h-1.5v-3h-3.5v3h-1.5V8zm12 5h2v3h1.5V8h-3.5v8h1.5v-3z" fill="white" />
-                            </svg>
+                        <div className="flex items-center gap-6 opacity-80 grayscale hover:opacity-100 transition-opacity duration-500">
+                            {/* QRIS */}
+                            <img src="/assets/qris.png" alt="QRIS" className="h-10 w-auto" />
+                            {/* BCA */}
+                            <img src="/assets/bca.png" alt="BCA" className="h-8 w-auto" />
                         </div>
                         <p className="text-[10px] uppercase tracking-[0.2em] text-secondary">
                             © 2026 DEENHA. ALL RIGHTS RESERVED.

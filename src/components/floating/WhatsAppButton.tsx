@@ -7,7 +7,7 @@ const WhatsAppButton = () => {
     const [showTooltip, setShowTooltip] = useState(false);
     const { cartItems, cartTotal } = useCart();
 
-    const phoneNumber = '6281234567890';
+    const phoneNumber = '6281919234222';
 
     const generateMessage = () => {
         if (cartItems.length === 0) {

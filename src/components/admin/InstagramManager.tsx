@@ -28,7 +28,11 @@ const InstagramManager = () => {
         }
     };
 
-    const handleDelete = async (id: number) => {
+    const handleDelete = async (id: number | string) => {
+        if (typeof id === 'string') {
+            alert('Cannot delete posts fetched from Instagram API.');
+            return;
+        }
         if (!confirm('Remove this post from feed?')) return;
         try {
             const { error } = await supabase.from('instagram_posts').delete().eq('id', id);
