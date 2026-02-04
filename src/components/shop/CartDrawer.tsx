@@ -4,7 +4,7 @@ import { useCart } from '../../context/CartContext';
 const CartDrawer = () => {
     const { cartItems, removeFromCart, cartTotal, isCartOpen, setIsCartOpen } = useCart();
 
-    const phoneNumber = '6281234567890';
+    const phoneNumber = '6281919234222';
 
     const generateMessage = () => {
         if (cartItems.length === 0) return '';
