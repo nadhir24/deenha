@@ -1,5 +1,4 @@
-import { useState, useEffect } from 'react';
-import { supabase } from '../lib/supabase';
+import { useState } from 'react';
 
 export interface InstagramPost {
     id: number;
@@ -50,36 +49,14 @@ const FALLBACK_POSTS: InstagramPost[] = [
 ];
 
 export const useInstagram = () => {
-    const [posts, setPosts] = useState<InstagramPost[]>(FALLBACK_POSTS);
-    const [loading, setLoading] = useState(false);
+    // Always use local images - skip Supabase fetch for now
+    const [posts] = useState<InstagramPost[]>(FALLBACK_POSTS);
+    const [loading] = useState(false);
 
-    const fetchPosts = async () => {
-        try {
-            setLoading(true);
-            const { data, error } = await supabase
-                .from('instagram_posts')
-                .select('*')
-                .order('id', { ascending: false })
-                .limit(6);
-
-            if (error) throw error;
-
-            if (data && data.length > 0) {
-                setPosts(data);
-            } else {
-                setPosts(FALLBACK_POSTS);
-            }
-        } catch (err) {
-            console.error('Error fetching IG posts:', err);
-            setPosts(FALLBACK_POSTS);
-        } finally {
-            setLoading(false);
-        }
+    const refresh = () => {
+        // No-op for now since we're using local images
+        console.log('Using local Instagram images');
     };
 
-    useEffect(() => {
-        fetchPosts();
-    }, []);
-
-    return { posts, loading, refresh: fetchPosts };
+    return { posts, loading, refresh };
 };
