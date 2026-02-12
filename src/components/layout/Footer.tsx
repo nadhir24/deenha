@@ -75,7 +75,7 @@ const Footer = () => {
                             </svg>
                         </a>
                         <a
-                            href="https://www.tiktok.com/@deenha.official"
+                            href="https://www.tiktok.com/@deenha.id"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="group transition-transform hover:scale-110"

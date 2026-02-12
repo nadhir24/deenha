@@ -7,7 +7,8 @@ CREATE TABLE IF NOT EXISTS orders (
     status TEXT DEFAULT 'pending',
     created_at TIMESTAMPTZ DEFAULT NOW(),
     customer_phone TEXT,
-    notes TEXT
+    notes TEXT,
+    stock_deducted BOOLEAN DEFAULT FALSE
 );
 
 -- Enable RLS

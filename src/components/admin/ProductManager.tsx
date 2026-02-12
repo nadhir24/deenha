@@ -29,7 +29,7 @@ const ProductManager = () => {
         color_hex: '#000000',
         badge: '',
         size: '110x110',
-        stock: 0,
+        stock: 0, // Keep for backward compatibility or total display
         variants: [] as Variant[]
     });
 
@@ -38,9 +38,10 @@ const ProductManager = () => {
         color: '',
         colorHex: '#000000',
         image: '',
-        stock: 50
+        stock: 50 // Default stock for new variant
     });
 
+    // ... (resetForm and handleEdit logic updated to include stock)
     const resetForm = () => {
         setFormData({
             name: '',
@@ -61,6 +62,12 @@ const ProductManager = () => {
     };
 
     const handleEdit = (product: any) => {
+        // Ensure variants have stock property if missing
+        const variantsWithStock = (product.variants || []).map((v: Variant) => ({
+            ...v,
+            stock: v.stock !== undefined ? v.stock : 50 // Default fallback
+        }));
+
         setFormData({
             name: product.name,
             price: product.price,
@@ -72,7 +79,7 @@ const ProductManager = () => {
             badge: product.badge || '',
             size: Array.isArray(product.size) ? product.size.join(', ') : product.size,
             stock: product.stock || 0,
-            variants: product.variants || []
+            variants: variantsWithStock
         });
         setEditingId(product.id);
         setIsFormOpen(true);
@@ -172,6 +179,11 @@ const ProductManager = () => {
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         try {
+            // Calculate total stock from variants if available
+            const totalStock = formData.variants.length > 0
+                ? formData.variants.reduce((acc, v) => acc + (Number(v.stock) || 0), 0)
+                : Number(formData.stock);
+
             const payload = {
                 name: formData.name,
                 category: formData.category,
@@ -182,7 +194,7 @@ const ProductManager = () => {
                 size: formData.size.split(',').map(s => s.trim()),
                 price: Number(formData.price),
                 original_price: formData.original_price ? Number(formData.original_price) : null,
-                stock: Number(formData.stock),
+                stock: totalStock, // Update main stock based on variants sum
                 variants: formData.variants
             };
 
@@ -218,7 +230,6 @@ const ProductManager = () => {
             alert('Error deleting product: ' + err.message);
         }
     };
-
     if (loading) return (
         <div className="flex flex-col items-center justify-center py-20">
             <div className="w-8 h-8 border-2 border-accent-gold border-t-transparent animate-spin mb-4" />
@@ -380,8 +391,8 @@ const ProductManager = () => {
                                             </div>
 
                                             {/* Info */}
-                                            <div className="flex-1 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 w-full">
-                                                <div>
+                                            <div className="flex-1 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 w-full">
+                                                <div className="lg:col-span-1">
                                                     <label className="text-[8px] uppercase tracking-widest mb-1 block opacity-50">Name</label>
                                                     <input
                                                         type="text"
@@ -390,7 +401,16 @@ const ProductManager = () => {
                                                         onChange={(e) => updateVariantField(idx, 'color', e.target.value)}
                                                     />
                                                 </div>
-                                                <div>
+                                                <div className="lg:col-span-1">
+                                                    <label className="text-[8px] uppercase tracking-widest mb-1 block opacity-50">Stock</label>
+                                                    <input
+                                                        type="number"
+                                                        className="bg-white border-b border-black/5 p-2 text-[10px] font-bold tracking-widest w-full"
+                                                        value={variant.stock}
+                                                        onChange={(e) => updateVariantField(idx, 'stock', Number(e.target.value))}
+                                                    />
+                                                </div>
+                                                <div className="lg:col-span-1">
                                                     <label className="text-[8px] uppercase tracking-widest mb-1 block opacity-50">Hex</label>
                                                     <div className="flex gap-2">
                                                         <input
@@ -407,7 +427,7 @@ const ProductManager = () => {
                                                         />
                                                     </div>
                                                 </div>
-                                                <div className="md:col-span-2">
+                                                <div className="md:col-span-2 lg:col-span-2">
                                                     <label className="text-[8px] uppercase tracking-widest mb-1 block opacity-50">Image Source</label>
                                                     <div className="flex gap-2">
                                                         <input
@@ -451,7 +471,7 @@ const ProductManager = () => {
                         <div className="bg-white border border-dashed border-black/20 p-6 flex flex-col gap-4">
                             <span className="text-[10px] uppercase font-bold tracking-widest text-secondary">Add New Variant</span>
                             <div className="flex flex-col md:flex-row gap-4 items-end">
-                                <div className="flex-1 grid grid-cols-1 md:grid-cols-3 gap-4 w-full">
+                                <div className="flex-1 grid grid-cols-1 md:grid-cols-4 gap-4 w-full">
                                     <div>
                                         <input
                                             type="text"
@@ -459,6 +479,15 @@ const ProductManager = () => {
                                             className="w-full bg-surface-secondary border-b border-black/5 p-3 text-[11px]"
                                             value={newVariant.color}
                                             onChange={(e) => setNewVariant({ ...newVariant, color: e.target.value })}
+                                        />
+                                    </div>
+                                    <div>
+                                        <input
+                                            type="number"
+                                            placeholder="Stock"
+                                            className="w-full bg-surface-secondary border-b border-black/5 p-3 text-[11px]"
+                                            value={newVariant.stock}
+                                            onChange={(e) => setNewVariant({ ...newVariant, stock: Number(e.target.value) })}
                                         />
                                     </div>
                                     <div className="flex gap-2">

@@ -4,6 +4,7 @@ import { useAuth } from '../context/AuthContext';
 import ProductManager from '../components/admin/ProductManager';
 import InstagramManager from '../components/admin/InstagramManager';
 import OrderManager from '../components/admin/OrderManager';
+import SiteEditor from '../components/admin/SiteEditor';
 import { motion } from 'framer-motion';
 
 const AdminDashboard = () => {
@@ -62,7 +63,7 @@ const AdminDashboard = () => {
                         </div>
 
                         <nav className="bg-white p-4 shadow-sm border border-black/5 flex flex-col space-y-2">
-                            {['Products', 'Instagram', 'Orders', 'Settings'].map((item) => (
+                            {['Products', 'Site Editor', 'Instagram', 'Orders'].map((item) => (
                                 <button
                                     key={item}
                                     onClick={() => setActiveTab(item)}
@@ -85,13 +86,9 @@ const AdminDashboard = () => {
                         >
                             <div className="p-0">
                                 {activeTab === 'Products' && <ProductManager />}
+                                {activeTab === 'Site Editor' && <SiteEditor />}
                                 {activeTab === 'Instagram' && <InstagramManager />}
                                 {activeTab === 'Orders' && <OrderManager />}
-                                {activeTab === 'Settings' && (
-                                    <div className="p-20 text-center">
-                                        <p className="text-secondary text-[10px] uppercase tracking-[0.4em]">Section Coming Soon</p>
-                                    </div>
-                                )}
                             </div>
                         </motion.div>
                     </div>

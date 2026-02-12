@@ -10,6 +10,7 @@ interface Order {
     status: 'pending' | 'paid' | 'shipped' | 'cancelled';
     created_at: string;
     customer_phone?: string;
+    stock_deducted: boolean;
 }
 
 const OrderManager = () => {
@@ -40,13 +41,86 @@ const OrderManager = () => {
 
     const updateStatus = async (id: number, newStatus: string) => {
         try {
-            const { error } = await supabase
-                .from('orders')
-                .update({ status: newStatus })
-                .eq('id', id);
+            const order = orders.find(o => o.id === id);
+            if (!order) return;
 
-            if (error) throw error;
-            setOrders(orders.map(o => o.id === id ? { ...o, status: newStatus as any } : o));
+            const isDeductionStatus = newStatus === 'paid' || newStatus === 'shipped';
+            const isCancelStatus = newStatus === 'cancelled';
+
+            // 1. Stock Deduction Logic
+            if (isDeductionStatus && !order.stock_deducted) {
+                // Deduct stock
+                for (const item of order.items) {
+                    const { data: product } = await supabase.from('products').select('*').eq('id', item.id).single();
+                    if (!product) continue;
+
+                    let updatePayload: any = {};
+                    if (product.variants && Array.isArray(product.variants) && product.variants.length > 0) {
+                        const updatedVariants = product.variants.map((v: any) => {
+                            if (v.color === item.color) {
+                                return { ...v, stock: Math.max(0, (v.stock || 0) - item.quantity) };
+                            }
+                            return v;
+                        });
+                        const totalStock = updatedVariants.reduce((sum: number, v: any) => sum + (Number(v.stock) || 0), 0);
+                        updatePayload = { variants: updatedVariants, stock: totalStock };
+                    } else {
+                        updatePayload = { stock: Math.max(0, (product.stock || 0) - item.quantity) };
+                    }
+                    await supabase.from('products').update(updatePayload).eq('id', item.id);
+                }
+
+                // Update order in DB with stock_deducted flag
+                const { error } = await supabase
+                    .from('orders')
+                    .update({ status: newStatus, stock_deducted: true })
+                    .eq('id', id);
+                if (error) throw error;
+
+                setOrders(orders.map(o => o.id === id ? { ...o, status: newStatus as any, stock_deducted: true } : o));
+            }
+            else if (isCancelStatus && order.stock_deducted) {
+                // Restore stock if it was previously deducted
+                for (const item of order.items) {
+                    const { data: product } = await supabase.from('products').select('*').eq('id', item.id).single();
+                    if (!product) continue;
+
+                    let updatePayload: any = {};
+                    if (product.variants && Array.isArray(product.variants) && product.variants.length > 0) {
+                        const updatedVariants = product.variants.map((v: any) => {
+                            if (v.color === item.color) {
+                                return { ...v, stock: (v.stock || 0) + item.quantity };
+                            }
+                            return v;
+                        });
+                        const totalStock = updatedVariants.reduce((sum: number, v: any) => sum + (Number(v.stock) || 0), 0);
+                        updatePayload = { variants: updatedVariants, stock: totalStock };
+                    } else {
+                        updatePayload = { stock: (product.stock || 0) + item.quantity };
+                    }
+                    await supabase.from('products').update(updatePayload).eq('id', item.id);
+                }
+
+                // Update order in DB - unset stock_deducted flag
+                const { error } = await supabase
+                    .from('orders')
+                    .update({ status: newStatus, stock_deducted: false })
+                    .eq('id', id);
+                if (error) throw error;
+
+                setOrders(orders.map(o => o.id === id ? { ...o, status: newStatus as any, stock_deducted: false } : o));
+            }
+            else {
+                // Just update status for other cases
+                const { error } = await supabase
+                    .from('orders')
+                    .update({ status: newStatus })
+                    .eq('id', id);
+                if (error) throw error;
+                setOrders(orders.map(o => o.id === id ? { ...o, status: newStatus as any } : o));
+            }
+
+            alert(`Order marked as ${newStatus}`);
         } catch (err) {
             console.error('Error updating order:', err);
             alert('Failed to update status');

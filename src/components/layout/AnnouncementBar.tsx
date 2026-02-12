@@ -1,12 +1,16 @@
 import { motion } from 'framer-motion';
+import { useSiteSettings } from '../../hooks/useSiteSettings';
 
 const AnnouncementBar = () => {
-    const announcements = [
+    const { settings, loading } = useSiteSettings();
+    const announcements = settings.announcements || [
         "🌍 International Shipping Available",
         "✨ Complimentary Shipping on Orders over Rp 500.000",
         "🎁 Use DEENHA10 for 10% off your first purchase",
         "✨ Discover the New Signature Collection"
     ];
+
+    if (loading && !settings.announcements) return <div className="h-[36px] bg-primary" />;
 
     return (
         <div className="bg-primary text-white py-2 border-b border-white/10 relative z-[70] h-[36px]">

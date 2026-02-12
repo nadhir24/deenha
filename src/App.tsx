@@ -30,6 +30,7 @@ import HomeCollections from './components/home/HomeCollections';
 // Floating Components
 import WhatsAppButton from './components/floating/WhatsAppButton';
 import CartDrawer from './components/shop/CartDrawer';
+import PromoPopup from './components/common/PromoPopup';
 
 function App() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -84,6 +85,7 @@ function App() {
                             <Footer />
                             <WhatsAppButton />
                             <CartDrawer />
+                            <PromoPopup />
                         </div>
                     </CartProvider>
                 </WishlistProvider>

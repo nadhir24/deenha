@@ -23,7 +23,7 @@ const CartDrawer = () => {
 
         try {
             // 1. Create order in database
-            const { error } = await supabase.from('orders').insert({
+            const { error: orderError } = await supabase.from('orders').insert({
                 order_number: orderNumber,
                 items: cartItems.map(item => ({
                     id: item.id,
@@ -37,7 +37,7 @@ const CartDrawer = () => {
                 status: 'pending'
             });
 
-            if (error) throw error;
+            if (orderError) throw orderError;
 
             // 2. Prepare WhatsApp message
             let message = `Halo Deenha! Saya ingin memesan:\n\n`;
