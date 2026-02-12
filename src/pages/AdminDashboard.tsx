@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import ProductManager from '../components/admin/ProductManager';
 import InstagramManager from '../components/admin/InstagramManager';
+import OrderManager from '../components/admin/OrderManager';
 import { motion } from 'framer-motion';
 
 const AdminDashboard = () => {
@@ -85,7 +86,8 @@ const AdminDashboard = () => {
                             <div className="p-0">
                                 {activeTab === 'Products' && <ProductManager />}
                                 {activeTab === 'Instagram' && <InstagramManager />}
-                                {['Orders', 'Settings'].includes(activeTab) && (
+                                {activeTab === 'Orders' && <OrderManager />}
+                                {activeTab === 'Settings' && (
                                     <div className="p-20 text-center">
                                         <p className="text-secondary text-[10px] uppercase tracking-[0.4em]">Section Coming Soon</p>
                                     </div>

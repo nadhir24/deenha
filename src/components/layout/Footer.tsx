@@ -75,6 +75,17 @@ const Footer = () => {
                             </svg>
                         </a>
                         <a
+                            href="https://www.tiktok.com/@deenha.official"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="group transition-transform hover:scale-110"
+                            title="TikTok"
+                        >
+                            <svg className="w-5 h-5 text-primary group-hover:text-accent-gold transition-colors" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.03 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.74.02 1.48-.04 2.97-.04 4.44-.38-.05-.77-.01-1.14.04-1.57.21-3.05 1.48-3.3 3.08-.25 1.61.5 3.26 1.82 4.16 1.02.7 2.34.88 3.54.47 1.1-.38 1.98-1.27 2.32-2.36.14-.49.2-1 .18-1.51l-.02-9.56Z" />
+                            </svg>
+                        </a>
+                        <a
                             href="https://shopee.co.id/deenha"
                             target="_blank"
                             rel="noopener noreferrer"

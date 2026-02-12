@@ -4,13 +4,20 @@ export interface Product {
     price: number;
     originalPrice?: number;
     image: string;
-    category: 'Scarves' | 'Dresses' | 'Bergo' | 'Pray Set';
+    category: 'Scarves' | 'Dresses' | 'Bergo' | 'Pray Set' | 'Hampers';
     size: string[];
     color: string;
     colorHex: string;
     badge?: 'new' | 'bestseller' | 'sale';
     soldCount?: number;
     stock?: number;
+    variants?: {
+        name: string;
+        color: string;
+        colorHex: string;
+        image: string;
+        stock?: number;
+    }[];
 }
 
 export const products: Product[] = [
@@ -156,6 +163,30 @@ export const products: Product[] = [
         badge: "bestseller",
         soldCount: 189,
         stock: 20
+    },
+    {
+        id: 13,
+        name: "Signature Gift Box",
+        price: 450000,
+        image: "/images/hampers-1-dWxvylrBJ6IBxzqB.jpg",
+        category: "Hampers",
+        size: ["Standard"],
+        color: "Gold",
+        colorHex: "#D4AF37",
+        badge: "new",
+        soldCount: 12
+    },
+    {
+        id: 14,
+        name: "Ramadan Blessing Hamper",
+        price: 750000,
+        image: "/images/hampers-2-AQExyJRDj2iGJGkQ.jpg",
+        category: "Hampers",
+        size: ["Premium"],
+        color: "Pine Green",
+        colorHex: "#01796F",
+        badge: "bestseller",
+        soldCount: 25
     }
 ];
 
@@ -163,7 +194,8 @@ export const categories = [
     { name: "Scarves", count: 4, image: "/images/image-1-m5KMww5a1eHrGa7j.jpg" },
     { name: "Dresses", count: 3, image: "/images/dress-YD0l6pXPkZSqM41l.png" },
     { name: "Bergo", count: 3, image: "/images/bergo-A1aPwKX8JgfWab9g.png" },
-    { name: "Pray Set", count: 2, image: "/images/prayset-mnlWv3KxDvf1NbQn.png" }
+    { name: "Pray Set", count: 2, image: "/images/prayset-mnlWv3KxDvf1NbQn.png" },
+    { name: "Hampers", count: 2, image: "/images/hampers-1-dWxvylrBJ6IBxzqB.jpg" }
 ];
 
 export const colors = [

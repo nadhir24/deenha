@@ -1,4 +1,5 @@
-import { createContext, useContext, useState, useEffect } from 'react';
+
+import { createContext, useContext, useState, useEffect, useRef } from 'react';
 import { supabase } from '../lib/supabase';
 
 interface User {
@@ -19,25 +20,91 @@ const AuthContext = createContext<AuthContextType | undefined>(undefined);
 export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     const [user, setUser] = useState<User | null>(null);
     const [isLoading, setIsLoading] = useState(true);
+    const isMounted = useRef(true);
 
     useEffect(() => {
-        // 1. Check active session on mount
-        const getInitialSession = async () => {
-            const { data: { session } } = await supabase.auth.getSession();
-            if (session?.user) {
-                await fetchUserProfile(session.user.id, session.user.email!);
+        isMounted.current = true;
+        return () => {
+            isMounted.current = false;
+        };
+    }, []);
+
+    const fetchUserProfile = async (id: string, email: string) => {
+        const timeoutPromise = new Promise<{ timeout: true }>((resolve) =>
+            setTimeout(() => resolve({ timeout: true }), 5000)
+        );
+
+        try {
+            const result = await Promise.race([
+                supabase
+                    .from('profiles')
+                    .select('role')
+                    .eq('id', id)
+                    .single(),
+                timeoutPromise
+            ]);
+
+            if (!isMounted.current) return;
+
+            if ('timeout' in result) {
+                console.warn('Profile fetch timed out after 5s');
+                const role = email.includes('admin') ? 'admin' : 'employee';
+                setUser({ id, email, role });
+            } else {
+                const { data, error } = result;
+
+                if (error) {
+                    const role = email.includes('admin') ? 'admin' : 'employee';
+                    setUser({ id, email, role });
+                } else {
+                    setUser({ id, email, role: data.role });
+                }
             }
-            setIsLoading(false);
+        } catch (err) {
+            console.error('Exception fetching profile:', err);
+            if (isMounted.current) {
+                const role = email.includes('admin') ? 'admin' : 'employee';
+                setUser({ id, email, role });
+            }
+        } finally {
+            if (isMounted.current) {
+                setIsLoading(false);
+            }
+        }
+    };
+
+    useEffect(() => {
+        const initializeAuth = async () => {
+            try {
+                const { data: { session } } = await supabase.auth.getSession();
+
+                if (session?.user && isMounted.current) {
+                    await fetchUserProfile(session.user.id, session.user.email!);
+                } else if (isMounted.current) {
+                    setIsLoading(false);
+                }
+            } catch (error) {
+                console.error('Auth init error:', error);
+                if (isMounted.current) setIsLoading(false);
+            }
         };
 
-        getInitialSession();
+        initializeAuth();
 
-        // 2. Listen for auth changes
         const { data: { subscription } } = supabase.auth.onAuthStateChange(async (event, session) => {
+            if (!isMounted.current) return;
+
             if (event === 'SIGNED_IN' && session?.user) {
                 await fetchUserProfile(session.user.id, session.user.email!);
             } else if (event === 'SIGNED_OUT') {
-                setUser(null);
+                if (isMounted.current) {
+                    setUser(null);
+                    setIsLoading(false);
+                }
+            } else if (event === 'INITIAL_SESSION') {
+                if (!session && isMounted.current) {
+                    setIsLoading(false);
+                }
             }
         });
 
@@ -45,28 +112,6 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
             subscription.unsubscribe();
         };
     }, []);
-
-    const fetchUserProfile = async (id: string, email: string) => {
-        try {
-            // Attempt to get role from profiles table
-            const { data, error } = await supabase
-                .from('profiles')
-                .select('role')
-                .eq('id', id)
-                .single();
-
-            if (error) {
-                // Fallback for demo: if no profile exists, check email
-                const role = email.includes('admin') ? 'admin' : 'employee';
-                setUser({ id, email, role });
-            } else {
-                setUser({ id, email, role: data.role });
-            }
-        } catch (err) {
-            console.error('Error fetching profile:', err);
-            setUser({ id, email, role: 'employee' });
-        }
-    };
 
     const login = async (email: string, password: string) => {
         setIsLoading(true);
@@ -79,13 +124,15 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
             setIsLoading(false);
             throw error;
         }
-        // User will be set by the onAuthStateChange listener
-        setIsLoading(false);
     };
 
     const logout = async () => {
+        setIsLoading(true);
         await supabase.auth.signOut();
-        setUser(null);
+        if (isMounted.current) {
+            setUser(null);
+            setIsLoading(false);
+        }
     };
 
     return (

@@ -30,7 +30,8 @@ export const useProducts = () => {
                 colorHex: p.color_hex,
                 badge: p.badge,
                 soldCount: p.sold_count,
-                stock: p.stock || 0
+                stock: p.stock || 0,
+                variants: p.variants || []
             }));
 
             setProducts(mappedProducts);

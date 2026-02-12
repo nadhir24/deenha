@@ -1,3 +1,4 @@
+
 import { createClient } from '@supabase/supabase-js';
 
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
@@ -7,27 +8,32 @@ if (!supabaseUrl || !supabaseAnonKey) {
     console.warn('Supabase credentials are missing. Please check your .env file.');
 }
 
+// In-memory fallback if localStorage is blocked
+const memoryStorage: Record<string, string> = {};
+
 const safeStorage = {
     getItem: (key: string): string | null => {
         try {
             return localStorage.getItem(key);
         } catch (e) {
-            console.warn('LocalStorage access denied:', e);
-            return null;
+            // Fallback to memory
+            return memoryStorage[key] || null;
         }
     },
     setItem: (key: string, value: string): void => {
         try {
             localStorage.setItem(key, value);
         } catch (e) {
-            console.warn('LocalStorage access denied:', e);
+            // Fallback to memory
+            memoryStorage[key] = value;
         }
     },
     removeItem: (key: string): void => {
         try {
             localStorage.removeItem(key);
         } catch (e) {
-            console.warn('LocalStorage access denied:', e);
+            // Fallback to memory
+            delete memoryStorage[key];
         }
     },
 };

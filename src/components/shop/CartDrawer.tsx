@@ -1,24 +1,69 @@
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useCart } from '../../context/CartContext';
+import { supabase } from '../../lib/supabase';
 
 const CartDrawer = () => {
-    const { cartItems, removeFromCart, cartTotal, isCartOpen, setIsCartOpen } = useCart();
+    const { cartItems, removeFromCart, cartTotal, isCartOpen, setIsCartOpen, clearCart } = useCart();
+    const [isCheckingOut, setIsCheckingOut] = useState(false);
 
     const phoneNumber = '6281919234222';
 
-    const generateMessage = () => {
-        if (cartItems.length === 0) return '';
-
-        let message = 'Halo Deenha! Saya ingin memesan:\n\n';
-        cartItems.forEach(item => {
-            message += `- ${item.name} (${item.selectedSize}, ${item.selectedColor}) x${item.quantity}\n`;
-        });
-
-        message += `\nTotal: Rp ${cartTotal.toLocaleString('id-ID')}`;
-        return encodeURIComponent(message);
+    const generateOrderNumber = () => {
+        const date = new Date().toISOString().slice(0, 10).replace(/-/g, '');
+        const random = Math.floor(1000 + Math.random() * 9000);
+        return `DN-${date}-${random}`;
     };
 
-    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${generateMessage()}`;
+    const handleCheckout = async () => {
+        if (cartItems.length === 0) return;
+
+        setIsCheckingOut(true);
+        const orderNumber = generateOrderNumber();
+
+        try {
+            // 1. Create order in database
+            const { error } = await supabase.from('orders').insert({
+                order_number: orderNumber,
+                items: cartItems.map(item => ({
+                    id: item.id,
+                    name: item.name,
+                    size: item.selectedSize,
+                    color: item.selectedColor,
+                    quantity: item.quantity,
+                    price: item.price
+                })),
+                total_price: cartTotal,
+                status: 'pending'
+            });
+
+            if (error) throw error;
+
+            // 2. Prepare WhatsApp message
+            let message = `Halo Deenha! Saya ingin memesan:\n\n`;
+            message += `*Order ID: ${orderNumber}*\n`;
+            message += `-------------------\n`;
+
+            cartItems.forEach(item => {
+                message += `- ${item.name} (${item.selectedSize}, ${item.selectedColor}) x${item.quantity}\n`;
+            });
+
+            message += `\n*Total: Rp ${cartTotal.toLocaleString('id-ID')}*\n\n`;
+            message += `Mohon instruksi selanjutnya untuk pembayaran. Terima kasih!`;
+
+            const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+
+            // 3. Clear cart and redirect
+            clearCart();
+            setIsCartOpen(false);
+            window.open(whatsappUrl, '_blank');
+        } catch (err) {
+            console.error('Checkout error:', err);
+            alert('Maaf, terjadi kesalahan saat memproses pesanan. Silakan coba lagi.');
+        } finally {
+            setIsCheckingOut(false);
+        }
+    };
 
     return (
         <AnimatePresence>
@@ -111,19 +156,24 @@ const CartDrawer = () => {
                                         {new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', minimumFractionDigits: 0 }).format(cartTotal)}
                                     </span>
                                 </div>
-                                <a
-                                    href={whatsappUrl}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="w-full btn-primary rounded-lg py-4 flex items-center justify-center gap-2"
+                                <button
+                                    onClick={handleCheckout}
+                                    disabled={isCheckingOut}
+                                    className={`w-full btn-primary rounded-lg py-4 flex items-center justify-center gap-2 ${isCheckingOut ? 'opacity-70 cursor-not-allowed' : ''}`}
                                 >
-                                    <img
-                                        src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
-                                        alt="WhatsApp"
-                                        className="w-6 h-6"
-                                    />
-                                    Checkout via WhatsApp
-                                </a>
+                                    {isCheckingOut ? (
+                                        <div className="w-6 h-6 border-2 border-white border-t-transparent animate-spin rounded-full" />
+                                    ) : (
+                                        <>
+                                            <img
+                                                src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
+                                                alt="WhatsApp"
+                                                className="w-6 h-6"
+                                            />
+                                            Checkout via WhatsApp
+                                        </>
+                                    )}
+                                </button>
                             </div>
                         )}
                     </motion.div>

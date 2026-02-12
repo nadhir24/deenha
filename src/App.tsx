@@ -19,13 +19,13 @@ import ShopPage from './pages/ShopPage';
 import WishlistPage from './pages/WishlistPage';
 import LoginPage from './pages/LoginPage';
 import AdminDashboard from './pages/AdminDashboard';
+import RamadanPage from './pages/RamadanPage';
 
 // Home Components
 import Hero from './components/home/Hero';
-import Categories from './components/home/Categories';
-import FeaturedProducts from './components/home/FeaturedProducts';
 import Benefits from './components/home/Benefits';
 import InstagramFeed from './components/home/InstagramFeed';
+import HomeCollections from './components/home/HomeCollections';
 
 // Floating Components
 import WhatsAppButton from './components/floating/WhatsAppButton';
@@ -50,18 +50,16 @@ function App() {
                                     <main>
                                         <Hero />
                                         <Benefits />
-                                        <div id="collections" className="scroll-mt-[100px]">
-                                            <Categories />
-                                        </div>
-                                        <div id="featured" className="scroll-mt-[100px]">
-                                            <FeaturedProducts />
-                                        </div>
+                                        <HomeCollections />
                                         <InstagramFeed />
                                     </main>
                                 } />
 
                                 {/* Shop Page Route */}
                                 <Route path="/shop" element={<ShopPage />} />
+
+                                {/* Ramadan Collection Route */}
+                                <Route path="/ramadan" element={<RamadanPage />} />
 
                                 {/* About Page Route */}
                                 <Route path="/about" element={<AboutPage />} />

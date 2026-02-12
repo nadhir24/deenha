@@ -13,6 +13,7 @@ const ProductDetailsPage = () => {
     const { isInWishlist, toggleWishlist } = useWishlist();
 
     const [selectedSize, setSelectedSize] = useState('');
+    const [selectedVariant, setSelectedVariant] = useState(0);
     const [quantity, setQuantity] = useState(1);
     const [activeTab, setActiveTab] = useState('description');
 
@@ -29,6 +30,8 @@ const ProductDetailsPage = () => {
         if (product && product.size.length > 0) {
             setSelectedSize(product.size[0]);
         }
+        // Reset variant on product change
+        setSelectedVariant(0);
     }, [product]);
 
     if (loading) {
@@ -61,6 +64,11 @@ const ProductDetailsPage = () => {
         }).format(price);
     };
 
+    const currentVariant = product?.variants && product.variants.length > 0 ? product.variants[selectedVariant] : null;
+    const displayImage = currentVariant ? currentVariant.image : product?.image;
+    const displayColor = currentVariant ? currentVariant.color : product?.color;
+    const displayStock = currentVariant ? (currentVariant.stock ?? product?.stock) : product?.stock;
+
     const tabs = [
         { id: 'description', label: 'Description' },
         { id: 'details', label: 'Details & Care' },
@@ -69,7 +77,9 @@ const ProductDetailsPage = () => {
 
     const handleAddToCart = () => {
         if (product) {
-            addToCart(product, selectedSize, product.color, quantity);
+            // If viewing a variant, use variant details for cart item color/image?
+            // Cart context might need update, but for now passing displayColor works
+            addToCart(product, selectedSize, displayColor || product.color, quantity);
         }
     };
 
@@ -87,42 +97,65 @@ const ProductDetailsPage = () => {
 
                 <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 mb-32">
                     {/* Image Gallery with Zoom */}
-                    <div className="relative group overflow-hidden bg-surface-secondary shadow-lg aspect-[3/4]">
-                        <motion.div
-                            className="w-full h-full cursor-zoom-in"
-                            initial={{ opacity: 0, x: -20 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.8 }}
-                            onMouseMove={(e) => {
-                                const { left, top, width, height } = e.currentTarget.getBoundingClientRect();
-                                const x = ((e.clientX - left) / width) * 100;
-                                const y = ((e.clientY - top) / height) * 100;
-                                const img = e.currentTarget.querySelector('img');
-                                if (img) {
-                                    img.style.transformOrigin = `${x}% ${y}%`;
-                                    img.style.transform = 'scale(2)';
-                                }
-                            }}
-                            onMouseLeave={(e) => {
-                                const img = e.currentTarget.querySelector('img');
-                                if (img) {
-                                    img.style.transform = 'scale(1)';
-                                }
-                            }}
-                        >
-                            <img
-                                src={product.image}
-                                alt={product.name}
-                                className="w-full h-full object-cover transition-transform duration-500 ease-out"
-                            />
-                        </motion.div>
+                    <div className="bg-[#F9F9F9] shadow-sm overflow-hidden flex flex-col gap-4">
+                        <div className="relative group overflow-hidden bg-surface-secondary aspect-[3/4]">
+                            <motion.div
+                                key={displayImage} // Re-animate on image change
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                transition={{ duration: 0.5 }}
+                                className="w-full h-full cursor-zoom-in"
+                                onMouseMove={(e) => {
+                                    const { left, top, width, height } = e.currentTarget.getBoundingClientRect();
+                                    const x = ((e.clientX - left) / width) * 100;
+                                    const y = ((e.clientY - top) / height) * 100;
+                                    const img = e.currentTarget.querySelector('img');
+                                    if (img) {
+                                        img.style.transformOrigin = `${x}% ${y}%`;
+                                        img.style.transform = 'scale(2)';
+                                    }
+                                }}
+                                onMouseLeave={(e) => {
+                                    const img = e.currentTarget.querySelector('img');
+                                    if (img) {
+                                        img.style.transform = 'scale(1)';
+                                    }
+                                }}
+                            >
+                                <img
+                                    src={displayImage}
+                                    alt={product.name}
+                                    className="w-full h-full object-cover transition-transform duration-500 ease-out"
+                                />
+                            </motion.div>
 
-                        {/* Zoom Hint */}
-                        <div className="absolute bottom-6 right-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-                            <span className="text-[10px] uppercase font-bold tracking-[0.2em] bg-white/80 backdrop-blur-sm px-4 py-2 text-primary shadow-sm">
-                                Hover to Explore Details
-                            </span>
+                            {/* Zoom Hint */}
+                            <div className="absolute bottom-6 right-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                                <span className="text-[10px] uppercase font-bold tracking-[0.2em] bg-white/80 backdrop-blur-sm px-4 py-2 text-primary shadow-sm">
+                                    Hover to Explore Details
+                                </span>
+                            </div>
                         </div>
+
+                        {/* Thumbnails Row */}
+                        {product.variants && product.variants.length > 0 && (
+                            <div className="grid grid-cols-5 gap-2 px-2 pb-2">
+                                {product.variants.map((variant, idx) => (
+                                    <button
+                                        key={idx}
+                                        onClick={() => setSelectedVariant(idx)}
+                                        className={`aspect-[3/4] overflow-hidden border-2 transition-all ${selectedVariant === idx ? 'border-accent-gold shadow-md' : 'border-transparent opacity-60 hover:opacity-100'
+                                            }`}
+                                    >
+                                        <img
+                                            src={variant.image}
+                                            alt={variant.color}
+                                            className="w-full h-full object-cover"
+                                        />
+                                    </button>
+                                ))}
+                            </div>
+                        )}
                     </div>
 
                     {/* Product Info */}
@@ -153,16 +186,33 @@ const ProductDetailsPage = () => {
 
                         {/* Selection Options */}
                         <div className="space-y-10 mb-12">
-                            {/* Color */}
+                            {/* Color Selection with Variants */}
                             <div>
-                                <span className="text-[10px] uppercase font-bold tracking-[0.3em] mb-4 block">Color: <span className="text-secondary">{product.color}</span></span>
-                                <div className="flex gap-3">
-                                    <div
-                                        className="w-8 h-8 rounded-none border-2 border-primary p-0.5"
-                                        title={product.color}
-                                    >
-                                        <div className="w-full h-full" style={{ backgroundColor: product.colorHex }} />
-                                    </div>
+                                <span className="text-[10px] uppercase font-bold tracking-[0.3em] mb-4 block">
+                                    Color: <span className="text-secondary">{displayColor}</span>
+                                </span>
+                                <div className="flex flex-wrap gap-3">
+                                    {/* Main Product Color (implied as variant 0 if variants exist, or just standalone) */}
+                                    {product.variants && product.variants.length > 0 ? (
+                                        product.variants.map((variant, idx) => (
+                                            <button
+                                                key={idx}
+                                                onClick={() => setSelectedVariant(idx)}
+                                                className={`w-8 h-8 rounded-none border-2 p-0.5 transition-all ${selectedVariant === idx ? 'border-primary scale-110' : 'border-transparent hover:border-black/20'
+                                                    }`}
+                                                title={variant.color}
+                                            >
+                                                <div className="w-full h-full" style={{ backgroundColor: variant.colorHex }} />
+                                            </button>
+                                        ))
+                                    ) : (
+                                        <div
+                                            className="w-8 h-8 rounded-none border-2 border-primary p-0.5"
+                                            title={product.color}
+                                        >
+                                            <div className="w-full h-full" style={{ backgroundColor: product.colorHex }} />
+                                        </div>
+                                    )}
                                 </div>
                             </div>
 
@@ -208,10 +258,10 @@ const ProductDetailsPage = () => {
                         <div className="flex flex-col gap-6 mb-16">
                             <div className="flex items-center justify-between py-4 border-y border-black/5">
                                 <span className="text-[10px] uppercase font-bold tracking-widest text-secondary">Inventory Status</span>
-                                <span className={`text-[11px] font-bold tracking-widest ${(product.stock || 0) > 0 ? 'text-green-600' : 'text-red-500'
+                                <span className={`text-[11px] font-bold tracking-widest ${(displayStock || 0) > 0 ? 'text-green-600' : 'text-red-500'
                                     }`}>
-                                    {(product.stock || 0) > 0
-                                        ? (product.stock! <= 5 ? `ONLY ${product.stock} PIECES REMAINING` : 'AVAILABLE IN ATELIER')
+                                    {(displayStock || 0) > 0
+                                        ? (displayStock! <= 5 ? `ONLY ${displayStock} PIECES REMAINING` : 'AVAILABLE IN ATELIER')
                                         : 'CURRENTLY UNAVAILABLE'}
                                 </span>
                             </div>
@@ -219,14 +269,14 @@ const ProductDetailsPage = () => {
                             <div className="flex flex-col sm:flex-row gap-4">
                                 <motion.button
                                     onClick={handleAddToCart}
-                                    disabled={(product.stock || 0) === 0}
-                                    className={`flex-1 py-5 text-[11px] font-bold uppercase tracking-[0.4em] transition-all duration-500 shadow-xl ${(product.stock || 0) === 0
+                                    disabled={(displayStock || 0) === 0}
+                                    className={`flex-1 py-5 text-[11px] font-bold uppercase tracking-[0.4em] transition-all duration-500 shadow-xl ${(displayStock || 0) === 0
                                         ? 'bg-secondary cursor-not-allowed opacity-50 text-white'
                                         : 'bg-primary text-white hover:bg-accent-gold'
                                         }`}
-                                    whileTap={(product.stock || 0) > 0 ? { scale: 0.98 } : {}}
+                                    whileTap={(displayStock || 0) > 0 ? { scale: 0.98 } : {}}
                                 >
-                                    {(product.stock || 0) === 0 ? 'Currently Out of Stock' : 'Add to Discovery'}
+                                    {(displayStock || 0) === 0 ? 'Currently Out of Stock' : 'Add to Discovery'}
                                 </motion.button>
                                 <motion.button
                                     onClick={() => toggleWishlist(product.id)}

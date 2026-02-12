@@ -150,12 +150,30 @@ const ProductCard = ({ product, onQuickView }: ProductCardProps) => {
                 </Link>
 
                 {/* Color/Options */}
-                <div className="mt-4 flex gap-1.5">
-                    <div
-                        className="w-2.5 h-2.5 rounded-full border border-black/10"
-                        style={{ backgroundColor: product.colorHex }}
-                    />
-                    <span className="text-[9px] uppercase tracking-widest text-secondary">{product.color}</span>
+                <div className="mt-4 flex gap-1.5 items-center">
+                    {product.variants && product.variants.length > 0 ? (
+                        <>
+                            {product.variants.slice(0, 3).map((v, i) => (
+                                <div
+                                    key={i}
+                                    className="w-2.5 h-2.5 rounded-full border border-black/10"
+                                    style={{ backgroundColor: v.colorHex }}
+                                    title={v.color}
+                                />
+                            ))}
+                            {product.variants.length > 3 && (
+                                <span className="text-[8px] text-secondary tracking-widest">+{product.variants.length - 3}</span>
+                            )}
+                        </>
+                    ) : (
+                        <>
+                            <div
+                                className="w-2.5 h-2.5 rounded-full border border-black/10"
+                                style={{ backgroundColor: product.colorHex }}
+                            />
+                            <span className="text-[9px] uppercase tracking-widest text-secondary">{product.color}</span>
+                        </>
+                    )}
                 </div>
             </div>
         </motion.div>
