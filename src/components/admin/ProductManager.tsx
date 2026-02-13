@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { supabase } from '../../lib/supabase';
 import { useProducts } from '../../hooks/useProducts';
@@ -40,6 +40,37 @@ const ProductManager = () => {
         image: '',
         stock: 50 // Default stock for new variant
     });
+
+    // Sync total stock when variants change
+    useEffect(() => {
+        if (formData.variants.length > 0) {
+            const total = formData.variants.reduce((sum, v) => sum + (Number(v.stock) || 0), 0);
+            if (total !== formData.stock) {
+                setFormData(prev => ({ ...prev, stock: total }));
+            }
+        }
+    }, [formData.variants]);
+
+    const handleGlobalStockChange = (value: number) => {
+        const variantsCount = formData.variants.length;
+        if (variantsCount > 0) {
+            const stockPerVariant = Math.floor(value / variantsCount);
+            const remainder = value % variantsCount;
+
+            const updatedVariants = formData.variants.map((v, i) => ({
+                ...v,
+                stock: i === 0 ? stockPerVariant + remainder : stockPerVariant
+            }));
+
+            setFormData({
+                ...formData,
+                stock: value,
+                variants: updatedVariants
+            });
+        } else {
+            setFormData({ ...formData, stock: value });
+        }
+    };
 
     // ... (resetForm and handleEdit logic updated to include stock)
     const resetForm = () => {
@@ -280,7 +311,7 @@ const ProductManager = () => {
                                 required
                                 className="w-full bg-surface-secondary border-b border-black/5 p-4 text-[11px] font-bold tracking-[0.2em] focus:outline-none focus:border-accent-gold transition-colors"
                                 value={formData.stock}
-                                onChange={e => setFormData({ ...formData, stock: Number(e.target.value) })}
+                                onChange={e => handleGlobalStockChange(Number(e.target.value))}
                             />
                         </div>
                         <div>
