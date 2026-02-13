@@ -158,7 +158,6 @@ const Hero = () => {
 
     // Parallax Transforms
     const yVideo = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
-    const yPattern = useTransform(scrollYProgress, [0, 1], ["0%", "-20%"]);
     const yText = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
     const opacityText = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
     const scaleVideo = useTransform(scrollYProgress, [0, 1], [1, 1.1]);

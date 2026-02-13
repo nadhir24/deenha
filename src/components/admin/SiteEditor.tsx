@@ -393,7 +393,7 @@ const SiteEditor = () => {
                                         <input
                                             type="text"
                                             value={searchTerms[i] || ''}
-                                            onFocus={(e) => {
+                                            onFocus={() => {
                                                 if (!searchTerms[i]) setSearchTerms({ ...searchTerms, [i]: ' ' });
                                             }}
                                             onChange={(e) => setSearchTerms({ ...searchTerms, [i]: e.target.value })}
