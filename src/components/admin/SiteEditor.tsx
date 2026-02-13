@@ -3,6 +3,7 @@ import { useSiteSettings } from '../../hooks/useSiteSettings';
 import { supabase } from '../../lib/supabase';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useProducts } from '../../hooks/useProducts';
+import { useNotification } from '../../context/NotificationContext';
 
 const DEFAULT_ANNOUNCEMENTS = [
     "🌙 Pre-Raya Special: Luxury Hampers & Signature Scarves Highlights",
@@ -86,6 +87,7 @@ const DEFAULT_HIGHLIGHTS = [
 
 const SiteEditor = () => {
     const { settings, loading, updateSetting } = useSiteSettings();
+    const { showNotification } = useNotification();
     const [localSettings, setLocalSettings] = useState<any>(null);
     const [isSaving, setIsSaving] = useState(false);
     const [uploading, setUploading] = useState<string | null>(null); // section-index-field
@@ -129,9 +131,9 @@ const SiteEditor = () => {
         const { success } = await updateSetting(key, localSettings[key]);
         setIsSaving(false);
         if (success) {
-            alert(`${key} updated successfully!`);
+            showNotification(`${key.replace('_', ' ')} updated successfully!`, 'success');
         } else {
-            alert('Failed to update settings');
+            showNotification('Failed to update settings', 'error');
         }
     };
 
@@ -160,7 +162,7 @@ const SiteEditor = () => {
             updatedIds = currentIds.filter((id: string) => id !== productIdStr);
         } else {
             if (currentIds.length >= 4) {
-                alert("Maximum 4 products per section");
+                showNotification("Maximum 4 products per section", "error");
                 return;
             }
             updatedIds = [...currentIds, productIdStr];
@@ -202,7 +204,7 @@ const SiteEditor = () => {
             updateNestedValue(key, index, field, data.publicUrl);
         } catch (err: any) {
             console.error('Upload error:', err);
-            alert('Error uploading image: ' + err.message);
+            showNotification('Error uploading image: ' + err.message, 'error');
         } finally {
             clearInterval(progressInterval);
             setTimeout(() => {

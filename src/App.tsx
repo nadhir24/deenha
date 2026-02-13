@@ -10,6 +10,7 @@ import MobileMenu from './components/layout/MobileMenu';
 import Footer from './components/layout/Footer';
 
 import { AuthProvider } from './context/AuthContext';
+import { NotificationProvider } from './context/NotificationContext';
 import ProtectedRoute from './components/layout/ProtectedRoute';
 
 // Page Components
@@ -38,57 +39,59 @@ function App() {
     return (
         <Router>
             <AuthProvider>
-                <WishlistProvider>
-                    <CartProvider>
-                        <div className="min-h-screen bg-white">
-                            <AnnouncementBar />
-                            <Navbar onMenuClick={() => setMobileMenuOpen(true)} />
-                            <MobileMenu isOpen={mobileMenuOpen} onClose={() => setMobileMenuOpen(false)} />
+                <NotificationProvider>
+                    <WishlistProvider>
+                        <CartProvider>
+                            <div className="min-h-screen bg-white">
+                                <AnnouncementBar />
+                                <Navbar onMenuClick={() => setMobileMenuOpen(true)} />
+                                <MobileMenu isOpen={mobileMenuOpen} onClose={() => setMobileMenuOpen(false)} />
 
-                            <Routes>
-                                {/* Landing Page Route */}
-                                <Route path="/" element={
-                                    <main>
-                                        <Hero />
-                                        <Benefits />
-                                        <HomeCollections />
-                                        <InstagramFeed />
-                                    </main>
-                                } />
+                                <Routes>
+                                    {/* Landing Page Route */}
+                                    <Route path="/" element={
+                                        <main>
+                                            <Hero />
+                                            <Benefits />
+                                            <HomeCollections />
+                                            <InstagramFeed />
+                                        </main>
+                                    } />
 
-                                {/* Shop Page Route */}
-                                <Route path="/shop" element={<ShopPage />} />
+                                    {/* Shop Page Route */}
+                                    <Route path="/shop" element={<ShopPage />} />
 
-                                {/* Ramadan Collection Route */}
-                                <Route path="/ramadan" element={<RamadanPage />} />
+                                    {/* Ramadan Collection Route */}
+                                    <Route path="/ramadan" element={<RamadanPage />} />
 
-                                {/* About Page Route */}
-                                <Route path="/about" element={<AboutPage />} />
+                                    {/* About Page Route */}
+                                    <Route path="/about" element={<AboutPage />} />
 
-                                {/* Product Details Route */}
-                                <Route path="/product/:id" element={<ProductDetailsPage />} />
+                                    {/* Product Details Route */}
+                                    <Route path="/product/:id" element={<ProductDetailsPage />} />
 
-                                {/* Wishlist Route */}
-                                <Route path="/wishlist" element={<WishlistPage />} />
+                                    {/* Wishlist Route */}
+                                    <Route path="/wishlist" element={<WishlistPage />} />
 
-                                {/* Auth Routes */}
-                                <Route path="/login" element={<LoginPage />} />
+                                    {/* Auth Routes */}
+                                    <Route path="/login" element={<LoginPage />} />
 
-                                {/* Admin Routes - Protected */}
-                                <Route path="/admin" element={
-                                    <ProtectedRoute allowedRoles={['admin', 'employee']}>
-                                        <AdminDashboard />
-                                    </ProtectedRoute>
-                                } />
-                            </Routes>
+                                    {/* Admin Routes - Protected */}
+                                    <Route path="/admin" element={
+                                        <ProtectedRoute allowedRoles={['admin', 'employee']}>
+                                            <AdminDashboard />
+                                        </ProtectedRoute>
+                                    } />
+                                </Routes>
 
-                            <Footer />
-                            <WhatsAppButton />
-                            <CartDrawer />
-                            <PromoPopup />
-                        </div>
-                    </CartProvider>
-                </WishlistProvider>
+                                <Footer />
+                                <WhatsAppButton />
+                                <CartDrawer />
+                                <PromoPopup />
+                            </div>
+                        </CartProvider>
+                    </WishlistProvider>
+                </NotificationProvider>
             </AuthProvider>
         </Router>
     );

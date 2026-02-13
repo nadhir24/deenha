@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { supabase } from '../../lib/supabase';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useNotification } from '../../context/NotificationContext';
 
 interface Order {
     id: number;
@@ -15,6 +16,7 @@ interface Order {
 
 const OrderManager = () => {
     const [orders, setOrders] = useState<Order[]>([]);
+    const { showNotification } = useNotification();
     const [loading, setLoading] = useState(true);
     const [filter, setFilter] = useState('all');
 
@@ -120,10 +122,10 @@ const OrderManager = () => {
                 setOrders(orders.map(o => o.id === id ? { ...o, status: newStatus as any } : o));
             }
 
-            alert(`Order marked as ${newStatus}`);
+            showNotification(`Order marked as ${newStatus}`, 'success');
         } catch (err) {
             console.error('Error updating order:', err);
-            alert('Failed to update status');
+            showNotification('Failed to update status', 'error');
         }
     };
 

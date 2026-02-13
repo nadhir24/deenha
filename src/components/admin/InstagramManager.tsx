@@ -2,9 +2,11 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { supabase } from '../../lib/supabase';
 import { useInstagram } from '../../hooks/useInstagram';
+import { useNotification } from '../../context/NotificationContext';
 
 const InstagramManager = () => {
     const { posts, refresh } = useInstagram();
+    const { showNotification } = useNotification();
     const [isFormOpen, setIsFormOpen] = useState(false);
     const [formData, setFormData] = useState({
         image_url: '',
@@ -23,23 +25,25 @@ const InstagramManager = () => {
             setFormData({ image_url: '', post_url: '' });
             setIsFormOpen(false);
             refresh();
+            showNotification('Journal post added during sync', 'success');
         } catch (err: any) {
-            alert('Error adding post: ' + err.message);
+            showNotification('Error adding post: ' + err.message, 'error');
         }
     };
 
     const handleDelete = async (id: number | string) => {
         if (typeof id === 'string') {
-            alert('Cannot delete posts fetched from Instagram API.');
+            showNotification('Cannot delete posts fetched from Instagram API', 'info');
             return;
         }
         if (!confirm('Remove this post from feed?')) return;
         try {
             const { error } = await supabase.from('instagram_posts').delete().eq('id', id);
             if (error) throw error;
+            showNotification('Post removed from archive', 'success');
             refresh();
         } catch (err: any) {
-            alert('Error deleting: ' + err.message);
+            showNotification('Error deleting: ' + err.message, 'error');
         }
     };
 

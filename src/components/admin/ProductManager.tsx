@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { supabase } from '../../lib/supabase';
 import { useProducts } from '../../hooks/useProducts';
+import { useNotification } from '../../context/NotificationContext';
 
 // Define Variant Interface
 interface Variant {
@@ -13,6 +14,7 @@ interface Variant {
 
 const ProductManager = () => {
     const { products, loading, refresh } = useProducts();
+    const { showNotification } = useNotification();
     const [isFormOpen, setIsFormOpen] = useState(false);
     const [editingId, setEditingId] = useState<number | null>(null);
     const [uploading, setUploading] = useState(false);
@@ -171,7 +173,7 @@ const ProductManager = () => {
 
         } catch (error: any) {
             console.error('Upload error:', error);
-            alert('Error uploading image: ' + error.message);
+            showNotification('Error uploading image: ' + error.message, 'error');
         } finally {
             clearInterval(progressInterval);
             // Delay turning off uploading state slightly so user sees 100%
@@ -185,7 +187,7 @@ const ProductManager = () => {
     // Variant Handlers
     const addVariant = () => {
         if (!newVariant.color || !newVariant.image) {
-            alert('Please provide at least a Color Name and Image URL');
+            showNotification('Please provide at least a Color Name and Image URL', 'error');
             return;
         }
         setFormData({
@@ -244,10 +246,10 @@ const ProductManager = () => {
 
             resetForm();
             refresh();
-            alert('Product saved successfully!');
+            showNotification('Product saved successfully!', 'success');
         } catch (err: any) {
             console.error('Save error:', err);
-            alert('Error saving product: ' + err.message);
+            showNotification('Error saving product: ' + err.message, 'error');
         }
     };
 
@@ -256,9 +258,10 @@ const ProductManager = () => {
         try {
             const { error } = await supabase.from('products').delete().eq('id', id);
             if (error) throw error;
+            showNotification('Product deleted successfully', 'success');
             refresh();
         } catch (err: any) {
-            alert('Error deleting product: ' + err.message);
+            showNotification('Error deleting product: ' + err.message, 'error');
         }
     };
     if (loading) return (
