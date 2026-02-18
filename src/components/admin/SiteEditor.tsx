@@ -121,7 +121,8 @@ const SiteEditor = () => {
             setLocalSettings({
                 announcements: settings.announcements || DEFAULT_ANNOUNCEMENTS,
                 hero_slides: settings.hero_slides || DEFAULT_SLIDES,
-                home_highlights: settings.home_highlights || DEFAULT_HIGHLIGHTS
+                home_highlights: settings.home_highlights || DEFAULT_HIGHLIGHTS,
+                tiktok_live_settings: settings.tiktok_live_settings || { mode: 'auto', is_live: false }
             });
         }
     }, [loading, settings]);
@@ -225,52 +226,75 @@ const SiteEditor = () => {
         <div className="p-8 space-y-12">
             <h2 className="font-display text-2xl mb-8">Site Appearance Editor</h2>
 
-            {/* Announcement Bar Section */}
+            {/* TikTok Live Management Section */}
             <section className="bg-white border border-black/5 p-8 shadow-sm">
                 <div className="flex justify-between items-center mb-6">
                     <div>
-                        <h3 className="text-[11px] uppercase font-bold tracking-widest">Announcement Bar</h3>
-                        <p className="text-[10px] text-secondary mt-1 italic">Top scrolling ticker messages</p>
+                        <h3 className="text-[11px] uppercase font-bold tracking-widest">TikTok Live Management</h3>
+                        <p className="text-[10px] text-secondary mt-1 italic">Control the "Live Now" banner and popup status</p>
                     </div>
-                    <button
-                        onClick={() => handleSave('announcements')}
-                        disabled={isSaving}
-                        className="bg-primary text-white text-[10px] uppercase font-bold tracking-widest px-6 py-2 hover:bg-accent-gold transition-colors disabled:opacity-50"
-                    >
-                        {isSaving ? 'Saving...' : 'Save Bar'}
-                    </button>
                 </div>
 
-                <div className="space-y-3">
-                    {localSettings.announcements?.map((text: string, i: number) => (
-                        <div key={i} className="flex gap-2">
-                            <input
-                                type="text"
-                                value={text}
-                                onChange={(e) => {
-                                    const updated = [...localSettings.announcements];
-                                    updated[i] = e.target.value;
-                                    setLocalSettings({ ...localSettings, announcements: updated });
-                                }}
-                                className="flex-1 border border-black/10 px-4 py-2 text-sm outline-none focus:border-accent-gold"
-                            />
-                            <button
-                                onClick={() => {
-                                    const updated = localSettings.announcements.filter((_: any, idx: number) => idx !== i);
-                                    setLocalSettings({ ...localSettings, announcements: updated });
-                                }}
-                                className="p-2 text-red-500 hover:bg-red-50"
-                            >
-                                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" /></svg>
-                            </button>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div className="space-y-4">
+                        <label className="text-[10px] uppercase font-bold tracking-widest opacity-60 block">Management Mode</label>
+                        <div className="flex flex-wrap gap-3">
+                            {[
+                                { id: 'auto', label: 'Auto Detect', desc: 'Checks TikTok API hourly' },
+                                { id: 'manual-on', label: 'Force Live', desc: 'Always show as LIVE' },
+                                { id: 'manual-off', label: 'Force Offline', desc: 'Never show LIVE UI' }
+                            ].map((mode) => (
+                                <button
+                                    key={mode.id}
+                                    onClick={() => {
+                                        const current = localSettings.tiktok_live_settings || { mode: 'auto' };
+                                        const updated = {
+                                            ...current,
+                                            mode: mode.id === 'auto' ? 'auto' : 'manual',
+                                            manual_status: mode.id === 'manual-on' ? 'on' : 'off'
+                                        };
+                                        setLocalSettings({ ...localSettings, tiktok_live_settings: updated });
+                                        updateSetting('tiktok_live_settings', updated);
+                                        showNotification(`TikTok Live set to ${mode.label}`, 'success');
+                                    }}
+                                    className={`flex-1 min-w-[140px] p-4 text-left border transition-all ${(localSettings.tiktok_live_settings?.mode === 'auto' && mode.id === 'auto') ||
+                                        (localSettings.tiktok_live_settings?.mode === 'manual' && localSettings.tiktok_live_settings?.manual_status === 'on' && mode.id === 'manual-on') ||
+                                        (localSettings.tiktok_live_settings?.mode === 'manual' && localSettings.tiktok_live_settings?.manual_status === 'off' && mode.id === 'manual-off')
+                                        ? 'border-accent-gold bg-accent-gold/5 ring-1 ring-accent-gold'
+                                        : 'border-black/10 hover:border-black/20 bg-white'
+                                        }`}
+                                >
+                                    <div className="text-[10px] font-bold uppercase tracking-widest mb-1">{mode.label}</div>
+                                    <div className="text-[8px] text-secondary lowercase tracking-wider">{mode.desc}</div>
+                                </button>
+                            ))}
                         </div>
-                    ))}
-                    <button
-                        onClick={() => setLocalSettings({ ...localSettings, announcements: [...localSettings.announcements, "New Announcement"] })}
-                        className="text-[10px] uppercase font-bold tracking-widest text-accent-gold hover:underline"
-                    >
-                        + Add Announcement
-                    </button>
+                    </div>
+
+                    <div className="bg-surface-secondary/50 p-6 flex flex-col justify-center">
+                        <div className="space-y-4">
+                            <div>
+                                <p className="text-[9px] uppercase tracking-widest text-secondary opacity-60 mb-2">Current Status Indicator</p>
+                                <div className="flex items-center gap-3">
+                                    <div className={`w-3 h-3 rounded-full ${localSettings.tiktok_live_settings?.is_live || (localSettings.tiktok_live_settings?.mode === 'manual' && localSettings.tiktok_live_settings?.manual_status === 'on') ? 'bg-red-500 animate-pulse' : 'bg-gray-300'}`} />
+                                    <span className="text-[11px] font-bold uppercase tracking-[0.2em]">
+                                        {localSettings.tiktok_live_settings?.is_live || (localSettings.tiktok_live_settings?.mode === 'manual' && localSettings.tiktok_live_settings?.manual_status === 'on') ? 'Live on Website' : 'Offline on Website'}
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div className="pt-4 border-t border-black/5">
+                                <p className="text-[8px] text-secondary uppercase tracking-widest">
+                                    Last Checked TikTok: {localSettings.tiktok_live_settings?.last_checked ? new Date(localSettings.tiktok_live_settings.last_checked).toLocaleString() : 'Never'}
+                                </p>
+                                {localSettings.tiktok_live_settings?.viewer_count > 0 && (
+                                    <p className="text-[8px] text-accent-gold font-bold uppercase tracking-widest mt-1">
+                                        Current Viewers: {localSettings.tiktok_live_settings.viewer_count}
+                                    </p>
+                                )}
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </section>
 
