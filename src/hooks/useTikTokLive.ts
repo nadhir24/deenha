@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { supabase } from '../lib/supabase';
 
 const POLL_INTERVAL = 60 * 60 * 1000; // 1 hour
@@ -27,58 +27,70 @@ export const useTikTokLive = () => {
         return hour >= SLEEP_START && hour < SLEEP_END;
     };
 
-    const fetchStatus = async (force = false) => {
-        // Skip polling during sleep time unless it's a forced fetch (e.g. first load)
-        if (!force && isSleepTime()) {
-            console.log("TikTok Live: Skipping poll during sleep time");
-            return;
-        }
-
+    const fetchStatus = useCallback(async (isInitial = false) => {
         try {
-            // Check if we already fetched recently in this browser session
-            const lastFetched = localStorage.getItem('tiktok_last_fetched');
-            const now = Date.now();
+            // 1. Get current settings from database directly (Source of Truth)
+            const { data: settingData, error: fetchError } = await supabase
+                .from('site_settings')
+                .select('value')
+                .eq('key', 'tiktok_live_settings')
+                .single();
 
-            if (!force && lastFetched && (now - parseInt(lastFetched) < POLL_INTERVAL)) {
-                // We have a recent result, no need to hit the function
-                const cachedStatus = localStorage.getItem('tiktok_live_status');
-                if (cachedStatus) {
-                    setStatus({ ...JSON.parse(cachedStatus), loading: false, error: null });
-                    return;
-                }
+            if (fetchError && fetchError.code !== 'PGRST116') throw fetchError;
+
+            let settings = settingData?.value;
+
+            // If no settings found, it might mean the SQL hasn't run or is delayed
+            if (!settings) {
+                setStatus(prev => ({ ...prev, loading: false }));
+                return;
             }
 
-            const { data, error } = await supabase.functions.invoke('tiktok-live');
+            // 2. Determine isLive based on mode
+            let isLive = false;
+            let viewerCount = 0;
+            let mode: 'auto' | 'manual' = settings.mode || 'auto';
 
-            if (error) throw error;
+            if (mode === 'manual') {
+                isLive = settings.manual_status === 'on';
+                viewerCount = settings.viewer_count || 0;
+            } else {
+                isLive = settings.is_live || false;
+                viewerCount = settings.viewer_count || 0;
+            }
 
-            const newStatus = {
-                isLive: data.isLive,
-                viewerCount: data.viewerCount || 0,
-                mode: data.mode || 'auto',
+            setStatus({
+                isLive,
+                viewerCount,
+                mode,
                 loading: false,
                 error: null
-            };
+            });
 
-            setStatus(newStatus);
-            localStorage.setItem('tiktok_last_fetched', now.toString());
-            localStorage.setItem('tiktok_live_status', JSON.stringify(newStatus));
+            // 3. Background: Refresh 'auto' status via Edge Function if needed
+            const lastChecked = settings.last_checked ? new Date(settings.last_checked) : null;
+            const needsRefresh = !lastChecked || (Date.now() - lastChecked.getTime() > POLL_INTERVAL);
+
+            if (mode === 'auto' && !isSleepTime() && (needsRefresh || isInitial)) {
+                // Background update
+                supabase.functions.invoke('tiktok-live').then(({ data }) => {
+                    if (data && !data.error && data.isLive !== isLive) {
+                        setStatus(prev => ({ ...prev, isLive: data.isLive, viewerCount: data.viewerCount }));
+                    }
+                }).catch(() => { });
+            }
 
         } catch (err: any) {
-            console.error("Error fetching TikTok Live status:", err);
+            console.error("Error in useTikTokLive:", err);
             setStatus(prev => ({ ...prev, loading: false, error: err.message }));
         }
-    };
+    }, []);
 
     useEffect(() => {
-        // Initial fetch
         fetchStatus(true);
-
-        // Set up interval
         const interval = setInterval(() => fetchStatus(), POLL_INTERVAL);
-
         return () => clearInterval(interval);
-    }, []);
+    }, [fetchStatus]);
 
     return status;
 };
