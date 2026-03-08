@@ -16,6 +16,7 @@ import ProtectedRoute from './components/layout/ProtectedRoute';
 // Page Components
 import AboutPage from './pages/AboutPage';
 import FAQPage from './pages/FAQPage';
+import JournalPage from './pages/JournalPage';
 import ProductDetailsPage from './pages/ProductDetailsPage';
 import ShopPage from './pages/ShopPage';
 import WishlistPage from './pages/WishlistPage';
@@ -106,6 +107,9 @@ function App() {
 
                                     {/* FAQ Page Route */}
                                     <Route path="/faq" element={<FAQPage />} />
+
+                                    {/* Journal Page Route */}
+                                    <Route path="/journal" element={<JournalPage />} />
 
                                     {/* Product Details Route */}
                                     <Route path="/product/:id" element={<ProductDetailsPage />} />
