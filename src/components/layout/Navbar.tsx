@@ -3,7 +3,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Link, useLocation } from 'react-router-dom';
 import { useWishlist } from '../../context/WishlistContext';
 import { useCart } from '../../context/CartContext';
-import { products } from '../../data/products';
+import { useProducts } from '../../hooks/useProducts';
+import { Product } from '../../data/products';
 
 interface NavbarProps {
     onMenuClick: () => void;
@@ -15,6 +16,7 @@ const Navbar = ({ onMenuClick }: NavbarProps) => {
     const { wishlistCount } = useWishlist();
     const { cartCount, setIsCartOpen } = useCart();
     const [searchQuery, setSearchQuery] = useState('');
+    const { products: liveProducts = [] } = useProducts();
     const location = useLocation();
 
     // Check if we are on the Home page
@@ -182,17 +184,17 @@ const Navbar = ({ onMenuClick }: NavbarProps) => {
                                     >
                                         <div className="flex items-center justify-between mb-8 border-b border-black/5 pb-4">
                                             <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-secondary">
-                                                Matching Products ({products.filter(p => p.name.toLowerCase().includes(searchQuery.toLowerCase())).length})
+                                                Matching Products ({liveProducts.filter((p: Product) => p.name.toLowerCase().includes(searchQuery.toLowerCase())).length})
                                             </span>
                                         </div>
 
                                         <div className="grid grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-10">
-                                            {products
-                                                .filter(p =>
+                                            {liveProducts
+                                                .filter((p: Product) =>
                                                     p.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
                                                     p.category.toLowerCase().includes(searchQuery.toLowerCase())
                                                 )
-                                                .map((product) => (
+                                                .map((product: Product) => (
                                                     <Link
                                                         key={product.id}
                                                         to={`/product/${product.id}`}
@@ -226,7 +228,7 @@ const Navbar = ({ onMenuClick }: NavbarProps) => {
                                                 ))}
                                         </div>
 
-                                        {products.filter(p => p.name.toLowerCase().includes(searchQuery.toLowerCase())).length === 0 && (
+                                        {liveProducts.filter((p: Product) => p.name.toLowerCase().includes(searchQuery.toLowerCase())).length === 0 && (
                                             <div className="text-center py-20">
                                                 <p className="font-display text-2xl italic text-secondary">No products found for "{searchQuery}"</p>
                                             </div>
