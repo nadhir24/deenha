@@ -32,6 +32,7 @@ import HomeCollections from './components/home/HomeCollections';
 import WhatsAppButton from './components/floating/WhatsAppButton';
 import CartDrawer from './components/shop/CartDrawer';
 import PromoPopup from './components/common/PromoPopup';
+import RamadanPopup from './components/common/RamadanPopup';
 import SEOHead from './components/SEOHead';
 
 function App() {
@@ -122,6 +123,7 @@ function App() {
                                 <Footer />
                                 <WhatsAppButton />
                                 <CartDrawer />
+                                <RamadanPopup />
                                 <PromoPopup />
                             </div>
                         </CartProvider>

@@ -87,7 +87,7 @@ const AboutPage = () => {
                                 </p>
                             </div>
                             <div className="mt-10 border-t border-black/5 pt-8">
-                                <p className="font-display italic text-xl text-primary">— THE DEENHA TEAM</p>
+                                <p className="font-display italic text-xl text-primary">— DEENHA TEAM</p>
                             </div>
                         </motion.div>
                     </div>
