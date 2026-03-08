@@ -19,6 +19,7 @@ import FAQPage from './pages/FAQPage';
 import JournalPage from './pages/JournalPage';
 import JournalDetailsPage from './pages/JournalDetailsPage';
 import ProductDetailsPage from './pages/ProductDetailsPage';
+import NotFoundPage from './pages/NotFoundPage';
 import ShopPage from './pages/ShopPage';
 import WishlistPage from './pages/WishlistPage';
 import LoginPage from './pages/LoginPage';
@@ -128,6 +129,9 @@ function App() {
                                             <AdminDashboard />
                                         </ProtectedRoute>
                                     } />
+
+                                    {/* Catch-all 404 Route */}
+                                    <Route path="*" element={<NotFoundPage />} />
                                 </Routes>
 
                                 <Footer />
