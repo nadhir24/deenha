@@ -3,23 +3,23 @@ import SEOHead from '../components/SEOHead';
 
 const faqs = [
   {
-    category: "Hijab Styles & Types",
+    category: "Product & Fabric Details",
     questions: [
       {
-        question: "What is an Instant Chiffon Hijab?",
-        answer: "Our Instant Chiffon Hijab is designed for ease and elegance. It's a pre-sewn style that you can simply slip on in under 30 seconds, providing a polished look without the need for pins or complex wrapping."
+        question: "What makes Deenha Voal Scarves special?",
+        answer: "Our Premium Voal Scarves (like the Eliza series) are crafted from high-quality cotton voal. They are lightweight, easy to shape, and stay upright on the forehead all day without the need for excessive starch or pins."
       },
       {
-        question: "Do I need pins for the Jersey Hijab?",
-        answer: "No pins needed! Our Jersey Hijabs are made from a high-quality, stretchy fabric that stays in place all day. The non-slip material ensures you can move freely with confidence."
+        question: "How do I care for my Luna Silk Scarf?",
+        answer: "Silk and Satin collections require delicate care. We recommend hand washing with a mild detergent (or hijab wash) and avoiding direct sunlight when drying to preserve the fabric's natural sheen and softness."
       },
       {
-        question: "Is Chiffon good for hot weather?",
-        answer: "Absolutely. Chiffon is one of our most recommended fabrics for summer. It is lightweight, airy, and breathable, allowing for excellent airflow to keep you cool while maintaining modesty."
+        question: "Are Deenha Bergos travel-friendly?",
+        answer: "Yes! Our Bergo collections, like the Amira and Mariam series, are designed for 'instant' modesty. They are made from breathable, ironless materials, making them the perfect companion for travel or daily errands."
       },
       {
-        question: "What is the difference between Voal and Chiffon?",
-        answer: "Voal is a soft, slightly textured cotton-blend fabric that holds its shape well, making it easy to style. Chiffon is more flowy and sheer (opaque when layered), offering a more formal, draped look."
+        question: "What is included in a Deenha Pray Set?",
+        answer: "Our Premium Pray Sets (like the Fatima series) include a high-quality prayer robe (mukena) and a matching compact travel pouch, ensuring you can pray comfortably and stylishly wherever you are."
       }
     ]
   },
@@ -33,19 +33,23 @@ const faqs = [
       {
         question: "Can I track my order?",
         answer: "Yes, once your order is shipped, you will receive a tracking number via email or WhatsApp so you can monitor your package's journey."
+      },
+      {
+        question: "Do you ship internationally?",
+        answer: "Yes, we ship worldwide! International shipping rates and delivery times vary by destination. Please contact our WhatsApp support for a manual shipping quote for overseas orders."
       }
     ]
   },
   {
-    category: "Product Care",
+    category: "Gifting & Hampers",
     questions: [
       {
-        question: "How should I wash my Chiffon Hijabs?",
-        answer: "We recommend hand washing your Chiffon hijabs in cold water with mild detergent. If using a machine, place them in a laundry bag on a delicate cycle. Hang to dry to maintain their quality."
+        question: "Can I customize a Deenha Hamper?",
+        answer: "We offer curated hampers for special occasions like Ramadan and Eid. For custom corporate gifting or special requests, please reach out to our team via WhatsApp to discuss personalized packaging and product selections."
       },
       {
-        question: "Can I iron my pleats?",
-        answer: "For pleated items, we recommend steaming instead of ironing to preserve the pleat structure. If you must iron, use a low heat setting and avoid pressing down hard on the pleats."
+        question: "Does the hamper include a greeting card?",
+        answer: "Every Deenha Signature Gift Box and Hamper comes with an elegant greeting card. You can request a custom message to be written during the checkout process via WhatsApp."
       }
     ]
   }
@@ -55,19 +59,19 @@ const FAQItem = ({ question, answer }: { question: string, answer: string }) => 
     const [isOpen, setIsOpen] = useState(false);
 
     return (
-        <div className="border-b border-gray-200">
+        <div className="border-b border-black/5">
             <button
                 className="flex w-full items-center justify-between py-6 text-left"
                 onClick={() => setIsOpen(!isOpen)}
             >
-                <span className="text-base font-semibold leading-7 text-gray-900">{question}</span>
+                <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-primary">{question}</span>
                 <span className="ml-6 flex h-7 items-center">
                     {isOpen ? (
-                        <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor">
+                        <svg className="h-4 w-4 text-accent-gold" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" d="M18 12H6" />
                         </svg>
                     ) : (
-                        <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor">
+                        <svg className="h-4 w-4 text-primary" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v12m6-6H6" />
                         </svg>
                     )}
@@ -75,7 +79,7 @@ const FAQItem = ({ question, answer }: { question: string, answer: string }) => 
             </button>
             {isOpen && (
                 <div className="pb-6 pr-12">
-                    <p className="text-base leading-7 text-gray-600">{answer}</p>
+                    <p className="text-sm leading-relaxed text-secondary italic">{answer}</p>
                 </div>
             )}
         </div>
@@ -102,23 +106,26 @@ const FAQPage = () => {
     <>
       <SEOHead
         title="Frequently Asked Questions - Deenha"
-        description="Find answers to common questions about Deenha's hijabs, fabrics, shipping, and more. Learn about our instant chiffon, jersey styles, and care instructions."
+        description="Find answers to common questions about Deenha's Voal scarves, Silk collections, Bergos, and shipping. Learn about our premium fabrics and care instructions."
         jsonLd={faqSchema}
       />
-      <div className="bg-white py-24 sm:py-32">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Frequently Asked Questions</h2>
-            <p className="mt-4 text-lg leading-8 text-gray-600">
-              Have questions? We're here to help. If you can't find what you're looking for, feel free to contact us.
+      <div className="bg-white py-44">
+        <div className="max-w-[1440px] mx-auto px-6 lg:px-12">
+          <div className="max-w-2xl">
+            <span className="text-accent-gold text-[10px] uppercase font-bold tracking-[0.4em] mb-4 block">Help Center</span>
+            <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-normal tracking-tight mb-8">Frequently Asked Questions</h2>
+            <p className="text-secondary text-sm leading-relaxed max-w-lg mb-20">
+              Find everything you need to know about our collections, materials, and services. For further assistance, our atelier team is available via WhatsApp.
             </p>
           </div>
           
-          <div className="mt-20 max-w-3xl mx-auto space-y-16">
+          <div className="space-y-24">
             {faqs.map((section, sectionIdx) => (
-              <div key={sectionIdx}>
-                <h3 className="text-2xl font-bold text-gray-900 mb-6">{section.category}</h3>
-                <div className="divide-y divide-gray-200">
+              <div key={sectionIdx} className="grid lg:grid-cols-3 gap-12 border-t border-black/5 pt-16">
+                <div>
+                    <h3 className="text-[10px] uppercase font-bold tracking-[0.4em] text-accent-gold">{section.category}</h3>
+                </div>
+                <div className="lg:col-span-2 divide-y divide-black/5">
                   {section.questions.map((faq, faqIdx) => (
                     <FAQItem key={faqIdx} question={faq.question} answer={faq.answer} />
                   ))}
