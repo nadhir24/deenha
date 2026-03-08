@@ -11,13 +11,13 @@ interface SEOHeadProps {
 
 const SEOHead = ({
     title,
-    description = "DEENHA Hijab - Produk fashion muslimah premium dengan desain eksklusif. Temukan koleksi Scarves, Dresses, Bergo, dan Pray Set yang elegan.",
+    description = "DEENHA Official Store - Temukan koleksi fashion muslimah premium dengan desain eksklusif. Official site untuk Scarves, Dresses, Bergo, dan Pray Set yang elegan.",
     canonicalPath = "",
     ogImage = "https://www.deenha.com/assets/logo.png",
     ogType = 'website',
     jsonLd
 }: SEOHeadProps) => {
-    const siteTitle = "DEENHA";
+    const siteTitle = "DEENHA Official Store";
     const fullTitle = title ? `${title} | ${siteTitle}` : siteTitle;
     const url = `https://www.deenha.com${canonicalPath}`;
 
@@ -34,6 +34,7 @@ const SEOHead = ({
             <meta property="og:title" content={fullTitle} />
             <meta property="og:description" content={description} />
             <meta property="og:image" content={ogImage} />
+            <meta property="og:site_name" content="DEENHA Official Store" />
 
             {/* Twitter */}
             <meta property="twitter:url" content={url} />
