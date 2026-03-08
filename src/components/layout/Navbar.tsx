@@ -195,7 +195,7 @@ const Navbar = ({ onMenuClick }: NavbarProps) => {
                                                 .map((product) => (
                                                     <Link
                                                         key={product.id}
-                                                        to="/shop"
+                                                        to={`/product/${product.id}`}
                                                         onClick={() => {
                                                             setSearchOpen(false);
                                                             setSearchQuery('');

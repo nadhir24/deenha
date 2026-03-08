@@ -17,6 +17,7 @@ import ProtectedRoute from './components/layout/ProtectedRoute';
 import AboutPage from './pages/AboutPage';
 import FAQPage from './pages/FAQPage';
 import JournalPage from './pages/JournalPage';
+import JournalDetailsPage from './pages/JournalDetailsPage';
 import ProductDetailsPage from './pages/ProductDetailsPage';
 import ShopPage from './pages/ShopPage';
 import WishlistPage from './pages/WishlistPage';
@@ -110,6 +111,7 @@ function App() {
 
                                     {/* Journal Page Route */}
                                     <Route path="/journal" element={<JournalPage />} />
+                                    <Route path="/journal/:slug" element={<JournalDetailsPage />} />
 
                                     {/* Product Details Route */}
                                     <Route path="/product/:id" element={<ProductDetailsPage />} />
