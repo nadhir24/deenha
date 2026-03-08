@@ -2,5 +2,6 @@ User-agent: *
 Allow: /
 Disallow: /admin
 Disallow: /login
+Disallow: /wishlist
 
 Sitemap: https://www.deenha.com/sitemap.xml

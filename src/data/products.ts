@@ -11,6 +11,7 @@ export interface Product {
     badge?: 'new' | 'bestseller' | 'sale';
     soldCount?: number;
     stock?: number;
+    description?: string;
     variants?: {
         name: string;
         color: string;
@@ -31,7 +32,8 @@ export const products: Product[] = [
         color: "Dusty Rose",
         colorHex: "#D4A5A5",
         badge: "new",
-        soldCount: 45
+        soldCount: 45,
+        description: "Elegant and versatile, the Eliza Premium Voal Scarf is a wardrobe essential. Crafted from high-quality voal, it offers a soft touch and easy styling for any occasion. Perfect for both casual and formal looks."
     },
     {
         id: 2,
@@ -43,7 +45,8 @@ export const products: Product[] = [
         color: "Sage Green",
         colorHex: "#9CAF88",
         badge: "bestseller",
-        soldCount: 128
+        soldCount: 128,
+        description: "Soft. Shiny. Sophisticated. Our Luna Silk Scarf Collection brings a touch of luxury to your everyday style. The smooth texture ensures a flawless drape, making it perfect for special events or elevating your daily outfit."
     },
     {
         id: 3,
@@ -54,7 +57,8 @@ export const products: Product[] = [
         size: ["S", "M", "L"],
         color: "Black",
         colorHex: "#1A1A1A",
-        soldCount: 89
+        soldCount: 89,
+        description: "Slip on a polished look in seconds. The Amira Cotton Bergo is designed for women who want full coverage without the fuss of pinning. Soft, breathable, and perfect for all-day wear. A must-have for your modest wardrobe."
     },
     {
         id: 4,
@@ -67,7 +71,8 @@ export const products: Product[] = [
         color: "Navy",
         colorHex: "#2C3E50",
         badge: "sale",
-        soldCount: 67
+        soldCount: 67,
+        description: "Graceful and timeless, the Zahra Elegant Dress features a flowing silhouette that flatters every figure. Made with premium fabric that moves with you, ensuring comfort and style for weddings, Eid, or formal gatherings."
     },
     {
         id: 5,
@@ -79,7 +84,8 @@ export const products: Product[] = [
         color: "White",
         colorHex: "#FFFFFF",
         badge: "bestseller",
-        soldCount: 234
+        soldCount: 234,
+        description: "Experience spiritual comfort with the Fatima Premium Pray Set. Crafted from soft, breathable material that keeps you cool during prayer. Includes a matching bag for easy travel and storage."
     },
     {
         id: 6,
@@ -90,7 +96,8 @@ export const products: Product[] = [
         size: ["110x110"],
         color: "Cream",
         colorHex: "#F5F5DC",
-        soldCount: 56
+        soldCount: 56,
+        description: "Add a pop of pattern to your look with the Safa Printed Scarf. Featuring unique designs and lightweight fabric, it's the perfect accessory to express your personal style while maintaining modesty."
     },
     {
         id: 7,
@@ -102,7 +109,8 @@ export const products: Product[] = [
         color: "Camel",
         colorHex: "#C19A6B",
         badge: "new",
-        soldCount: 34
+        soldCount: 34,
+        description: "Your go-to for daily comfort. The Mariam Daily Bergo offers a practical, pin-less solution for busy days. Lightweight and durable, it withstands daily wear while keeping you looking neat and covered."
     },
     {
         id: 8,
@@ -113,7 +121,8 @@ export const products: Product[] = [
         size: ["S", "M", "L", "XL"],
         color: "Burgundy",
         colorHex: "#800020",
-        soldCount: 78
+        soldCount: 78,
+        description: "Make a statement with the Aisha Maxi Dress. Its rich color and elegant cut create a stunning look for any special occasion. Designed with modesty and modern fashion in mind."
     },
     {
         id: 9,
@@ -126,7 +135,8 @@ export const products: Product[] = [
         color: "Grey",
         colorHex: "#808080",
         badge: "sale",
-        soldCount: 145
+        soldCount: 145,
+        description: "Compact and convenient. The Nadia Travel Pray Set is lightweight and folds easily, making it the perfect companion for your journeys. Never compromise on your prayer essentials while on the go."
     },
     {
         id: 10,
@@ -137,7 +147,8 @@ export const products: Product[] = [
         size: ["120x120"],
         color: "Blush Pink",
         colorHex: "#FFB6C1",
-        soldCount: 98
+        soldCount: 98,
+        description: "Hot weather hijab hack: go chiffon. Lightweight, breathable, and so elegant — our Khadijah Chiffon Scarf keeps you cool and covered all summer long. A wardrobe staple for every season."
     },
     {
         id: 11,
@@ -149,7 +160,8 @@ export const products: Product[] = [
         color: "Olive",
         colorHex: "#808000",
         badge: "new",
-        soldCount: 23
+        soldCount: 23,
+        description: "Stay active and modest with the Yasmin Sport Bergo. Designed with moisture-wicking fabric to keep you dry and comfortable during workouts. Secure fit ensures it stays in place while you move."
     },
     {
         id: 12,
@@ -162,7 +174,8 @@ export const products: Product[] = [
         colorHex: "#1A1A1A",
         badge: "bestseller",
         soldCount: 189,
-        stock: 20
+        stock: 20,
+        description: "The epitome of modest elegance. The Halima Abaya Dress offers a loose, flowing fit that provides maximum coverage without sacrificing style. Perfect for formal events or religious gatherings."
     },
     {
         id: 13,
@@ -174,7 +187,8 @@ export const products: Product[] = [
         color: "Gold",
         colorHex: "#D4AF37",
         badge: "new",
-        soldCount: 12
+        soldCount: 12,
+        description: "Share the love with our Signature Gift Box. Curated with our finest products, it's the perfect gift for friends, family, or yourself. beautifully packaged to make every unboxing a special moment."
     },
     {
         id: 14,
@@ -186,7 +200,8 @@ export const products: Product[] = [
         color: "Pine Green",
         colorHex: "#01796F",
         badge: "bestseller",
-        soldCount: 25
+        soldCount: 25,
+        description: "Celebrate the holy month with the Ramadan Blessing Hamper. Filled with premium prayer essentials and treats, it's a thoughtful way to connect with loved ones during Ramadan."
     }
 ];
 

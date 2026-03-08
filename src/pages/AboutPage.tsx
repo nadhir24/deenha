@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import SEOHead from '../components/SEOHead';
 
 const AboutPage = () => {
     const ethos = [
@@ -21,6 +22,11 @@ const AboutPage = () => {
 
     return (
         <main className="pt-44">
+            <SEOHead
+                title="Tentang Kami - DEENHA"
+                description="Pelajari kisah di balik DEENHA. Brand fashion muslimah premium dari Bandung yang mengedepankan keanggunan, kualitas, dan nilai-nilai syariat."
+                canonicalPath="/about"
+            />
             {/* Header / Hero Section for About Page */}
             <section className="bg-surface-secondary py-24 mb-20">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

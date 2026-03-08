@@ -6,7 +6,7 @@ interface SEOHeadProps {
     canonicalPath?: string;
     ogImage?: string;
     ogType?: 'website' | 'article' | 'product';
-    jsonLd?: Record<string, any>;
+    jsonLd?: Record<string, any> | Record<string, any>[];
 }
 
 const SEOHead = ({

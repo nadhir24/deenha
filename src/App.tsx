@@ -15,6 +15,7 @@ import ProtectedRoute from './components/layout/ProtectedRoute';
 
 // Page Components
 import AboutPage from './pages/AboutPage';
+import FAQPage from './pages/FAQPage';
 import ProductDetailsPage from './pages/ProductDetailsPage';
 import ShopPage from './pages/ShopPage';
 import WishlistPage from './pages/WishlistPage';
@@ -102,6 +103,9 @@ function App() {
 
                                     {/* About Page Route */}
                                     <Route path="/about" element={<AboutPage />} />
+
+                                    {/* FAQ Page Route */}
+                                    <Route path="/faq" element={<FAQPage />} />
 
                                     {/* Product Details Route */}
                                     <Route path="/product/:id" element={<ProductDetailsPage />} />

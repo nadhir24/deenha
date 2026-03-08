@@ -92,11 +92,13 @@ const ProductDetailsPage = () => {
             `https://www.deenha.com${product.image}`,
             ...(product.variants?.map(v => `https://www.deenha.com${v.image}`) || [])
         ],
-        "description": `Premium ${product.name} from DEENHA. ${product.category} collection crafted with elegance and modesty. Available in ${product.color} and ${product.size.join(', ')}.`,
+        "description": product.description || `Premium ${product.name} from DEENHA. ${product.category} collection crafted with elegance and modesty.`,
+        "sku": `DEENHA-${product.id}`,
         "brand": {
             "@type": "Brand",
             "name": "DEENHA"
         },
+        "category": product.category,
         "offers": {
             "@type": "Offer",
             "url": `https://www.deenha.com/product/${product.id}`,
@@ -105,6 +107,31 @@ const ProductDetailsPage = () => {
             "availability": displayStock && displayStock > 0 ? "https://schema.org/InStock" : "https://schema.org/OutOfStock",
             "itemCondition": "https://schema.org/NewCondition"
         }
+    } : undefined;
+
+    const breadcrumbJsonLd = product ? {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://www.deenha.com"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": product.category,
+                "item": `https://www.deenha.com/shop?category=${product.category}`
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": product.name,
+                "item": `https://www.deenha.com/product/${product.id}`
+            }
+        ]
     } : undefined;
 
     return (
@@ -116,7 +143,7 @@ const ProductDetailsPage = () => {
                     ogImage={`https://www.deenha.com${product.image}`}
                     ogType="product"
                     canonicalPath={`/product/${product.id}`}
-                    jsonLd={productJsonLd}
+                    jsonLd={[productJsonLd, breadcrumbJsonLd]}
                 />
             )}
             <div className="max-w-[1440px] mx-auto px-6 lg:px-12">
@@ -355,7 +382,7 @@ const ProductDetailsPage = () => {
                                         transition={{ duration: 0.3 }}
                                     >
                                         {activeTab === 'description' && (
-                                            <p>This premium {product.name} is designed with the modern woman in mind. Combining traditional modesty with global style, it features exceptional craftmanship and the highest quality materials selected for both elegance and longevity.</p>
+                                            <p>{product.description || `This premium ${product.name} is designed with the modern woman in mind. Combining traditional modesty with global style, it features exceptional craftmanship and the highest quality materials selected for both elegance and longevity.`}</p>
                                         )}
                                         {activeTab === 'details' && (
                                             <ul className="list-disc pl-4 space-y-2">
