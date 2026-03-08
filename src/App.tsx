@@ -32,9 +32,36 @@ import HomeCollections from './components/home/HomeCollections';
 import WhatsAppButton from './components/floating/WhatsAppButton';
 import CartDrawer from './components/shop/CartDrawer';
 import PromoPopup from './components/common/PromoPopup';
-import RamadanPopup from './components/common/RamadanPopup';
+import SEOHead from './components/SEOHead';
 
 function App() {
+    const organizationJsonLd = {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "DEENHA",
+        "url": "https://www.deenha.com",
+        "logo": "https://www.deenha.com/assets/logo.png",
+        "sameAs": [
+            "https://www.instagram.com/deenha.official/",
+            "https://www.tiktok.com/@deenha.id",
+            "https://shopee.co.id/deenha",
+            "https://www.tokopedia.com/deenha"
+        ],
+        "description": "Brand fashion muslimah premium dari Bandung yang mengedepankan keanggunan dan syariat.",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Komplek Adi Bumi Graha",
+            "addressLocality": "Bandung",
+            "postalCode": "40292",
+            "addressCountry": "ID"
+        },
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+6281919234222",
+            "contactType": "customer service"
+        }
+    };
+
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
     return (
@@ -51,12 +78,19 @@ function App() {
                                 <Routes>
                                     {/* Landing Page Route */}
                                     <Route path="/" element={
-                                        <main>
-                                            <Hero />
-                                            <Benefits />
-                                            <HomeCollections />
-                                            <InstagramFeed />
-                                        </main>
+                                        <>
+                                            <SEOHead
+                                                title="Modest Fashion Elegant & Syar'i"
+                                                description="Koleksi eksklusif DEENHA Hijab. Temukan kemewahan dan keanggunan dalam setiap helai Scarves, Dresses, dan Mukena premium kami."
+                                                jsonLd={organizationJsonLd}
+                                            />
+                                            <main>
+                                                <Hero />
+                                                <Benefits />
+                                                <HomeCollections />
+                                                <InstagramFeed />
+                                            </main>
+                                        </>
                                     } />
 
                                     {/* Shop Page Route */}
@@ -88,7 +122,6 @@ function App() {
                                 <Footer />
                                 <WhatsAppButton />
                                 <CartDrawer />
-                                <RamadanPopup />
                                 <PromoPopup />
                             </div>
                         </CartProvider>

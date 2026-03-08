@@ -1,5 +1,6 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
+import SEOHead from '../components/SEOHead';
 
 /* ─── SVG Decorative Icons ─── */
 const StarIcon = () => (
@@ -154,6 +155,11 @@ const AboutPage = () => {
 
     return (
         <main className="pt-32 overflow-hidden">
+            <SEOHead
+                title="Tentang Kami - DEENHA"
+                description="Pelajari lebih lanjut tentang DEENHA, brand fashion muslimah premium dari Bandung. Sejarah, Visi, Misi, dan dedikasi kami dalam menghadirkan elegansi yang syar'i."
+                canonicalPath="/about"
+            />
 
             {/* ═══════════════════════════════════════════════
                 SECTION 1: HERO

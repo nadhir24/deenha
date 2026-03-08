@@ -15,6 +15,7 @@ interface FilterState {
     sizes: string[];
     colors: string[];
     priceRange: [number, number];
+    ids?: string[];
 }
 
 const ShopSection = () => {
@@ -24,11 +25,13 @@ const ShopSection = () => {
     // Initialize state from URL only once
     const [filters, setFilters] = useState<FilterState>(() => {
         const category = searchParams.get('category');
+        const ids = searchParams.get('ids');
         return {
             categories: category ? [category] : [],
             sizes: [],
             colors: [],
             priceRange: [0, 1000000],
+            ids: ids ? ids.split(',') : [],
         };
     });
 
@@ -39,6 +42,10 @@ const ShopSection = () => {
     // Filter and sort products (Memoized)
     const filteredProducts = useMemo(() => {
         let result = [...products];
+
+        if (filters.ids && filters.ids.length > 0) {
+            result = result.filter(p => filters.ids!.includes(String(p.id)));
+        }
 
         if (filters.categories.length > 0) {
             result = result.filter(p => filters.categories.includes(p.category));
@@ -70,6 +77,9 @@ const ShopSection = () => {
             const params = new URLSearchParams();
             if (filters.categories.length === 1) {
                 params.set('category', filters.categories[0]);
+            }
+            if (filters.ids && filters.ids.length > 0) {
+                params.set('ids', filters.ids.join(','));
             }
             // Only update if it actually changed to avoid recursive updates
             if (params.toString() !== searchParams.toString()) {

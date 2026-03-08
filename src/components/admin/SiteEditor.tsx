@@ -162,10 +162,6 @@ const SiteEditor = () => {
         if (currentIds.includes(productIdStr)) {
             updatedIds = currentIds.filter((id: string) => id !== productIdStr);
         } else {
-            if (currentIds.length >= 4) {
-                showNotification("Maximum 4 products per section", "error");
-                return;
-            }
             updatedIds = [...currentIds, productIdStr];
         }
 
@@ -258,10 +254,10 @@ const SiteEditor = () => {
                                         showNotification(`TikTok Live set to ${mode.label}`, 'success');
                                     }}
                                     className={`flex-1 min-w-[140px] p-4 text-left border transition-all ${(localSettings.tiktok_live_settings?.mode === 'auto' && mode.id === 'auto') ||
-                                            (localSettings.tiktok_live_settings?.mode === 'manual' && localSettings.tiktok_live_settings?.manual_status === 'on' && mode.id === 'manual-on') ||
-                                            (localSettings.tiktok_live_settings?.mode === 'manual' && localSettings.tiktok_live_settings?.manual_status === 'off' && mode.id === 'manual-off')
-                                            ? 'border-accent-gold bg-accent-gold/5 ring-1 ring-accent-gold'
-                                            : 'border-black/10 hover:border-black/20 bg-white'
+                                        (localSettings.tiktok_live_settings?.mode === 'manual' && localSettings.tiktok_live_settings?.manual_status === 'on' && mode.id === 'manual-on') ||
+                                        (localSettings.tiktok_live_settings?.mode === 'manual' && localSettings.tiktok_live_settings?.manual_status === 'off' && mode.id === 'manual-off')
+                                        ? 'border-accent-gold bg-accent-gold/5 ring-1 ring-accent-gold'
+                                        : 'border-black/10 hover:border-black/20 bg-white'
                                         }`}
                                 >
                                     <div className="text-[10px] font-bold uppercase tracking-widest mb-1">{mode.label}</div>
@@ -277,8 +273,8 @@ const SiteEditor = () => {
                                 <p className="text-[9px] uppercase tracking-widest text-secondary opacity-60 mb-2">Current Display Status (Website)</p>
                                 <div className="flex items-center gap-3">
                                     <div className={`w-3 h-3 rounded-full ${localSettings.tiktok_live_settings?.mode === 'manual'
-                                            ? (localSettings.tiktok_live_settings?.manual_status === 'on' ? 'bg-red-500 animate-pulse' : 'bg-gray-300')
-                                            : (localSettings.tiktok_live_settings?.is_live ? 'bg-red-500 animate-pulse' : 'bg-gray-300')
+                                        ? (localSettings.tiktok_live_settings?.manual_status === 'on' ? 'bg-red-500 animate-pulse' : 'bg-gray-300')
+                                        : (localSettings.tiktok_live_settings?.is_live ? 'bg-red-500 animate-pulse' : 'bg-gray-300')
                                         }`} />
                                     <span className="text-[11px] font-bold uppercase tracking-[0.2em]">
                                         {localSettings.tiktok_live_settings?.mode === 'manual'
@@ -448,7 +444,7 @@ const SiteEditor = () => {
                                     />
                                 </div>
                                 <div className="space-y-4 md:col-span-2">
-                                    <label className="text-[9px] uppercase font-bold tracking-widest opacity-60 block">Selected Products (Max 4)</label>
+                                    <label className="text-[9px] uppercase font-bold tracking-widest opacity-60 block">Selected Products</label>
 
                                     {/* Selected Products List */}
                                     <div className="flex flex-wrap gap-2 mb-4">

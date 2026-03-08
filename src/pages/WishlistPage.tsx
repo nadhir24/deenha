@@ -1,5 +1,6 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import SEOHead from '../components/SEOHead';
 import { useWishlist } from '../context/WishlistContext';
 import { useProducts } from '../hooks/useProducts';
 import ProductCard from '../components/shop/ProductCard';
@@ -20,6 +21,11 @@ const WishlistPage = () => {
 
     return (
         <main className="pt-32 pb-24 bg-surface-secondary min-h-screen">
+            <SEOHead
+                title="Wishlist Saya - DEENHA"
+                description="List produk favorit DEENHA pilihan Anda. Simpan koleksi yang Anda sukai dan pesan kapan saja."
+                canonicalPath="/wishlist"
+            />
             <div className="max-w-[1440px] mx-auto px-6 lg:px-12">
 
                 {/* Header */}

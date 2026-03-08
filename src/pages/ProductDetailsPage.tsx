@@ -5,6 +5,7 @@ import { useProducts } from '../hooks/useProducts';
 import { useCart } from '../context/CartContext';
 import { useWishlist } from '../context/WishlistContext';
 import ProductCard from '../components/shop/ProductCard';
+import SEOHead from '../components/SEOHead';
 
 const ProductDetailsPage = () => {
     const { id } = useParams<{ id: string }>();
@@ -83,8 +84,41 @@ const ProductDetailsPage = () => {
         }
     };
 
+    const productJsonLd = product ? {
+        "@context": "https://schema.org/",
+        "@type": "Product",
+        "name": product.name,
+        "image": [
+            `https://www.deenha.com${product.image}`,
+            ...(product.variants?.map(v => `https://www.deenha.com${v.image}`) || [])
+        ],
+        "description": `Premium ${product.name} from DEENHA. ${product.category} collection crafted with elegance and modesty. Available in ${product.color} and ${product.size.join(', ')}.`,
+        "brand": {
+            "@type": "Brand",
+            "name": "DEENHA"
+        },
+        "offers": {
+            "@type": "Offer",
+            "url": `https://www.deenha.com/product/${product.id}`,
+            "priceCurrency": "IDR",
+            "price": product.price,
+            "availability": displayStock && displayStock > 0 ? "https://schema.org/InStock" : "https://schema.org/OutOfStock",
+            "itemCondition": "https://schema.org/NewCondition"
+        }
+    } : undefined;
+
     return (
         <main className="pt-44 pb-24 bg-white">
+            {product && (
+                <SEOHead
+                    title={product.name}
+                    description={`Beli ${product.name} premium dari DEENHA. Koleksi ${product.category} elegant dan syar'i. Material berkualitas, desain eksklusif.`}
+                    ogImage={`https://www.deenha.com${product.image}`}
+                    ogType="product"
+                    canonicalPath={`/product/${product.id}`}
+                    jsonLd={productJsonLd}
+                />
+            )}
             <div className="max-w-[1440px] mx-auto px-6 lg:px-12">
                 {/* Breadcrumbs */}
                 <nav className="flex items-center gap-2 mb-12 text-[10px] uppercase font-bold tracking-widest text-secondary">

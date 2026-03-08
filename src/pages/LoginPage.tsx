@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
+import SEOHead from '../components/SEOHead';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 
@@ -28,6 +29,11 @@ const LoginPage = () => {
 
     return (
         <main className="min-h-screen pt-32 pb-20 bg-surface-secondary flex items-center justify-center px-6">
+            <SEOHead
+                title="Admin Login - DEENHA"
+                description="Portal akses khusus staf dan admin DEENHA Atelier."
+                canonicalPath="/login"
+            />
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}

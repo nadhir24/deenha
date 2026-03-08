@@ -104,7 +104,7 @@ const CollectionHighlight = ({
                         {collectionDescription}
                     </p>
                     <Link
-                        to={`/shop?category=${encodeURIComponent(category === 'New Arrival' ? '' : category)}`}
+                        to={`/shop?${productIds && productIds.length > 0 ? `ids=${productIds.join(',')}` : `category=${encodeURIComponent(category === 'New Arrival' ? '' : category)}`}`}
                         className="inline-block relative px-12 py-4 text-[11px] font-bold uppercase tracking-[0.4em] group overflow-hidden"
                     >
                         <span className="relative z-10 text-white group-hover:text-primary transition-colors duration-500">Shop Now</span>

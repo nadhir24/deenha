@@ -1,0 +1,18 @@
+{
+    "schema_version": "v1",
+    "name_for_human": "DEENHA - Modest Fashion",
+    "name_for_model": "deenha",
+    "description_for_human": "Premium Muslim women's fashion brand from Bandung, Indonesia featuring hijab, dresses, and pray sets.",
+    "description_for_model": "DEENHA is a Muslim women's fashion e-commerce featuring hijab, dresses, bergo, pray sets, and hampers. Based in Bandung, Indonesia. The brand focuses on elegant and syar'i (sharia-compliant) designs.",
+    "auth": {
+        "type": "none"
+    },
+    "api": {
+        "type": "openapi",
+        "url": "https://www.deenha.com/openapi.json",
+        "is_user_authenticated": false
+    },
+    "logo_url": "https://www.deenha.com/assets/logo.png",
+    "contact_email": "deenha.official@gmail.com",
+    "legal_info_url": "https://www.deenha.com/about"
+}

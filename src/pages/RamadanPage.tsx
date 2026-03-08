@@ -1,11 +1,17 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import SEOHead from '../components/SEOHead';
 import Benefits from '../components/home/Benefits';
 import FeaturedProducts from '../components/home/FeaturedProducts';
 
 const RamadanPage = () => {
     return (
         <main className="bg-[#FCFCFC]">
+            <SEOHead
+                title="Ramadan Collection 2026 - DEENHA"
+                description="Rayakan bulan suci dengan koleksi Ramadan 2026 DEENHA. Mukena, Scarves, dan Hampers eksklusif dengan sentuhan warisan budaya."
+                canonicalPath="/ramadan"
+            />
             {/* Hero Section - Split Layout for Premium Feel */}
             <section className="relative min-h-[90vh] grid grid-cols-1 lg:grid-cols-2">
                 {/* Left Content */}
