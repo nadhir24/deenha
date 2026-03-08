@@ -27,13 +27,13 @@ const supabaseKey = envConfig['VITE_SUPABASE_ANON_KEY'];
 const supabase = createClient(supabaseUrl, supabaseKey);
 
 async function checkCols() {
-    const { data, error } = await supabase.from('products').select('*').limit(1);
+    const { data, error } = await supabase.from('site_settings').select('*').limit(1);
     if (error) {
         console.error(error);
     } else if (data && data.length > 0) {
         console.log('Columns:', Object.keys(data[0]));
     } else {
-        console.log('No data found in products table.');
+        console.log('No data found in site_settings table.');
     }
 }
 

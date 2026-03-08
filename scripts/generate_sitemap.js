@@ -41,6 +41,8 @@ async function generateSitemap() {
     const routes = [
         { path: '', priority: '1.0', changefreq: 'daily' },
         { path: '/shop', priority: '0.9', changefreq: 'daily' },
+        { path: '/shop?category=Chiffon%20Hijab', priority: '0.8', changefreq: 'daily' },
+        { path: '/shop?category=Jersey%20Hijab', priority: '0.8', changefreq: 'daily' },
         { path: '/about', priority: '0.7', changefreq: 'monthly' },
         { path: '/faq', priority: '0.8', changefreq: 'monthly' },
         { path: '/ramadan', priority: '0.8', changefreq: 'weekly' },

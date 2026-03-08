@@ -4,7 +4,7 @@ export interface Product {
     price: number;
     originalPrice?: number;
     image: string;
-    category: 'Scarves' | 'Dresses' | 'Bergo' | 'Pray Set' | 'Hampers';
+    category: 'Scarves' | 'Dresses' | 'Bergo' | 'Pray Set' | 'Hampers' | 'Chiffon Hijab' | 'Jersey Hijab';
     size: string[];
     color: string;
     colorHex: string;
@@ -22,6 +22,32 @@ export interface Product {
 }
 
 export const products: Product[] = [
+    {
+        id: 15,
+        name: "Instant Chiffon Hijab",
+        price: 159000,
+        image: "/images/heritage-design-Aq2WvB4Gj1flwP1L.jpg",
+        category: "Chiffon Hijab",
+        size: ["170x70"],
+        color: "Blush Pink",
+        colorHex: "#FFB6C1",
+        badge: "new",
+        soldCount: 156,
+        description: "Slip on a polished hijab look in under 30 seconds. Our instant chiffon hijab is designed for women who want full coverage without the fuss of pinning. Fabric: Lightweight chiffon — soft, breathable, and perfect for warm weather or all-day wear. Fit: One-size pull-on style with an inner jersey band that holds firmly without pins. Coverage: 170cm x 70cm — full shoulder and chest coverage."
+    },
+    {
+        id: 16,
+        name: "Premium Jersey Hijab",
+        price: 129000,
+        image: "/images/bergo-A1aPwKX8JgfWab9g.png",
+        category: "Jersey Hijab",
+        size: ["Standard"],
+        color: "Midnight Black",
+        colorHex: "#1A1A1A",
+        badge: "bestseller",
+        soldCount: 284,
+        description: "Soft. Stretchy. Stays in place. Our premium jersey hijab is a fan favourite for a reason — zero pins, all-day comfort, and effortlessly modest. Perfect for everyday wear, work, and everything in between."
+    },
     {
         id: 1,
         name: "Eliza Premium Voal Scarf",
@@ -206,7 +232,9 @@ export const products: Product[] = [
 ];
 
 export const categories = [
-    { name: "Scarves", count: 4, image: "/images/image-1-m5KMww5a1eHrGa7j.jpg" },
+    { name: "Chiffon Hijab", count: 4, image: "/images/heritage-design-Aq2WvB4Gj1flwP1L.jpg" },
+    { name: "Jersey Hijab", count: 3, image: "/images/bergo-A1aPwKX8JgfWab9g.png" },
+    { name: "Scarves", count: 8, image: "/images/image-1-m5KMww5a1eHrGa7j.jpg" },
     { name: "Dresses", count: 3, image: "/images/dress-YD0l6pXPkZSqM41l.png" },
     { name: "Bergo", count: 3, image: "/images/bergo-A1aPwKX8JgfWab9g.png" },
     { name: "Pray Set", count: 2, image: "/images/prayset-mnlWv3KxDvf1NbQn.png" },

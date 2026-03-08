@@ -13,10 +13,28 @@
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://www.deenha.com/shop?category=Chiffon%20Hijab</loc>
+    <lastmod>2026-03-08</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.deenha.com/shop?category=Jersey%20Hijab</loc>
+    <lastmod>2026-03-08</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.deenha.com/about</loc>
     <lastmod>2026-03-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.deenha.com/faq</loc>
+    <lastmod>2026-03-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.deenha.com/ramadan</loc>
@@ -24,12 +42,17 @@
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
- 
   <url>
     <loc>https://www.deenha.com/login</loc>
     <lastmod>2026-03-08</lastmod>
     <changefreq>never</changefreq>
     <priority>0.1</priority>
+  </url>
+  <url>
+    <loc>https://www.deenha.com/product/11</loc>
+    <lastmod>2026-01-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.deenha.com/product/4</loc>
@@ -105,12 +128,6 @@
   </url>
   <url>
     <loc>https://www.deenha.com/product/2</loc>
-    <lastmod>2026-01-30</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.deenha.com/product/11</loc>
     <lastmod>2026-01-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
