@@ -10,6 +10,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
     const menuItems = [
         { name: 'Home', href: '/' },
         { name: 'The Atelier', href: '/shop' },
+        { name: 'Journal', href: '/journal' },
         { name: 'About', href: '/about' },
         { name: 'Contact', href: '/contact' }
     ];

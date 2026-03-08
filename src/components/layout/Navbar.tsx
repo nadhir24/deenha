@@ -33,6 +33,7 @@ const Navbar = ({ onMenuClick }: NavbarProps) => {
     const navLinks = [
         { name: 'Home', href: '/' },
         { name: 'The Atelier', href: '/shop' },
+        { name: 'Journal', href: '/journal' },
         { name: 'About', href: '/about' }
     ];
 

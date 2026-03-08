@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { useEffect } from 'react';
 import SEOHead from '../components/SEOHead';
 import { Link } from 'react-router-dom';
 
@@ -22,6 +23,15 @@ const articles = [
         slug: "mastering-luna-silk"
     },
     {
+        id: 4,
+        title: "Eid 2026: Choosing the Perfect Palette for Your Family Moments",
+        excerpt: "The upcoming holy season is all about serenity. Explore our curated color palettes from the Arabic Series to match your family's festive look.",
+        category: "Collections",
+        date: "March 8, 2026",
+        image: "https://tdvkvhozebzetchmgzhb.supabase.co/storage/v1/object/public/products/Arabic_Series/MAIN_1770873530013_DSCF5668%20Copy.jpg",
+        slug: "eid-2026-palette-guide"
+    },
+    {
         id: 3,
         title: "Travel Modesty Made Simple: Why Our Bergo and Pray Set are Must-Haves",
         excerpt: "Traveling doesn't mean compromising on modesty. Explore how our ironless Bergos and compact Pray Sets make every journey more peaceful.",
@@ -29,10 +39,23 @@ const articles = [
         date: "March 7, 2026",
         image: "/images/bergo-A1aPwKX8JgfWab9g.png",
         slug: "travel-modesty-essentials"
+    },
+    {
+        id: 5,
+        title: "The Power of Monogram: Elevating Your Professional Modest Look",
+        excerpt: "Make a statement in the boardroom. Our Monogram D series combines bold identity with subtle elegance for the modern working woman.",
+        category: "Style Tips",
+        date: "March 6, 2026",
+        image: "https://tdvkvhozebzetchmgzhb.supabase.co/storage/v1/object/public/products/Monogram_D_Series/1770655455962_IMG_3048.jpg",
+        slug: "monogram-professional-style"
     }
 ];
 
 const JournalPage = () => {
+    // Scroll to top on mount
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
     const journalSchema = {
         "@context": "https://schema.org",
         "@type": "Blog",
