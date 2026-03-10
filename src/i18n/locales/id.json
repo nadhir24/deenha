@@ -117,6 +117,52 @@
         "ethos_3_title": "Misi Kami",
         "ethos_3_desc": "Misi kami adalah menciptakan pakaian berkualitas tinggi untuk wanita Muslim."
     },
+    "journal": {
+        "title": "Jurnal DEENHA",
+        "subtitle": "Cerita Atelier",
+        "description": "Ruang editorial yang didedikasikan untuk seni hidup bersahaja. Dari pembahasan mendalam tentang kain premium kami hingga panduan gaya yang dikurasi, temukan esensi Deenha.",
+        "read_full": "Baca Selengkapnya"
+    },
+    "ramadan_popup": {
+        "label": "Ramadan 1447 H",
+        "title": "Selamat Datang",
+        "title_highlight": "Ramadhan",
+        "description": "Sambut bulan suci dengan koleksi terbaru dari DEENHA.",
+        "cta": "Lihat Koleksi Ramadan",
+        "close": "Tap untuk menutup"
+    },
+    "footer": {
+        "description": "Menghasilkan kesopanan yang indah bagi wanita modern yang menghargai keanggunan dan tradisi.",
+        "shop": "Belanja",
+        "support": "Dukungan",
+        "company": "Perusahaan",
+        "rights": "© 2026 DEENHA HIJAB. HAK CIPTA DILINDUNGI.",
+        "follow_us": "Ikuti Kami",
+        "links": {
+            "scarf": "Kerudung",
+            "dress": "Gaun",
+            "bergo": "Bergo",
+            "mukena": "Mukena",
+            "new_arrival": "Terbaru",
+            "contact_us": "Kontak Kami",
+            "shipping_info": "Info Pengiriman",
+            "returns": "Pengembalian",
+            "size_guide": "Panduan Ukuran",
+            "faq": "FAQ",
+            "about_us": "Tentang Kami",
+            "our_story": "Kisah Kami",
+            "journal": "Jurnal"
+        }
+    },
+    "cart": {
+        "title": "Keranjang Belanja",
+        "empty": "Keranjang Anda kosong",
+        "continue_shopping": "Lanjutkan Belanja",
+        "total": "Total",
+        "checkout_wa": "Bayar via WhatsApp",
+        "qty": "Jml",
+        "error": "Maaf, terjadi kesalahan saat memproses pesanan Anda. Silakan coba lagi."
+    },
     "whatsapp": {
         "greeting": "Halo Deenha! Saya tertarik dengan produk Anda.",
         "order_prefix": "Halo Deenha! Saya ingin memesan:",
@@ -130,14 +176,6 @@
         "discount": "🎁 Gunakan DEENHA10 untuk diskon 10%",
         "new_collection": "✨ Temukan Koleksi Signature Terbaru",
         "live_tiktok": "🔴 LIVE DI TIKTOK! GABUNG SEKARANG"
-    },
-    "ramadan_popup": {
-        "label": "Ramadan 1447 H",
-        "title": "Selamat Datang",
-        "title_highlight": "Ramadhan",
-        "description": "Sambut bulan suci dengan koleksi terbaru dari DEENHA.",
-        "cta": "Lihat Koleksi Ramadan",
-        "close": "Tap untuk menutup"
     },
     "language": {
         "select": "Pilih Bahasa",

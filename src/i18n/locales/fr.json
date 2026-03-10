@@ -36,16 +36,16 @@
     "collections": {
         "hampers_title": "Spécial Pré-Raya",
         "hampers_name": "Coffrets de Luxe",
-        "hampers_desc": "Le cadeau de gratitude parfait. Nos coffrets Raya sont élégamment emballés avec notre touche signature.",
+        "hampers_desc": "Le cadeau de gratitude parfait. Nos coffrets Raya sont élégamment emballés avec notre touche signature, ce qui en fait la meilleure façon de partager le bonheur.",
         "scarves_title": "Exclusivité Raya",
         "scarves_name": "Écharpes Signature",
-        "scarves_desc": "Découvrez les séries Monogram et Crystal les plus appréciées. Conçues en voal premium.",
+        "scarves_desc": "Découvrez les séries Monogram et Crystal les plus appréciées. Fabriquées en voal de qualité supérieure pour une élégance sans effort lors de vos célébrations de la Raya.",
         "new_title": "Nouvelle Saison",
         "new_name": "Catalogue Pré-Raya",
-        "new_desc": "Des silhouettes intemporelles aux vêtements modestes modernes.",
+        "new_desc": "Des silhouettes intemporelles aux vêtements modestes modernes, explorez nos dernières sorties conçues spécifiquement pour la saison sainte à venir.",
         "pray_title": "Série Spirituelle",
         "pray_name": "Essentiels de Prière",
-        "pray_desc": "Vivez la sérénité dans chaque prière avec nos ensembles de prière premium."
+        "pray_desc": "Vivez la sérénité dans chaque prière avec nos ensembles de prière haut de gamme, dotés de dentelle délicate et de matériaux respirants pour un confort ultime."
     },
     "shop": {
         "title": "Toute Notre Collection",
@@ -74,7 +74,7 @@
         "loading": "Recherche d'Excellence...",
         "not_found": "Produit Non Trouvé",
         "back_to_home": "Retour à l'Accueil",
-        "explore_detail": "Survolez untuk melihat detail",
+        "explore_detail": "Survolez pour explorer les détails",
         "select_size": "Choisir la Taille",
         "quantity": "Quantité",
         "inventory": "STATUT DU STOCK",
@@ -95,8 +95,8 @@
             "details": "Détails & Entretien",
             "shipping": "Livraison & Retours"
         },
-        "default_description": "Cette série premium est conçue pour la femme moderne. Alliant modestie traditionnelle et style global.",
-        "default_shipping": "Deenha assure une livraison dans le monde entier. Retours acceptés sous 7 jours."
+        "default_description": "Cette série premium est conçue pour la femme moderne. Alliant modestie traditionnelle et style global, elle présente un savoir-faire exceptionnel et des matériaux de la plus haute qualité.",
+        "default_shipping": "Deenha assure une livraison dans le monde entier. Les retours sont acceptés dans les 7 jours suivant la réception dans l'état d'origine."
     },
     "brand_story": {
         "identity_label": "Notre Identité",
@@ -104,18 +104,64 @@
         "narrative_label": "Le Récit",
         "heading_1": "L'Élégance dans Chaque",
         "heading_2": "Fil",
-        "p1": "Deenha Hijab propose une collection époustouflante qui incarne l'élégance et la sophistication.",
-        "p2": "Nos écharpes sont disponibles dans une variété de motifs exquis.",
-        "p3": "Deenha Hijab vous apporte grâce et polyvalence.",
+        "p1": "Deenha Hijab propose une collection époustouflante qui incarne l'élégance et la sophistication. Fabriquée avec le plus grand soin, chaque pièce est conçue avec des matériaux doux et vibrants.",
+        "p2": "Nos écharpes sont disponibles dans une variété de motifs exquis. Deenha présente également une gamme magnifiquement organisée d'ensembles de prière et de robes.",
+        "p3": "Que vous cherchiez à rehausser votre tenue quotidienne ou à vous préparer pour un événement spécial, Deenha Hijab vous apporte un monde de polyvalence et de grâce.",
         "team_sign": "— L'ÉQUIPE DEENHA",
         "core_philosophy": "Philosophie Fondamentale",
         "our_ethos": "Notre Éthique",
         "ethos_1_title": "Renforcer la Confiance",
-        "ethos_1_desc": "Deenha est conçu pour élever la confiance de chaque femme.",
+        "ethos_1_desc": "Deenha est conçu pour élever la confiance de chaque femme. Avec ses designs élégants et ses textures douces, Deenha vous fait vous sentir gracieuse et posée.",
         "ethos_2_title": "Inspiration Mondiale",
-        "ethos_2_desc": "Deenha s'inspire du patrimoine mondial, mêlant des designs intemporels.",
+        "ethos_2_desc": "Deenha s'inspire du patrimoine mondial, mêlant des designs intemporels à la richesse culturelle du monde entier.",
         "ethos_3_title": "Notre Mission",
-        "ethos_3_desc": "Notre mission est de créer des vêtements de haute qualité."
+        "ethos_3_desc": "Notre mission est de créer des vêtements de haute qualité pour les femmes musulmanes, alliant élégance et confort."
+    },
+    "journal": {
+        "title": "Journal DEENHA",
+        "subtitle": "Histoires de l'Atelier",
+        "description": "Un espace éditorial dédié à l'art de vivre modeste. Découvrez l'essence de Deenha.",
+        "read_full": "Lire l'histoire complète"
+    },
+    "ramadan_popup": {
+        "label": "Ramadan 1447 H",
+        "title": "Bienvenue",
+        "title_highlight": "Ramadhan",
+        "description": "Accueillez le mois sacré avec la dernière collection de DEENHA. Soyez gracieuse et modeste avec une touche élégante qui rayonne de beauté.",
+        "cta": "Voir la Collection Ramadan",
+        "close": "Appuyez pour fermer"
+    },
+    "footer": {
+        "description": "Créer une modestie exquise pour la femme moderne qui valorise l'élégance et la tradition.",
+        "shop": "Boutique",
+        "support": "Support",
+        "company": "Entreprise",
+        "rights": "© 2026 DEENHA HIJAB. TOUS DROITS RÉSERVÉS.",
+        "follow_us": "Suivez-nous",
+        "links": {
+            "scarf": "Écharpe",
+            "dress": "Robe",
+            "bergo": "Bergo",
+            "mukena": "Ensemble de prière",
+            "new_arrival": "Nouveautés",
+            "contact_us": "Contactez-nous",
+            "shipping_info": "Infos Livraison",
+            "returns": "Retours",
+            "size_guide": "Guide des tailles",
+            "faq": "FAQ",
+            "about_us": "À propos",
+            "our_story": "Notre histoire",
+            "journal": "Journal"
+        }
+    },
+    "cart": {
+        "title": "Panier",
+        "empty": "Votre panier est vide",
+        "continue_shopping": "Continuer les achats",
+        "total": "Total",
+        "checkout_wa": "Payer via WhatsApp",
+        "qty": "Qté",
+        "error": "Désolé, une erreur est survenue lors de la commande. Veuillez réessayer."
     },
     "whatsapp": {
         "greeting": "Bonjour Deenha ! Je suis intéressée par vos produits.",
@@ -127,49 +173,9 @@
     "announcement": {
         "shipping": "🌍 Livraison Internationale Disponible",
         "free_shipping": "✨ Livraison Gratuite au-delà de 500k IDR",
-        "discount": "🎁 Utilisez DEENHA10 untuk diskon 10%",
+        "discount": "🎁 Utilisez DEENHA10 pour 10% de réduction",
         "new_collection": "✨ Découvrez la Nouvelle Collection Signature",
-        "live_tiktok": "🔴 EN DIRECT SUR TIKTOK !"
-    },
-    "ramadan_popup": {
-        "label": "Ramadan 1447 H",
-        "title": "Bienvenue",
-        "title_highlight": "Ramadhan",
-        "description": "Accueillez le mois sacré avec la dernière collection de DEENHA.",
-        "cta": "Voir la Collection Ramadan",
-        "close": "Appuyez pour fermer"
-    },
-    "footer": {
-        "description": "Créer une modestie exquise pour la femme moderne.",
-        "shop": "Boutique",
-        "support": "Support",
-        "company": "Entreprise",
-        "rights": "© 2026 DEENHA HIJAB. TOUS DROITS RÉSERVÉS.",
-        "follow_us": "Suivez-nous",
-        "links": {
-            "scarf": "Écharpe",
-            "dress": "Robe",
-            "bergo": "Bergo",
-            "mukena": "Set de prière",
-            "new_arrival": "Nouveautés",
-            "contact_us": "Contact",
-            "shipping_info": "Livraison",
-            "returns": "Retours",
-            "size_guide": "Guide Tailles",
-            "faq": "FAQ",
-            "about_us": "À propos",
-            "our_story": "Histoire",
-            "journal": "Journal"
-        }
-    },
-    "cart": {
-        "title": "Panier",
-        "empty": "Votre panier est vide",
-        "continue_shopping": "Continuer les achats",
-        "total": "Total",
-        "checkout_wa": "WhatsApp Checkout",
-        "qty": "Qté",
-        "error": "Erreur lors de la commande."
+        "live_tiktok": "🔴 EN DIRECT SUR TIKTOK ! REJOIGNEZ-NOUS"
     },
     "language": {
         "select": "Sélectionner la langue",
