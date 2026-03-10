@@ -81,7 +81,6 @@ function App() {
                                 <MobileMenu isOpen={mobileMenuOpen} onClose={() => setMobileMenuOpen(false)} />
 
                                 <Routes>
-                                    {/* Landing Page Route */}
                                     <Route path="/" element={
                                         <>
                                             <SEOHead
@@ -98,39 +97,20 @@ function App() {
                                         </>
                                     } />
 
-                                    {/* Shop Page Route */}
                                     <Route path="/shop" element={<ShopPage />} />
-
-                                    {/* Ramadan Collection Route */}
                                     <Route path="/ramadan" element={<RamadanPage />} />
-
-                                    {/* About Page Route */}
                                     <Route path="/about" element={<AboutPage />} />
-
-                                    {/* FAQ Page Route */}
                                     <Route path="/faq" element={<FAQPage />} />
-
-                                    {/* Journal Page Route */}
                                     <Route path="/journal" element={<JournalPage />} />
                                     <Route path="/journal/:slug" element={<JournalDetailsPage />} />
-
-                                    {/* Product Details Route */}
                                     <Route path="/product/:id" element={<ProductDetailsPage />} />
-
-                                    {/* Wishlist Route */}
                                     <Route path="/wishlist" element={<WishlistPage />} />
-
-                                    {/* Auth Routes */}
                                     <Route path="/login" element={<LoginPage />} />
-
-                                    {/* Admin Routes - Protected */}
                                     <Route path="/admin" element={
                                         <ProtectedRoute allowedRoles={['admin', 'employee']}>
                                             <AdminDashboard />
                                         </ProtectedRoute>
                                     } />
-
-                                    {/* Catch-all 404 Route */}
                                     <Route path="*" element={<NotFoundPage />} />
                                 </Routes>
 

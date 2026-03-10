@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
 import { useSiteSettings } from '../../hooks/useSiteSettings';
+import { useTranslation } from 'react-i18next';
 
 interface Slide {
     type: 'video' | 'image';
@@ -49,6 +50,7 @@ const DEFAULT_SLIDES: Slide[] = [
 ];
 
 const VideoSlide = ({ src, onLoaded, isMuted }: { src: string; onLoaded: () => void; isMuted: boolean }) => {
+    const { t } = useTranslation();
     const [progress, setProgress] = useState(0);
     const [videoUrl, setVideoUrl] = useState<string | null>(null);
     const [isLoading, setIsLoading] = useState(true);
@@ -127,7 +129,7 @@ const VideoSlide = ({ src, onLoaded, isMuted }: { src: string; onLoaded: () => v
                         <span className="text-[10px] font-bold text-white">{progress}%</span>
                     </div>
                 </div>
-                <span className="text-[9px] uppercase font-bold tracking-[0.3em] text-white/40">Buffering Atelier</span>
+                <span className="text-[9px] uppercase font-bold tracking-[0.3em] text-white/40">{t('hero.preparing')}</span>
             </div>
         );
     }
@@ -145,6 +147,7 @@ const VideoSlide = ({ src, onLoaded, isMuted }: { src: string; onLoaded: () => v
 };
 
 const Hero = () => {
+    const { t } = useTranslation();
     const { settings, loading: settingsLoading } = useSiteSettings();
     const slides = settings.hero_slides || DEFAULT_SLIDES;
     const [currentSlide, setCurrentSlide] = useState(0);
@@ -269,7 +272,7 @@ const Hero = () => {
                             whileHover={{ y: -5, scale: 1.02 }}
                             whileTap={{ scale: 0.98 }}
                         >
-                            Shop Collection
+                            {t('hero.view_collection')}
                         </motion.a>
                         <motion.a
                             href="/about"
@@ -277,7 +280,7 @@ const Hero = () => {
                             whileHover={{ y: -5, scale: 1.02 }}
                             whileTap={{ scale: 0.98 }}
                         >
-                            Our Story
+                            {t('hero.about_us')}
                         </motion.a>
                     </div>
 
@@ -316,7 +319,7 @@ const Hero = () => {
                     transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
                 >
                     <div className="w-[1px] h-12 bg-gradient-to-b from-accent-gold to-transparent" />
-                    <span className="text-[10px] uppercase font-bold tracking-[0.5em] -rotate-90 origin-center translate-y-8">Scroll</span>
+                    <span className="text-[10px] uppercase font-bold tracking-[0.5em] -rotate-90 origin-center translate-y-8">{t('hero.scroll')}</span>
                 </motion.div>
             </motion.div>
 
@@ -328,7 +331,7 @@ const Hero = () => {
                     transition={{ delay: 1 }}
                     onClick={toggleMute}
                     className="absolute top-32 right-6 z-20 w-12 h-12 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center hover:bg-white/20 transition-all duration-300 group"
-                    title={isMuted ? "Unmute" : "Mute"}
+                    title={isMuted ? t('hero.unmute') : t('hero.mute')}
                 >
                     {isMuted ? (
                         <svg className="w-5 h-5 text-white group-hover:text-accent-gold transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -354,12 +357,12 @@ const Hero = () => {
                     {slides[currentSlide].type === 'video' ? (
                         <>
                             <span className="w-2 h-2 bg-red-500 rounded-full animate-pulse" />
-                            Now Playing
+                            {t('hero.playing')}
                         </>
                     ) : (
                         <>
                             <span className="w-2 h-2 bg-accent-gold rounded-full" />
-                            Lookbook
+                            {t('hero.catalog')}
                         </>
                     )}
                 </span>
@@ -380,5 +383,6 @@ const Hero = () => {
         </section>
     );
 };
+
 
 export default Hero;

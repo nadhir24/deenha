@@ -5,6 +5,8 @@ import ProductManager from '../components/admin/ProductManager';
 import InstagramManager from '../components/admin/InstagramManager';
 import OrderManager from '../components/admin/OrderManager';
 import SiteEditor from '../components/admin/SiteEditor';
+import JournalManager from '../components/admin/JournalManager';
+import FAQManager from '../components/admin/FAQManager';
 import { motion } from 'framer-motion';
 
 const AdminDashboard = () => {
@@ -63,7 +65,7 @@ const AdminDashboard = () => {
                         </div>
 
                         <nav className="bg-white p-4 shadow-sm border border-black/5 flex flex-col space-y-2">
-                            {['Products', 'Site Editor', 'Instagram', 'Orders'].map((item) => (
+                            {['Products', 'Site Editor', 'Journal', 'FAQ', 'Instagram', 'Orders'].map((item) => (
                                 <button
                                     key={item}
                                     onClick={() => setActiveTab(item)}
@@ -84,9 +86,11 @@ const AdminDashboard = () => {
                             animate={{ opacity: 1, y: 0 }}
                             className="bg-white shadow-xl border border-black/5 overflow-hidden"
                         >
-                            <div className="p-0">
+                            <div className="p-8">
                                 {activeTab === 'Products' && <ProductManager />}
                                 {activeTab === 'Site Editor' && <SiteEditor />}
+                                {activeTab === 'Journal' && <JournalManager />}
+                                {activeTab === 'FAQ' && <FAQManager />}
                                 {activeTab === 'Instagram' && <InstagramManager />}
                                 {activeTab === 'Orders' && <OrderManager />}
                             </div>

@@ -1,21 +1,23 @@
 import { motion } from 'framer-motion';
 import { useSiteSettings } from '../../hooks/useSiteSettings';
 import { useTikTokLive } from '../../hooks/useTikTokLive';
+import { useTranslation } from 'react-i18next';
 
 const AnnouncementBar = () => {
+    const { t } = useTranslation();
     const { settings, loading: settingsLoading } = useSiteSettings();
     const { isLive } = useTikTokLive();
 
     const baseAnnouncements = settings.announcements || [
-        "🌍 International Shipping Available",
-        "✨ Complimentary Shipping on Orders over Rp 500.000",
-        "🎁 Use DEENHA10 for 10% off your first purchase",
-        "✨ Discover the New Signature Collection"
+        t('announcement.shipping'),
+        t('announcement.free_shipping'),
+        t('announcement.discount'),
+        t('announcement.new_collection')
     ];
 
     // Prepend Live message if active
     const announcements = isLive
-        ? ["🔴 LIVE ON TIKTOK! JOIN NOW FOR EXCLUSIVE DEALS", ...baseAnnouncements]
+        ? [t('announcement.live_tiktok'), ...baseAnnouncements]
         : baseAnnouncements;
 
     if (settingsLoading && !settings.announcements) return <div className="h-[36px] bg-primary" />;
@@ -33,8 +35,8 @@ const AnnouncementBar = () => {
                     }}
                 >
                     {[...announcements, ...announcements].map((text, i) => (
-                        <span key={i} className={`mx-12 text-[9px] uppercase font-bold tracking-[0.3em] flex items-center gap-2 ${text.includes('LIVE') ? 'text-white' : ''}`}>
-                            {text.includes('LIVE') && <span className="w-1.5 h-1.5 bg-white rounded-full animate-pulse" />}
+                        <span key={i} className={`mx-12 text-[9px] uppercase font-bold tracking-[0.3em] flex items-center gap-2 ${text.includes('LIVE') || text.includes('🔴') ? 'text-white' : ''}`}>
+                            {(text.includes('LIVE') || text.includes('🔴')) && <span className="w-1.5 h-1.5 bg-white rounded-full animate-pulse" />}
                             {text}
                         </span>
                     ))}
@@ -45,3 +47,5 @@ const AnnouncementBar = () => {
 };
 
 export default AnnouncementBar;
+
+

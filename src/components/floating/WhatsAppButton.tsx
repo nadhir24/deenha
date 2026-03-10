@@ -1,9 +1,12 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 
 import { useCart } from '../../context/CartContext';
+import { formatPrice } from '../../lib/currency';
 
 const WhatsAppButton = () => {
+    const { t } = useTranslation();
     const [showTooltip, setShowTooltip] = useState(false);
     const { cartItems, cartTotal } = useCart();
 
@@ -11,15 +14,15 @@ const WhatsAppButton = () => {
 
     const generateMessage = () => {
         if (cartItems.length === 0) {
-            return encodeURIComponent('Halo Deenha! Saya tertarik dengan produk Anda.');
+            return encodeURIComponent(t('whatsapp.greeting'));
         }
 
-        let message = 'Halo Deenha! Saya ingin memesan:\n\n';
+        let message = `${t('whatsapp.order_prefix')}\n\n`;
         cartItems.forEach(item => {
             message += `- ${item.name} (${item.selectedSize}, ${item.selectedColor}) x${item.quantity}\n`;
         });
 
-        message += `\nTotal: Rp ${cartTotal.toLocaleString('id-ID')}`;
+        message += `\n${t('whatsapp.total')}: ${formatPrice(cartTotal)}`;
         return encodeURIComponent(message);
     };
 
@@ -35,7 +38,7 @@ const WhatsAppButton = () => {
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         exit={{ opacity: 0, y: 10, scale: 0.9 }}
                     >
-                        {cartItems.length > 0 ? 'Checkout via WhatsApp' : 'Chat with us! 💬'}
+                        {cartItems.length > 0 ? t('cart.checkout_wa') : t('benefits.premium_service_desc')}
                         <div className="absolute bottom-0 right-6 translate-y-1/2 rotate-45 w-3 h-3 bg-white" />
                     </motion.div>
                 )}

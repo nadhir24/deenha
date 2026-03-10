@@ -2,8 +2,11 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useCart } from '../../context/CartContext';
 import { supabase } from '../../lib/supabase';
+import { useTranslation } from 'react-i18next';
+import { formatPrice } from '../../lib/currency';
 
 const CartDrawer = () => {
+    const { t } = useTranslation();
     const { cartItems, removeFromCart, cartTotal, isCartOpen, setIsCartOpen, clearCart } = useCart();
     const [isCheckingOut, setIsCheckingOut] = useState(false);
 
@@ -40,16 +43,16 @@ const CartDrawer = () => {
             if (orderError) throw orderError;
 
             // 2. Prepare WhatsApp message
-            let message = `Halo Deenha! Saya ingin memesan:\n\n`;
-            message += `*Order ID: ${orderNumber}*\n`;
+            let message = `${t('whatsapp.order_prefix')}\n\n`;
+            message += `*${t('whatsapp.order_id')}: ${orderNumber}*\n`;
             message += `-------------------\n`;
 
             cartItems.forEach(item => {
                 message += `- ${item.name} (${item.selectedSize}, ${item.selectedColor}) x${item.quantity}\n`;
             });
 
-            message += `\n*Total: Rp ${cartTotal.toLocaleString('id-ID')}*\n\n`;
-            message += `Mohon instruksi selanjutnya untuk pembayaran. Terima kasih!`;
+            message += `\n*${t('whatsapp.total')}: ${formatPrice(cartTotal)}*\n\n`;
+            message += t('whatsapp.instructions');
 
             const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
 
@@ -59,7 +62,7 @@ const CartDrawer = () => {
             window.open(whatsappUrl, '_blank');
         } catch (err) {
             console.error('Checkout error:', err);
-            alert('Maaf, terjadi kesalahan saat memproses pesanan. Silakan coba lagi.');
+            alert(t('cart.error'));
         } finally {
             setIsCheckingOut(false);
         }
@@ -88,7 +91,7 @@ const CartDrawer = () => {
                     >
                         {/* Header */}
                         <div className="p-4 border-b border-border flex items-center justify-between">
-                            <h2 className="font-display text-xl font-semibold">Shopping Cart ({cartItems.length})</h2>
+                            <h2 className="font-display text-xl font-semibold">Keranjang Belanja ({cartItems.length})</h2>
                             <button
                                 onClick={() => setIsCartOpen(false)}
                                 className="p-2 hover:bg-surface-secondary rounded-full transition-colors"
@@ -106,12 +109,12 @@ const CartDrawer = () => {
                                     <svg className="w-16 h-16 mb-4 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
                                     </svg>
-                                    <p>Your cart is empty</p>
+                                    <p>Keranjang Anda kosong</p>
                                     <button
                                         onClick={() => setIsCartOpen(false)}
                                         className="mt-4 text-accent-gold font-medium hover:underline"
                                     >
-                                        Continue Shopping
+                                        Lanjutkan Belanja
                                     </button>
                                 </div>
                             ) : (
@@ -136,9 +139,9 @@ const CartDrawer = () => {
                                                 {item.selectedSize} | {item.selectedColor}
                                             </p>
                                             <div className="mt-auto flex justify-between items-center">
-                                                <span className="text-sm text-secondary">Qty: {item.quantity}</span>
-                                                <span className="font-medium">
-                                                    {new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', minimumFractionDigits: 0 }).format(item.price * item.quantity)}
+                                                <span className="text-sm text-secondary">Jumlah: {item.quantity}</span>
+                                                <span className="font-medium notranslate">
+                                                    {formatPrice(item.price * item.quantity)}
                                                 </span>
                                             </div>
                                         </div>
@@ -152,8 +155,8 @@ const CartDrawer = () => {
                             <div className="p-4 border-t border-border bg-surface-secondary/30">
                                 <div className="flex justify-between items-center mb-4">
                                     <span className="text-secondary">Total</span>
-                                    <span className="text-xl font-semibold">
-                                        {new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', minimumFractionDigits: 0 }).format(cartTotal)}
+                                    <span className="text-xl font-semibold notranslate">
+                                        {formatPrice(cartTotal)}
                                     </span>
                                 </div>
                                 <button

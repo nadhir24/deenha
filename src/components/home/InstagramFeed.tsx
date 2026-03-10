@@ -1,8 +1,10 @@
 import { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { useInstagram } from '../../hooks/useInstagram';
+import { useTranslation } from 'react-i18next';
 
 const InstagramFeed = () => {
+    const { t } = useTranslation();
     const { posts, loading } = useInstagram();
 
     return (
@@ -10,10 +12,10 @@ const InstagramFeed = () => {
             <div className="max-w-[1440px] mx-auto px-6 lg:px-12">
                 <div className="flex flex-col items-center text-center mb-16">
                     <span className="text-accent-gold text-[11px] uppercase font-bold tracking-[0.5em] mb-4 block">
-                        Our Atmosphere
+                        Suasana Kami
                     </span>
                     <h2 className="font-display text-4xl md:text-6xl italic font-normal tracking-tight mb-6">
-                        The Atelier Journal
+                        Jurnal Atelier
                     </h2>
                     <a
                         href="https://www.instagram.com/deenha.official/"

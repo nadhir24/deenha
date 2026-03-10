@@ -1,0 +1,71 @@
+{
+    "nav": {
+        "home": "Accueil",
+        "shop": "Boutique",
+        "journal": "Journal",
+        "about": "À Propos",
+        "contact": "Contact",
+        "search_placeholder": "Trouvez le produit de vos rêves...",
+        "search_results": "Résultats de la recherche"
+    },
+    "home": {
+        "atmosphere": "Notre Atmosphère",
+        "journal_title": "Le Journal de l'Atelier",
+        "view_all": "Voir Tout"
+    },
+    "shop": {
+        "title": "Toute Notre Collection",
+        "subtitle": "Explorez Tous les Produits",
+        "filter": "Filtrer les Produits",
+        "reset": "Réinitialiser",
+        "categories": "Catégories",
+        "sizes": "Tailles",
+        "colors": "Couleurs",
+        "price": "Prix",
+        "showing": "Affichage de {{count}} produits",
+        "no_products": "Aucun produit trouvé",
+        "adjust_filters": "Essayez d'ajuster vos filtres",
+        "clear_all": "Effacer tous les filtres",
+        "sort": {
+            "label": "Trier par",
+            "newest": "Nouveautés",
+            "price_low": "Prix : Croissant",
+            "price_high": "Prix : Décroissant",
+            "bestseller": "Meilleures Ventes"
+        }
+    },
+    "product": {
+        "shop_now": "ACHETER MAINTENANT",
+        "quick_discovery": "APERÇU RAPIDE",
+        "loading": "Recherche d'Excellence...",
+        "not_found": "Produit Non Trouvé",
+        "back_to_home": "Retour à l'Accueil",
+        "explore_detail": "Survolez untuk melihat detail",
+        "select_size": "Choisir la Taille",
+        "quantity": "Quantité",
+        "inventory": "STATUT DU STOCK",
+        "only_left": "PLUS QUE {{count}} PIÈCES",
+        "available": "DISPONIBLE À L'ATELIER",
+        "unavailable": "ACTUELLEMENT INDISPONIBLE",
+        "sold_out": "Épuisé",
+        "add_to_cart": "AJOUTER À LA COLLECTION",
+        "badge": {
+            "new": "NOUVEAU",
+            "bestseller": "INDISPENSABLE",
+            "sale": "OFFRE"
+        }
+    },
+    "announcement": {
+        "shipping": "🌍 Livraison Internationale Disponible",
+        "free_shipping": "✨ Livraison Gratuite au-delà de 500k IDR",
+        "discount": "🎁 Utilisez DEENHA10 untuk diskon 10%",
+        "new_collection": "✨ Découvrez la Nouvelle Collection Signature"
+    },
+    "language": {
+        "select": "sélectionner la langue",
+        "id": "INDONESIAN",
+        "en": "ENGLISH",
+        "fr": "FRANCAIS",
+        "zh": "中文"
+    }
+}

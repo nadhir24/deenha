@@ -1,5 +1,6 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import LanguageSelector from './LanguageSelector';
 
 interface MobileMenuProps {
     isOpen: boolean;
@@ -8,11 +9,11 @@ interface MobileMenuProps {
 
 const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
     const menuItems = [
-        { name: 'Home', href: '/' },
-        { name: 'The Atelier', href: '/shop' },
-        { name: 'Journal', href: '/journal' },
-        { name: 'About', href: '/about' },
-        { name: 'Contact', href: '/contact' }
+        { name: 'Beranda', href: '/' },
+        { name: 'Koleksi', href: '/shop' },
+        { name: 'Jurnal', href: '/journal' },
+        { name: 'Tentang Kami', href: '/about' },
+        { name: 'Kontak', href: '/contact' }
     ];
 
     const menuVariants = {
@@ -94,8 +95,13 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                         </nav>
 
                         {/* Footer */}
-                        <div className="px-12 pb-12 space-y-6">
-                            <div className="flex flex-wrap gap-x-8 gap-y-4">
+                        <div className="px-12 pb-12 space-y-8">
+                            <div className="space-y-4">
+                                <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-secondary/60">Pilih Bahasa</span>
+                                <LanguageSelector isMobileMenu />
+                            </div>
+
+                            <div className="flex flex-wrap gap-x-8 gap-y-4 pt-4 border-t border-black/5">
                                 <a
                                     href="https://www.instagram.com/deenha.official/"
                                     target="_blank"
@@ -122,7 +128,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                                 </a>
                             </div>
                             <p className="text-[9px] uppercase tracking-[0.2em] text-secondary opacity-50">
-                                © 2026 DEENHA HIJAB. ALL RIGHTS RESERVED.
+                                © 2026 DEENHA HIJAB. HAK CIPTA DILINDUNGI.
                             </p>
                         </div>
                     </motion.div>

@@ -1,0 +1,71 @@
+{
+    "nav": {
+        "home": "Beranda",
+        "shop": "Koleksi",
+        "journal": "Jurnal",
+        "about": "Tentang Kami",
+        "contact": "Kontak",
+        "search_placeholder": "Cari produk impian Anda...",
+        "search_results": "Hasil Pencarian"
+    },
+    "home": {
+        "atmosphere": "Suasana Kami",
+        "journal_title": "Jurnal Atelier",
+        "view_all": "Lihat Semua"
+    },
+    "shop": {
+        "title": "Seluruh Koleksi Kami",
+        "subtitle": "Jelajahi Semua Produk",
+        "filter": "Filter Produk",
+        "reset": "Atur Ulang",
+        "categories": "Kategori",
+        "sizes": "Ukuran",
+        "colors": "Warna",
+        "price": "Harga",
+        "showing": "Menampilkan {{count}} produk",
+        "no_products": "Produk tidak ditemukan",
+        "adjust_filters": "Coba sesuaikan filter Anda",
+        "clear_all": "Hapus semua filter",
+        "sort": {
+            "label": "Urutkan",
+            "newest": "Terbaru",
+            "price_low": "Harga: Rendah ke Tinggi",
+            "price_high": "Harga: Tinggi ke Rendah",
+            "bestseller": "Terlaris"
+        }
+    },
+    "product": {
+        "shop_now": "BELI SEKARANG",
+        "quick_discovery": "LIHAT DETAIL",
+        "loading": "Mencari Keunggulan...",
+        "not_found": "Produk Tidak Ditemukan",
+        "back_to_home": "Kembali ke Beranda",
+        "explore_detail": "Arahkan untuk Jelajahi Detail",
+        "select_size": "Pilih Ukuran",
+        "quantity": "Jumlah",
+        "inventory": "STATUS INVENTARIS",
+        "only_left": "HANYA TERSISA {{count}} PCS",
+        "available": "TERSEDIA DI ATELIER",
+        "unavailable": "SAAT INI TIDAK TERSEDIA",
+        "sold_out": "Stok Habis",
+        "add_to_cart": "TAMBAHKAN KE KOLEKSI",
+        "badge": {
+            "new": "BARU",
+            "bestseller": "TERLARIS",
+            "sale": "PROMO"
+        }
+    },
+    "announcement": {
+        "shipping": "🌍 Pengiriman Internasional Tersedia",
+        "free_shipping": "✨ Gratis Ongkir untuk Pesanan di atas Rp 500.000",
+        "discount": "🎁 Gunakan DEENHA10 untuk diskon 10%",
+        "new_collection": "✨ Temukan Koleksi Signature Terbaru"
+    },
+    "language": {
+        "select": "Pilih Bahasa",
+        "id": "INDONESIA",
+        "en": "INGGRIS",
+        "fr": "PERANCIS",
+        "zh": "MANDARIN"
+    }
+}

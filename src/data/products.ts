@@ -1,10 +1,18 @@
 export interface Product {
     id: number;
     name: string;
+    name_en?: string;
+    name_id?: string;
+    name_fr?: string;
+    name_zh?: string;
     price: number;
     originalPrice?: number;
     image: string;
     category: 'Scarves' | 'Dresses' | 'Bergo' | 'Pray Set' | 'Hampers';
+    category_en?: string;
+    category_id?: string;
+    category_fr?: string;
+    category_zh?: string;
     size: string[];
     color: string;
     colorHex: string;
@@ -12,6 +20,10 @@ export interface Product {
     soldCount?: number;
     stock?: number;
     description?: string;
+    description_en?: string;
+    description_id?: string;
+    description_fr?: string;
+    description_zh?: string;
     variants?: {
         name: string;
         color: string;

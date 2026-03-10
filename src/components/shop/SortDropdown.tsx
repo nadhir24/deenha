@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 
 type SortOption = 'newest' | 'price-low' | 'price-high' | 'bestseller';
 
@@ -9,17 +10,18 @@ interface SortDropdownProps {
 }
 
 const SortDropdown = ({ value, onChange }: SortDropdownProps) => {
+    const { t } = useTranslation();
     const [isOpen, setIsOpen] = useState(false);
     const dropdownRef = useRef<HTMLDivElement>(null);
 
     const options: { value: SortOption; label: string }[] = [
-        { value: 'newest', label: 'Newest' },
-        { value: 'price-low', label: 'Price: Low to High' },
-        { value: 'price-high', label: 'Price: High to Low' },
-        { value: 'bestseller', label: 'Best Selling' },
+        { value: 'newest', label: t('shop.sort.newest') },
+        { value: 'price-low', label: t('shop.sort.price_low') },
+        { value: 'price-high', label: t('shop.sort.price_high') },
+        { value: 'bestseller', label: t('shop.sort.bestseller') },
     ];
 
-    const currentLabel = options.find(opt => opt.value === value)?.label || 'Sort';
+    const currentLabel = options.find(opt => opt.value === value)?.label || t('shop.sort.label');
 
     useEffect(() => {
         const handleClickOutside = (event: MouseEvent) => {
@@ -40,7 +42,7 @@ const SortDropdown = ({ value, onChange }: SortDropdownProps) => {
             >
                 <span className="text-sm font-medium">{currentLabel}</span>
                 <motion.svg
-                    className="w-4 h-4"
+                    className="w-4 h-4 text-secondary"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"

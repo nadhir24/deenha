@@ -7,41 +7,88 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>DEENHA | Modest Fashion Elegant & Syar'i</title>
-  <meta name="description"
-    content="DEENHA Hijab - Produk fashion muslimah premium dengan desain eksklusif. Temukan koleksi Scarves, Dresses, Bergo, dan Pray Set yang elegan." />
-  <meta name="keywords"
-    content="deenha, hijab, modest fashion, busana muslim, gamis, scarves, bergo, pray set, fashion syar'i, bandung" />
-  <meta name="author" content="DEENHA" />
-
-  <!-- Open Graph / Facebook -->
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://www.deenha.com/" />
-  <meta property="og:title" content="DEENHA | Modest Fashion Elegant & Syar'i" />
-  <meta property="og:description"
-    content="Produk fashion muslimah premium dengan desain eksklusif dari Bandung. Elegan namun tetap sesuai Syariat." />
-  <meta property="og:image" content="https://www.deenha.com/assets/logo.png" />
-
-  <!-- Twitter -->
-  <meta property="twitter:card" content="summary_large_image" />
-  <meta property="twitter:url" content="https://www.deenha.com/" />
-  <meta property="twitter:title" content="DEENHA | Modest Fashion Elegant & Syar'i" />
-  <meta property="twitter:description"
-    content="Produk fashion muslimah premium dengan desain eksklusif dari Bandung. Elegan namun tetap sesuai Syariat." />
-  <meta property="twitter:image" content="https://www.deenha.com/assets/logo.png" />
-
-  <!-- PWA / Mobile -->
-  <meta name="theme-color" content="#FFFFFF" />
-  <link rel="apple-touch-icon" href="/assets/logo.png" />
-
+  
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* HIDE GOOGLE TRANSLATE UI COMPLETELY */
+    .goog-te-banner-frame.skiptranslate, 
+    .goog-te-gadget-icon, 
+    #goog-gt-tt, 
+    .goog-te-balloon-frame, 
+    .goog-te-menu-value img,
+    .goog-tooltip,
+    .goog-tooltip:hover {
+      display: none !important;
+    }
+    .goog-text-highlight {
+      background-color: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+    body {
+      top: 0 !important;
+    }
+    .skiptranslate iframe {
+      display: none !important;
+    }
+    #google_translate_element {
+      display: none !important;
+    }
+  </style>
 </head>
 
 <body>
   <div id="root"></div>
+  <div id="google_translate_element"></div>
+
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'id',
+        includedLanguages: 'id,en,fr,zh-CN',
+        autoDisplay: false
+      }, 'google_translate_element');
+    }
+
+    // Fungsi jembatan yang lebih kuat
+    window.triggerTranslate = function(langCode) {
+      var select = document.querySelector('.goog-te-combo');
+      var domain = window.location.hostname;
+      
+      if (langCode === 'id') {
+        // Balik ke Indo: Hapus cookie & reset select
+        document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+        document.cookie = "googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=" + domain;
+        if (select) {
+          select.value = 'id';
+          select.dispatchEvent(new Event('change'));
+        }
+        setTimeout(function() { window.location.reload(); }, 100); // Reload cepat untuk reset total
+        return;
+      }
+
+      // Set cookie agar persisten
+      document.cookie = "googtrans=/id/" + langCode + "; path=/;";
+      document.cookie = "googtrans=/id/" + langCode + "; path=/; domain=" + domain;
+
+      if (select) {
+        select.value = langCode;
+        select.dispatchEvent(new Event('change'));
+      } else {
+        setTimeout(function() {
+          var selectRetry = document.querySelector('.goog-te-combo');
+          if (selectRetry) {
+            selectRetry.value = langCode;
+            selectRetry.dispatchEvent(new Event('change'));
+          }
+        }, 500);
+      }
+    }
+  </script>
+  <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
   <script type="module" src="/src/main.tsx"></script>
 </body>
 

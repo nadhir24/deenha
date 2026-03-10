@@ -3,6 +3,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Product } from '../../data/products';
 import { useCart } from '../../context/CartContext';
+import { useTranslation } from 'react-i18next';
+import { formatPrice } from '../../lib/currency';
 
 interface QuickViewModalProps {
     product: Product | null;
@@ -11,6 +13,7 @@ interface QuickViewModalProps {
 }
 
 const QuickViewModal = ({ product, isOpen, onClose }: QuickViewModalProps) => {
+    const { t, i18n } = useTranslation();
     const { addToCart } = useCart();
     const [selectedSize, setSelectedSize] = useState<string>('');
 
@@ -23,22 +26,21 @@ const QuickViewModal = ({ product, isOpen, onClose }: QuickViewModalProps) => {
 
     if (!product) return null;
 
-    const formatPrice = (price: number) => {
-        return new Intl.NumberFormat('id-ID', {
-            style: 'currency',
-            currency: 'IDR',
-            minimumFractionDigits: 0,
-        }).format(price);
-    };
-
     const handleAddToCart = () => {
         if (!selectedSize && product.size.length > 0) {
-            alert('Please select a size');
+            alert(t('product.select_size'));
             return;
         }
         addToCart(product, selectedSize, product.color);
         onClose();
     };
+
+    // Get localized product name
+    const lang = i18n.language;
+    const displayName = lang === 'fr' ? product.name_fr || product.name :
+        lang === 'zh' ? product.name_zh || product.name :
+            lang === 'en' ? product.name_en || product.name :
+                product.name_id || product.name;
 
     return (
         <AnimatePresence>
@@ -73,10 +75,10 @@ const QuickViewModal = ({ product, isOpen, onClose }: QuickViewModalProps) => {
                             </button>
 
                             {/* Image Section */}
-                            <div className="w-full md:w-1/2 aspect-[3/4] md:aspect-auto bg-surface-secondary overflow-hidden">
+                            <div className="w-full md:w-1/2 aspect-[3/4] md:aspect-auto bg-surface-secondary overflow-hidden relative">
                                 <motion.img
                                     src={product.image}
-                                    alt={product.name}
+                                    alt={displayName}
                                     className="w-full h-full object-cover"
                                     initial={{ scale: 1.1 }}
                                     animate={{ scale: 1 }}
@@ -84,7 +86,7 @@ const QuickViewModal = ({ product, isOpen, onClose }: QuickViewModalProps) => {
                                 />
                                 {product.badge && (
                                     <div className="absolute top-0 left-0 bg-primary text-white text-[10px] font-bold tracking-[0.2em] px-4 py-2 uppercase">
-                                        {product.badge}
+                                        {t(`product.badge.${product.badge}`)}
                                     </div>
                                 )}
                             </div>
@@ -96,14 +98,14 @@ const QuickViewModal = ({ product, isOpen, onClose }: QuickViewModalProps) => {
                                         {product.category}
                                     </span>
                                     <h2 className="font-display text-3xl md:text-4xl font-normal tracking-tight mb-4 italic">
-                                        {product.name}
+                                        {displayName}
                                     </h2>
                                     <div className="flex items-center gap-4">
-                                        <span className="text-xl font-bold tracking-widest text-primary">
+                                        <span className="text-xl font-bold tracking-widest text-primary notranslate">
                                             {formatPrice(product.price)}
                                         </span>
                                         {product.originalPrice && (
-                                            <span className="text-sm text-secondary line-through opacity-50">
+                                            <span className="text-sm text-secondary line-through opacity-50 notranslate">
                                                 {formatPrice(product.originalPrice)}
                                             </span>
                                         )}
@@ -115,7 +117,7 @@ const QuickViewModal = ({ product, isOpen, onClose }: QuickViewModalProps) => {
                                     {/* Size */}
                                     {product.size.length > 0 && (
                                         <div>
-                                            <span className="text-[10px] uppercase font-bold tracking-[0.3em] mb-3 block text-secondary">Select Size</span>
+                                            <span className="text-[10px] uppercase font-bold tracking-[0.3em] mb-3 block text-secondary">{t('product.select_size')}</span>
                                             <div className="flex flex-wrap gap-2">
                                                 {product.size.map((size) => (
                                                     <button
@@ -135,7 +137,7 @@ const QuickViewModal = ({ product, isOpen, onClose }: QuickViewModalProps) => {
 
                                     {/* Color Indicator */}
                                     <div>
-                                        <span className="text-[10px] uppercase font-bold tracking-[0.3em] mb-3 block text-secondary">Color</span>
+                                        <span className="text-[10px] uppercase font-bold tracking-[0.3em] mb-3 block text-secondary">{t('shop.colors')}</span>
                                         <div className="flex items-center gap-3">
                                             <div className="w-6 h-6 border border-black/10" style={{ backgroundColor: product.colorHex }} />
                                             <span className="text-[10px] uppercase tracking-widest text-primary">{product.color}</span>
@@ -146,12 +148,12 @@ const QuickViewModal = ({ product, isOpen, onClose }: QuickViewModalProps) => {
                                 {/* Actions */}
                                 <div className="space-y-4">
                                     <div className="flex items-center justify-between mb-2">
-                                        <span className="text-[10px] uppercase font-bold tracking-widest text-secondary">Availability</span>
+                                        <span className="text-[10px] uppercase font-bold tracking-widest text-secondary">{t('product.inventory')}</span>
                                         <span className={`text-[10px] font-bold tracking-widest ${(product.stock || 0) > 0 ? 'text-green-600' : 'text-red-500'
                                             }`}>
                                             {(product.stock || 0) > 0
-                                                ? (product.stock! <= 5 ? `ONLY ${product.stock} LEFT` : 'IN STOCK')
-                                                : 'OUT OF STOCK'}
+                                                ? (product.stock! <= 5 ? t('product.only_left', { count: product.stock }) : t('product.available'))
+                                                : t('product.sold_out')}
                                         </span>
                                     </div>
                                     <motion.button
@@ -163,20 +165,20 @@ const QuickViewModal = ({ product, isOpen, onClose }: QuickViewModalProps) => {
                                             }`}
                                         whileTap={(product.stock || 0) > 0 ? { scale: 0.98 } : {}}
                                     >
-                                        {(product.stock || 0) === 0 ? 'Out of Stock' : 'Add to Discovery'}
+                                        {(product.stock || 0) === 0 ? t('product.sold_out') : t('product.add_to_cart')}
                                     </motion.button>
                                     <Link
                                         to={`/product/${product.id}`}
                                         onClick={onClose}
                                         className="w-full border border-black/10 text-primary py-4 text-[11px] flex items-center justify-center font-bold uppercase tracking-[0.3em] hover:border-primary transition-colors duration-500"
                                     >
-                                        View Full Details
+                                        {t('product.quick_discovery')}
                                     </Link>
                                 </div>
 
                                 {/* Footer Info */}
                                 <p className="text-[10px] uppercase tracking-[0.2em] text-secondary mt-8 text-center opacity-50">
-                                    Free Regional Shipping on Orders Over 500K
+                                    {t('announcement.free_shipping')}
                                 </p>
                             </div>
                         </div>

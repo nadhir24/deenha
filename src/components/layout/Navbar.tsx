@@ -5,12 +5,16 @@ import { useWishlist } from '../../context/WishlistContext';
 import { useCart } from '../../context/CartContext';
 import { useProducts } from '../../hooks/useProducts';
 import { Product } from '../../data/products';
+import LanguageSelector from './LanguageSelector';
+import { useTranslation } from 'react-i18next';
+import { formatPrice } from '../../lib/currency';
 
 interface NavbarProps {
     onMenuClick: () => void;
 }
 
 const Navbar = ({ onMenuClick }: NavbarProps) => {
+    const { t, i18n } = useTranslation();
     const [scrolled, setScrolled] = useState(false);
     const [searchOpen, setSearchOpen] = useState(false);
     const { wishlistCount } = useWishlist();
@@ -31,11 +35,20 @@ const Navbar = ({ onMenuClick }: NavbarProps) => {
     }, []);
 
     const navLinks = [
-        { name: 'Home', href: '/' },
-        { name: 'The Atelier', href: '/shop' },
-        { name: 'Journal', href: '/journal' },
-        { name: 'About', href: '/about' }
+        { name: t('nav.home'), href: '/' },
+        { name: t('nav.shop'), href: '/shop' },
+        { name: t('nav.journal'), href: '/journal' },
+        { name: t('nav.about'), href: '/about' }
     ];
+
+    // Helper to normalize text for searching (removes accents/diacritics)
+    const normalizeText = (text: string) => {
+        return text
+            .toLowerCase()
+            .normalize("NFD")
+            .replace(/[\u0300-\u036f]/g, "")
+            .trim();
+    };
 
     // Navbar should be solid if not on home page or if scrolled
     const isSolid = !isHome || scrolled;
@@ -104,6 +117,11 @@ const Navbar = ({ onMenuClick }: NavbarProps) => {
                             ))}
                         </div>
 
+                        {/* Language Selector (Desktop Only) */}
+                        <div className="hidden lg:block">
+                            <LanguageSelector isSolid={isSolid} />
+                        </div>
+
                         {/* Search Icon */}
                         <button
                             onClick={() => setSearchOpen(!searchOpen)}
@@ -157,7 +175,7 @@ const Navbar = ({ onMenuClick }: NavbarProps) => {
                                 <div className="relative mb-12">
                                     <input
                                         type="text"
-                                        placeholder="SEARCH THE ATELIER..."
+                                        placeholder={t('nav.search_placeholder')}
                                         className="w-full text-4xl md:text-6xl font-display italic border-b border-black/10 py-6 focus:outline-none focus:border-accent-gold transition-colors bg-transparent"
                                         autoFocus
                                         value={searchQuery}
@@ -177,7 +195,7 @@ const Navbar = ({ onMenuClick }: NavbarProps) => {
                                 </div>
 
                                 {/* Search Results */}
-                                {searchQuery.length > 2 && (
+                                {searchQuery.length > 1 && (
                                     <motion.div
                                         initial={{ opacity: 0, y: 20 }}
                                         animate={{ opacity: 1, y: 0 }}
@@ -185,60 +203,105 @@ const Navbar = ({ onMenuClick }: NavbarProps) => {
                                     >
                                         <div className="flex items-center justify-between mb-8 border-b border-black/5 pb-4">
                                             <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-secondary">
-                                                Matching Products ({liveProducts.filter((p: Product) => p.name.toLowerCase().includes(searchQuery.toLowerCase())).length})
+                                                {t('nav.search_results')} ({liveProducts.filter((p: Product) => {
+                                                    const q = normalizeText(searchQuery);
+                                                    const name = normalizeText(p.name);
+                                                    
+                                                    // High-tolerance matching for common terms like 'arab'
+                                                    const isArabMatch = (name.includes('arab') || name.includes('arabe')) && 
+                                                                      (q.includes('arab') || q.includes('arabe'));
+                                                    
+                                                    const isMatch = name.includes(q) || isArabMatch ||
+                                                        (p.category && normalizeText(p.category).includes(q));
+                                                        
+                                                    return isMatch ||
+                                                        (p.name_en && normalizeText(p.name_en).includes(q)) ||
+                                                        (p.name_fr && normalizeText(p.name_fr).includes(q)) ||
+                                                        (p.name_id && normalizeText(p.name_id).includes(q)) ||
+                                                        (p.name_zh && normalizeText(p.name_zh).includes(q));
+                                                }).length})
                                             </span>
                                         </div>
 
                                         <div className="grid grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-10">
                                             {liveProducts
-                                                .filter((p: Product) =>
-                                                    p.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                                                    p.category.toLowerCase().includes(searchQuery.toLowerCase())
-                                                )
-                                                .map((product: Product) => (
-                                                    <Link
-                                                        key={product.id}
-                                                        to={`/product/${product.id}`}
-                                                        onClick={() => {
-                                                            setSearchOpen(false);
-                                                            setSearchQuery('');
-                                                        }}
-                                                        className="group"
-                                                    >
-                                                        <div className="relative aspect-[3/4] overflow-hidden bg-surface-secondary mb-4">
-                                                            <img
-                                                                src={product.image}
-                                                                alt={product.name}
-                                                                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                                                            />
-                                                            {product.badge && (
-                                                                <div className="absolute top-4 left-4">
-                                                                    <span className="bg-white px-3 py-1 text-[8px] font-bold uppercase tracking-widest shadow-sm">
-                                                                        {product.badge}
-                                                                    </span>
-                                                                </div>
-                                                            )}
-                                                        </div>
-                                                        <h3 className="text-[10px] font-bold uppercase tracking-widest mb-1 group-hover:text-accent-gold transition-colors">
-                                                            {product.name}
-                                                        </h3>
-                                                        <p className="text-[10px] text-secondary font-medium tracking-widest">
-                                                            IDR {product.price.toLocaleString()}
-                                                        </p>
-                                                    </Link>
-                                                ))}
+                                                .filter((p: Product) => {
+                                                    const q = normalizeText(searchQuery);
+                                                    const name = normalizeText(p.name);
+                                                    
+                                                    const isMatch = name.includes(q) ||
+                                                        (name.includes('arab') && q.includes('arab')) ||
+                                                        (name.includes('arab') && q.includes('arabe')) ||
+                                                        (p.category && normalizeText(p.category).includes(q));
+                                                        
+                                                    return isMatch ||
+                                                        (p.name_en && normalizeText(p.name_en).includes(q)) ||
+                                                        (p.name_fr && normalizeText(p.name_fr).includes(q)) ||
+                                                        (p.name_id && normalizeText(p.name_id).includes(q)) ||
+                                                        (p.name_zh && normalizeText(p.name_zh).includes(q));
+                                                })
+                                                .map((product: Product) => {
+                                                    // Display localized name
+                                                    const lang = i18n.language;
+                                                    const displayName = lang === 'fr' ? product.name_fr || product.name :
+                                                        lang === 'zh' ? product.name_zh || product.name :
+                                                            lang === 'en' ? product.name_en || product.name :
+                                                                product.name_id || product.name;
+
+                                                    return (
+                                                        <Link
+                                                            key={product.id}
+                                                            to={`/product/${product.id}`}
+                                                            onClick={() => {
+                                                                setSearchOpen(false);
+                                                                setSearchQuery('');
+                                                            }}
+                                                            className="group"
+                                                        >
+                                                            <div className="relative aspect-[3/4] overflow-hidden bg-surface-secondary mb-4">
+                                                                <img
+                                                                    src={product.image}
+                                                                    alt={displayName}
+                                                                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                                                />
+                                                                {product.badge && (
+                                                                    <div className="absolute top-4 left-4">
+                                                                        <span className="bg-white px-3 py-1 text-[8px] font-bold uppercase tracking-widest shadow-sm">
+                                                                            {product.badge === 'new' ? t('product.badge.new') : product.badge === 'bestseller' ? t('product.badge.bestseller') : t('product.badge.sale')}
+                                                                        </span>
+                                                                    </div>
+                                                                )}
+                                                            </div>
+                                                            <h3 className="text-[10px] font-bold uppercase tracking-widest mb-1 group-hover:text-accent-gold transition-colors">
+                                                                {displayName}
+                                                            </h3>
+                                                            <p className="text-[10px] text-secondary font-medium tracking-widest notranslate">
+                                                                {formatPrice(product.price)}
+                                                            </p>
+                                                        </Link>
+                                                    );
+                                                })}
                                         </div>
 
-                                        {liveProducts.filter((p: Product) => p.name.toLowerCase().includes(searchQuery.toLowerCase())).length === 0 && (
+                                        {liveProducts.filter((p: Product) => {
+                                            const q = normalizeText(searchQuery);
+                                            return (
+                                                normalizeText(p.name).includes(q) ||
+                                                (p.name_en && normalizeText(p.name_en).includes(q)) ||
+                                                (p.name_fr && normalizeText(p.name_fr).includes(q)) ||
+                                                (p.name_id && normalizeText(p.name_id).includes(q)) ||
+                                                (p.name_zh && normalizeText(p.name_zh).includes(q))
+                                            );
+                                        }).length === 0 && (
                                             <div className="text-center py-20">
-                                                <p className="font-display text-2xl italic text-secondary">No products found for "{searchQuery}"</p>
+                                                <p className="font-display text-2xl italic text-secondary">{t('product.not_found')} "{searchQuery}"</p>
                                             </div>
                                         )}
                                     </motion.div>
                                 )}
 
-                                {searchQuery.length <= 2 && searchQuery.length > 0 && (
-                                    <p className="text-[10px] uppercase tracking-[0.3em] text-secondary italic">Type at least 3 characters to search...</p>
+                                {searchQuery.length === 1 && searchQuery.length > 0 && (
+                                    <p className="text-[10px] uppercase tracking-[0.3em] text-secondary italic">{t('product.loading')}</p>
                                 )}
                             </div>
                         </motion.div>

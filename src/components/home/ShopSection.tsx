@@ -7,6 +7,7 @@ import SortDropdown from '../shop/SortDropdown';
 import ProductCard from '../shop/ProductCard';
 import QuickViewModal from '../ui/QuickViewModal';
 import { useProducts } from '../../hooks/useProducts';
+import { useTranslation } from 'react-i18next';
 
 type SortOption = 'newest' | 'price-low' | 'price-high' | 'bestseller';
 
@@ -19,6 +20,7 @@ interface FilterState {
 }
 
 const ShopSection = () => {
+    const { t } = useTranslation();
     const { products, loading } = useProducts();
     const [searchParams, setSearchParams] = useSearchParams();
 
@@ -30,7 +32,7 @@ const ShopSection = () => {
             categories: category ? [category] : [],
             sizes: [],
             colors: [],
-            priceRange: [0, 1000000],
+            priceRange: [0, 2000000],
             ids: ids ? ids.split(',') : [],
         };
     });
@@ -71,7 +73,7 @@ const ShopSection = () => {
         return result;
     }, [filters, sortBy, products]);
 
-    // Update URL sync with debounce - prevents layout/interaction 'jumping'
+    // Update URL sync with debounce
     useEffect(() => {
         const timer = setTimeout(() => {
             const params = new URLSearchParams();
@@ -81,7 +83,6 @@ const ShopSection = () => {
             if (filters.ids && filters.ids.length > 0) {
                 params.set('ids', filters.ids.join(','));
             }
-            // Only update if it actually changed to avoid recursive updates
             if (params.toString() !== searchParams.toString()) {
                 setSearchParams(params, { replace: true });
             }
@@ -98,12 +99,12 @@ const ShopSection = () => {
         filters.categories.length +
         filters.sizes.length +
         filters.colors.length +
-        (filters.priceRange[0] > 0 || filters.priceRange[1] < 1000000 ? 1 : 0);
+        (filters.priceRange[0] > 0 || filters.priceRange[1] < 2000000 ? 1 : 0);
 
     if (loading && products.length === 0) {
         return (
             <section className="py-20 bg-white min-h-[400px] flex items-center justify-center">
-                <p className="text-secondary animate-pulse">Loading products collection...</p>
+                <p className="text-secondary animate-pulse">{t('product.loading')}</p>
             </section>
         );
     }
@@ -119,10 +120,10 @@ const ShopSection = () => {
                     viewport={{ once: true }}
                 >
                     <span className="text-accent-gold text-[10px] uppercase font-bold tracking-[0.4em] mb-4 block">
-                        Our Entire Collection
+                        {t('shop.title')}
                     </span>
                     <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-normal tracking-tight">
-                        Explore All Products
+                        {t('shop.subtitle')}
                     </h2>
                 </motion.div>
 
@@ -136,7 +137,7 @@ const ShopSection = () => {
                             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" />
                             </svg>
-                            Filters
+                            {t('shop.filter')}
                             {activeFilterCount > 0 && (
                                 <span className="bg-accent-gold text-white text-xs w-5 h-5 rounded-full flex items-center justify-center">
                                     {activeFilterCount}
@@ -147,15 +148,20 @@ const ShopSection = () => {
                     </div>
 
                     {/* Mobile Filters Panel */}
-                    {showMobileFilters && (
-                        <motion.div
-                            className="lg:hidden bg-white p-4 rounded-xl border border-border mb-4"
-                            initial={{ opacity: 0, height: 0 }}
-                            animate={{ opacity: 1, height: 'auto' }}
-                        >
-                            <FilterSidebar filters={filters} onFilterChange={handleFilterChange} />
-                        </motion.div>
-                    )}
+                    <AnimatePresence>
+                        {showMobileFilters && (
+                            <motion.div
+                                className="lg:hidden bg-white overflow-hidden"
+                                initial={{ opacity: 0, height: 0 }}
+                                animate={{ opacity: 1, height: 'auto' }}
+                                exit={{ opacity: 0, height: 0 }}
+                            >
+                                <div className="p-4 border border-border rounded-xl mb-4">
+                                    <FilterSidebar filters={filters} onFilterChange={handleFilterChange} />
+                                </div>
+                            </motion.div>
+                        )}
+                    </AnimatePresence>
 
                     {/* Desktop Sidebar */}
                     <div className="hidden lg:block">
@@ -167,7 +173,7 @@ const ShopSection = () => {
                         {/* Top Bar */}
                         <div className="hidden lg:flex items-center justify-between mb-6">
                             <p className="text-secondary text-sm">
-                                Showing <span className="font-medium text-primary">{filteredProducts.length}</span> products
+                                {t('shop.showing', { count: filteredProducts.length })}
                             </p>
                             <SortDropdown value={sortBy} onChange={setSortBy} />
                         </div>
@@ -199,18 +205,18 @@ const ShopSection = () => {
                         ) : (
                             <div className="text-center py-20 bg-surface-secondary/30 rounded-2xl">
                                 <div className="text-6xl mb-4">🔍</div>
-                                <h3 className="font-display text-xl mb-2">No products found</h3>
-                                <p className="text-secondary mb-4">Try adjusting your filters</p>
+                                <h3 className="font-display text-xl mb-2">{t('shop.no_products')}</h3>
+                                <p className="text-secondary mb-4">{t('shop.adjust_filters')}</p>
                                 <button
                                     onClick={() => handleFilterChange({
                                         categories: [],
                                         sizes: [],
                                         colors: [],
-                                        priceRange: [0, 1000000],
+                                        priceRange: [0, 2000000],
                                     })}
                                     className="text-accent-gold hover:underline font-bold tracking-widest text-[10px] uppercase"
                                 >
-                                    Clear all filters
+                                    {t('shop.clear_all')}
                                 </button>
                             </div>
                         )}

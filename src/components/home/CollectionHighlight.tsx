@@ -5,6 +5,7 @@ import { Product } from '../../data/products';
 import ProductCard from '../shop/ProductCard';
 import QuickViewModal from '../ui/QuickViewModal';
 import { useProducts } from '../../hooks/useProducts';
+import { useTranslation } from 'react-i18next';
 
 interface CollectionHighlightProps {
     title: string;
@@ -24,6 +25,7 @@ const CollectionHighlight = ({
     category,
     productIds = []
 }: CollectionHighlightProps) => {
+    const { t } = useTranslation();
     const { products, loading } = useProducts();
     const [quickViewProduct, setQuickViewProduct] = useState<Product | null>(null);
     const sectionRef = useRef<HTMLElement>(null);
@@ -107,7 +109,7 @@ const CollectionHighlight = ({
                         to={`/shop?${productIds && productIds.length > 0 ? `ids=${productIds.join(',')}` : `category=${encodeURIComponent(category === 'New Arrival' ? '' : category)}`}`}
                         className="inline-block relative px-12 py-4 text-[11px] font-bold uppercase tracking-[0.4em] group overflow-hidden"
                     >
-                        <span className="relative z-10 text-white group-hover:text-primary transition-colors duration-500">Shop Now</span>
+                        <span className="relative z-10 text-white group-hover:text-primary transition-colors duration-500">{t('product.shop_now')}</span>
                         <div className="absolute inset-0 bg-primary group-hover:bg-white border border-primary transition-all duration-500" />
                     </Link>
                 </motion.div>

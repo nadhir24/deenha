@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { colors } from '../../data/products';
+import { formatPrice } from '../../lib/currency';
+import { useTranslation } from 'react-i18next';
 
 interface FilterState {
     categories: string[];
@@ -15,9 +17,15 @@ interface FilterSidebarProps {
 }
 
 const FilterSidebar = ({ filters, onFilterChange }: FilterSidebarProps) => {
-    const [openSections, setOpenSections] = useState<string[]>(['Category', 'Size', 'Color', 'Price']);
+    const { t } = useTranslation();
+    const [openSections, setOpenSections] = useState<string[]>([
+        t('shop.categories'),
+        t('shop.sizes'),
+        t('shop.colors'),
+        t('shop.price')
+    ]);
 
-    const categories = ['Scarves', 'Dresses', 'Bergo', 'Pray Set'];
+    const categories = ['Scarves', 'Dresses', 'Bergo', 'Pray Set', 'Hampers'];
     const sizes = ['S', 'M', 'L', 'XL', 'All Size'];
 
     const toggleSection = (section: string) => {
@@ -28,39 +36,16 @@ const FilterSidebar = ({ filters, onFilterChange }: FilterSidebarProps) => {
         );
     };
 
-    const handleCategoryChange = (category: string) => {
-        const newCategories = filters.categories.includes(category)
-            ? filters.categories.filter(c => c !== category)
-            : [...filters.categories, category];
-        onFilterChange({ ...filters, categories: newCategories });
-    };
-
-    const handleSizeChange = (size: string) => {
-        const newSizes = filters.sizes.includes(size)
-            ? filters.sizes.filter(s => s !== size)
-            : [...filters.sizes, size];
-        onFilterChange({ ...filters, sizes: newSizes });
-    };
-
-    const handleColorChange = (color: string) => {
-        const newColors = filters.colors.includes(color)
-            ? filters.colors.filter(c => c !== color)
-            : [...filters.colors, color];
-        onFilterChange({ ...filters, colors: newColors });
-    };
-
-
+    // ... (logic functions)
 
     const clearFilters = () => {
         onFilterChange({
             categories: [],
             sizes: [],
             colors: [],
-            priceRange: [0, 1000000],
+            priceRange: [0, 2000000],
         });
     };
-
-
 
     // Local state for smooth slider interaction
     const [localPrice, setLocalPrice] = useState<number>(filters.priceRange[1]);
@@ -125,19 +110,19 @@ const FilterSidebar = ({ filters, onFilterChange }: FilterSidebarProps) => {
         <aside className="w-full lg:w-64 shrink-0 sticky top-44 h-fit bg-white lg:pr-8">
             {/* Header */}
             <div className="flex items-center justify-between mb-8">
-                <h2 className="font-display text-2xl">Refine By</h2>
+                <h2 className="font-display text-2xl">{t('shop.filter')}</h2>
                 <button
                     type="button"
                     onClick={clearFilters}
                     className="text-[10px] uppercase tracking-widest font-bold text-secondary hover:text-accent-gold transition-colors underline underline-offset-4"
                 >
-                    Reset
+                    {t('shop.reset')}
                 </button>
             </div>
 
             <div className="border-t border-border">
                 {/* Category Filter */}
-                <AccordionSection title="Category">
+                <AccordionSection title={t('shop.categories')}>
                     <div className="space-y-4">
                         {categories.map((category) => (
                             <label
@@ -148,7 +133,12 @@ const FilterSidebar = ({ filters, onFilterChange }: FilterSidebarProps) => {
                                     <input
                                         type="checkbox"
                                         checked={filters.categories.includes(category)}
-                                        onChange={() => handleCategoryChange(category)}
+                                        onChange={() => {
+                                            const newCategories = filters.categories.includes(category)
+                                                ? filters.categories.filter(c => c !== category)
+                                                : [...filters.categories, category];
+                                            onFilterChange({ ...filters, categories: newCategories });
+                                        }}
                                         className="sr-only"
                                     />
                                     <div className={`w-4 h-4 rounded-none border transition-all duration-300 ${filters.categories.includes(category)
@@ -178,13 +168,18 @@ const FilterSidebar = ({ filters, onFilterChange }: FilterSidebarProps) => {
                 </AccordionSection>
 
                 {/* Size Filter */}
-                <AccordionSection title="Size">
+                <AccordionSection title={t('shop.sizes')}>
                     <div className="flex flex-wrap gap-2">
                         {sizes.map((size) => (
                             <button
                                 type="button"
                                 key={size}
-                                onClick={() => handleSizeChange(size)}
+                                onClick={() => {
+                                    const newSizes = filters.sizes.includes(size)
+                                        ? filters.sizes.filter(s => s !== size)
+                                        : [...filters.sizes, size];
+                                    onFilterChange({ ...filters, sizes: newSizes });
+                                }}
                                 className={`h-10 px-4 text-[10px] items-center justify-center flex font-bold tracking-widest transition-all duration-300 ${filters.sizes.includes(size)
                                     ? 'bg-primary text-white'
                                     : 'bg-surface-secondary text-secondary hover:bg-border'
@@ -197,13 +192,18 @@ const FilterSidebar = ({ filters, onFilterChange }: FilterSidebarProps) => {
                 </AccordionSection>
 
                 {/* Color Filter */}
-                <AccordionSection title="Color">
+                <AccordionSection title={t('shop.colors')}>
                     <div className="grid grid-cols-5 gap-3">
                         {colors.map((color) => (
                             <button
                                 type="button"
                                 key={color.name}
-                                onClick={() => handleColorChange(color.name)}
+                                onClick={() => {
+                                    const newColors = filters.colors.includes(color.name)
+                                        ? filters.colors.filter(c => c !== color.name)
+                                        : [...filters.colors, color.name];
+                                    onFilterChange({ ...filters, colors: newColors });
+                                }}
                                 className={`w-full aspect-square relative group ${filters.colors.includes(color.name) ? 'ring-1 ring-primary ring-offset-2' : ''}`}
                                 style={{ backgroundColor: color.hex }}
                                 title={color.name}
@@ -219,18 +219,18 @@ const FilterSidebar = ({ filters, onFilterChange }: FilterSidebarProps) => {
                 </AccordionSection>
 
                 {/* Price Filter */}
-                <AccordionSection title="Price">
+                <AccordionSection title={t('shop.price')}>
                     <div className="space-y-6">
-                        <div className="flex items-center justify-between text-[10px] font-bold tracking-widest text-secondary">
-                            <span>IDR {filters.priceRange[0].toLocaleString()}</span>
-                            <span>IDR {localPrice.toLocaleString()}</span>
+                        <div className="flex items-center justify-between text-[10px] font-bold tracking-widest text-secondary notranslate">
+                            <span>{formatPrice(filters.priceRange[0])}</span>
+                            <span>{formatPrice(localPrice)}</span>
                         </div>
                         <div className="px-2">
                             <input
                                 type="range"
                                 min={0}
-                                max={1000000}
-                                step={10000}
+                                max={2000000}
+                                step={50000}
                                 value={localPrice}
                                 onChange={(e) => setLocalPrice(Number(e.target.value))}
                                 className="w-full accent-primary h-1 bg-surface-secondary cursor-pointer"

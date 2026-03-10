@@ -2,6 +2,8 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { useWishlist } from '../../context/WishlistContext';
 import { Product } from '../../data/products';
+import { useTranslation } from 'react-i18next';
+import { formatPrice } from '../../lib/currency';
 
 interface ProductCardProps {
     product: Product;
@@ -9,16 +11,9 @@ interface ProductCardProps {
 }
 
 const ProductCard = ({ product, onQuickView }: ProductCardProps) => {
+    const { t } = useTranslation();
     const { isInWishlist, toggleWishlist } = useWishlist();
     const isWishlisted = isInWishlist(product.id);
-
-    const formatPrice = (price: number) => {
-        return new Intl.NumberFormat('id-ID', {
-            style: 'currency',
-            currency: 'IDR',
-            minimumFractionDigits: 0,
-        }).format(price);
-    };
 
     const getBadgeClass = (badge: string) => {
         switch (badge) {
@@ -36,11 +31,11 @@ const ProductCard = ({ product, onQuickView }: ProductCardProps) => {
     const getBadgeText = (badge: string) => {
         switch (badge) {
             case 'new':
-                return 'NEW';
+                return t('product.badge.new');
             case 'bestseller':
-                return 'MUST HAVE';
+                return t('product.badge.bestseller');
             case 'sale':
-                return 'OFFER';
+                return t('product.badge.sale');
             default:
                 return '';
         }
@@ -66,7 +61,7 @@ const ProductCard = ({ product, onQuickView }: ProductCardProps) => {
                 {product.stock === 0 && (
                     <div className="absolute inset-0 bg-black/40 backdrop-blur-[2px] flex items-center justify-center">
                         <span className="text-white text-[12px] font-bold tracking-[0.5em] uppercase border border-white/30 px-6 py-2">
-                            Sold Out
+                            {t('product.sold_out')}
                         </span>
                     </div>
                 )}
@@ -84,7 +79,7 @@ const ProductCard = ({ product, onQuickView }: ProductCardProps) => {
                 {/* Low Stock Indicator */}
                 {product.stock !== undefined && product.stock > 0 && product.stock <= 5 && (
                     <div className="absolute top-0 left-0 bg-red-500 text-white px-3 py-1 text-[8px] font-bold tracking-widest animate-pulse">
-                        ONLY {product.stock} LEFT
+                        {t('product.only_left', { count: product.stock })}
                     </div>
                 )}
             </Link>
@@ -119,7 +114,7 @@ const ProductCard = ({ product, onQuickView }: ProductCardProps) => {
                     className="bg-primary/90 backdrop-blur-sm text-white text-[10px] font-bold uppercase tracking-[0.2em] px-6 py-3 hover:bg-accent-gold transition-colors"
                     onClick={() => onQuickView(product)}
                 >
-                    Quick Discovery
+                    {t('product.quick_discovery')}
                 </button>
             </div>
 
@@ -138,11 +133,11 @@ const ProductCard = ({ product, onQuickView }: ProductCardProps) => {
 
                     {/* Price - Clean & Bold */}
                     <div className="flex flex-col items-center gap-1">
-                        <span className="font-bold text-sm tracking-widest text-primary">
+                        <span className="font-bold text-sm tracking-widest text-primary notranslate">
                             {formatPrice(product.price)}
                         </span>
                         {product.originalPrice && (
-                            <span className="text-xs text-secondary line-through opacity-60">
+                            <span className="text-xs text-secondary line-through opacity-60 notranslate">
                                 {formatPrice(product.originalPrice)}
                             </span>
                         )}

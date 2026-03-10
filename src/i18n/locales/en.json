@@ -1,0 +1,71 @@
+{
+    "nav": {
+        "home": "Home",
+        "shop": "Shop",
+        "journal": "Journal",
+        "about": "About Us",
+        "contact": "Contact",
+        "search_placeholder": "Find your dream product...",
+        "search_results": "Search Results"
+    },
+    "home": {
+        "atmosphere": "Our Atmosphere",
+        "journal_title": "The Atelier Journal",
+        "view_all": "View All"
+    },
+    "shop": {
+        "title": "Our Entire Collection",
+        "subtitle": "Explore All Products",
+        "filter": "Filter Products",
+        "reset": "Reset",
+        "categories": "Categories",
+        "sizes": "Sizes",
+        "colors": "Colors",
+        "price": "Price",
+        "showing": "Showing {{count}} products",
+        "no_products": "No products found",
+        "adjust_filters": "Try adjusting your filters",
+        "clear_all": "Clear all filters",
+        "sort": {
+            "label": "Sort by",
+            "newest": "Newest",
+            "price_low": "Price: Low to High",
+            "price_high": "Price: High to Low",
+            "bestseller": "Best Selling"
+        }
+    },
+    "product": {
+        "shop_now": "SHOP NOW",
+        "quick_discovery": "QUICK VIEW",
+        "loading": "Seeking Excellence...",
+        "not_found": "Product Not Found",
+        "back_to_home": "Back to Home",
+        "explore_detail": "Hover to Explore Detail",
+        "select_size": "Select Size",
+        "quantity": "Quantity",
+        "inventory": "INVENTORY STATUS",
+        "only_left": "ONLY {{count}} PCS LEFT",
+        "available": "AVAILABLE IN ATELIER",
+        "unavailable": "CURRENTLY UNAVAILABLE",
+        "sold_out": "Sold Out",
+        "add_to_cart": "ADD TO COLLECTION",
+        "badge": {
+            "new": "NEW",
+            "bestseller": "MUST HAVE",
+            "sale": "OFFER"
+        }
+    },
+    "announcement": {
+        "shipping": "🌍 International Shipping Available",
+        "free_shipping": "✨ Complimentary Shipping on Orders over Rp 500,000",
+        "discount": "🎁 Use DEENHA10 for 10% off your first purchase",
+        "new_collection": "✨ Discover the New Signature Collection"
+    },
+    "language": {
+        "select": "Select Language",
+        "id": "INDONESIAN",
+        "en": "ENGLISH",
+        "fr": "FRENCH",
+        "zh": "CHINESE"
+    }
+}

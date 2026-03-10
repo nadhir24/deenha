@@ -1,51 +1,60 @@
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 const Footer = () => {
-    const footerLinks = {
-        Shop: [
-            { name: 'Scarves', href: '/shop?category=Scarves' },
-            { name: 'Dresses', href: '/shop?category=Dresses' },
-            { name: 'Bergo', href: '/shop?category=Bergo' },
-            { name: 'Pray Set', href: '/shop?category=Pray Set' },
-            { name: 'New Arrivals', href: '/shop?badge=new' },
-        ],
-        Support: [
-            { name: 'Contact Us', href: '/contact' },
-            { name: 'Shipping Info', href: '/shipping' },
-            { name: 'Returns', href: '/returns' },
-            { name: 'Size Guide', href: '/size-guide' },
-            { name: 'FAQ', href: '/faq' },
-        ],
-        Company: [
-            { name: 'About Us', href: '/about' },
-            { name: 'Our Story', href: '/about#story' },
-            { name: 'Journal', href: '/journal' },
-        ],
-    };
+    const { t } = useTranslation();
+    
+    const footerLinks = [
+        {
+            title: t('footer.shop'),
+            links: [
+                { name: t('footer.links.scarf'), href: '/shop?category=Scarves' },
+                { name: t('footer.links.dress'), href: '/shop?category=Dresses' },
+                { name: t('footer.links.bergo'), href: '/shop?category=Bergo' },
+                { name: t('footer.links.mukena'), href: '/shop?category=Pray Set' },
+                { name: t('footer.links.new_arrival'), href: '/shop?badge=new' },
+            ]
+        },
+        {
+            title: t('footer.support'),
+            links: [
+                { name: t('footer.links.contact_us'), href: '/contact' },
+                { name: t('footer.links.shipping_info'), href: '/shipping' },
+                { name: t('footer.links.returns'), href: '/returns' },
+                { name: t('footer.links.size_guide'), href: '/size-guide' },
+                { name: t('footer.links.faq'), href: '/faq' },
+            ]
+        },
+        {
+            title: t('footer.company'),
+            links: [
+                { name: t('footer.links.about_us'), href: '/about' },
+                { name: t('footer.links.our_story'), href: '/about#story' },
+                { name: t('footer.links.journal'), href: '/journal' },
+            ]
+        }
+    ];
 
     return (
         <footer className="bg-white border-t border-black/5 pt-24 pb-12">
             <div className="max-w-[1440px] mx-auto px-6 lg:px-12">
-                {/* Content Sections */}
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-12 mb-20">
-                    {/* Brand Column */}
                     <div className="col-span-1">
                         <Link to="/" className="inline-block mb-8">
                             <img src="/assets/logo.png" alt="DEENHA" className="h-16 w-auto brightness-0" />
                         </Link>
                         <p className="text-secondary text-[11px] leading-relaxed tracking-wide max-w-[200px]">
-                            Crafting exquisite modesty for the modern woman who values elegance and tradition.
+                            {t('footer.description')}
                         </p>
                     </div>
 
-                    {/* Links Grid */}
-                    {Object.entries(footerLinks).map(([title, links]) => (
-                        <div key={title}>
+                    {footerLinks.map((section) => (
+                        <div key={section.title}>
                             <h4 className="text-[10px] font-bold uppercase tracking-[0.3em] mb-8 text-primary">
-                                {title}
+                                {section.title}
                             </h4>
                             <ul className="space-y-4">
-                                {links.map((link) => (
+                                {section.links.map((link) => (
                                     <li key={link.name}>
                                         <Link
                                             to={link.href}
@@ -60,9 +69,7 @@ const Footer = () => {
                     ))}
                 </div>
 
-                {/* Bottom Section */}
                 <div className="pt-12 border-t border-black/5 flex flex-col md:flex-row items-center justify-between gap-12">
-                    {/* Socials & Marketplaces */}
                     <div className="flex items-center gap-8">
                         <a
                             href="https://www.instagram.com/deenha.official/"
@@ -106,16 +113,13 @@ const Footer = () => {
                         </a>
                     </div>
 
-                    {/* Legal & Payments */}
                     <div className="flex flex-col items-center md:items-end gap-6">
                         <div className="flex items-center gap-6 opacity-80 grayscale hover:opacity-100 transition-opacity duration-500">
-                            {/* QRIS */}
                             <img src="/assets/qris.png" alt="QRIS" className="h-10 w-auto" />
-                            {/* BCA */}
                             <img src="/assets/bca.png" alt="BCA" className="h-8 w-auto" />
                         </div>
                         <p className="text-[10px] uppercase tracking-[0.2em] text-secondary">
-                            © 2026 DEENHA. ALL RIGHTS RESERVED.
+                            {t('footer.rights')}
                         </p>
                     </div>
                 </div>

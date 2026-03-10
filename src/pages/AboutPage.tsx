@@ -1,40 +1,43 @@
 import { motion } from 'framer-motion';
 import SEOHead from '../components/SEOHead';
+import { useTranslation } from 'react-i18next';
 
 const AboutPage = () => {
+    const { t } = useTranslation();
+
     const ethos = [
         {
             number: '01',
-            title: 'Empowering Confidence',
-            text: 'Deenha is crafted to elevate the confidence of every woman. With its elegant designs, soft textures, and vibrant hues, Deenha embraces femininity, making you feel graceful and poised with every wear.'
+            title: t('brand_story.ethos_1_title'),
+            text: t('brand_story.ethos_1_desc')
         },
         {
             number: '02',
-            title: 'Global Inspiration',
-            text: 'Deenha draws inspiration from global heritage, blending timeless designs with cultural richness from around the world. Each piece reflects a unique story, creating an elegant fusion of tradition and contemporary style.'
+            title: t('brand_story.ethos_2_title'),
+            text: t('brand_story.ethos_2_desc')
         },
         {
             number: '03',
-            title: 'Our Mission',
-            text: "Our mission is to create high-quality clothing for Muslim women, blending elegance and comfort to empower every wearer with confidence and style."
+            title: t('brand_story.ethos_3_title'),
+            text: t('brand_story.ethos_3_desc')
         }
     ];
 
     return (
         <main className="pt-44">
             <SEOHead
-                title="Tentang Kami - DEENHA"
-                description="Pelajari kisah di balik DEENHA. Brand fashion muslimah premium dari Bandung yang mengedepankan keanggunan, kualitas, dan nilai-nilai syariat."
+                title={`${t('nav.about')} - DEENHA`}
+                description={t('footer.description')}
                 canonicalPath="/about"
             />
             {/* Header / Hero Section for About Page */}
             <section className="bg-surface-secondary py-24 mb-20">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                     <span className="text-accent-gold text-[10px] uppercase font-bold tracking-[0.5em] mb-6 block">
-                        Our Identity
+                        {t('brand_story.identity_label')}
                     </span>
                     <h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-normal tracking-tight mb-8 italic">
-                        The Story of Deenha
+                        {t('brand_story.story_heading')}
                     </h1>
                 </div>
             </section>
@@ -70,30 +73,24 @@ const AboutPage = () => {
                             transition={{ duration: 0.8 }}
                         >
                             <span className="text-accent-gold text-[10px] uppercase font-bold tracking-[0.5em] mb-6 block">
-                                The Narrative
+                                {t('brand_story.narrative_label')}
                             </span>
                             <h2 className="font-display text-4xl md:text-5xl lg:text-5xl font-normal tracking-tight mb-8">
-                                Elegance in Every <span className="italic">Thread</span>
+                                {t('brand_story.heading_1')} <span className="italic">{t('brand_story.heading_2')}</span>
                             </h2>
                             <div className="space-y-6 text-secondary leading-relaxed text-lg">
                                 <p>
-                                    Deenha Hijab offers a stunning collection that embodies elegance and sophistication.
-                                    Crafted with the utmost care, each piece is designed with soft and vibrant materials,
-                                    ensuring both comfort and style.
+                                    {t('brand_story.p1')}
                                 </p>
                                 <p>
-                                    Our scarves come in a variety of exquisite motifs, making it easy to find
-                                    the perfect match for any occasion. Not just limited to scarves, Deenha also
-                                    presents a beautifully curated range of pray sets and dresses, each piece
-                                    reflecting timeless elegance and attention to detail.
+                                    {t('brand_story.p2')}
                                 </p>
                                 <p className="font-medium text-primary">
-                                    Whether you're looking to elevate your daily wear or prepare for a special event,
-                                    Deenha Hijab brings you a world of versatility and grace.
+                                    {t('brand_story.p3')}
                                 </p>
                             </div>
                             <div className="mt-10 border-t border-black/5 pt-8">
-                                <p className="font-display italic text-xl text-primary">— DEENHA TEAM</p>
+                                <p className="font-display italic text-xl text-primary">{t('brand_story.team_sign')}</p>
                             </div>
                         </motion.div>
                     </div>
@@ -107,9 +104,9 @@ const AboutPage = () => {
                             viewport={{ once: true }}
                         >
                             <span className="text-accent-gold text-[10px] uppercase font-bold tracking-[0.4em] mb-4 block">
-                                Core Philosophy
+                                {t('brand_story.core_philosophy')}
                             </span>
-                            <h2 className="font-display text-4xl md:text-5xl font-normal tracking-tight">Our Ethos</h2>
+                            <h2 className="font-display text-4xl md:text-5xl font-normal tracking-tight">{t('brand_story.our_ethos')}</h2>
                         </motion.div>
 
                         <div className="grid md:grid-cols-3 gap-12 lg:gap-20">

@@ -6,8 +6,11 @@ import { useCart } from '../context/CartContext';
 import { useWishlist } from '../context/WishlistContext';
 import ProductCard from '../components/shop/ProductCard';
 import SEOHead from '../components/SEOHead';
+import { useTranslation } from 'react-i18next';
+import { formatPrice } from '../lib/currency';
 
 const ProductDetailsPage = () => {
+    const { t } = useTranslation();
     const { id } = useParams<{ id: string }>();
     const { products, loading } = useProducts();
     const { addToCart } = useCart();
@@ -21,7 +24,6 @@ const ProductDetailsPage = () => {
     const product = products.find(p => p.id === Number(id));
     const isWishlisted = product ? isInWishlist(product.id) : false;
 
-    // Related products (same category, excluding current)
     const relatedProducts = products
         .filter(p => p.category === product?.category && p.id !== product?.id)
         .slice(0, 4);
@@ -31,7 +33,6 @@ const ProductDetailsPage = () => {
         if (product && product.size.length > 0) {
             setSelectedSize(product.size[0]);
         }
-        // Reset variant on product change
         setSelectedVariant(0);
     }, [product]);
 
@@ -40,7 +41,7 @@ const ProductDetailsPage = () => {
             <div className="min-h-screen flex items-center justify-center bg-white">
                 <div className="flex flex-col items-center">
                     <div className="w-12 h-12 border-2 border-accent-gold border-t-transparent rounded-full animate-spin mb-4" />
-                    <p className="text-[10px] uppercase font-bold tracking-[0.3em] text-secondary">Discovering Excellence...</p>
+                    <p className="text-[10px] uppercase font-bold tracking-[0.3em] text-secondary">{t('product.loading')}</p>
                 </div>
             </div>
         );
@@ -50,20 +51,12 @@ const ProductDetailsPage = () => {
         return (
             <div className="min-h-screen flex items-center justify-center bg-white">
                 <div className="text-center">
-                    <h2 className="font-display text-3xl mb-4">Product Not Found</h2>
-                    <Link to="/" className="text-accent-gold hover:underline">Return Home</Link>
+                    <h2 className="font-display text-3xl mb-4">{t('product.not_found')}</h2>
+                    <Link to="/" className="text-accent-gold hover:underline">{t('product.back_to_home')}</Link>
                 </div>
             </div>
         );
     }
-
-    const formatPrice = (price: number) => {
-        return new Intl.NumberFormat('id-ID', {
-            style: 'currency',
-            currency: 'IDR',
-            minimumFractionDigits: 0,
-        }).format(price);
-    };
 
     const currentVariant = product?.variants && product.variants.length > 0 ? product.variants[selectedVariant] : null;
     const displayImage = currentVariant ? currentVariant.image : product?.image;
@@ -71,68 +64,16 @@ const ProductDetailsPage = () => {
     const displayStock = currentVariant ? (currentVariant.stock ?? product?.stock) : product?.stock;
 
     const tabs = [
-        { id: 'description', label: 'Description' },
-        { id: 'details', label: 'Details & Care' },
-        { id: 'shipping', label: 'Shipping & Returns' }
+        { id: 'description', label: t('product.tabs.description') },
+        { id: 'details', label: t('product.tabs.details') },
+        { id: 'shipping', label: t('product.tabs.shipping') }
     ];
 
     const handleAddToCart = () => {
         if (product) {
-            // If viewing a variant, use variant details for cart item color/image?
-            // Cart context might need update, but for now passing displayColor works
             addToCart(product, selectedSize, displayColor || product.color, quantity);
         }
     };
-
-    const productJsonLd = product ? {
-        "@context": "https://schema.org/",
-        "@type": "Product",
-        "name": product.name,
-        "image": [
-            `https://www.deenha.com${product.image}`,
-            ...(product.variants?.map(v => `https://www.deenha.com${v.image}`) || [])
-        ],
-        "description": product.description || `Premium ${product.name} from DEENHA. ${product.category} collection crafted with elegance and modesty.`,
-        "sku": `DEENHA-${product.id}`,
-        "brand": {
-            "@type": "Brand",
-            "name": "DEENHA"
-        },
-        "category": product.category,
-        "offers": {
-            "@type": "Offer",
-            "url": `https://www.deenha.com/product/${product.id}`,
-            "priceCurrency": "IDR",
-            "price": product.price,
-            "availability": displayStock && displayStock > 0 ? "https://schema.org/InStock" : "https://schema.org/OutOfStock",
-            "itemCondition": "https://schema.org/NewCondition"
-        }
-    } : undefined;
-
-    const breadcrumbJsonLd = product ? {
-        "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-            {
-                "@type": "ListItem",
-                "position": 1,
-                "name": "Home",
-                "item": "https://www.deenha.com"
-            },
-            {
-                "@type": "ListItem",
-                "position": 2,
-                "name": product.category,
-                "item": `https://www.deenha.com/shop?category=${product.category}`
-            },
-            {
-                "@type": "ListItem",
-                "position": 3,
-                "name": product.name,
-                "item": `https://www.deenha.com/product/${product.id}`
-            }
-        ]
-    } : undefined;
 
     return (
         <main className="pt-44 pb-24 bg-white">
@@ -143,13 +84,12 @@ const ProductDetailsPage = () => {
                     ogImage={`https://www.deenha.com${product.image}`}
                     ogType="product"
                     canonicalPath={`/product/${product.id}`}
-                    jsonLd={[productJsonLd, breadcrumbJsonLd]}
                 />
             )}
             <div className="max-w-[1440px] mx-auto px-6 lg:px-12">
                 {/* Breadcrumbs */}
                 <nav className="flex items-center gap-2 mb-12 text-[10px] uppercase font-bold tracking-widest text-secondary">
-                    <Link to="/" className="hover:text-primary transition-colors">Home</Link>
+                    <Link to="/" className="hover:text-primary transition-colors">{t('nav.home')}</Link>
                     <span>/</span>
                     <Link to={`/shop?category=${product.category}`} className="hover:text-primary transition-colors">{product.category}</Link>
                     <span>/</span>
@@ -157,11 +97,10 @@ const ProductDetailsPage = () => {
                 </nav>
 
                 <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 mb-32">
-                    {/* Image Gallery with Zoom */}
                     <div className="bg-[#F9F9F9] shadow-sm overflow-hidden flex flex-col gap-4">
                         <div className="relative group overflow-hidden bg-surface-secondary aspect-[3/4]">
                             <motion.div
-                                key={displayImage} // Re-animate on image change
+                                key={displayImage}
                                 initial={{ opacity: 0 }}
                                 animate={{ opacity: 1 }}
                                 transition={{ duration: 0.5 }}
@@ -190,15 +129,13 @@ const ProductDetailsPage = () => {
                                 />
                             </motion.div>
 
-                            {/* Zoom Hint */}
                             <div className="absolute bottom-6 right-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
                                 <span className="text-[10px] uppercase font-bold tracking-[0.2em] bg-white/80 backdrop-blur-sm px-4 py-2 text-primary shadow-sm">
-                                    Hover to Explore Details
+                                    {t('product.explore_detail')}
                                 </span>
                             </div>
                         </div>
 
-                        {/* Thumbnails Row */}
                         {product.variants && product.variants.length > 0 && (
                             <div className="grid grid-cols-5 gap-2 px-2 pb-2">
                                 {product.variants.map((variant, idx) => (
@@ -219,7 +156,6 @@ const ProductDetailsPage = () => {
                         )}
                     </div>
 
-                    {/* Product Info */}
                     <motion.div
                         className="flex flex-col"
                         initial={{ opacity: 0, y: 20 }}
@@ -228,32 +164,29 @@ const ProductDetailsPage = () => {
                     >
                         <div className="mb-10">
                             <span className="text-accent-gold text-[10px] uppercase font-bold tracking-[0.4em] mb-4 block">
-                                {product.category} {product.badge && `• ${product.badge.toUpperCase()}`}
+                                {product.category} {product.badge && `• ${t(`product.badge.${product.badge.toLowerCase()}`)}`}
                             </span>
                             <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-normal tracking-tight mb-6">
                                 {product.name}
                             </h1>
                             <div className="flex items-center gap-4 mb-8">
-                                <span className="text-2xl font-bold tracking-widest text-primary">
+                                <span className="text-2xl font-bold tracking-widest text-primary notranslate">
                                     {formatPrice(product.price)}
                                 </span>
                                 {product.originalPrice && (
-                                    <span className="text-lg text-secondary line-through opacity-50">
+                                    <span className="text-lg text-secondary line-through opacity-50 notranslate">
                                         {formatPrice(product.originalPrice)}
                                     </span>
                                 )}
                             </div>
                         </div>
 
-                        {/* Selection Options */}
                         <div className="space-y-10 mb-12">
-                            {/* Color Selection with Variants */}
                             <div>
                                 <span className="text-[10px] uppercase font-bold tracking-[0.3em] mb-4 block">
-                                    Color: <span className="text-secondary">{displayColor}</span>
+                                    Warna: <span className="text-secondary">{displayColor}</span>
                                 </span>
                                 <div className="flex flex-wrap gap-3">
-                                    {/* Main Product Color (implied as variant 0 if variants exist, or just standalone) */}
                                     {product.variants && product.variants.length > 0 ? (
                                         product.variants.map((variant, idx) => (
                                             <button
@@ -277,10 +210,9 @@ const ProductDetailsPage = () => {
                                 </div>
                             </div>
 
-                            {/* Size selection */}
                             {product.size.length > 0 && (
                                 <div>
-                                    <span className="text-[10px] uppercase font-bold tracking-[0.3em] mb-4 block">Select Size</span>
+                                    <span className="text-[10px] uppercase font-bold tracking-[0.3em] mb-4 block">Pilih Ukuran</span>
                                     <div className="flex flex-wrap gap-3">
                                         {product.size.map(s => (
                                             <button
@@ -298,9 +230,8 @@ const ProductDetailsPage = () => {
                                 </div>
                             )}
 
-                            {/* Quantity */}
                             <div>
-                                <span className="text-[10px] uppercase font-bold tracking-[0.3em] mb-4 block">Quantity</span>
+                                <span className="text-[10px] uppercase font-bold tracking-[0.3em] mb-4 block">Jumlah</span>
                                 <div className="inline-flex items-center border border-black/10">
                                     <button
                                         onClick={() => setQuantity(Math.max(1, quantity - 1))}
@@ -315,15 +246,14 @@ const ProductDetailsPage = () => {
                             </div>
                         </div>
 
-                        {/* Actions */}
                         <div className="flex flex-col gap-6 mb-16">
                             <div className="flex items-center justify-between py-4 border-y border-black/5">
-                                <span className="text-[10px] uppercase font-bold tracking-widest text-secondary">Inventory Status</span>
+                                <span className="text-[10px] uppercase font-bold tracking-widest text-secondary">STATUS INVENTARIS</span>
                                 <span className={`text-[11px] font-bold tracking-widest ${(displayStock || 0) > 0 ? 'text-green-600' : 'text-red-500'
                                     }`}>
                                     {(displayStock || 0) > 0
-                                        ? (displayStock! <= 5 ? `ONLY ${displayStock} PIECES REMAINING` : 'AVAILABLE IN ATELIER')
-                                        : 'CURRENTLY UNAVAILABLE'}
+                                        ? (displayStock! <= 5 ? `HANYA TERSISA ${displayStock} PCS` : 'TERSEDIA DI ATELIER')
+                                        : 'SAAT INI TIDAK TERSEDIA'}
                                 </span>
                             </div>
 
@@ -337,7 +267,7 @@ const ProductDetailsPage = () => {
                                         }`}
                                     whileTap={(displayStock || 0) > 0 ? { scale: 0.98 } : {}}
                                 >
-                                    {(displayStock || 0) === 0 ? 'Currently Out of Stock' : 'Add to Discovery'}
+                                    {(displayStock || 0) === 0 ? 'Stok Habis' : 'TAMBAHKAN KE KOLEKSI'}
                                 </motion.button>
                                 <motion.button
                                     onClick={() => toggleWishlist(product.id)}
@@ -352,7 +282,6 @@ const ProductDetailsPage = () => {
                             </div>
                         </div>
 
-                        {/* Information Tabs */}
                         <div className="border-t border-black/5 pt-10">
                             <div className="flex gap-8 mb-8">
                                 {tabs.map(tab => (
@@ -382,18 +311,17 @@ const ProductDetailsPage = () => {
                                         transition={{ duration: 0.3 }}
                                     >
                                         {activeTab === 'description' && (
-                                            <p>{product.description || `This premium ${product.name} is designed with the modern woman in mind. Combining traditional modesty with global style, it features exceptional craftmanship and the highest quality materials selected for both elegance and longevity.`}</p>
+                                            <p>{product.description || t('product.default_description')}</p>
                                         )}
                                         {activeTab === 'details' && (
                                             <ul className="list-disc pl-4 space-y-2">
-                                                <li>Premium material with soft texture</li>
-                                                <li>Signature {product.category} collection</li>
-                                                <li>Hand wash recommended for preservation</li>
-                                                <li>Crafted with attention to detail</li>
+                                                {(t('product.default_details', { returnObjects: true }) as string[]).map((detail, idx) => (
+                                                    <li key={idx}>{detail}</li>
+                                                ))}
                                             </ul>
                                         )}
                                         {activeTab === 'shipping' && (
-                                            <p>Deenha provides worldwide shipping. Orders are usually processed within 1-2 business days. Complimentary shipping available for regional orders above a certain threshold. Returns are accepted within 7 days of receipt in original condition.</p>
+                                            <p>{t('product.default_shipping')}</p>
                                         )}
                                     </motion.div>
                                 </AnimatePresence>
@@ -402,15 +330,14 @@ const ProductDetailsPage = () => {
                     </motion.div>
                 </div>
 
-                {/* Related Products Section */}
                 {relatedProducts.length > 0 && (
                     <section className="pt-24 border-t border-black/5">
                         <div className="text-center mb-16">
                             <span className="text-accent-gold text-[10px] uppercase font-bold tracking-[0.4em] mb-4 block">
-                                Completion
+                                {t('product.complementary')}
                             </span>
                             <h2 className="font-display text-4xl font-normal tracking-tight mb-4 italic">
-                                You May Also Like
+                                {t('product.you_may_also_like')}
                             </h2>
                         </div>
                         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
