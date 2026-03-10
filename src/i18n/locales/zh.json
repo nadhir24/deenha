@@ -13,19 +13,39 @@
         "journal_title": "工作室日志",
         "view_all": "查看全部"
     },
-    "whatsapp": {
-        "greeting": "您好 Deenha！我对您的产品很感兴趣。",
-        "order_prefix": "您好 Deenha！我想订购：",
-        "total": "总金额",
-        "order_id": "订单 ID",
-        "instructions": "请提供进一步的付款说明。谢谢！"
+    "hero": {
+        "preparing": "准备工作室",
+        "view_collection": "查看系列",
+        "about_us": "关于我们",
+        "scroll": "滚动",
+        "unmute": "取消静音",
+        "mute": "静音",
+        "playing": "正在播放",
+        "catalog": "目录"
     },
-    "announcement": {
-        "shipping": "🌍 提供全球配送",
-        "free_shipping": "✨ 订单满 500,000 印尼盾免运费",
-        "discount": "🎁 使用 DEENHA10 享首单 10% 折扣",
-        "new_collection": "✨ 探索全新签名系列",
-        "live_tiktok": "🔴 TIKTOK 直播中！立即加入获取专属优惠"
+    "benefits": {
+        "global_shipping": "全球配送",
+        "global_shipping_desc": "全球范围内送货",
+        "easy_exchange": "便捷换货",
+        "easy_exchange_desc": "7天保证",
+        "secure_payment": "安全支付",
+        "secure_payment_desc": "SSL 加密",
+        "premium_service": "优质服务",
+        "premium_service_desc": "24/7 支持"
+    },
+    "collections": {
+        "hampers_title": "Raya 前特别推荐",
+        "hampers_name": "豪华礼篮",
+        "hampers_desc": "完美的感恩之礼。我们的 Raya 礼篮包装优雅，带有我们的标志性触感。",
+        "scarves_title": "Raya 独家",
+        "scarves_name": "签名围巾",
+        "scarves_desc": "探索最受喜爱的 Monogram 和 Crystal 系列。采用优质 voal 打造。",
+        "new_title": "新季节",
+        "new_name": "Raya 前目录",
+        "new_desc": "从永恒的廓形到现代的端庄着装。",
+        "pray_title": "精神系列",
+        "pray_name": "祈祷必需品",
+        "pray_desc": "在我们高级祈祷系列的陪伴下，在每一次祈祷中体验宁静。"
     },
     "shop": {
         "title": "我们所有的系列",
@@ -76,7 +96,7 @@
             "shipping": "配送与退换"
         },
         "default_description": "这款高级系列专为现代女性设计。融合了传统端庄与全球风格。",
-        "default_shipping": "Deenha 提供全球配送。订单通常在 1-2 个工作日内处理。签收后 7 天内接受原状退货。"
+        "default_shipping": "Deenha 提供全球配送。签收后 7 天内接受原状退货。"
     },
     "brand_story": {
         "identity_label": "我们的身份",
@@ -85,29 +105,37 @@
         "heading_1": "优雅每一",
         "heading_2": "丝线",
         "p1": "Deenha Hijab 提供令人惊叹的系列，体现了优雅和精致。",
-        "p2": "我们的围巾有多种精美的图案。Deenha 还推出了精美策划的祈祷服和连衣裙系列。",
-        "p3": "无论您是想提升日常着装还是为特殊活动做准备，Deenha Hijab 都能为您带来多功能性。",
+        "p2": "我们的围巾有多种精美的图案。",
+        "p3": "Deenha Hijab 都能为您带来多功能性。",
         "team_sign": "— DEENHA 团队",
         "core_philosophy": "核心理念",
         "our_ethos": "我们的精神",
         "ethos_1_title": "增强自信",
-        "ethos_1_desc": "Deenha 旨在提升每位女性的自信。优雅的设计让您在每次穿着时都感到优雅。",
+        "ethos_1_desc": "Deenha 旨在提升每位女性的自信。",
         "ethos_2_title": "全球灵感",
-        "ethos_2_desc": "Deenha 从全球遗产中汲取灵感，将永恒的设计与来自世界各地的文化相结合。",
+        "ethos_2_desc": "Deenha 从全球遗产中汲取灵感，将永恒的设计与世界各地的文化相结合。",
         "ethos_3_title": "我们的使命",
-        "ethos_3_desc": "我们的使命是为穆斯林女性打造高品质服装，融合优雅与舒适。"
+        "ethos_3_desc": "我们的使命是为穆斯林女性打造高品质服装。"
     },
-    "journal": {
-        "title": "DEENHA 日志",
-        "subtitle": "工作室的故事",
-        "description": "致力于端庄生活艺术的编辑空间。发现 Deenha 的精髓。",
-        "read_full": "阅读全文"
+    "whatsapp": {
+        "greeting": "您好 Deenha！我对您的产品很感兴趣。",
+        "order_prefix": "您好 Deenha！我想订购：",
+        "total": "总金额",
+        "order_id": "订单 ID",
+        "instructions": "请提供进一步的付款说明。谢谢！"
+    },
+    "announcement": {
+        "shipping": "🌍 提供全球配送",
+        "free_shipping": "✨ 订单满 500,000 印尼盾免运费",
+        "discount": "🎁 使用 DEENHA10 享首单 10% 折扣",
+        "new_collection": "✨ 探索全新签名系列",
+        "live_tiktok": "🔴 直播中！"
     },
     "ramadan_popup": {
         "label": "2026年 斋月",
         "title": "欢迎",
         "title_highlight": "斋月",
-        "description": "以 DEENHA 的最新系列迎接神圣的月份。优雅端庄，散发着美丽。",
+        "description": "以 DEENHA 的最新系列迎接神圣的月份。",
         "cta": "查看斋月系列",
         "close": "点击关闭"
     },
@@ -139,7 +167,7 @@
         "empty": "您的购物车是空的",
         "continue_shopping": "继续购物",
         "total": "总计",
-        "checkout_wa": "通过 WhatsApp 结账",
+        "checkout_wa": "WhatsApp 结账",
         "qty": "数量",
         "error": "处理订单时出错。"
     },

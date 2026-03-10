@@ -13,19 +13,39 @@
         "journal_title": "Le Journal de l'Atelier",
         "view_all": "Voir Tout"
     },
-    "whatsapp": {
-        "greeting": "Bonjour Deenha ! Je suis intéressée par vos produits.",
-        "order_prefix": "Bonjour Deenha ! Je souhaite commander :",
-        "total": "Montant Total",
-        "order_id": "ID de Commande",
-        "instructions": "Veuillez fournir des instructions de paiement supplémentaires. Merci !"
+    "hero": {
+        "preparing": "Préparation de l'Atelier",
+        "view_collection": "Voir la Collection",
+        "about_us": "À Propos",
+        "scroll": "Défiler",
+        "unmute": "Activer le son",
+        "mute": "Couper le son",
+        "playing": "Lecture en cours",
+        "catalog": "Catalogue"
     },
-    "announcement": {
-        "shipping": "🌍 Livraison Internationale Disponible",
-        "free_shipping": "✨ Livraison Gratuite au-delà de 500k IDR",
-        "discount": "🎁 Utilisez DEENHA10 pour 10% de réduction",
-        "new_collection": "✨ Découvrez la Nouvelle Collection Signature",
-        "live_tiktok": "🔴 EN DIRECT SUR TIKTOK ! REJOIGNEZ-NOUS"
+    "benefits": {
+        "global_shipping": "Livraison Mondiale",
+        "global_shipping_desc": "Livraison dans le monde entier",
+        "easy_exchange": "Échange Facile",
+        "easy_exchange_desc": "Garantie de 7 jours",
+        "secure_payment": "Paiement Sécurisé",
+        "secure_payment_desc": "Cryptage SSL",
+        "premium_service": "Service Premium",
+        "premium_service_desc": "Support 24/7"
+    },
+    "collections": {
+        "hampers_title": "Spécial Pré-Raya",
+        "hampers_name": "Coffrets de Luxe",
+        "hampers_desc": "Le cadeau de gratitude parfait. Nos coffrets Raya sont élégamment emballés avec notre touche signature.",
+        "scarves_title": "Exclusivité Raya",
+        "scarves_name": "Écharpes Signature",
+        "scarves_desc": "Découvrez les séries Monogram et Crystal les plus appréciées. Conçues en voal premium.",
+        "new_title": "Nouvelle Saison",
+        "new_name": "Catalogue Pré-Raya",
+        "new_desc": "Des silhouettes intemporelles aux vêtements modestes modernes.",
+        "pray_title": "Série Spirituelle",
+        "pray_name": "Essentiels de Prière",
+        "pray_desc": "Vivez la sérénité dans chaque prière avec nos ensembles de prière premium."
     },
     "shop": {
         "title": "Toute Notre Collection",
@@ -54,7 +74,7 @@
         "loading": "Recherche d'Excellence...",
         "not_found": "Produit Non Trouvé",
         "back_to_home": "Retour à l'Accueil",
-        "explore_detail": "Survolez pour explorer les détails",
+        "explore_detail": "Survolez untuk melihat detail",
         "select_size": "Choisir la Taille",
         "quantity": "Quantité",
         "inventory": "STATUT DU STOCK",
@@ -75,8 +95,8 @@
             "details": "Détails & Entretien",
             "shipping": "Livraison & Retours"
         },
-        "default_description": "Cette série premium est conçue pour la femme moderne. Alliant modestie traditionnelle et style global, elle présente un savoir-faire exceptionnel et des matériaux de la plus haute qualité.",
-        "default_shipping": "Deenha assure une livraison dans le monde entier. Les commandes sont généralement traitées en 1 à 2 jours ouvrables. Les retours sont acceptés dans les 7 jours."
+        "default_description": "Cette série premium est conçue pour la femme moderne. Alliant modestie traditionnelle et style global.",
+        "default_shipping": "Deenha assure une livraison dans le monde entier. Retours acceptés sous 7 jours."
     },
     "brand_story": {
         "identity_label": "Notre Identité",
@@ -84,35 +104,43 @@
         "narrative_label": "Le Récit",
         "heading_1": "L'Élégance dans Chaque",
         "heading_2": "Fil",
-        "p1": "Deenha Hijab propose une collection époustouflante qui incarne l'élégance et la sophistication. Chaque pièce est conçue avec des matériaux doux et vibrants.",
-        "p2": "Nos écharpes sont disponibles dans une variété de motifs exquis. Deenha présente également une gamme d'ensembles de prière et de robes.",
-        "p3": "Que vous cherchiez à rehausser votre tenue quotidienne ou pour un événement spécial, Deenha Hijab vous apporte grâce et polyvalence.",
+        "p1": "Deenha Hijab propose une collection époustouflante qui incarne l'élégance et la sophistication.",
+        "p2": "Nos écharpes sont disponibles dans une variété de motifs exquis.",
+        "p3": "Deenha Hijab vous apporte grâce et polyvalence.",
         "team_sign": "— L'ÉQUIPE DEENHA",
         "core_philosophy": "Philosophie Fondamentale",
         "our_ethos": "Notre Éthique",
         "ethos_1_title": "Renforcer la Confiance",
-        "ethos_1_desc": "Deenha est conçu pour élever la confiance de chaque femme. Nos designs élégants vous font vous sentir gracieuse et posée.",
+        "ethos_1_desc": "Deenha est conçu pour élever la confiance de chaque femme.",
         "ethos_2_title": "Inspiration Mondiale",
-        "ethos_2_desc": "Deenha s'inspire du patrimoine mondial, mêlant des designs intemporels à la richesse culturelle du monde entier.",
+        "ethos_2_desc": "Deenha s'inspire du patrimoine mondial, mêlant des designs intemporels.",
         "ethos_3_title": "Notre Mission",
-        "ethos_3_desc": "Notre mission est de créer des vêtements de haute qualité pour les femmes musulmanes, alliant élégance et confort."
+        "ethos_3_desc": "Notre mission est de créer des vêtements de haute qualité."
     },
-    "journal": {
-        "title": "Journal DEENHA",
-        "subtitle": "Histoires de l'Atelier",
-        "description": "Un espace éditorial dédié à l'art de vivre modeste. Découvrez l'essence de Deenha.",
-        "read_full": "Lire l'histoire complète"
+    "whatsapp": {
+        "greeting": "Bonjour Deenha ! Je suis intéressée par vos produits.",
+        "order_prefix": "Bonjour Deenha ! Je souhaite commander :",
+        "total": "Montant Total",
+        "order_id": "ID de Commande",
+        "instructions": "Veuillez fournir des instructions de paiement supplémentaires. Merci !"
+    },
+    "announcement": {
+        "shipping": "🌍 Livraison Internationale Disponible",
+        "free_shipping": "✨ Livraison Gratuite au-delà de 500k IDR",
+        "discount": "🎁 Utilisez DEENHA10 untuk diskon 10%",
+        "new_collection": "✨ Découvrez la Nouvelle Collection Signature",
+        "live_tiktok": "🔴 EN DIRECT SUR TIKTOK !"
     },
     "ramadan_popup": {
         "label": "Ramadan 1447 H",
         "title": "Bienvenue",
         "title_highlight": "Ramadhan",
-        "description": "Accueillez le mois sacré avec la dernière collection de DEENHA. Soyez gracieuse et modeste avec une touche élégante.",
+        "description": "Accueillez le mois sacré avec la dernière collection de DEENHA.",
         "cta": "Voir la Collection Ramadan",
         "close": "Appuyez pour fermer"
     },
     "footer": {
-        "description": "Créer une modestie exquise pour la femme moderne qui valorise l'élégance et la tradition.",
+        "description": "Créer une modestie exquise pour la femme moderne.",
         "shop": "Boutique",
         "support": "Support",
         "company": "Entreprise",
@@ -122,15 +150,15 @@
             "scarf": "Écharpe",
             "dress": "Robe",
             "bergo": "Bergo",
-            "mukena": "Ensemble de prière",
+            "mukena": "Set de prière",
             "new_arrival": "Nouveautés",
-            "contact_us": "Contactez-nous",
-            "shipping_info": "Infos Livraison",
+            "contact_us": "Contact",
+            "shipping_info": "Livraison",
             "returns": "Retours",
-            "size_guide": "Guide des tailles",
+            "size_guide": "Guide Tailles",
             "faq": "FAQ",
             "about_us": "À propos",
-            "our_story": "Notre histoire",
+            "our_story": "Histoire",
             "journal": "Journal"
         }
     },
@@ -139,9 +167,9 @@
         "empty": "Votre panier est vide",
         "continue_shopping": "Continuer les achats",
         "total": "Total",
-        "checkout_wa": "Payer via WhatsApp",
+        "checkout_wa": "WhatsApp Checkout",
         "qty": "Qté",
-        "error": "Une erreur est survenue lors de la commande."
+        "error": "Erreur lors de la commande."
     },
     "language": {
         "select": "Sélectionner la langue",

@@ -13,19 +13,39 @@
         "journal_title": "Jurnal Atelier",
         "view_all": "Lihat Semua"
     },
-    "whatsapp": {
-        "greeting": "Halo Deenha! Saya tertarik dengan produk Anda.",
-        "order_prefix": "Halo Deenha! Saya ingin memesan:",
-        "total": "Total Harga",
-        "order_id": "ID Pesanan",
-        "instructions": "Mohon berikan instruksi pembayaran lebih lanjut. Terima kasih!"
+    "hero": {
+        "preparing": "Menyiapkan Atelier",
+        "view_collection": "Lihat Koleksi",
+        "about_us": "Tentang Kami",
+        "scroll": "Gulir",
+        "unmute": "Bunyikan",
+        "mute": "Bisukan",
+        "playing": "Sedang Diputar",
+        "catalog": "Katalog"
     },
-    "announcement": {
-        "shipping": "🌍 Pengiriman Internasional Tersedia",
-        "free_shipping": "✨ Gratis Ongkir untuk Pesanan di atas Rp 500.000",
-        "discount": "🎁 Gunakan DEENHA10 untuk diskon 10%",
-        "new_collection": "✨ Temukan Koleksi Signature Terbaru",
-        "live_tiktok": "🔴 LIVE DI TIKTOK! GABUNG SEKARANG UNTUK PENAWARAN EKSKLUSIF"
+    "benefits": {
+        "global_shipping": "Pengiriman Global",
+        "global_shipping_desc": "Pengiriman ke Seluruh Dunia",
+        "easy_exchange": "Penukaran Mudah",
+        "easy_exchange_desc": "Garansi 7 Hari",
+        "secure_payment": "Pembayaran Aman",
+        "secure_payment_desc": "Enkripsi SSL",
+        "premium_service": "Layanan Premium",
+        "premium_service_desc": "Dukungan 24/7"
+    },
+    "collections": {
+        "hampers_title": "Spesial Pra-Raya",
+        "hampers_name": "Hampers Mewah",
+        "hampers_desc": "Hadiah syukur yang sempurna. Hampers Raya kami dikemas elegan dengan sentuhan khas kami, menjadikannya cara terbaik untuk berbagi kebahagiaan.",
+        "scarves_title": "Eksklusif Raya",
+        "scarves_name": "Signature Scarves",
+        "scarves_desc": "Temukan seri Monogram dan Crystal yang paling dicintai. Dibuat dari voal premium untuk keanggunan tanpa batas selama perayaan Raya Anda.",
+        "new_title": "Musim Baru",
+        "new_name": "Katalog Pra-Raya",
+        "new_desc": "Dari siluet abadi hingga pakaian modest modern, jelajahi rilis terbaru kami yang dirancang khusus untuk musim suci mendatang.",
+        "pray_title": "Seri Spiritual",
+        "pray_name": "Perlengkapan Ibadah",
+        "pray_desc": "Rasakan ketenangan dalam setiap doa dengan set mukena premium kami, menampilkan renda halus dan bahan yang bernapas untuk kenyamanan maksimal."
     },
     "shop": {
         "title": "Seluruh Koleksi Kami",
@@ -75,8 +95,8 @@
             "details": "Detail & Perawatan",
             "shipping": "Pengiriman & Pengembalian"
         },
-        "default_description": "Seri premium ini dirancang untuk wanita modern. Memadukan kesopanan tradisional dengan gaya global, menampilkan keahlian luar biasa dan bahan berkualitas tinggi yang dipilih untuk keanggunan dan daya tahan.",
-        "default_shipping": "Deenha menyediakan pengiriman ke seluruh dunia. Pesanan biasanya diproses dalam 1-2 hari kerja. Pengiriman gratis tersedia untuk wilayah tertentu dengan ambang batas tertentu. Pengembalian diterima dalam waktu 7 hari setelah diterima dalam kondisi asli."
+        "default_description": "Seri premium ini dirancang untuk wanita modern. Memadukan kesopanan tradisional dengan gaya global.",
+        "default_shipping": "Deenha menyediakan pengiriman ke seluruh dunia. Pengembalian diterima dalam waktu 7 hari."
     },
     "brand_story": {
         "identity_label": "Identitas Kami",
@@ -84,64 +104,40 @@
         "narrative_label": "Narasi",
         "heading_1": "Keanggunan di Setiap",
         "heading_2": "Helaian",
-        "p1": "Deenha Hijab menawarkan koleksi menakjubkan yang mewujudkan keanggunan dan kecanggihan. Dibuat dengan sangat hati-hati, setiap helai dirancang dengan bahan yang lembut dan warna yang hidup, memastikan kenyamanan dan gaya.",
-        "p2": "Kerudung kami hadir dalam berbagai motif eksklusif, memudahkan Anda menemukan pasangan yang tepat untuk acara apa pun. Tidak terbatas pada kerudung, Deenha juga menghadirkan rangkaian mukena dan gaun yang dikurasi dengan indah, setiap bagian mencerminkan keanggunan abadi dan perhatian terhadap detail.",
-        "p3": "Apakah Anda ingin meningkatkan pakaian sehari-hari atau bersiap untuk acara khusus, Deenha Hijab menghadirkan dunia fleksibilitas dan keanggunan bagi Anda.",
+        "p1": "Deenha Hijab menawarkan koleksi menakjubkan yang mewujudkan keanggunan dan kecanggihan.",
+        "p2": "Kerudung kami hadir dalam berbagai motif eksklusif.",
+        "p3": "Deenha Hijab menghadirkan dunia fleksibilitas dan keanggunan bagi Anda.",
         "team_sign": "— TIM DEENHA",
         "core_philosophy": "Filosofi Inti",
         "our_ethos": "Etos Kami",
         "ethos_1_title": "Meningkatkan Kepercayaan Diri",
-        "ethos_1_desc": "Deenha dirancang untuk meningkatkan kepercayaan diri setiap wanita. Dengan desain yang elegan, tekstur lembut, dan warna yang hidup, Deenha merangkul feminitas, membuat Anda merasa anggun dan percaya diri dalam setiap pemakaian.",
+        "ethos_1_desc": "Deenha dirancang untuk meningkatkan kepercayaan diri setiap wanita.",
         "ethos_2_title": "Inspirasi Global",
-        "ethos_2_desc": "Deenha menarik inspirasi dari warisan global, memadukan desain abadi dengan kekayaan budaya dari seluruh dunia. Setiap bagian mencerminkan kisah unik, menciptakan perpaduan elegan antara tradisi dan gaya kontemporer.",
+        "ethos_2_desc": "Deenha menarik inspirasi dari warisan global, memadukan desain abadi dengan kekayaan budaya.",
         "ethos_3_title": "Misi Kami",
-        "ethos_3_desc": "Misi kami adalah menciptakan pakaian berkualitas tinggi untuk wanita Muslim, memadukan keanggunan dan kenyamanan untuk memberdayakan setiap pemakainya dengan kepercayaan diri dan gaya."
+        "ethos_3_desc": "Misi kami adalah menciptakan pakaian berkualitas tinggi untuk wanita Muslim."
     },
-    "journal": {
-        "title": "Jurnal DEENHA",
-        "subtitle": "Cerita Atelier",
-        "description": "Ruang editorial yang didedikasikan untuk seni hidup bersahaja. Dari pembahasan mendalam tentang kain premium kami hingga panduan gaya yang dikurasi, temukan esensi Deenha.",
-        "read_full": "Baca Selengkapnya"
+    "whatsapp": {
+        "greeting": "Halo Deenha! Saya tertarik dengan produk Anda.",
+        "order_prefix": "Halo Deenha! Saya ingin memesan:",
+        "total": "Total Harga",
+        "order_id": "ID Pesanan",
+        "instructions": "Mohon berikan instruksi pembayaran lebih lanjut. Terima kasih!"
+    },
+    "announcement": {
+        "shipping": "🌍 Pengiriman Internasional Tersedia",
+        "free_shipping": "✨ Gratis Ongkir untuk Pesanan di atas Rp 500.000",
+        "discount": "🎁 Gunakan DEENHA10 untuk diskon 10%",
+        "new_collection": "✨ Temukan Koleksi Signature Terbaru",
+        "live_tiktok": "🔴 LIVE DI TIKTOK! GABUNG SEKARANG"
     },
     "ramadan_popup": {
         "label": "Ramadan 1447 H",
         "title": "Selamat Datang",
         "title_highlight": "Ramadhan",
-        "description": "Sambut bulan suci dengan koleksi terbaru dari DEENHA. Tampil anggun dan bersahaja dengan sentuhan elegan yang memancarkan kecantikan.",
+        "description": "Sambut bulan suci dengan koleksi terbaru dari DEENHA.",
         "cta": "Lihat Koleksi Ramadan",
         "close": "Tap untuk menutup"
-    },
-    "footer": {
-        "description": "Menghasilkan kesopanan yang indah bagi wanita modern yang menghargai keanggunan dan tradisi.",
-        "shop": "Belanja",
-        "support": "Dukungan",
-        "company": "Perusahaan",
-        "rights": "© 2026 DEENHA HIJAB. HAK CIPTA DILINDUNGI.",
-        "follow_us": "Ikuti Kami",
-        "links": {
-            "scarf": "Kerudung",
-            "dress": "Gaun",
-            "bergo": "Bergo",
-            "mukena": "Mukena",
-            "new_arrival": "Terbaru",
-            "contact_us": "Kontak Kami",
-            "shipping_info": "Info Pengiriman",
-            "returns": "Pengembalian",
-            "size_guide": "Panduan Ukuran",
-            "faq": "FAQ",
-            "about_us": "Tentang Kami",
-            "our_story": "Kisah Kami",
-            "journal": "Jurnal"
-        }
-    },
-    "cart": {
-        "title": "Keranjang Belanja",
-        "empty": "Keranjang Anda kosong",
-        "continue_shopping": "Lanjutkan Belanja",
-        "total": "Total",
-        "checkout_wa": "Bayar via WhatsApp",
-        "qty": "Jml",
-        "error": "Maaf, terjadi kesalahan saat memproses pesanan Anda. Silakan coba lagi."
     },
     "language": {
         "select": "Pilih Bahasa",

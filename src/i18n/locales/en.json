@@ -13,19 +13,39 @@
         "journal_title": "The Atelier Journal",
         "view_all": "View All"
     },
-    "whatsapp": {
-        "greeting": "Hello Deenha! I am interested in your products.",
-        "order_prefix": "Hello Deenha! I would like to order:",
-        "total": "Total Amount",
-        "order_id": "Order ID",
-        "instructions": "Please provide further instructions for payment. Thank you!"
+    "hero": {
+        "preparing": "Preparing Atelier",
+        "view_collection": "View Collection",
+        "about_us": "About Us",
+        "scroll": "Scroll",
+        "unmute": "Unmute",
+        "mute": "Mute",
+        "playing": "Playing",
+        "catalog": "Catalog"
     },
-    "announcement": {
-        "shipping": "🌍 International Shipping Available",
-        "free_shipping": "✨ Complimentary Shipping on Orders over Rp 500,000",
-        "discount": "🎁 Use DEENHA10 for 10% off your first purchase",
-        "new_collection": "✨ Discover the New Signature Collection",
-        "live_tiktok": "🔴 LIVE ON TIKTOK! JOIN NOW FOR EXCLUSIVE DEALS"
+    "benefits": {
+        "global_shipping": "Global Shipping",
+        "global_shipping_desc": "Worldwide Delivery",
+        "easy_exchange": "Easy Exchange",
+        "easy_exchange_desc": "7-Day Guarantee",
+        "secure_payment": "Secure Payment",
+        "secure_payment_desc": "SSL Encryption",
+        "premium_service": "Premium Service",
+        "premium_service_desc": "24/7 Support"
+    },
+    "collections": {
+        "hampers_title": "Pre-Raya Special",
+        "hampers_name": "Luxury Hampers",
+        "hampers_desc": "The perfect gift of gratitude. Our Raya hampers are elegantly packaged with our signature touch, making them the best way to share happiness.",
+        "scarves_title": "Raya Exclusive",
+        "scarves_name": "Signature Scarves",
+        "scarves_desc": "Discover the most loved Monogram and Crystal series. Crafted from premium voal for effortless elegance during your Raya celebrations.",
+        "new_title": "New Season",
+        "new_name": "Pre-Raya Catalog",
+        "new_desc": "From timeless silhouettes to modern modest wear, explore our latest releases designed specifically for the upcoming holy season.",
+        "pray_title": "Spiritual Series",
+        "pray_name": "Prayer Essentials",
+        "pray_desc": "Experience serenity in every prayer with our premium prayer sets, featuring delicate lace and breathable materials for ultimate comfort."
     },
     "shop": {
         "title": "Our Entire Collection",
@@ -75,8 +95,8 @@
             "details": "Details & Care",
             "shipping": "Shipping & Returns"
         },
-        "default_description": "This premium series is designed with the modern woman in mind. Blending traditional modesty with global style, it features exceptional craftsmanship and the highest quality materials selected for elegance and durability.",
-        "default_shipping": "Deenha provides worldwide shipping. Orders are usually processed within 1-2 business days. Complimentary shipping is available for certain regions over specific thresholds. Returns are accepted within 7 days of receipt in original condition."
+        "default_description": "This premium series is designed with the modern woman in mind. Blending traditional modesty with global style.",
+        "default_shipping": "Deenha provides worldwide shipping. Returns are accepted within 7 days of receipt."
     },
     "brand_story": {
         "identity_label": "Our Identity",
@@ -84,64 +104,40 @@
         "narrative_label": "The Narrative",
         "heading_1": "Elegance in Every",
         "heading_2": "Thread",
-        "p1": "Deenha Hijab offers a stunning collection that embodies elegance and sophistication. Crafted with the utmost care, each piece is designed with soft and vibrant materials, ensuring both comfort and style.",
-        "p2": "Our scarves come in a variety of exquisite motifs, making it easy to find the perfect match for any occasion. Not just limited to scarves, Deenha also presents a beautifully curated range of pray sets and dresses, each piece reflecting timeless elegance and attention to detail.",
-        "p3": "Whether you're looking to elevate your daily wear or prepare for a special event, Deenha Hijab brings you a world of versatility and grace.",
+        "p1": "Deenha Hijab offers a stunning collection that embodies elegance and sophistication.",
+        "p2": "Our scarves come in a variety of exquisite motifs.",
+        "p3": "Deenha Hijab brings you a world of versatility and grace.",
         "team_sign": "— THE DEENHA TEAM",
         "core_philosophy": "Core Philosophy",
         "our_ethos": "Our Ethos",
         "ethos_1_title": "Empowering Confidence",
-        "ethos_1_desc": "Deenha is crafted to elevate the confidence of every woman. With its elegant designs, soft textures, and vibrant hues, Deenha embraces femininity, making you feel graceful and poised with every wear.",
+        "ethos_1_desc": "Deenha is crafted to elevate the confidence of every woman.",
         "ethos_2_title": "Global Inspiration",
-        "ethos_2_desc": "Deenha draws inspiration from global heritage, blending timeless designs with cultural richness from around the world. Each piece reflects a unique story, creating an elegant fusion of tradition and contemporary style.",
+        "ethos_2_desc": "Deenha draws inspiration from global heritage, blending timeless designs.",
         "ethos_3_title": "Our Mission",
-        "ethos_3_desc": "Our mission is to create high-quality clothing for Muslim women, blending elegance and comfort to empower every wearer with confidence and style."
+        "ethos_3_desc": "Our mission is to create high-quality clothing for Muslim women."
     },
-    "journal": {
-        "title": "DEENHA Journal",
-        "subtitle": "The Atelier Stories",
-        "description": "An editorial space dedicated to the art of modest living. From deep-dives into our premium fabrics to curated styling guides, discover the essence of Deenha.",
-        "read_full": "Read Full Story"
+    "whatsapp": {
+        "greeting": "Hello Deenha! I am interested in your products.",
+        "order_prefix": "Hello Deenha! I would like to order:",
+        "total": "Total Amount",
+        "order_id": "Order ID",
+        "instructions": "Please provide further instructions for payment. Thank you!"
+    },
+    "announcement": {
+        "shipping": "🌍 International Shipping Available",
+        "free_shipping": "✨ Complimentary Shipping on Orders over Rp 500,000",
+        "discount": "🎁 Use DEENHA10 for 10% off your first purchase",
+        "new_collection": "✨ Discover the New Signature Collection",
+        "live_tiktok": "🔴 LIVE ON TIKTOK! JOIN NOW"
     },
     "ramadan_popup": {
         "label": "Ramadan 1447 H",
         "title": "Welcome",
         "title_highlight": "Ramadhan",
-        "description": "Welcome the blessed month with the latest collection from DEENHA. Look graceful and modest with an elegant touch that radiates beauty.",
+        "description": "Welcome the blessed month with the latest collection from DEENHA.",
         "cta": "View Ramadan Collection",
         "close": "Tap to close"
-    },
-    "footer": {
-        "description": "Crafting exquisite modesty for the modern woman who values elegance and tradition.",
-        "shop": "Shop",
-        "support": "Support",
-        "company": "Company",
-        "rights": "© 2026 DEENHA HIJAB. ALL RIGHTS RESERVED.",
-        "follow_us": "Follow Us",
-        "links": {
-            "scarf": "Scarf",
-            "dress": "Dress",
-            "bergo": "Bergo",
-            "mukena": "Pray Set",
-            "new_arrival": "New Arrival",
-            "contact_us": "Contact Us",
-            "shipping_info": "Shipping Info",
-            "returns": "Returns",
-            "size_guide": "Size Guide",
-            "faq": "FAQ",
-            "about_us": "About Us",
-            "our_story": "Our Story",
-            "journal": "Journal"
-        }
-    },
-    "cart": {
-        "title": "Shopping Cart",
-        "empty": "Your cart is empty",
-        "continue_shopping": "Continue Shopping",
-        "total": "Total",
-        "checkout_wa": "Checkout via WhatsApp",
-        "qty": "Qty",
-        "error": "Sorry, an error occurred while processing your order. Please try again."
     },
     "language": {
         "select": "Select Language",
