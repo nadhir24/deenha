@@ -1,11 +1,9 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import SEOHead from '../components/SEOHead';
-import { useTranslation } from 'react-i18next';
 import { useFAQs } from '../hooks/useFAQs';
 
 const FAQPage = () => {
-    const { t } = useTranslation();
     const { faqs, loading } = useFAQs();
     const [openIndex, setOpenIndex] = useState<string | null>(null);
 

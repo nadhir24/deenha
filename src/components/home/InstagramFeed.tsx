@@ -12,10 +12,10 @@ const InstagramFeed = () => {
             <div className="max-w-[1440px] mx-auto px-6 lg:px-12">
                 <div className="flex flex-col items-center text-center mb-16">
                     <span className="text-accent-gold text-[11px] uppercase font-bold tracking-[0.5em] mb-4 block">
-                        Suasana Kami
+                        {t('home.atmosphere')}
                     </span>
                     <h2 className="font-display text-4xl md:text-6xl italic font-normal tracking-tight mb-6">
-                        Jurnal Atelier
+                        {t('home.journal_title')}
                     </h2>
                     <a
                         href="https://www.instagram.com/deenha.official/"

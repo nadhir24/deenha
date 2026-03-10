@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { supabase } from '../../lib/supabase';
-import { JournalArticle } from '../../hooks/useJournals';
 
 const JournalManager = () => {
     const [articles, setArticles] = useState<any[]>([]);

@@ -3,15 +3,12 @@ import { supabase } from '../../lib/supabase';
 
 const FAQManager = () => {
     const [faqs, setFaqs] = useState<any[]>([]);
-    const [loading, setLoading] = useState(true);
     const [isEditing, setIsEditing] = useState(false);
     const [currentFaq, setCurrentFaq] = useState<any>(null);
 
     const fetchFaqs = async () => {
-        setLoading(true);
         const { data, error } = await supabase.from('faqs').select('*').order('sort_order', { ascending: true });
         if (!error) setFaqs(data || []);
-        setLoading(false);
     };
 
     useEffect(() => {
