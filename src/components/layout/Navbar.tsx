@@ -241,12 +241,8 @@ const Navbar = ({ onMenuClick }: NavbarProps) => {
                                                         (p.name_zh && normalizeText(p.name_zh).includes(q));
                                                 })
                                                 .map((product: Product) => {
-                                                    // Display localized name
-                                                    const lang = i18n.language;
-                                                    const displayName = lang === 'fr' ? product.name_fr || product.name :
-                                                        lang === 'zh' ? product.name_zh || product.name :
-                                                            lang === 'en' ? product.name_en || product.name :
-                                                                product.name_id || product.name;
+                                                    // ALWAYS use original name to match master's request
+                                                    const displayName = product.name;
 
                                                     return (
                                                         <Link
@@ -272,7 +268,7 @@ const Navbar = ({ onMenuClick }: NavbarProps) => {
                                                                     </div>
                                                                 )}
                                                             </div>
-                                                            <h3 className="text-[10px] font-bold uppercase tracking-widest mb-1 group-hover:text-accent-gold transition-colors">
+                                                            <h3 className="text-[10px] font-bold uppercase tracking-widest mb-1 group-hover:text-accent-gold transition-colors notranslate">
                                                                 {displayName}
                                                             </h3>
                                                             <p className="text-[10px] text-secondary font-medium tracking-widest notranslate">

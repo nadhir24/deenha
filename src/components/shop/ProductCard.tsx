@@ -127,7 +127,7 @@ const ProductCard = ({ product, onQuickView }: ProductCardProps) => {
                     </span>
 
                     {/* Name - Playfair Display for Elegance */}
-                    <h3 className="font-display text-lg md:text-xl text-primary mb-3 hover:text-accent-gold transition-colors duration-300">
+                    <h3 className="font-display text-lg md:text-xl text-primary mb-3 hover:text-accent-gold transition-colors duration-300 notranslate">
                         {product.name}
                     </h3>
 

@@ -35,12 +35,8 @@ const QuickViewModal = ({ product, isOpen, onClose }: QuickViewModalProps) => {
         onClose();
     };
 
-    // Get localized product name
-    const lang = i18n.language;
-    const displayName = lang === 'fr' ? product.name_fr || product.name :
-        lang === 'zh' ? product.name_zh || product.name :
-            lang === 'en' ? product.name_en || product.name :
-                product.name_id || product.name;
+    // ALWAYS use original product name per master's request
+    const displayName = product.name;
 
     return (
         <AnimatePresence>
