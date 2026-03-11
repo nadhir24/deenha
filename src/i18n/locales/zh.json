@@ -34,18 +34,18 @@
         "premium_service_desc": "24/7 支持"
     },
     "collections": {
-        "hampers_title": "Raya 前特别推荐",
-        "hampers_name": "豪华礼篮",
-        "hampers_desc": "完美的感恩之礼。我们的 Raya 礼篮包装优雅，带有我们的标志性触感，是分享幸福的最佳方式。",
-        "scarves_title": "Raya 独家",
-        "scarves_name": "签名围巾",
-        "scarves_desc": "探索最受喜爱的 Monogram 和 Crystal 系列。采用优质 voal 打造，在您的 Raya 庆祝活动中展现不费吹灰之力的优雅。",
-        "new_title": "新季节",
-        "new_name": "Raya 前目录",
-        "new_desc": "从永恒的廓形到现代的端庄着装，探索我们专门为即将到来的神圣季节设计的最新发布。",
-        "pray_title": "精神系列",
-        "pray_name": "祈祷必需品",
-        "pray_desc": "在我们高级祈祷系列的陪伴下，在每一次祈祷中体验宁静，其特点是精致的蕾丝和透气的材料，提供极致的舒适感。"
+        "hampers_title": "Pre-Raya Special",
+        "hampers_name": "Luxury Hampers",
+        "hampers_desc": "The perfect gift of gratitude. Our Raya hampers are elegantly packaged with our signature touch, making them the best way to share happiness.",
+        "scarves_title": "Raya Exclusive",
+        "scarves_name": "Signature Scarves",
+        "scarves_desc": "Discover the most loved Monogram and Crystal series. Crafted from premium voal for effortless elegance during your Raya celebrations.",
+        "new_title": "New Season",
+        "new_name": "Pre-Raya Catalog",
+        "new_desc": "From timeless silhouettes to modern modest wear, explore our latest releases designed specifically for the upcoming holy season.",
+        "pray_title": "Spiritual Series",
+        "pray_name": "Prayer Essentials",
+        "pray_desc": "Experience serenity in every prayer with our premium prayer sets, featuring delicate lace and breathable materials for ultimate comfort."
     },
     "shop": {
         "title": "我们所有的系列",
@@ -95,39 +95,39 @@
             "details": "详情与保养",
             "shipping": "配送与退换"
         },
-        "default_description": "这款高级系列专为现代女性设计。融合了传统端庄与全球风格，具有卓越的工艺和为优雅和耐用而选择的最高品质材料。",
-        "default_shipping": "Deenha 提供全球配送。订单通常在 1-2 个工作日内处理。签收后 7 天内接受原状退货。"
+        "default_description": "This premium series is designed with the modern woman in mind. Blending traditional modesty with global style, it features exceptional craftsmanship and the highest quality materials selected for elegance and durability.",
+        "default_shipping": "Deenha provides worldwide shipping. Orders are usually processed within 1-2 business days. Complimentary shipping is available for certain regions over specific thresholds. Returns are accepted within 7 days of receipt in original condition."
     },
     "brand_story": {
         "identity_label": "我们的身份",
-        "story_heading": "Deenha 的故事",
+        "story_heading": "The Story of Deenha",
         "narrative_label": "叙事",
-        "heading_1": "优雅每一",
-        "heading_2": "丝线",
-        "p1": "Deenha Hijab 提供令人惊叹的系列，体现了优雅和精致。每件作品都精心打造，采用柔软且充满活力的材料，确保舒适和风格。",
-        "p2": "我们的围巾有多种精美的图案，可以轻松为任何场合找到完美搭配。Deenha 还推出了精美策划的祈祷服和连衣裙系列。",
-        "p3": "无论您是想提升日常着装还是为特殊活动做准备，Deenha Hijab 都能为您带来多功能性和优雅的世界。",
-        "team_sign": "— DEENHA 团队",
+        "heading_1": "Elegance in Every",
+        "heading_2": "Thread",
+        "p1": "Deenha Hijab offers a stunning collection that embodies elegance and sophistication. Crafted with the utmost care, each piece is designed with soft and vibrant materials, ensuring both comfort and style.",
+        "p2": "Our scarves come in a variety of exquisite motifs, making it easy to find the perfect match for any occasion. Not just limited to scarves, Deenha also presents a beautifully curated range of pray sets and dresses, each piece reflecting timeless elegance and attention to detail.",
+        "p3": "Whether you're looking to elevate your daily wear or prepare for a special event, Deenha Hijab brings you a world of versatility and grace.",
+        "team_sign": "— THE DEENHA TEAM",
         "core_philosophy": "核心理念",
         "our_ethos": "我们的精神",
-        "ethos_1_title": "增强自信",
-        "ethos_1_desc": "Deenha 旨在提升每位女性的自信。凭借其优雅的设计、柔软的质地和充满活力的色调，Deenha 拥抱女性气质。",
-        "ethos_2_title": "全球灵感",
-        "ethos_2_desc": "Deenha 从全球遗产中汲取灵感，将永恒的设计与来自世界各地的文化丰富性相结合。",
-        "ethos_3_title": "我们的使命",
-        "ethos_3_desc": "我们的使命是为穆斯林女性打造高品质服装，融合优雅与舒适，让每位穿着者都充满自信和风格。"
+        "ethos_1_title": "Empowering Confidence",
+        "ethos_1_desc": "Deenha is crafted to elevate the confidence of every woman. With its elegant designs, soft textures, and vibrant hues, Deenha embraces femininity, making you feel graceful and poised with every wear.",
+        "ethos_2_title": "Global Inspiration",
+        "ethos_2_desc": "Deenha draws inspiration from global heritage, blending timeless designs with cultural richness from around the world. Each piece reflects a unique story, creating an elegant fusion of tradition and contemporary style.",
+        "ethos_3_title": "Our Mission",
+        "ethos_3_desc": "Our mission is to create high-quality clothing for Muslim women, blending elegance and comfort to empower every wearer with confidence and style."
     },
     "journal": {
         "title": "DEENHA 日志",
         "subtitle": "工作室的故事",
-        "description": "致力于端庄生活艺术的编辑空间。从深入探讨我们的优质面料到精心策划的造型指南，发现 Deenha 的精髓。",
+        "description": "An editorial space dedicated to the art of modest living. From deep-dives into our premium fabrics to curated styling guides, discover the essence of Deenha.",
         "read_full": "阅读全文"
     },
     "ramadan_popup": {
         "label": "2026年 斋月",
         "title": "欢迎",
         "title_highlight": "斋月",
-        "description": "以 DEENHA 的最新系列迎接神圣的月份。优雅端庄，散发着美丽。",
+        "description": "Welcome the blessed month with the latest collection from DEENHA. Look graceful and modest with an elegant touch that radiates beauty.",
         "cta": "查看斋月系列",
         "close": "点击关闭"
     },
@@ -159,7 +159,7 @@
         "empty": "您的购物车是空的",
         "continue_shopping": "继续购物",
         "total": "总计",
-        "checkout_wa": "通过 WhatsApp 结账",
+        "checkout_wa": "WhatsApp 结账",
         "qty": "数量",
         "error": "处理您的订单时出错。请重试。"
     },
@@ -175,7 +175,7 @@
         "free_shipping": "✨ 订单满 500,000 印尼盾免运费",
         "discount": "🎁 使用 DEENHA10 享首单 10% 折扣",
         "new_collection": "✨ 探索全新签名系列",
-        "live_tiktok": "🔴 TIKTOK 直播中！"
+        "live_tiktok": "🔴 直播中！"
     },
     "language": {
         "select": "选择语言",

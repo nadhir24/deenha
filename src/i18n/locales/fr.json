@@ -34,18 +34,18 @@
         "premium_service_desc": "Support 24/7"
     },
     "collections": {
-        "hampers_title": "Spécial Pré-Raya",
-        "hampers_name": "Coffrets de Luxe",
-        "hampers_desc": "Le cadeau de gratitude parfait. Nos coffrets Raya sont élégamment emballés avec notre touche signature, ce qui en fait la meilleure façon de partager le bonheur.",
-        "scarves_title": "Exclusivité Raya",
-        "scarves_name": "Écharpes Signature",
-        "scarves_desc": "Découvrez les séries Monogram et Crystal les plus appréciées. Fabriquées en voal de qualité supérieure pour une élégance sans effort lors de vos célébrations de la Raya.",
-        "new_title": "Nouvelle Saison",
-        "new_name": "Catalogue Pré-Raya",
-        "new_desc": "Des silhouettes intemporelles aux vêtements modestes modernes, explorez nos dernières sorties conçues spécifiquement pour la saison sainte à venir.",
-        "pray_title": "Série Spirituelle",
-        "pray_name": "Essentiels de Prière",
-        "pray_desc": "Vivez la sérénité dans chaque prière avec nos ensembles de prière haut de gamme, dotés de dentelle délicate et de matériaux respirants pour un confort ultime."
+        "hampers_title": "Pre-Raya Special",
+        "hampers_name": "Luxury Hampers",
+        "hampers_desc": "The perfect gift of gratitude. Our Raya hampers are elegantly packaged with our signature touch, making them the best way to share happiness.",
+        "scarves_title": "Raya Exclusive",
+        "scarves_name": "Signature Scarves",
+        "scarves_desc": "Discover the most loved Monogram and Crystal series. Crafted from premium voal for effortless elegance during your Raya celebrations.",
+        "new_title": "New Season",
+        "new_name": "Pre-Raya Catalog",
+        "new_desc": "From timeless silhouettes to modern modest wear, explore our latest releases designed specifically for the upcoming holy season.",
+        "pray_title": "Spiritual Series",
+        "pray_name": "Prayer Essentials",
+        "pray_desc": "Experience serenity in every prayer with our premium prayer sets, featuring delicate lace and breathable materials for ultimate comfort."
     },
     "shop": {
         "title": "Toute Notre Collection",
@@ -74,12 +74,12 @@
         "loading": "Recherche d'Excellence...",
         "not_found": "Produit Non Trouvé",
         "back_to_home": "Retour à l'Accueil",
-        "explore_detail": "Survolez pour explorer les détails",
+        "explore_detail": "Survolez untuk melihat detail",
         "select_size": "Choisir la Taille",
         "quantity": "Quantité",
         "inventory": "STATUT DU STOCK",
         "only_left": "PLUS QUE {{count}} PIÈCES",
-        "available": "DISPONIBLE À L'ATELIER",
+        "available": "AVAILABLE IN ATELIER",
         "unavailable": "ACTUELLEMENT INDISPONIBLE",
         "sold_out": "Épuisé",
         "add_to_cart": "AJOUTER À LA COLLECTION",
@@ -95,39 +95,39 @@
             "details": "Détails & Entretien",
             "shipping": "Livraison & Retours"
         },
-        "default_description": "Cette série premium est conçue pour la femme moderne. Alliant modestie traditionnelle et style global, elle présente un savoir-faire exceptionnel et des matériaux de la plus haute qualité.",
-        "default_shipping": "Deenha assure une livraison dans le monde entier. Les retours sont acceptés dans les 7 jours suivant la réception dans l'état d'origine."
+        "default_description": "This premium series is designed with the modern woman in mind. Blending traditional modesty with global style, it features exceptional craftsmanship and the highest quality materials selected for elegance and durability.",
+        "default_shipping": "Deenha provides worldwide shipping. Orders are usually processed within 1-2 business days. Complimentary shipping is available for certain regions over specific thresholds. Returns are accepted within 7 days of receipt in original condition."
     },
     "brand_story": {
         "identity_label": "Notre Identité",
-        "story_heading": "L'Histoire de Deenha",
+        "story_heading": "The Story of Deenha",
         "narrative_label": "Le Récit",
-        "heading_1": "L'Élégance dans Chaque",
-        "heading_2": "Fil",
-        "p1": "Deenha Hijab propose une collection époustouflante qui incarne l'élégance et la sophistication. Fabriquée avec le plus grand soin, chaque pièce est conçue avec des matériaux doux et vibrants.",
-        "p2": "Nos écharpes sont disponibles dans une variété de motifs exquis. Deenha présente également une gamme magnifiquement organisée d'ensembles de prière et de robes.",
-        "p3": "Que vous cherchiez à rehausser votre tenue quotidienne ou à vous préparer pour un événement spécial, Deenha Hijab vous apporte un monde de polyvalence et de grâce.",
-        "team_sign": "— L'ÉQUIPE DEENHA",
+        "heading_1": "Elegance in Every",
+        "heading_2": "Thread",
+        "p1": "Deenha Hijab offers a stunning collection that embodies elegance and sophistication. Crafted with the utmost care, each piece is designed with soft and vibrant materials, ensuring both comfort and style.",
+        "p2": "Our scarves come in a variety of exquisite motifs, making it easy to find the perfect match for any occasion. Not just limited to scarves, Deenha also presents a beautifully curated range of pray sets and dresses, each piece reflecting timeless elegance and attention to detail.",
+        "p3": "Whether you're looking to elevate your daily wear or prepare for a special event, Deenha Hijab brings you a world of versatility and grace.",
+        "team_sign": "— THE DEENHA TEAM",
         "core_philosophy": "Philosophie Fondamentale",
         "our_ethos": "Notre Éthique",
-        "ethos_1_title": "Renforcer la Confiance",
-        "ethos_1_desc": "Deenha est conçu pour élever la confiance de chaque femme. Avec ses designs élégants et ses textures douces, Deenha vous fait vous sentir gracieuse et posée.",
-        "ethos_2_title": "Inspiration Mondiale",
-        "ethos_2_desc": "Deenha s'inspire du patrimoine mondial, mêlant des designs intemporels à la richesse culturelle du monde entier.",
-        "ethos_3_title": "Notre Mission",
-        "ethos_3_desc": "Notre mission est de créer des vêtements de haute qualité pour les femmes musulmanes, alliant élégance et confort."
+        "ethos_1_title": "Empowering Confidence",
+        "ethos_1_desc": "Deenha is crafted to elevate the confidence of every woman. With its elegant designs, soft textures, and vibrant hues, Deenha embraces femininity, making you feel graceful and poised with every wear.",
+        "ethos_2_title": "Global Inspiration",
+        "ethos_2_desc": "Deenha draws inspiration from global heritage, blending timeless designs with cultural richness from around the world. Each piece reflects a unique story, creating an elegant fusion of tradition and contemporary style.",
+        "ethos_3_title": "Our Mission",
+        "ethos_3_desc": "Our mission is to create high-quality clothing for Muslim women, blending elegance and comfort to empower every wearer with confidence and style."
     },
     "journal": {
         "title": "Journal DEENHA",
         "subtitle": "Histoires de l'Atelier",
-        "description": "Un espace éditorial dédié à l'art de vivre modeste. Découvrez l'essence de Deenha.",
+        "description": "An editorial space dedicated to the art of modest living. From deep-dives into our premium fabrics to curated styling guides, discover the essence of Deenha.",
         "read_full": "Lire l'histoire complète"
     },
     "ramadan_popup": {
         "label": "Ramadan 1447 H",
         "title": "Bienvenue",
         "title_highlight": "Ramadhan",
-        "description": "Accueillez le mois sacré avec la dernière collection de DEENHA. Soyez gracieuse et modeste avec une touche élégante qui rayonne de beauté.",
+        "description": "Welcome the blessed month with the latest collection from DEENHA. Look graceful and modest with an elegant touch that radiates beauty.",
         "cta": "Voir la Collection Ramadan",
         "close": "Appuyez pour fermer"
     },
@@ -144,13 +144,13 @@
             "bergo": "Bergo",
             "mukena": "Ensemble de prière",
             "new_arrival": "Nouveautés",
-            "contact_us": "Contactez-nous",
+            "contact_us": "Contact",
             "shipping_info": "Infos Livraison",
             "returns": "Retours",
-            "size_guide": "Guide des tailles",
+            "size_guide": "Guide Tailles",
             "faq": "FAQ",
             "about_us": "À propos",
-            "our_story": "Notre histoire",
+            "our_story": "Histoire",
             "journal": "Journal"
         }
     },
@@ -159,7 +159,7 @@
         "empty": "Votre panier est vide",
         "continue_shopping": "Continuer les achats",
         "total": "Total",
-        "checkout_wa": "Payer via WhatsApp",
+        "checkout_wa": "WhatsApp Checkout",
         "qty": "Qté",
         "error": "Désolé, une erreur est survenue lors de la commande. Veuillez réessayer."
     },
@@ -175,7 +175,7 @@
         "free_shipping": "✨ Livraison Gratuite au-delà de 500k IDR",
         "discount": "🎁 Utilisez DEENHA10 pour 10% de réduction",
         "new_collection": "✨ Découvrez la Nouvelle Collection Signature",
-        "live_tiktok": "🔴 EN DIRECT SUR TIKTOK ! REJOIGNEZ-NOUS"
+        "live_tiktok": "🔴 EN DIRECT SUR TIKTOK !"
     },
     "language": {
         "select": "Sélectionner la langue",
