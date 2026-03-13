@@ -50,93 +50,9 @@ const DEFAULT_SLIDES: Slide[] = [
 ];
 
 const VideoSlide = ({ src, onLoaded, isMuted }: { src: string; onLoaded: () => void; isMuted: boolean }) => {
-    const { t } = useTranslation();
-    const [progress, setProgress] = useState(0);
-    const [videoUrl, setVideoUrl] = useState<string | null>(null);
-    const [isLoading, setIsLoading] = useState(true);
-
-    useEffect(() => {
-        setIsLoading(true);
-        setProgress(0);
-        setVideoUrl(null);
-
-        const loadVideo = async () => {
-            try {
-                const response = await fetch(src);
-                const reader = response.body?.getReader();
-                const contentLength = +(response.headers.get('Content-Length') || 0);
-
-                if (!reader || contentLength === 0) {
-                    setVideoUrl(src);
-                    setIsLoading(false);
-                    return;
-                }
-
-                let receivedLength = 0;
-                const chunks = [];
-
-                while (true) {
-                    const { done, value } = await reader.read();
-                    if (done) break;
-
-                    chunks.push(value);
-                    if (value) receivedLength += value.length;
-                    setProgress(Math.round((receivedLength / contentLength) * 100));
-                }
-
-                const blob = new Blob(chunks);
-                const url = URL.createObjectURL(blob);
-                setVideoUrl(url);
-                setIsLoading(false);
-            } catch (err) {
-                console.error("Video load error:", err);
-                setVideoUrl(src); // Fallback
-                setIsLoading(false);
-            }
-        };
-
-        loadVideo();
-    }, [src]);
-
-    if (isLoading) {
-        return (
-            <div className="absolute inset-0 flex flex-col items-center justify-center bg-black">
-                <div className="w-16 h-16 relative mb-4">
-                    <svg className="w-full h-full transform -rotate-90">
-                        <circle
-                            cx="32"
-                            cy="32"
-                            r="30"
-                            stroke="currentColor"
-                            strokeWidth="2"
-                            fill="transparent"
-                            className="text-white/10"
-                        />
-                        <motion.circle
-                            cx="32"
-                            cy="32"
-                            r="30"
-                            stroke="currentColor"
-                            strokeWidth="2"
-                            fill="transparent"
-                            strokeDasharray={188.5}
-                            initial={{ strokeDashoffset: 188.5 }}
-                            animate={{ strokeDashoffset: 188.5 - (188.5 * progress) / 100 }}
-                            className="text-accent-gold"
-                        />
-                    </svg>
-                    <div className="absolute inset-0 flex items-center justify-center">
-                        <span className="text-[10px] font-bold text-white">{progress}%</span>
-                    </div>
-                </div>
-                <span className="text-[9px] uppercase font-bold tracking-[0.3em] text-white/40">{t('hero.preparing')}</span>
-            </div>
-        );
-    }
-
     return (
         <video
-            src={videoUrl || ''}
+            src={src}
             className="w-full h-full object-cover transition-opacity duration-1000 opacity-100"
             autoPlay
             muted={isMuted}
