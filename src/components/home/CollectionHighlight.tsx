@@ -6,6 +6,7 @@ import ProductCard from '../shop/ProductCard';
 import QuickViewModal from '../ui/QuickViewModal';
 import { useProducts } from '../../hooks/useProducts';
 import { useTranslation } from 'react-i18next';
+import { getOptimizedImage } from '../../lib/images';
 
 interface CollectionHighlightProps {
     title: string;
@@ -82,7 +83,7 @@ const CollectionHighlight = ({
                     viewport={{ once: true }}
                 >
                     <motion.img
-                        src={bannerImage}
+                        src={getOptimizedImage(bannerImage, 1200, 80)}
                         alt={collectionTitle}
                         className="absolute inset-0 w-full h-[140%] object-cover"
                         style={{ y: yBanner }}
