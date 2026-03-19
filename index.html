@@ -12,6 +12,12 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://tdvkvhozebzetchmgzhb.supabase.co" crossorigin>
   <link rel="preconnect" href="https://api.frankfurter.app" crossorigin>
+
+  <!-- Preload LCP Element (Hero Video) -->
+  <link rel="preload" as="video"
+    href="https://tdvkvhozebzetchmgzhb.supabase.co/storage/v1/object/public/products/hero/promo_video.mp4"
+    type="video/mp4" fetchpriority="high">
+
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap"
     rel="stylesheet">
@@ -95,9 +101,17 @@
         }, 500);
       }
     }
+    // Add Google Translate Script Lazily
+    window.addEventListener('load', function () {
+      setTimeout(function () {
+        var gtScript = document.createElement('script');
+        gtScript.type = 'text/javascript';
+        gtScript.src = '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+        gtScript.defer = true;
+        document.body.appendChild(gtScript);
+      }, 1500); // Wait 1.5s after load to inject, freeing up main thread
+    });
   </script>
-  <script defer type="text/javascript"
-    src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
   <script type="module" src="/src/main.tsx"></script>
 </body>
 
