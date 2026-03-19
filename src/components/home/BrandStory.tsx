@@ -37,6 +37,7 @@ const BrandStory = () => {
                                 src="/images/our-mission-d951KpkZjLHz3841.jpg"
                                 alt="Deenha Brand Story"
                                 className="w-full h-full object-cover"
+                                loading="lazy"
                             />
                         </div>
                         {/* Decorative background element */}

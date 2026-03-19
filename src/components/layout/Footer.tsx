@@ -100,7 +100,7 @@ const Footer = () => {
                             className="group transition-transform hover:scale-110"
                             title="Shopee"
                         >
-                            <img src="/assets/shopee.png" alt="Shopee" className="h-6 w-auto grayscale group-hover:grayscale-0 transition-all duration-500" width={1024} height={671} />
+                            <img src="/assets/shopee.png" alt="Shopee" className="h-6 w-auto grayscale group-hover:grayscale-0 transition-all duration-500" width={1024} height={671} loading="lazy" />
                         </a>
                         <a
                             href="https://www.tokopedia.com/deenha"
@@ -109,14 +109,14 @@ const Footer = () => {
                             className="group transition-transform hover:scale-110"
                             title="Tokopedia"
                         >
-                            <img src="/assets/tokopedia.png" alt="Tokopedia" className="h-6 w-auto grayscale group-hover:grayscale-0 transition-all duration-500" width={800} height={800} />
+                            <img src="/assets/tokopedia.png" alt="Tokopedia" className="h-6 w-auto grayscale group-hover:grayscale-0 transition-all duration-500" width={800} height={800} loading="lazy" />
                         </a>
                     </div>
 
                     <div className="flex flex-col items-center md:items-end gap-6">
                         <div className="flex items-center gap-6 opacity-80 grayscale hover:opacity-100 transition-opacity duration-500">
-                            <img src="/assets/qris.png" alt="QRIS" className="h-10 w-auto" width={960} height={155} />
-                            <img src="/assets/bca.png" alt="BCA" className="h-8 w-auto" width={1024} height={768} />
+                            <img src="/assets/qris.png" alt="QRIS" className="h-10 w-auto" width={960} height={155} loading="lazy" />
+                            <img src="/assets/bca.png" alt="BCA" className="h-8 w-auto" width={1024} height={768} loading="lazy" />
                         </div>
                         <p className="text-[10px] uppercase tracking-[0.2em] text-secondary">
                             {t('footer.rights')}
