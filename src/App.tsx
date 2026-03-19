@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, lazy, Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { WishlistProvider } from './context/WishlistContext';
 import { CartProvider } from './context/CartContext';
@@ -13,24 +13,24 @@ import { AuthProvider } from './context/AuthContext';
 import { NotificationProvider } from './context/NotificationContext';
 import ProtectedRoute from './components/layout/ProtectedRoute';
 
-// Page Components
-import AboutPage from './pages/AboutPage';
-import FAQPage from './pages/FAQPage';
-import JournalPage from './pages/JournalPage';
-import JournalDetailsPage from './pages/JournalDetailsPage';
-import ProductDetailsPage from './pages/ProductDetailsPage';
-import NotFoundPage from './pages/NotFoundPage';
-import ShopPage from './pages/ShopPage';
-import WishlistPage from './pages/WishlistPage';
-import LoginPage from './pages/LoginPage';
-import AdminDashboard from './pages/AdminDashboard';
-import RamadanPage from './pages/RamadanPage';
+// Page Components - Lazy Loaded
+const AboutPage = lazy(() => import('./pages/AboutPage'));
+const FAQPage = lazy(() => import('./pages/FAQPage'));
+const JournalPage = lazy(() => import('./pages/JournalPage'));
+const JournalDetailsPage = lazy(() => import('./pages/JournalDetailsPage'));
+const ProductDetailsPage = lazy(() => import('./pages/ProductDetailsPage'));
+const NotFoundPage = lazy(() => import('./pages/NotFoundPage'));
+const ShopPage = lazy(() => import('./pages/ShopPage'));
+const WishlistPage = lazy(() => import('./pages/WishlistPage'));
+const LoginPage = lazy(() => import('./pages/LoginPage'));
+const AdminDashboard = lazy(() => import('./pages/AdminDashboard'));
+const RamadanPage = lazy(() => import('./pages/RamadanPage'));
 
 // Home Components
 import Hero from './components/home/Hero';
 import Benefits from './components/home/Benefits';
-import InstagramFeed from './components/home/InstagramFeed';
-import HomeCollections from './components/home/HomeCollections';
+const InstagramFeed = lazy(() => import('./components/home/InstagramFeed'));
+const HomeCollections = lazy(() => import('./components/home/HomeCollections'));
 
 // Floating Components
 import WhatsAppButton from './components/floating/WhatsAppButton';
@@ -80,39 +80,41 @@ function App() {
                                 <Navbar onMenuClick={() => setMobileMenuOpen(true)} />
                                 <MobileMenu isOpen={mobileMenuOpen} onClose={() => setMobileMenuOpen(false)} />
 
-                                <Routes>
-                                    <Route path="/" element={
-                                        <>
-                                            <SEOHead
-                                                title="Modest Fashion Elegant & Syar'i"
-                                                description="Koleksi eksklusif DEENHA Hijab. Temukan kemewahan dan keanggunan dalam setiap helai Scarves, Dresses, dan Mukena premium kami."
-                                                jsonLd={organizationJsonLd}
-                                            />
-                                            <main>
-                                                <Hero />
-                                                <Benefits />
-                                                <HomeCollections />
-                                                <InstagramFeed />
-                                            </main>
-                                        </>
-                                    } />
+                                <Suspense fallback={<div className="min-h-screen flex items-center justify-center bg-white"><div className="w-12 h-12 border-2 border-accent-gold border-t-transparent rounded-full animate-spin" /></div>}>
+                                    <Routes>
+                                        <Route path="/" element={
+                                            <>
+                                                <SEOHead
+                                                    title="Modest Fashion Elegant & Syar'i"
+                                                    description="Koleksi eksklusif DEENHA Hijab. Temukan kemewahan dan keanggunan dalam setiap helai Scarves, Dresses, dan Mukena premium kami."
+                                                    jsonLd={organizationJsonLd}
+                                                />
+                                                <main>
+                                                    <Hero />
+                                                    <Benefits />
+                                                    <HomeCollections />
+                                                    <InstagramFeed />
+                                                </main>
+                                            </>
+                                        } />
 
-                                    <Route path="/shop" element={<ShopPage />} />
-                                    <Route path="/ramadan" element={<RamadanPage />} />
-                                    <Route path="/about" element={<AboutPage />} />
-                                    <Route path="/faq" element={<FAQPage />} />
-                                    <Route path="/journal" element={<JournalPage />} />
-                                    <Route path="/journal/:slug" element={<JournalDetailsPage />} />
-                                    <Route path="/product/:id" element={<ProductDetailsPage />} />
-                                    <Route path="/wishlist" element={<WishlistPage />} />
-                                    <Route path="/login" element={<LoginPage />} />
-                                    <Route path="/admin" element={
-                                        <ProtectedRoute allowedRoles={['admin', 'employee']}>
-                                            <AdminDashboard />
-                                        </ProtectedRoute>
-                                    } />
-                                    <Route path="*" element={<NotFoundPage />} />
-                                </Routes>
+                                        <Route path="/shop" element={<ShopPage />} />
+                                        <Route path="/ramadan" element={<RamadanPage />} />
+                                        <Route path="/about" element={<AboutPage />} />
+                                        <Route path="/faq" element={<FAQPage />} />
+                                        <Route path="/journal" element={<JournalPage />} />
+                                        <Route path="/journal/:slug" element={<JournalDetailsPage />} />
+                                        <Route path="/product/:id" element={<ProductDetailsPage />} />
+                                        <Route path="/wishlist" element={<WishlistPage />} />
+                                        <Route path="/login" element={<LoginPage />} />
+                                        <Route path="/admin" element={
+                                            <ProtectedRoute allowedRoles={['admin', 'employee']}>
+                                                <AdminDashboard />
+                                            </ProtectedRoute>
+                                        } />
+                                        <Route path="*" element={<NotFoundPage />} />
+                                    </Routes>
+                                </Suspense>
 
                                 <Footer />
                                 <WhatsAppButton />

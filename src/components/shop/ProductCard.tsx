@@ -4,6 +4,7 @@ import { useWishlist } from '../../context/WishlistContext';
 import { Product } from '../../data/products';
 import { useTranslation } from 'react-i18next';
 import { formatPrice } from '../../lib/currency';
+import { getOptimizedImage } from '../../lib/images';
 
 interface ProductCardProps {
     product: Product;
@@ -52,7 +53,7 @@ const ProductCard = ({ product, onQuickView }: ProductCardProps) => {
             {/* Image Container - Square/Portrait blend */}
             <Link to={`/product/${product.id}`} className="relative w-full aspect-[3/4] overflow-hidden bg-[#F9F9F9] block">
                 <img
-                    src={`${product.image}?width=400&quality=80`}
+                    src={getOptimizedImage(product.image, 400, 70)}
                     alt={product.name}
                     className={`w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 ${product.stock === 0 ? 'grayscale opacity-60' : ''}`}
                     loading="lazy"

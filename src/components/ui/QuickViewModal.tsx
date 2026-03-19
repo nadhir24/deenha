@@ -5,6 +5,7 @@ import { Product } from '../../data/products';
 import { useCart } from '../../context/CartContext';
 import { useTranslation } from 'react-i18next';
 import { formatPrice } from '../../lib/currency';
+import { getOptimizedImage } from '../../lib/images';
 
 interface QuickViewModalProps {
     product: Product | null;
@@ -73,7 +74,7 @@ const QuickViewModal = ({ product, isOpen, onClose }: QuickViewModalProps) => {
                             {/* Image Section */}
                             <div className="w-full md:w-1/2 aspect-[3/4] md:aspect-auto bg-surface-secondary overflow-hidden relative">
                                 <motion.img
-                                    src={product.image}
+                                    src={getOptimizedImage(product.image, 800, 80)}
                                     alt={displayName}
                                     className="w-full h-full object-cover"
                                     initial={{ scale: 1.1 }}

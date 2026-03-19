@@ -8,6 +8,7 @@ import ProductCard from '../components/shop/ProductCard';
 import SEOHead from '../components/SEOHead';
 import { useTranslation } from 'react-i18next';
 import { formatPrice } from '../lib/currency';
+import { getOptimizedImage } from '../lib/images';
 
 const ProductDetailsPage = () => {
     const { t } = useTranslation();
@@ -123,7 +124,7 @@ const ProductDetailsPage = () => {
                                 }}
                             >
                                 <img
-                                    src={displayImage}
+                                    src={getOptimizedImage(displayImage || '', 1200, 80)}
                                     alt={product.name}
                                     className="w-full h-full object-cover transition-transform duration-500 ease-out"
                                 />
@@ -146,9 +147,10 @@ const ProductDetailsPage = () => {
                                             }`}
                                     >
                                         <img
-                                            src={variant.image}
+                                            src={getOptimizedImage(variant.image, 200, 70)}
                                             alt={variant.color}
                                             className="w-full h-full object-cover"
+                                            loading="lazy"
                                         />
                                     </button>
                                 ))}
