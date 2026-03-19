@@ -92,6 +92,7 @@ const ProductCard = ({ product, onQuickView }: ProductCardProps) => {
                     toggleWishlist(product.id);
                 }}
                 whileTap={{ scale: 0.9 }}
+                aria-label={isWishlisted ? t('product.remove_wishlist', 'Remove from Wishlist') : t('product.add_wishlist', 'Add to Wishlist')}
             >
                 <svg
                     className={`w-4 h-4 transition-colors ${isWishlisted ? 'text-white' : 'text-primary'}`}

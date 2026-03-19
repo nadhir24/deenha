@@ -13,7 +13,7 @@ interface QuickViewModalProps {
 }
 
 const QuickViewModal = ({ product, isOpen, onClose }: QuickViewModalProps) => {
-    const { t, i18n } = useTranslation();
+    const { t } = useTranslation();
     const { addToCart } = useCart();
     const [selectedSize, setSelectedSize] = useState<string>('');
 
@@ -156,8 +156,8 @@ const QuickViewModal = ({ product, isOpen, onClose }: QuickViewModalProps) => {
                                         onClick={handleAddToCart}
                                         disabled={(product.stock || 0) === 0}
                                         className={`w-full py-4 text-[11px] font-bold uppercase tracking-[0.3em] transition-colors duration-500 ${(product.stock || 0) === 0
-                                                ? 'bg-secondary cursor-not-allowed opacity-50 text-white'
-                                                : 'bg-primary text-white hover:bg-accent-gold'
+                                            ? 'bg-secondary cursor-not-allowed opacity-50 text-white'
+                                            : 'bg-primary text-white hover:bg-accent-gold'
                                             }`}
                                         whileTap={(product.stock || 0) > 0 ? { scale: 0.98 } : {}}
                                     >

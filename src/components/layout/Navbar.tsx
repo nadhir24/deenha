@@ -14,7 +14,7 @@ interface NavbarProps {
 }
 
 const Navbar = ({ onMenuClick }: NavbarProps) => {
-    const { t, i18n } = useTranslation();
+    const { t } = useTranslation();
     const [scrolled, setScrolled] = useState(false);
     const [searchOpen, setSearchOpen] = useState(false);
     const { wishlistCount } = useWishlist();
@@ -82,6 +82,7 @@ const Navbar = ({ onMenuClick }: NavbarProps) => {
                         <button
                             onClick={onMenuClick}
                             className={`p-2 ${isSolid ? 'text-black' : 'text-white'}`}
+                            aria-label={t('nav.open_menu', 'Open Mobile Menu')}
                         >
                             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.2} d="M4 6h16M4 12h16M4 18h16" />
@@ -97,6 +98,8 @@ const Navbar = ({ onMenuClick }: NavbarProps) => {
                                 alt="DEENHA"
                                 className={`h-12 md:h-16 w-auto transition-all duration-700 ${isSolid ? 'brightness-0' : 'brightness-0 invert'
                                     }`}
+                                width={215}
+                                height={215}
                             />
                         </Link>
                     </div>
@@ -126,6 +129,7 @@ const Navbar = ({ onMenuClick }: NavbarProps) => {
                         <button
                             onClick={() => setSearchOpen(!searchOpen)}
                             className={`p-2 transition-colors duration-300 ${isSolid ? 'text-black' : 'text-white'}`}
+                            aria-label={t('nav.toggle_search', 'Toggle Search')}
                         >
                             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
@@ -136,6 +140,7 @@ const Navbar = ({ onMenuClick }: NavbarProps) => {
                         <Link
                             to="/wishlist"
                             className={`relative p-2 transition-colors duration-300 ${isSolid ? 'text-black' : 'text-white'}`}
+                            aria-label={t('nav.wishlist', 'Wishlist')}
                         >
                             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
@@ -149,6 +154,7 @@ const Navbar = ({ onMenuClick }: NavbarProps) => {
                         <button
                             onClick={() => setIsCartOpen(true)}
                             className={`relative p-2 transition-colors duration-300 ${isSolid ? 'text-black' : 'text-white'}`}
+                            aria-label={t('nav.cart', 'Shopping Cart')}
                         >
                             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.2} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
@@ -187,6 +193,7 @@ const Navbar = ({ onMenuClick }: NavbarProps) => {
                                             setSearchQuery('');
                                         }}
                                         className="absolute right-0 top-1/2 -translate-y-1/2 p-4 text-secondary hover:text-primary transition-colors"
+                                        aria-label={t('nav.close_search', 'Close Search')}
                                     >
                                         <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M6 18L18 6M6 6l12 12" />
@@ -206,14 +213,14 @@ const Navbar = ({ onMenuClick }: NavbarProps) => {
                                                 {t('nav.search_results')} ({liveProducts.filter((p: Product) => {
                                                     const q = normalizeText(searchQuery);
                                                     const name = normalizeText(p.name);
-                                                    
+
                                                     // High-tolerance matching for common terms like 'arab'
-                                                    const isArabMatch = (name.includes('arab') || name.includes('arabe')) && 
-                                                                      (q.includes('arab') || q.includes('arabe'));
-                                                    
+                                                    const isArabMatch = (name.includes('arab') || name.includes('arabe')) &&
+                                                        (q.includes('arab') || q.includes('arabe'));
+
                                                     const isMatch = name.includes(q) || isArabMatch ||
                                                         (p.category && normalizeText(p.category).includes(q));
-                                                        
+
                                                     return isMatch ||
                                                         (p.name_en && normalizeText(p.name_en).includes(q)) ||
                                                         (p.name_fr && normalizeText(p.name_fr).includes(q)) ||
@@ -228,12 +235,12 @@ const Navbar = ({ onMenuClick }: NavbarProps) => {
                                                 .filter((p: Product) => {
                                                     const q = normalizeText(searchQuery);
                                                     const name = normalizeText(p.name);
-                                                    
+
                                                     const isMatch = name.includes(q) ||
                                                         (name.includes('arab') && q.includes('arab')) ||
                                                         (name.includes('arab') && q.includes('arabe')) ||
                                                         (p.category && normalizeText(p.category).includes(q));
-                                                        
+
                                                     return isMatch ||
                                                         (p.name_en && normalizeText(p.name_en).includes(q)) ||
                                                         (p.name_fr && normalizeText(p.name_fr).includes(q)) ||
@@ -289,10 +296,10 @@ const Navbar = ({ onMenuClick }: NavbarProps) => {
                                                 (p.name_zh && normalizeText(p.name_zh).includes(q))
                                             );
                                         }).length === 0 && (
-                                            <div className="text-center py-20">
-                                                <p className="font-display text-2xl italic text-secondary">{t('product.not_found')} "{searchQuery}"</p>
-                                            </div>
-                                        )}
+                                                <div className="text-center py-20">
+                                                    <p className="font-display text-2xl italic text-secondary">{t('product.not_found')} "{searchQuery}"</p>
+                                                </div>
+                                            )}
                                     </motion.div>
                                 )}
 

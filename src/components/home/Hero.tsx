@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useRef } from 'react';
 import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
 import { useSiteSettings } from '../../hooks/useSiteSettings';
 import { useTranslation } from 'react-i18next';

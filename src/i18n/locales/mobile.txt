@@ -1,0 +1,644 @@
+Show audits relevant to:
+
+All
+
+FCP
+
+LCP
+
+TBT
+
+CLS
+Insights
+Render blocking requests Est savings of 1,530 ms
+Requests are blocking the page's initial render, which may delay LCP. Deferring or inlining can move these network requests out of the critical path.LCPFCPUnscored
+URL
+Transfer Size
+Duration
+deenha.com 1st party
+10.2 KiB	180 ms
+/assets/index-CZeb5mLG.css(deenha.com)
+10.2 KiB
+180 ms
+Other Google APIs/SDKs utility 
+28.2 KiB	1,210 ms
+/translate_a/element.js?cb=googleTranslateElementInit(translate.google.com)
+28.2 KiB
+1,210 ms
+Google Fonts cdn 
+1.7 KiB	750 ms
+/css2?family=…(fonts.googleapis.com)
+1.7 KiB
+750 ms
+Improve image delivery Est savings of 30,381 KiB
+Reducing the download time of images can improve the perceived load time of the page and LCP. Learn more about optimizing image sizeLCPFCPUnscored
+URL
+Resource Size
+Est Savings
+supabase.co
+29,553.8 KiB	29,237.9 KiB
+Turkey Series
+<img src="https://tdvkvhozebzetchmgzhb.supabase.co/storage/v1/object/public/products…" alt="Turkey Series" class="w-full h-full object-cover transition-transform duration-1000 group-hover:…">
+…Turkey_Series/177…_feed_1.jpg(tdvkvhozebzetchmgzhb.supabase.co)
+4,866.0 KiB
+4,837.9 KiB
+Using a modern image format (WebP, AVIF) or increasing the image compression could improve this image's download size.
+3,289.3 KiB
+This image file is larger than it needs to be (2692x3599) for its displayed dimensions (415x415). Use responsive images to reduce the image download size.
+4,779.4 KiB
+Kawung Scarves
+<img src="https://tdvkvhozebzetchmgzhb.supabase.co/storage/v1/object/public/products…" alt="Kawung Scarves" class="w-full h-full object-cover transition-transform duration-1000 group-hover:…">
+…Kawung_Scarves/177….jpg(tdvkvhozebzetchmgzhb.supabase.co)
+3,374.9 KiB
+3,346.8 KiB
+Using a modern image format (WebP, AVIF) or increasing the image compression could improve this image's download size.
+2,279.4 KiB
+This image file is larger than it needs to be (2244x3000) for its displayed dimensions (415x415). Use responsive images to reduce the image download size.
+3,288.4 KiB
+Borneo Scarves
+<img src="https://tdvkvhozebzetchmgzhb.supabase.co/storage/v1/object/public/products…" alt="Borneo Scarves" class="w-full h-full object-cover transition-transform duration-1000 group-hover:…">
+…Borneo_Scarves/177….jpg(tdvkvhozebzetchmgzhb.supabase.co)
+3,250.7 KiB
+3,222.6 KiB
+Using a modern image format (WebP, AVIF) or increasing the image compression could improve this image's download size.
+2,076.3 KiB
+This image file is larger than it needs to be (2323x3106) for its displayed dimensions (415x415). Use responsive images to reduce the image download size.
+3,173.0 KiB
+Cairo Series
+<img src="https://tdvkvhozebzetchmgzhb.supabase.co/storage/v1/object/public/products…" alt="Cairo Series" class="w-full h-full object-cover transition-transform duration-1000 group-hover:…">
+…Cairo_Series/177….jpg(tdvkvhozebzetchmgzhb.supabase.co)
+2,876.7 KiB
+2,848.6 KiB
+Using a modern image format (WebP, AVIF) or increasing the image compression could improve this image's download size.
+990.9 KiB
+This image file is larger than it needs to be (2944x3936) for its displayed dimensions (415x415). Use responsive images to reduce the image download size.
+2,833.9 KiB
+Songket Scarves
+<img src="https://tdvkvhozebzetchmgzhb.supabase.co/storage/v1/object/public/products…" alt="Songket Scarves" class="w-full h-full object-cover transition-transform duration-1000 group-hover:…">
+…Songket_Scarves/177….jpg(tdvkvhozebzetchmgzhb.supabase.co)
+2,837.5 KiB
+2,809.4 KiB
+Using a modern image format (WebP, AVIF) or increasing the image compression could improve this image's download size.
+1,741.9 KiB
+This image file is larger than it needs to be (2244x3000) for its displayed dimensions (415x415). Use responsive images to reduce the image download size.
+2,764.8 KiB
+Signature Scarves
+<img src="https://tdvkvhozebzetchmgzhb.supabase.co/storage/v1/object/public/products…" alt="Signature Scarves" class="absolute inset-0 w-full h-[140%] object-cover" style="transform: translateY(-8.85362%);">
+…site/0.113….jpg(tdvkvhozebzetchmgzhb.supabase.co)
+2,837.5 KiB
+2,765.5 KiB
+Using a modern image format (WebP, AVIF) or increasing the image compression could improve this image's download size.
+1,862.2 KiB
+This image file is larger than it needs to be (3000x1997) for its displayed dimensions (665x665). Use responsive images to reduce the image download size.
+2,628.1 KiB
+Hagia Sophia Series
+<img src="https://tdvkvhozebzetchmgzhb.supabase.co/storage/v1/object/public/products…" alt="Hagia Sophia Series" class="w-full h-full object-cover transition-transform duration-1000 group-hover:…">
+…Hagia_Sop…/177….jpg(tdvkvhozebzetchmgzhb.supabase.co)
+2,584.3 KiB
+2,556.3 KiB
+Using a modern image format (WebP, AVIF) or increasing the image compression could improve this image's download size.
+698.5 KiB
+This image file is larger than it needs to be (2944x3936) for its displayed dimensions (415x415). Use responsive images to reduce the image download size.
+2,545.9 KiB
+Deenha Ramadan Hampers
+<img src="https://tdvkvhozebzetchmgzhb.supabase.co/storage/v1/object/public/products…" alt="Deenha Ramadan Hampers" class="w-full h-full object-cover transition-transform duration-1000 group-hover:…">
+…Deenha_Ra…/177….jpg(tdvkvhozebzetchmgzhb.supabase.co)
+2,492.6 KiB
+2,473.3 KiB
+This image file is larger than it needs to be (3653x4874) for its displayed dimensions (332x415). Use responsive images to reduce the image download size.
+2,473.3 KiB
+Lombok Scarves
+<img src="https://tdvkvhozebzetchmgzhb.supabase.co/storage/v1/object/public/products…" alt="Lombok Scarves" class="w-full h-full object-cover transition-transform duration-1000 group-hover:…">
+…Lombok_Scarves/177….jpg(tdvkvhozebzetchmgzhb.supabase.co)
+2,301.5 KiB
+2,273.4 KiB
+Using a modern image format (WebP, AVIF) or increasing the image compression could improve this image's download size.
+514.0 KiB
+This image file is larger than it needs to be (2866x3832) for its displayed dimensions (415x415). Use responsive images to reduce the image download size.
+2,265.3 KiB
+Parang Scarves
+<img src="https://tdvkvhozebzetchmgzhb.supabase.co/storage/v1/object/public/products…" alt="Parang Scarves" class="w-full h-full object-cover transition-transform duration-1000 group-hover:…">
+…Parang_Scarves/177….jpg(tdvkvhozebzetchmgzhb.supabase.co)
+2,132.1 KiB
+2,104.0 KiB
+Using a modern image format (WebP, AVIF) or increasing the image compression could improve this image's download size.
+944.9 KiB
+This image file is larger than it needs to be (2336x3123) for its displayed dimensions (415x415). Use responsive images to reduce the image download size.
+2,081.7 KiB
+deenha.com 1st party
+1,387.6 KiB	1,143.5 KiB
+Tokopedia
+<img src="/assets/tokopedia.png" alt="Tokopedia" class="h-6 w-auto grayscale group-hover:grayscale-0 transition-all duration-500">
+/assets/tokopedia.png(deenha.com)
+162.8 KiB
+162.5 KiB
+Using a modern image format (WebP, AVIF) or increasing the image compression could improve this image's download size.
+58.7 KiB
+This image file is larger than it needs to be (800x800) for its displayed dimensions (42x42). Use responsive images to reduce the image download size.
+162.4 KiB
+Deenha Instagram
+<img src="/ig%20image/2.jpg" alt="Deenha Instagram" class="w-full h-full object-cover transition-all duration-[1500ms] group-hover:sc…">
+/ig%20image/2.jpg(deenha.com)
+176.6 KiB
+157.9 KiB
+This image file is larger than it needs to be (1080x1079) for its displayed dimensions (305x406). Use responsive images to reduce the image download size.
+157.9 KiB
+Deenha Instagram
+<img src="/ig%20image/4-thumbnail.png" alt="Deenha Instagram" class="w-full h-full object-cover transition-all duration-[1500ms] group-hover:sc…">
+/ig%20image/4-thumbnail.png(deenha.com)
+143.9 KiB
+133.0 KiB
+Using a modern image format (WebP, AVIF) or increasing the image compression could improve this image's download size.
+133.0 KiB
+Deenha Instagram
+<img src="/ig%20image/3.webp" alt="Deenha Instagram" class="w-full h-full object-cover transition-all duration-[1500ms] group-hover:sc…">
+/ig%20image/3.webp(deenha.com)
+123.9 KiB
+111.6 KiB
+This image file is larger than it needs to be (1080x1078) for its displayed dimensions (305x381). Use responsive images to reduce the image download size.
+111.6 KiB
+Deenha Instagram
+<img src="/ig%20image/5.webp" alt="Deenha Instagram" class="w-full h-full object-cover transition-all duration-[1500ms] group-hover:sc…">
+/ig%20image/5.webp(deenha.com)
+119.2 KiB
+107.3 KiB
+This image file is larger than it needs to be (1080x1078) for its displayed dimensions (305x381). Use responsive images to reduce the image download size.
+107.3 KiB
+Deenha Instagram
+<img src="/ig%20image/6.webp" alt="Deenha Instagram" class="w-full h-full object-cover transition-all duration-[1500ms] group-hover:sc…">
+/ig%20image/6.webp(deenha.com)
+100.3 KiB
+90.3 KiB
+This image file is larger than it needs to be (1080x1078) for its displayed dimensions (305x381). Use responsive images to reduce the image download size.
+90.3 KiB
+DEENHA Ramadan Collection
+<img src="/images/ramadan_banner.jpg" alt="DEENHA Ramadan Collection" class="w-full h-full object-cover object-top" style="transform: none;">
+/images/ramadan_banner.jpg(deenha.com)
+160.6 KiB
+88.7 KiB
+Using a modern image format (WebP, AVIF) or increasing the image compression could improve this image's download size.
+60.0 KiB
+This image file is larger than it needs to be (1024x604) for its displayed dimensions (665x665). Use responsive images to reduce the image download size.
+45.7 KiB
+BCA
+<img src="/assets/bca.png" alt="BCA" class="h-8 w-auto">
+/assets/bca.png(deenha.com)
+78.0 KiB
+77.5 KiB
+This image file is larger than it needs to be (1024x768) for its displayed dimensions (75x56). Use responsive images to reduce the image download size.
+77.5 KiB
+Deenha Instagram
+<img src="/ig%20image/1.jpg" alt="Deenha Instagram" class="w-full h-full object-cover transition-all duration-[1500ms] group-hover:sc…">
+/ig%20image/1.jpg(deenha.com)
+85.0 KiB
+76.0 KiB
+This image file is larger than it needs to be (1080x1080) for its displayed dimensions (305x406). Use responsive images to reduce the image download size.
+76.0 KiB
+Shopee
+<img src="/assets/shopee.png" alt="Shopee" class="h-6 w-auto grayscale group-hover:grayscale-0 transition-all duration-500">
+/assets/shopee.png(deenha.com)
+54.9 KiB
+54.6 KiB
+This image file is larger than it needs to be (1024x671) for its displayed dimensions (64x42). Use responsive images to reduce the image download size.
+54.6 KiB
+Pre-Raya Catalog
+<img src="/images/new-arrival-mv0WD7ngy7FZoWXE.jpg" alt="Pre-Raya Catalog" class="absolute inset-0 w-full h-[140%] object-cover" style="transform: translateY(-8.85362%);">
+/images/new-arriv….jpg(deenha.com)
+110.1 KiB
+42.3 KiB
+This image file is larger than it needs to be (1112x742) for its displayed dimensions (1147x443). Use responsive images to reduce the image download size.
+42.3 KiB
+QRIS
+<img src="/assets/qris.png" alt="QRIS" class="h-10 w-auto">
+/assets/qris.png(deenha.com)
+24.0 KiB
+19.1 KiB
+This image file is larger than it needs to be (960x155) for its displayed dimensions (434x70). Use responsive images to reduce the image download size.
+19.1 KiB
+DEENHA
+<img src="/assets/logo.png" alt="DEENHA" class="h-16 w-auto brightness-0">
+/assets/logo.png(deenha.com)
+13.6 KiB
+11.5 KiB
+Using a modern image format (WebP, AVIF) or increasing the image compression could improve this image's download size.
+6.0 KiB
+This image file is larger than it needs to be (215x215) for its displayed dimensions (112x112). Use responsive images to reduce the image download size.
+9.9 KiB
+Luxury Hampers
+<img src="/images/hampers-1-dWxvylrBJ6IBxzqB.jpg" alt="Luxury Hampers" class="absolute inset-0 w-full h-[140%] object-cover" style="transform: translateY(-8.85362%);">
+/images/hampers-1….jpg(deenha.com)
+17.6 KiB
+5.9 KiB
+Using a modern image format (WebP, AVIF) or increasing the image compression could improve this image's download size.
+5.9 KiB
+Eliza Premium Voal Scarf
+<img src="/images/image-1-m5KMww5a1eHrGa7j.jpg" alt="Eliza Premium Voal Scarf" class="w-full h-full object-cover transition-transform duration-1000 group-hover:…">
+/images/image-1-m….jpg(deenha.com)
+17.1 KiB
+5.2 KiB
+Using a modern image format (WebP, AVIF) or increasing the image compression could improve this image's download size.
+5.2 KiB
+Forced reflow
+A forced reflow occurs when JavaScript queries geometric properties (such as offsetWidth) after styles have been invalidated by a change to the DOM state. This can result in poor performance. Learn more about forced reflows and possible mitigations.Unscored
+Top function call
+Total reflow time
+/assets/index--0qVmIAJ.js:76:3023(deenha.com)
+55 ms
+Source
+Total reflow time
+[unattributed]
+0 ms
+/assets/index--0qVmIAJ.js:75:117164(deenha.com)
+55 ms
+LCP breakdown
+Each subpart has specific improvement strategies. Ideally, most of the LCP time should be spent on loading the resources, not within delays.LCPUnscored
+Subpart
+Duration
+Time to first byte
+0 ms
+Resource load delay
+3,170 ms
+Resource load duration
+40 ms
+Element render delay
+150 ms
+DEENHA Ramadan Collection
+<img src="/images/ramadan_banner.jpg" alt="DEENHA Ramadan Collection" class="w-full h-full object-cover object-top" style="transform: none;">
+LCP request discovery
+Optimize LCP by making the LCP image discoverable from the HTML immediately, and avoiding lazy-loadingLCPUnscored
+lazy load not applied
+fetchpriority=high should be applied
+Request is discoverable in initial document
+DEENHA Ramadan Collection
+<img src="/images/ramadan_banner.jpg" alt="DEENHA Ramadan Collection" class="w-full h-full object-cover object-top" style="transform: none;">
+Network dependency tree
+Avoid chaining critical requests by reducing the length of chains, reducing the download size of resources, or deferring the download of unnecessary resources to improve page load.LCPUnscored
+Maximum critical path latency: 3,308 ms
+Initial Navigation
+https://deenha.com - 225 ms, 1.73 KiB
+/css2?family=…(fonts.googleapis.com) - 238 ms, 1.68 KiB
+…v20/UcC73FwrK….woff2(fonts.gstatic.com) - 616 ms, 48.09 KiB
+…v40/nuFiD-vYS….woff2(fonts.gstatic.com) - 619 ms, 38.35 KiB
+/assets/index--0qVmIAJ.js(deenha.com) - 371 ms, 217.13 KiB
+/latest?from=IDR&to=USD,EUR,CNY(api.frankfurter.app) - 725 ms, 0.82 KiB
+…v1/site_settings?select=*(tdvkvhozebzetchmgzhb.supabase.co) - 1,350 ms, 1.97 KiB
+…v1/site_settings?select=value&key=eq.tiktok_live_settings(tdvkvhozebzetchmgzhb.supabase.co) - 1,513 ms, 1.24 KiB
+…v1/products?select=*&order=id.asc(tdvkvhozebzetchmgzhb.supabase.co) - 1,543 ms, 4.74 KiB
+…v1/site_settings?select=*(tdvkvhozebzetchmgzhb.supabase.co) - 1,478 ms, 1.97 KiB
+…v1/site_settings?select=*(tdvkvhozebzetchmgzhb.supabase.co) - 1,522 ms, 1.97 KiB
+…v1/site_settings?select=value&key=eq.tiktok_live_settings(tdvkvhozebzetchmgzhb.supabase.co) - 1,541 ms, 1.24 KiB
+…hero/promo_video.mp4(tdvkvhozebzetchmgzhb.supabase.co) - 1,791 ms, 0.00 KiB
+…v1/tiktok-live(tdvkvhozebzetchmgzhb.supabase.co) - 1,687 ms, 0.00 KiB
+…v1/products?select=*&order=id.asc(tdvkvhozebzetchmgzhb.supabase.co) - 2,470 ms, 4.74 KiB
+…v1/products?select=*&order=id.asc(tdvkvhozebzetchmgzhb.supabase.co) - 1,909 ms, 4.74 KiB
+…v1/products?select=*&order=id.asc(tdvkvhozebzetchmgzhb.supabase.co) - 3,308 ms, 4.74 KiB
+…v1/products?select=*&order=id.asc(tdvkvhozebzetchmgzhb.supabase.co) - 2,507 ms, 4.74 KiB
+…v1/tiktok-live(tdvkvhozebzetchmgzhb.supabase.co) - 1,723 ms, 0.00 KiB
+/assets/index-CZeb5mLG.css(deenha.com) - 407 ms, 10.21 KiB
+/translate_a/element.js?cb=googleTranslateElementInit(translate.google.com) - 241 ms, 28.20 KiB
+…rs=AN8SPfpe3…/m=el_main_css(www.gstatic.com) - 475 ms, 4.87 KiB
+Preconnected origins
+preconnect hints help the browser establish a connection earlier in the page load, saving time when the first request for that origin is made. The following are the origins that the page preconnected to.
+Origin
+Source
+https://fonts.googleapis.com/
+head > link
+<link rel="preconnect" href="https://fonts.googleapis.com">
+https://fonts.gstatic.com/
+head > link
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+Preconnect candidates
+Add preconnect hints to your most important origins, but try to use no more than 4.
+Origin
+Est LCP savings
+https://translate-pa.googleapis.com
+300 ms
+https://www.gstatic.com
+300 ms
+https://api.frankfurter.app
+260 ms
+Use efficient cache lifetimes Est savings of 23,653 KiB
+Optimize DOM size
+A large DOM can increase the duration of style calculations and layout reflows, impacting page responsiveness. A large DOM will also increase memory usage. Learn how to avoid an excessive DOM size.Unscored
+Statistic
+Element
+Value
+Total elements
+724
+DOM depth
+$14.46
+<span class="font-bold text-sm tracking-widest text-primary notranslate">
+14
+Most children
+🌍 INTERNATIONAL SHIPPING AVAILABLE ✨ COMPLIMENTARY SHIPPING ON ORDERS OVER RP 5…
+<div class="flex" style="transform: translateX(-469.033px);">
+8
+3rd parties
+3rd party code can significantly impact load performance. Reduce and defer loading of 3rd party code to prioritize your page's content.Unscored
+3rd party
+Transfer size
+Main thread time
+Other Google APIs/SDKs utility 
+149 KiB	161 ms
+…rs=AN8SPfqat…/m=el_main(translate.googleapis.com)
+118 KiB
+130 ms
+/translate_a/element.js?cb=googleTranslateElementInit(translate.google.com)
+28 KiB
+26 ms
+/v1/supportedLanguages?client=…(translate-pa.googleapis.com)
+3 KiB
+4 ms
+Google Fonts cdn 
+92 KiB	0 ms
+…v20/UcC73FwrK….woff2(fonts.gstatic.com)
+48 KiB
+0 ms
+…v40/nuFiD-vYS….woff2(fonts.gstatic.com)
+38 KiB
+0 ms
+…v14/24px.svg(fonts.gstatic.com)
+4 KiB
+0 ms
+/css2?family=…(fonts.googleapis.com)
+2 KiB
+0 ms
+Google CDN cdn 
+9 KiB	0 ms
+…rs=AN8SPfpe3…/m=el_main_css(www.gstatic.com)
+5 KiB
+0 ms
+…2x/translate_24dp.png(www.gstatic.com)
+2 KiB
+0 ms
+…1x/googlelogo_color_42x16dp.png(www.gstatic.com)
+2 KiB
+0 ms
+frankfurter.app
+1 KiB	0 ms
+/latest?from=IDR&to=USD,EUR,CNY(api.frankfurter.app)
+1 KiB
+0 ms
+wikimedia.org
+2 KiB	0 ms
+…6b/WhatsApp.svg(upload.wikimedia.org)
+2 KiB
+0 ms
+supabase.co
+29,595 KiB	0 ms
+…Turkey_Series/177…_feed_1.jpg(tdvkvhozebzetchmgzhb.supabase.co)
+4,867 KiB
+0 ms
+…Kawung_Scarves/177….jpg(tdvkvhozebzetchmgzhb.supabase.co)
+3,376 KiB
+0 ms
+…Borneo_Scarves/177….jpg(tdvkvhozebzetchmgzhb.supabase.co)
+3,252 KiB
+0 ms
+…Cairo_Series/177….jpg(tdvkvhozebzetchmgzhb.supabase.co)
+2,878 KiB
+0 ms
+…site/0.113….jpg(tdvkvhozebzetchmgzhb.supabase.co)
+2,838 KiB
+0 ms
+…Songket_Scarves/177….jpg(tdvkvhozebzetchmgzhb.supabase.co)
+2,838 KiB
+0 ms
+…Hagia_Sop…/177….jpg(tdvkvhozebzetchmgzhb.supabase.co)
+2,585 KiB
+0 ms
+…Deenha_Ra…/177….jpg(tdvkvhozebzetchmgzhb.supabase.co)
+2,494 KiB
+0 ms
+…Lombok_Scarves/177….jpg(tdvkvhozebzetchmgzhb.supabase.co)
+2,302 KiB
+0 ms
+…Parang_Scarves/177….jpg(tdvkvhozebzetchmgzhb.supabase.co)
+2,133 KiB
+0 ms
+…v1/products?select=*&order=id.asc(tdvkvhozebzetchmgzhb.supabase.co)
+24 KiB
+0 ms
+…v1/site_settings?select=*(tdvkvhozebzetchmgzhb.supabase.co)
+6 KiB
+0 ms
+…v1/site_settings?select=value&key=eq.tiktok_live_settings(tdvkvhozebzetchmgzhb.supabase.co)
+2 KiB
+0 ms
+These insights are also available in the Chrome DevTools Performance Panel - record a trace to view more detailed information.
+Diagnostics
+Reduce unused JavaScript Est savings of 204 KiB
+Reduce unused JavaScript and defer loading scripts until they are required to decrease bytes consumed by network activity. Learn how to reduce unused JavaScript.LCPFCPUnscored
+URL
+Transfer Size
+Est Savings
+deenha.com 1st party
+216.1 KiB	112.2 KiB
+/assets/index--0qVmIAJ.js(deenha.com)
+216.1 KiB
+112.2 KiB
+Other Google APIs/SDKs utility 
+116.8 KiB	92.2 KiB
+…rs=AN8SPfqat…/m=el_main(translate.googleapis.com)
+116.8 KiB
+92.2 KiB
+Minimize main-thread work 2.3 s
+Consider reducing the time spent parsing, compiling and executing JS. You may find delivering smaller JS payloads helps with this. Learn how to minimize main-thread workTBTUnscored
+Category
+Time Spent
+Other
+837 ms
+Script Evaluation
+653 ms
+Style & Layout
+425 ms
+Script Parsing & Compilation
+168 ms
+Rendering
+164 ms
+Parse HTML & CSS
+11 ms
+Image elements do not have explicit width and height
+Set an explicit width and height on image elements to reduce layout shifts and improve CLS. Learn how to set image dimensionsCLSUnscored
+URL
+deenha.com 1st party
+BCA
+<img src="/assets/bca.png" alt="BCA" class="h-8 w-auto">
+/assets/bca.png(deenha.com)
+Shopee
+<img src="/assets/shopee.png" alt="Shopee" class="h-6 w-auto grayscale group-hover:grayscale-0 transition-all duration-500">
+/assets/shopee.png(deenha.com)
+Tokopedia
+<img src="/assets/tokopedia.png" alt="Tokopedia" class="h-6 w-auto grayscale group-hover:grayscale-0 transition-all duration-500">
+/assets/tokopedia.png(deenha.com)
+QRIS
+<img src="/assets/qris.png" alt="QRIS" class="h-10 w-auto">
+/assets/qris.png(deenha.com)
+DEENHA
+<img src="/assets/logo.png" alt="DEENHA" class="h-12 md:h-16 w-auto transition-all duration-700 brightness-0 invert">
+/assets/logo.png(deenha.com)
+DEENHA
+<img src="/assets/logo.png" alt="DEENHA" class="h-16 w-auto brightness-0">
+/assets/logo.png(deenha.com)
+Avoid enormous network payloads Total size was 32,324 KiB
+Large network payloads cost users real money and are highly correlated with long load times. Learn how to reduce payload sizes.Unscored
+URL
+Transfer Size
+supabase.co
+29,563.3 KiB
+…Turkey_Series/177…_feed_1.jpg(tdvkvhozebzetchmgzhb.supabase.co)
+4,867.0 KiB
+…Kawung_Scarves/177….jpg(tdvkvhozebzetchmgzhb.supabase.co)
+3,375.9 KiB
+…Borneo_Scarves/177….jpg(tdvkvhozebzetchmgzhb.supabase.co)
+3,251.6 KiB
+…Cairo_Series/177….jpg(tdvkvhozebzetchmgzhb.supabase.co)
+2,877.7 KiB
+…site/0.113….jpg(tdvkvhozebzetchmgzhb.supabase.co)
+2,838.5 KiB
+…Songket_Scarves/177….jpg(tdvkvhozebzetchmgzhb.supabase.co)
+2,838.5 KiB
+…Hagia_Sop…/177….jpg(tdvkvhozebzetchmgzhb.supabase.co)
+2,585.3 KiB
+…Deenha_Ra…/177….jpg(tdvkvhozebzetchmgzhb.supabase.co)
+2,493.5 KiB
+…Lombok_Scarves/177….jpg(tdvkvhozebzetchmgzhb.supabase.co)
+2,302.4 KiB
+…Parang_Scarves/177….jpg(tdvkvhozebzetchmgzhb.supabase.co)
+2,133.1 KiB
+Avoid long main-thread tasks 3 long tasks found
+Lists the longest tasks on the main thread, useful for identifying worst contributors to input delay. Learn how to avoid long main-thread tasksTBTUnscored
+URL
+Start Time
+Duration
+deenha.com 1st party
+162 ms
+/assets/index--0qVmIAJ.js(deenha.com)
+4,302 ms
+88 ms
+/assets/index--0qVmIAJ.js(deenha.com)
+779 ms
+74 ms
+Other Google APIs/SDKs utility 
+161 ms
+…rs=AN8SPfqat…/m=el_main(translate.googleapis.com)
+4,494 ms
+161 ms
+User Timing marks and measures 2 user timings
+Consider instrumenting your app with the User Timing API to measure your app's real-world performance during key user experiences. Learn more about User Timing marks.Unscored
+Name
+Type
+Start Time
+Duration
+translate:page_load_to_initialized
+Measure
+205.80 ms
+660.60 ms
+translate:initialized
+Mark
+866.43 ms
+Avoid non-composited animations 2 animated elements found
+Animations which are not composited can be janky and increase CLS. Learn how to avoid non-composited animationsCLSUnscored
+Element
+Name
+WhatsApp
+<a href="https://wa.me/6281919234222?text=Hello%20Deenha!%20I%20am%20interested%20i…" target="_blank" rel="noopener noreferrer" class="whatsapp-btn flex items-center justify-center w-14 h-14 bg-[#25D366] round…" tabindex="0">
+Unsupported CSS Property: box-shadow
+whatsapp-pulse
+div.VIpgJd-ZVi9od-aZ2wEe-wOHMyf > div.VIpgJd-ZVi9od-aZ2wEe-OiiCO > svg.VIpgJd-ZVi9od-aZ2wEe > circle.VIpgJd-ZVi9od-aZ2wEe-Jt5cK
+<circle class="VIpgJd-ZVi9od-aZ2wEe-Jt5cK" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30">
+Unsupported CSS Property: stroke-dashoffset
+spinner-dash
+More information about the performance of your application. These numbers don't directly affect the Performance score.
+Passed audits (11)
+Show
+75
+Accessibility
+These checks highlight opportunities to improve the accessibility of your web app. Automatic detection can only detect a subset of issues and does not guarantee the accessibility of your web app, so manual testing is also encouraged.
+Names and labels
+Buttons do not have an accessible name
+When a button doesn't have an accessible name, screen readers announce it as "button", making it unusable for users who rely on screen readers. Learn how to make buttons more accessible.
+Failing Elements
+div.max-w-[1440px] > div.grid > div.lg:hidden > button.p-2
+<button class="p-2 text-white">
+div.max-w-[1440px] > div.grid > div.flex > button.p-2
+<button class="p-2 transition-colors duration-300 text-white">
+div.max-w-[1440px] > div.grid > div.flex > button.relative
+<button class="relative p-2 transition-colors duration-300 text-white">
+div.grid > div > div.product-card > button.absolute
+<button class="absolute top-4 right-4 w-8 h-8 rounded-full flex items-center justify-cent…" tabindex="0">
+div.grid > div > div.product-card > button.absolute
+<button class="absolute top-4 right-4 w-8 h-8 rounded-full flex items-center justify-cent…" tabindex="0">
+div.grid > div > div.product-card > button.absolute
+<button class="absolute top-4 right-4 w-8 h-8 rounded-full flex items-center justify-cent…" tabindex="0">
+div.grid > div > div.product-card > button.absolute
+<button class="absolute top-4 right-4 w-8 h-8 rounded-full flex items-center justify-cent…" tabindex="0">
+div.grid > div > div.product-card > button.absolute
+<button class="absolute top-4 right-4 w-8 h-8 rounded-full flex items-center justify-cent…" tabindex="0">
+div.grid > div > div.product-card > button.absolute
+<button class="absolute top-4 right-4 w-8 h-8 rounded-full flex items-center justify-cent…" tabindex="0">
+div.grid > div > div.product-card > button.absolute
+<button class="absolute top-4 right-4 w-8 h-8 rounded-full flex items-center justify-cent…" tabindex="0">
+div.grid > div > div.product-card > button.absolute
+<button class="absolute top-4 right-4 w-8 h-8 rounded-full flex items-center justify-cent…" tabindex="0">
+div.grid > div > div.product-card > button.absolute
+<button class="absolute top-4 right-4 w-8 h-8 rounded-full flex items-center justify-cent…" tabindex="0">
+div.grid > div > div.product-card > button.absolute
+<button class="absolute top-4 right-4 w-8 h-8 rounded-full flex items-center justify-cent…" tabindex="0">
+div.grid > div > div.product-card > button.absolute
+<button class="absolute top-4 right-4 w-8 h-8 rounded-full flex items-center justify-cent…" tabindex="0">
+div.grid > div > div.product-card > button.absolute
+<button class="absolute top-4 right-4 w-8 h-8 rounded-full flex items-center justify-cent…" tabindex="0">
+div.grid > div > div.product-card > button.absolute
+<button class="absolute top-4 right-4 w-8 h-8 rounded-full flex items-center justify-cent…" tabindex="0">
+div.grid > div > div.product-card > button.absolute
+<button class="absolute top-4 right-4 w-8 h-8 rounded-full flex items-center justify-cent…" tabindex="0">
+div.grid > div > div.product-card > button.absolute
+<button class="absolute top-4 right-4 w-8 h-8 rounded-full flex items-center justify-cent…" tabindex="0">
+div.grid > div > div.product-card > button.absolute
+<button class="absolute top-4 right-4 w-8 h-8 rounded-full flex items-center justify-cent…" tabindex="0">
+div.min-h-screen > div.fixed > div.relative > button.absolute
+<button class="absolute top-3 right-3 md:top-4 md:right-4 z-30 p-2 bg-black/30 hover:bg-b…">
+Links do not have a discernible name
+Link text (and alternate text for images, when used as links) that is discernible, unique, and focusable improves the navigation experience for screen reader users. Learn how to make links accessible.
+Failing Elements
+div.max-w-[1440px] > div.grid > div.flex > a.relative
+<a class="relative p-2 transition-colors duration-300 text-white" href="/wishlist">
+These are opportunities to improve the semantics of the controls in your application. This may enhance the experience for users of assistive technology, like a screen reader.
+Contrast
+Background and foreground colors do not have a sufficient contrast ratio.
+Low-contrast text is difficult or impossible for many users to read. Learn how to provide sufficient color contrast.
+Failing Elements
+VIEW COLLECTION
+<a href="/shop" class="bg-accent-gold text-white rounded-none px-12 py-4 text-sm font-bold upperc…" tabindex="0">
+OUR ATMOSPHERE
+<span class="text-accent-gold text-[11px] uppercase font-bold tracking-[0.5em] mb-4 blo…">
+OUR ATMOSPHERE The Atelier Journal FOLLOW @DEENHA.OFFICIAL VIEW POST VIEW POST …
+<section class="py-24 bg-surface-secondary overflow-hidden">
+These are opportunities to improve the legibility of your content.
+Navigation
+Heading elements are not in a sequentially-descending order
+Properly ordered headings that do not skip levels convey the semantic structure of the page, making it easier to navigate and understand when using assistive technologies. Learn more about heading order.
+Failing Elements
+SHOP
+<h4 class="text-[10px] font-bold uppercase tracking-[0.3em] mb-8 text-primary">
+These are opportunities to improve keyboard navigation in your application.
+Audio and video
+<video> elements contain a <track> element with [kind="captions"]
+When a video provides a caption it is easier for deaf and hearing impaired users to access its information. Learn more about video captions.Unscored
+Failing Elements
+section.relative > div.absolute > div.absolute > video.w-full
+<video src="https://tdvkvhozebzetchmgzhb.supabase.co/storage/v1/object/public/products…" class="w-full h-full object-cover transition-opacity duration-1000 opacity-100" autoplay="" playsinline="">
+These are opportunities to provide alternative content for audio and video. This may improve the experience for users with hearing or vision impairments.
+Best practices
+Identical links have the same purpose.
+Links with the same destination should have the same description, to help users understand the link's purpose and decide whether to follow it. Learn more about identical links.Unscored
+Failing Elements
+SHOP NOW
+<a class="inline-block relative px-12 py-4 text-[11px] font-bold uppercase tracking-…" href="/shop?ids=22,28,29,49">
+SHOP NOW
+<a class="inline-block relative px-12 py-4 text-[11px] font-bold uppercase tracking-…" href="/shop?ids=31,32,33,34,35">
+SHOP NOW
+<a class="inline-block relative px-12 py-4 text-[11px] font-bold uppercase tracking-…" href="/shop?category=">
+SHOP NOW
+<a class="inline-block relative px-12 py-4 text-[11px] font-bold uppercase tracking-…" href="/shop?ids=10,8,5">

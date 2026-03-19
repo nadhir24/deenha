@@ -87,6 +87,7 @@ const RamadanPopup = () => {
                                 src="/images/ramadan_banner.jpg"
                                 alt="DEENHA Ramadan Collection"
                                 className="w-full h-full object-cover object-top"
+                                fetchPriority="high"
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-[#1A1A1A] via-[#1A1A1A]/30 to-transparent md:bg-gradient-to-r md:from-transparent md:via-transparent md:to-[#1A1A1A]" />
                             <div className="absolute inset-0 bg-gradient-to-b from-[#1A1A1A]/40 via-transparent to-transparent md:from-transparent" />
