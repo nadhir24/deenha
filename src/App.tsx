@@ -73,7 +73,7 @@ function App() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
     // Toggle this to true to enable Maintenance Mode
-    const isMaintenanceMode = true;
+    const isMaintenanceMode = false;
     const bypassMode = new URLSearchParams(window.location.search).get('bypass') === 'true';
 
     if (isMaintenanceMode && !bypassMode) {
