@@ -17,7 +17,7 @@ i18n
             fr: { translation: frTranslations },
             zh: { translation: zhTranslations }
         },
-        fallbackLng: 'en', // Use English if user language is not supported
+        fallbackLng: 'id', // Default to Indonesian
         // Removed hardcoded 'lng' to allow LanguageDetector to work
         interpolation: {
             escapeValue: false

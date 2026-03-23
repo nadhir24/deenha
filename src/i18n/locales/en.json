@@ -161,7 +161,8 @@
         "total": "Total",
         "checkout_wa": "Checkout via WhatsApp",
         "qty": "Qty",
-        "error": "Sorry, an error occurred while processing your order. Please try again."
+        "error": "Sorry, an error occurred while processing your order. Please try again.",
+        "popup_warning": "💡 Tip: Disable 'Pop-up Blocker' if WhatsApp doesn't open automatically."
     },
     "whatsapp": {
         "greeting": "Hello Deenha! I am interested in your products.",

@@ -22,21 +22,21 @@ INSERT INTO site_settings (key, value) VALUES
 ('hero_slides', '[
     {
         "type": "video",
-        "src": "https://tdvkvhozebzetchmgzhb.supabase.co/storage/v1/object/public/products/hero/promo_video.mp4",
+        "src": "/images/promo_video.mp4",
         "title": "",
         "subtitle": "",
         "description": "."
     },
     {
         "type": "video",
-        "src": "https://tdvkvhozebzetchmgzhb.supabase.co/storage/v1/object/public/products/hero/summer_collection.mp4",
+        "src": "/images/summer_collection.mp4",
         "title": "",
         "subtitle": "",
         "description": "."
     },
     {
         "type": "video",
-        "src": "https://tdvkvhozebzetchmgzhb.supabase.co/storage/v1/object/public/products/hero/vintage_flower.mp4",
+        "src": "/images/vintage_flower.mp4",
         "title": "",
         "subtitle": "",
         "description": "  ."

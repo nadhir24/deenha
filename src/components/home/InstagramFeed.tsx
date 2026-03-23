@@ -8,20 +8,20 @@ const InstagramFeed = () => {
     const { posts, loading } = useInstagram();
 
     return (
-        <section className="py-24 bg-surface-secondary overflow-hidden">
+        <section className="py-24 bg-surface-secondary dark:bg-primary/50 overflow-hidden transition-colors duration-300">
             <div className="max-w-[1440px] mx-auto px-6 lg:px-12">
                 <div className="flex flex-col items-center text-center mb-16">
                     <span className="text-accent-gold text-[11px] uppercase font-bold tracking-[0.5em] mb-4 block">
                         {t('home.atmosphere')}
                     </span>
-                    <h2 className="font-display text-4xl md:text-6xl italic font-normal tracking-tight mb-6">
+                    <h2 className="font-display text-4xl md:text-6xl italic font-normal tracking-tight mb-6 text-primary dark:text-white">
                         {t('home.journal_title')}
                     </h2>
                     <a
                         href="https://www.instagram.com/deenha.official/"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-[10px] uppercase font-bold tracking-[0.4em] text-primary hover:text-accent-gold transition-colors duration-500 border-b border-primary/20 pb-1"
+                        className="text-[10px] uppercase font-bold tracking-[0.4em] text-primary dark:text-white/60 hover:text-accent-gold transition-colors duration-500 border-b border-primary/20 dark:border-white/10 pb-1"
                     >
                         Follow @deenha.official
                     </a>
@@ -30,7 +30,7 @@ const InstagramFeed = () => {
                 {loading ? (
                     <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
                         {[...Array(6)].map((_, i) => (
-                            <div key={i} className="aspect-square bg-black/5 animate-pulse" />
+                            <div key={i} className="aspect-square bg-black/5 dark:bg-white/5 animate-pulse" />
                         ))}
                     </div>
                 ) : (
@@ -69,7 +69,7 @@ const InstagramItem = ({ post, idx }: { post: any; idx: number }) => {
             href={post.post_url}
             target="_blank"
             rel="noopener noreferrer"
-            className="relative aspect-square overflow-hidden group shadow-lg bg-surface-secondary"
+            className="relative aspect-square overflow-hidden group shadow-lg bg-surface-secondary dark:bg-white/5"
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}

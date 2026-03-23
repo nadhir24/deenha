@@ -24,25 +24,25 @@ const AboutPage = () => {
     ];
 
     return (
-        <main className="pt-44">
+        <main className="pt-44 pb-24 bg-white dark:bg-primary transition-colors duration-300">
             <SEOHead
                 title={`${t('nav.about')} - DEENHA`}
                 description={t('footer.description')}
                 canonicalPath="/about"
             />
             {/* Header / Hero Section for About Page */}
-            <section className="bg-surface-secondary py-24 mb-20">
+            <section className="bg-surface-secondary dark:bg-white/5 py-24 mb-20 transition-colors duration-300">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                     <span className="text-accent-gold text-[10px] uppercase font-bold tracking-[0.5em] mb-6 block">
                         {t('brand_story.identity_label')}
                     </span>
-                    <h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-normal tracking-tight mb-8 italic">
+                    <h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-normal tracking-tight mb-8 italic text-primary dark:text-white">
                         {t('brand_story.story_heading')}
                     </h1>
                 </div>
             </section>
 
-            <section className="py-12 bg-white overflow-hidden">
+            <section className="py-12 bg-white dark:bg-primary overflow-hidden transition-colors duration-300">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     {/* Main Story Grid */}
                     <div className="grid lg:grid-cols-2 gap-16 items-center mb-32">
@@ -75,17 +75,17 @@ const AboutPage = () => {
                             <span className="text-accent-gold text-[10px] uppercase font-bold tracking-[0.5em] mb-6 block">
                                 {t('brand_story.narrative_label')}
                             </span>
-                            <h2 className="font-display text-4xl md:text-5xl lg:text-5xl font-normal tracking-tight mb-8">
+                            <h2 className="font-display text-4xl md:text-5xl lg:text-5xl font-normal tracking-tight mb-8 text-primary dark:text-white">
                                 {t('brand_story.heading_1')} <span className="italic">{t('brand_story.heading_2')}</span>
                             </h2>
-                            <div className="space-y-6 text-secondary leading-relaxed text-lg">
+                            <div className="space-y-6 text-secondary dark:text-white/60 leading-relaxed text-lg">
                                 <p>
                                     {t('brand_story.p1')}
                                 </p>
                                 <p>
                                     {t('brand_story.p2')}
                                 </p>
-                                <p className="font-medium text-primary">
+                                <p className="font-medium text-primary dark:text-white">
                                     {t('brand_story.p3')}
                                 </p>
                             </div>
@@ -106,7 +106,7 @@ const AboutPage = () => {
                             <span className="text-accent-gold text-[10px] uppercase font-bold tracking-[0.4em] mb-4 block">
                                 {t('brand_story.core_philosophy')}
                             </span>
-                            <h2 className="font-display text-4xl md:text-5xl font-normal tracking-tight">{t('brand_story.our_ethos')}</h2>
+                            <h2 className="font-display text-4xl md:text-5xl font-normal tracking-tight text-primary dark:text-white">{t('brand_story.our_ethos')}</h2>
                         </motion.div>
 
                         <div className="grid md:grid-cols-3 gap-12 lg:gap-20">

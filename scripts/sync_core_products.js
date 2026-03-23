@@ -29,7 +29,7 @@ async function sync() {
         {
             name: "Instant Chiffon Hijab",
             price: 159000,
-            image: "https://tdvkvhozebzetchmgzhb.supabase.co/storage/v1/object/public/products/heritage-design-Aq2WvB4Gj1flwP1L.jpg",
+            image: "/images/heritage-design-Aq2WvB4Gj1flwP1L.jpg",
             category: "Chiffon Hijab",
             size: ["170x70"],
             color: "Blush Pink",

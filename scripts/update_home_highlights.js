@@ -44,7 +44,7 @@ async function update() {
         console.log('Adding Daily Essentials highlight...');
         const newHighlight = {
             title: "Daily Essentials",
-            bannerImage: "https://tdvkvhozebzetchmgzhb.supabase.co/storage/v1/object/public/products/heritage-design-Aq2WvB4Gj1flwP1L.jpg",
+            bannerImage: "/images/heritage-design-Aq2WvB4Gj1flwP1L.jpg",
             collectionTitle: "Chiffon & Jersey",
             collectionDescription: "Effortless modesty for your everyday. Our Instant Chiffon and Premium Jersey collections are designed for comfort, durability, and style that stays in place.",
             category: "Chiffon Hijab",

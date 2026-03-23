@@ -161,7 +161,8 @@
         "total": "总计",
         "checkout_wa": "WhatsApp 结账",
         "qty": "数量",
-        "error": "处理您的订单时出错。请重试。"
+        "error": "处理您的订单时出错。请重试。",
+        "popup_warning": "💡 提示：如果 WhatsApp 未自动打开量，请禁用“弹出窗口拦截器”。"
     },
     "whatsapp": {
         "greeting": "您好 Deenha！我对您的产品很感兴趣。",

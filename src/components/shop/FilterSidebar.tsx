@@ -36,8 +36,6 @@ const FilterSidebar = ({ filters, onFilterChange }: FilterSidebarProps) => {
         );
     };
 
-    // ... (logic functions)
-
     const clearFilters = () => {
         onFilterChange({
             categories: [],
@@ -47,21 +45,18 @@ const FilterSidebar = ({ filters, onFilterChange }: FilterSidebarProps) => {
         });
     };
 
-    // Local state for smooth slider interaction
     const [localPrice, setLocalPrice] = useState<number>(filters.priceRange[1]);
 
-    // Update local price when external filters change (e.g. Reset)
     useEffect(() => {
         setLocalPrice(filters.priceRange[1]);
     }, [filters.priceRange]);
 
-    // Smoothly update parent state after a short delay
     useEffect(() => {
         const timer = setTimeout(() => {
             if (localPrice !== filters.priceRange[1]) {
                 onFilterChange({ ...filters, priceRange: [filters.priceRange[0], localPrice] });
             }
-        }, 50); // Very short debounce for responsiveness
+        }, 50);
         return () => clearTimeout(timer);
     }, [localPrice]);
 
@@ -69,15 +64,15 @@ const FilterSidebar = ({ filters, onFilterChange }: FilterSidebarProps) => {
         const isOpen = openSections.includes(title);
 
         return (
-            <div className="border-b border-border py-4">
+            <div className="border-b border-border dark:border-white/10 py-4">
                 <button
                     type="button"
                     className="w-full flex items-center justify-between text-left font-medium group"
                     onClick={() => toggleSection(title)}
                 >
-                    <span className="text-[11px] uppercase tracking-[0.2em] font-bold group-hover:text-accent-gold transition-colors">{title}</span>
+                    <span className="text-[11px] uppercase tracking-[0.2em] font-bold group-hover:text-accent-gold transition-colors text-primary dark:text-white">{title}</span>
                     <motion.svg
-                        className="w-4 h-4 text-secondary"
+                        className="w-4 h-4 text-secondary dark:text-white/40"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -107,20 +102,20 @@ const FilterSidebar = ({ filters, onFilterChange }: FilterSidebarProps) => {
     };
 
     return (
-        <aside className="w-full lg:w-64 shrink-0 sticky top-44 h-fit bg-white lg:pr-8">
+        <aside className="w-full lg:w-64 shrink-0 lg:sticky lg:top-44 h-fit bg-white dark:bg-primary lg:pr-8 transition-colors duration-300">
             {/* Header */}
             <div className="flex items-center justify-between mb-8">
-                <h2 className="font-display text-2xl">{t('shop.filter')}</h2>
+                <h2 className="font-display text-2xl text-primary dark:text-white">{t('shop.filter')}</h2>
                 <button
                     type="button"
                     onClick={clearFilters}
-                    className="text-[10px] uppercase tracking-widest font-bold text-secondary hover:text-accent-gold transition-colors underline underline-offset-4"
+                    className="text-[10px] uppercase tracking-widest font-bold text-secondary dark:text-white/40 hover:text-accent-gold transition-colors underline underline-offset-4"
                 >
                     {t('shop.reset')}
                 </button>
             </div>
 
-            <div className="border-t border-border">
+            <div className="border-t border-border dark:border-white/10">
                 {/* Category Filter */}
                 <AccordionSection title={t('shop.categories')}>
                     <div className="space-y-4">
@@ -143,7 +138,7 @@ const FilterSidebar = ({ filters, onFilterChange }: FilterSidebarProps) => {
                                     />
                                     <div className={`w-4 h-4 rounded-none border transition-all duration-300 ${filters.categories.includes(category)
                                         ? 'bg-primary border-primary'
-                                        : 'border-border group-hover:border-accent-gold'
+                                        : 'border-border dark:border-white/10 group-hover:border-accent-gold'
                                         }`}>
                                         {filters.categories.includes(category) && (
                                             <motion.svg
@@ -159,7 +154,7 @@ const FilterSidebar = ({ filters, onFilterChange }: FilterSidebarProps) => {
                                         )}
                                     </div>
                                 </div>
-                                <span className={`text-[11px] uppercase tracking-widest transition-colors ${filters.categories.includes(category) ? 'font-bold text-primary' : 'text-secondary group-hover:text-primary'}`}>
+                                <span className={`text-[11px] uppercase tracking-widest transition-colors ${filters.categories.includes(category) ? 'font-bold text-primary dark:text-white' : 'text-secondary dark:text-white/40 group-hover:text-primary dark:group-hover:text-white'}`}>
                                     {category}
                                 </span>
                             </label>
@@ -182,7 +177,7 @@ const FilterSidebar = ({ filters, onFilterChange }: FilterSidebarProps) => {
                                 }}
                                 className={`h-10 px-4 text-[10px] items-center justify-center flex font-bold tracking-widest transition-all duration-300 ${filters.sizes.includes(size)
                                     ? 'bg-primary text-white'
-                                    : 'bg-surface-secondary text-secondary hover:bg-border'
+                                    : 'bg-surface-secondary dark:bg-white/5 text-secondary dark:text-white/40 hover:bg-border dark:hover:bg-white/10'
                                     }`}
                             >
                                 {size}
@@ -221,7 +216,7 @@ const FilterSidebar = ({ filters, onFilterChange }: FilterSidebarProps) => {
                 {/* Price Filter */}
                 <AccordionSection title={t('shop.price')}>
                     <div className="space-y-6">
-                        <div className="flex items-center justify-between text-[10px] font-bold tracking-widest text-secondary notranslate">
+                        <div className="flex items-center justify-between text-[10px] font-bold tracking-widest text-secondary dark:text-white/40 notranslate">
                             <span>{formatPrice(filters.priceRange[0])}</span>
                             <span>{formatPrice(localPrice)}</span>
                         </div>
@@ -233,7 +228,7 @@ const FilterSidebar = ({ filters, onFilterChange }: FilterSidebarProps) => {
                                 step={50000}
                                 value={localPrice}
                                 onChange={(e) => setLocalPrice(Number(e.target.value))}
-                                className="w-full accent-primary h-1 bg-surface-secondary cursor-pointer"
+                                className="w-full accent-primary h-1 bg-surface-secondary dark:bg-white/10 cursor-pointer"
                             />
                         </div>
                     </div>

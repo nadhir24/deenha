@@ -83,18 +83,18 @@ const CartDrawer = () => {
 
                     {/* Drawer */}
                     <motion.div
-                        className="fixed inset-y-0 right-0 z-[101] w-full max-w-md bg-white shadow-2xl flex flex-col"
+                        className="fixed inset-y-0 right-0 z-[101] w-full max-w-md bg-white dark:bg-primary shadow-2xl flex flex-col transition-colors duration-300"
                         initial={{ x: '100%' }}
                         animate={{ x: 0 }}
                         exit={{ x: '100%' }}
                         transition={{ type: 'spring', damping: 25, stiffness: 200 }}
                     >
                         {/* Header */}
-                        <div className="p-4 border-b border-border flex items-center justify-between">
-                            <h2 className="font-display text-xl font-semibold">Keranjang Belanja ({cartItems.length})</h2>
+                        <div className="p-4 border-b border-border dark:border-white/10 flex items-center justify-between">
+                            <h2 className="font-display text-xl font-semibold text-primary dark:text-white">{t('cart.title')} ({cartItems.length})</h2>
                             <button
                                 onClick={() => setIsCartOpen(false)}
-                                className="p-2 hover:bg-surface-secondary rounded-full transition-colors"
+                                className="p-2 hover:bg-surface-secondary dark:hover:bg-white/5 rounded-full transition-colors text-secondary dark:text-white/60"
                             >
                                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M6 18L18 6M6 6l12 12" />
@@ -105,11 +105,11 @@ const CartDrawer = () => {
                         {/* Cart Items */}
                         <div className="flex-1 overflow-y-auto p-4 space-y-4">
                             {cartItems.length === 0 ? (
-                                <div className="h-full flex flex-col items-center justify-center text-center text-secondary">
+                                <div className="h-full flex flex-col items-center justify-center text-center text-secondary dark:text-white/40">
                                     <svg className="w-16 h-16 mb-4 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
                                     </svg>
-                                    <p>Keranjang Anda kosong</p>
+                                    <p>{t('cart.empty')}</p>
                                     <button
                                         onClick={() => setIsCartOpen(false)}
                                         className="mt-4 text-accent-gold font-medium hover:underline"
@@ -119,13 +119,13 @@ const CartDrawer = () => {
                                 </div>
                             ) : (
                                 cartItems.map((item, index) => (
-                                    <div key={`${item.id}-${item.selectedSize}-${item.selectedColor}`} className="flex gap-4">
-                                        <div className="w-20 h-24 bg-surface-secondary rounded-lg overflow-hidden shrink-0">
+                                    <div key={`${item.id}-${item.selectedSize}-${item.selectedColor}`} className="flex gap-4 group">
+                                        <div className="w-20 h-24 bg-surface-secondary dark:bg-white/5 rounded-lg overflow-hidden shrink-0">
                                             <img src={item.image} alt={item.name} className="w-full h-full object-cover" />
                                         </div>
                                         <div className="flex-1 flex flex-col">
                                             <div className="flex justify-between items-start">
-                                                <h3 className="font-medium line-clamp-2">{item.name}</h3>
+                                                <h3 className="font-medium line-clamp-2 text-primary dark:text-white text-sm">{item.name}</h3>
                                                 <button
                                                     onClick={() => removeFromCart(index)}
                                                     className="text-secondary hover:text-red-500 transition-colors"
@@ -135,7 +135,7 @@ const CartDrawer = () => {
                                                     </svg>
                                                 </button>
                                             </div>
-                                            <p className="text-sm text-secondary mt-1">
+                                            <p className="text-xs text-secondary dark:text-white/40 mt-1 uppercase tracking-widest">
                                                 {item.selectedSize} | {item.selectedColor}
                                             </p>
                                             <div className="mt-auto flex justify-between items-center">
@@ -152,10 +152,13 @@ const CartDrawer = () => {
 
                         {/* Footer */}
                         {cartItems.length > 0 && (
-                            <div className="p-4 border-t border-border bg-surface-secondary/30">
-                                <div className="flex justify-between items-center mb-4">
-                                    <span className="text-secondary">Total</span>
-                                    <span className="text-xl font-semibold notranslate">
+                            <div className="p-6 border-t border-border dark:border-white/10 bg-surface-secondary/30 dark:bg-white/5 transition-colors duration-300">
+                                <p className="text-[10px] text-secondary dark:text-white/40 text-center mb-6 leading-relaxed bg-accent-gold/5 dark:bg-accent-gold/10 py-3 px-4 rounded-lg border border-accent-gold/20">
+                                    {t('cart.popup_warning')}
+                                </p>
+                                <div className="flex justify-between items-center mb-6">
+                                    <span className="text-secondary dark:text-white/60 uppercase text-[10px] font-bold tracking-[0.2em]">{t('cart.total')}</span>
+                                    <span className="text-2xl font-display italic text-primary dark:text-white notranslate">
                                         {formatPrice(cartTotal)}
                                     </span>
                                 </div>
@@ -173,7 +176,9 @@ const CartDrawer = () => {
                                                 alt="WhatsApp"
                                                 className="w-6 h-6"
                                             />
-                                            Checkout via WhatsApp
+                                            <span className="text-[11px] font-bold uppercase tracking-[0.2em]">
+                                                {t('cart.checkout_wa')}
+                                            </span>
                                         </>
                                     )}
                                 </button>

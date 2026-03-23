@@ -27,7 +27,7 @@ const ShopPage = () => {
     };
 
     return (
-        <main className="pt-32 pb-20 bg-white">
+        <main className="pt-32 pb-20 bg-white dark:bg-primary transition-colors duration-300">
             <SEOHead
                 title="Koleksi Produk - DEENHA"
                 description="Jelajahi koleksi lengkap DEENHA: Scarves, Dresses, Bergo, Pray Set, dan Hampers. Kualitas premium dengan desain yang elegan dan syar'i."

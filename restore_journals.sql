@@ -54,7 +54,7 @@ INSERT INTO journals (
 ),
 (
     'eid-2026-palette-guide', 
-    'https://tdvkvhozebzetchmgzhb.supabase.co/storage/v1/object/public/products/Arabic_Series/MAIN_1770873530013_DSCF5668%20Copy.jpg', 
+    'https://tdvkvhozebzetchmgzhb.supabase.co/storage/v1/object/public/products/Arabic_Series/MAIN_1770873530013_DSCF5668 Copy.jpg', 
     '2026-03-08',
     'Eid 2026: Choosing the Perfect Palette for Your Family Moments',
     'The upcoming holy season is all about serenity. Explore our curated color palettes from the Arabic Series to match your family''s festive look.',
@@ -80,7 +80,7 @@ INSERT INTO journals (
 ),
 (
     'monogram-professional-style', 
-    'https://tdvkvhozebzetchmgzhb.supabase.co/storage/v1/object/public/products/Monogram_D_Series/1770655455962_IMG_3048.jpg', 
+    '/images/1770655455962_IMG_3048.jpg', 
     '2026-03-06',
     'The Power of Monogram: Elevating Your Professional Modest Look',
     'Make a statement in the boardroom. Our Monogram D series combines bold identity with subtle elegance for the modern working woman.',

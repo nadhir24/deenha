@@ -9,8 +9,11 @@ const languages = [
   { code: 'zh-CN', name: 'ZH', flag: '🇨🇳', labelKey: 'language.zh', subLabel: '中文' },
 ];
 
+import { useTheme } from '../../context/ThemeContext';
+
 const LanguageSelector = ({ isSolid, isMobileMenu }: { isSolid?: boolean; isMobileMenu?: boolean }) => {
   const { i18n, t } = useTranslation();
+  const { theme } = useTheme();
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
@@ -49,8 +52,8 @@ const LanguageSelector = ({ isSolid, isMobileMenu }: { isSolid?: boolean; isMobi
               key={lang.code}
               onClick={() => handleLanguageChange(lang)}
               className={`flex items-center justify-center min-w-[60px] px-3 py-2 rounded-sm border transition-all duration-300 ${currentLang.code === lang.code
-                ? 'border-accent-gold bg-accent-gold/5 text-black'
-                : 'border-black/5 hover:border-black/20 text-secondary'
+                ? 'border-accent-gold bg-accent-gold/5 text-primary dark:text-white'
+                : 'border-black/5 dark:border-white/5 hover:border-black/20 dark:hover:border-white/20 text-secondary dark:text-white/60'
                 }`}
             >
               <span className="text-[11px] font-bold uppercase tracking-widest" translate="no">
@@ -63,12 +66,16 @@ const LanguageSelector = ({ isSolid, isMobileMenu }: { isSolid?: boolean; isMobi
     );
   }
 
+  const getButtonColor = () => {
+    if (theme === 'dark') return 'text-white';
+    return isSolid ? 'text-black' : 'text-white';
+  };
+
   return (
     <div className="relative notranslate skiptranslate" translate="no" ref={dropdownRef}>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className={`flex items-center space-x-1.5 p-2 transition-colors duration-300 ${isSolid ? 'text-black' : 'text-white'
-          }`}
+        className={`flex items-center space-x-1.5 p-2 transition-colors duration-300 ${getButtonColor()}`}
       >
         <span className="text-[11px] font-bold uppercase tracking-widest" translate="no">
           {currentLang.name}
@@ -90,21 +97,21 @@ const LanguageSelector = ({ isSolid, isMobileMenu }: { isSolid?: boolean; isMobi
             initial={{ opacity: 0, y: 10, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 10, scale: 0.95 }}
-            className="absolute right-0 mt-2 w-48 bg-white shadow-2xl rounded-sm overflow-hidden z-[100] border border-black/5"
+            className="absolute right-0 mt-2 w-48 bg-white dark:bg-primary shadow-2xl rounded-sm overflow-hidden z-[100] border border-black/5 dark:border-white/10"
           >
             <div className="py-1">
               {languages.map((lang) => (
                 <button
                   key={lang.code}
                   onClick={() => handleLanguageChange(lang)}
-                  className="w-full flex items-center space-x-4 px-4 py-3 hover:bg-black/5 transition-colors text-left"
+                  className="w-full flex items-center space-x-4 px-4 py-3 hover:bg-black/5 dark:hover:bg-white/5 transition-colors text-left"
                 >
                   <span className="text-lg" translate="no">{lang.flag}</span>
                   <div className="flex flex-col">
-                    <span className="text-[10px] font-bold uppercase tracking-widest text-black" translate="no">
+                    <span className="text-[10px] font-bold uppercase tracking-widest text-black dark:text-white" translate="no">
                       {t(lang.labelKey)}
                     </span>
-                    <span className="text-[8px] text-secondary uppercase tracking-tighter" translate="no">
+                    <span className="text-[8px] text-secondary dark:text-white/40 uppercase tracking-tighter" translate="no">
                       {lang.subLabel}
                     </span>
                   </div>

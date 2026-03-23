@@ -116,7 +116,7 @@ INSERT INTO journals (
 -- ARTICLE 3: EID PALETTE
 (
     'eid-2026-palette-guide', 
-    'https://tdvkvhozebzetchmgzhb.supabase.co/storage/v1/object/public/products/Arabic_Series/MAIN_1770873530013_DSCF5668%20Copy.jpg', 
+    'https://tdvkvhozebzetchmgzhb.supabase.co/storage/v1/object/public/products/Arabic_Series/MAIN_1770873530013_DSCF5668 Copy.jpg', 
     '2026-03-08',
 
     -- EN
@@ -178,7 +178,7 @@ INSERT INTO journals (
 -- ARTICLE 5: MONOGRAM
 (
     'monogram-professional-style', 
-    'https://tdvkvhozebzetchmgzhb.supabase.co/storage/v1/object/public/products/Monogram_D_Series/1770655455962_IMG_3048.jpg', 
+    '/images/1770655455962_IMG_3048.jpg', 
     '2026-03-06',
 
     -- EN

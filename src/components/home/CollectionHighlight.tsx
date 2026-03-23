@@ -59,7 +59,7 @@ const CollectionHighlight = ({
     if (loading && products.length === 0) return null;
 
     return (
-        <section ref={sectionRef} className="py-24 bg-white overflow-hidden">
+        <section ref={sectionRef} className="py-24 bg-white dark:bg-primary overflow-hidden transition-colors duration-300">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Small Title on Top */}
                 <motion.div
@@ -68,7 +68,7 @@ const CollectionHighlight = ({
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                 >
-                    <h3 className="text-primary text-xs uppercase font-bold tracking-[0.4em]">
+                    <h3 className="text-primary dark:text-white/40 text-[10px] uppercase font-bold tracking-[0.4em]">
                         {title}
                     </h3>
                 </motion.div>
@@ -97,21 +97,21 @@ const CollectionHighlight = ({
                     style={{ opacity: opacityTitle }}
                 >
                     <motion.h2
-                        className="font-display text-4xl md:text-6xl lg:text-7xl font-normal mb-8 uppercase text-primary inline-block"
+                        className="font-display text-4xl md:text-6xl lg:text-7xl font-normal mb-8 uppercase text-primary dark:text-white inline-block"
                         style={{ letterSpacing }}
                     >
                         {collectionTitle}
                     </motion.h2>
                     <div className="w-12 h-[1px] bg-accent-gold mx-auto mb-8" />
-                    <p className="text-secondary text-sm md:text-lg leading-relaxed mb-10 px-4 font-light italic max-w-2xl mx-auto">
+                    <p className="text-secondary dark:text-white/60 text-sm md:text-lg leading-relaxed mb-10 px-4 font-light italic max-w-2xl mx-auto">
                         {collectionDescription}
                     </p>
                     <Link
                         to={`/shop?${productIds && productIds.length > 0 ? `ids=${productIds.join(',')}` : `category=${encodeURIComponent(category === 'New Arrival' ? '' : category)}`}`}
-                        className="inline-block relative px-12 py-4 text-[11px] font-bold uppercase tracking-[0.4em] group overflow-hidden"
+                        className="inline-block relative px-12 py-4 text-[10px] font-bold uppercase tracking-[0.4em] group overflow-hidden"
                     >
-                        <span className="relative z-10 text-white group-hover:text-primary transition-colors duration-500">{t('product.shop_now')}</span>
-                        <div className="absolute inset-0 bg-primary group-hover:bg-white border border-primary transition-all duration-500" />
+                        <span className="relative z-10 text-white dark:text-primary group-hover:text-primary dark:group-hover:text-white transition-colors duration-500">{t('product.shop_now')}</span>
+                        <div className="absolute inset-0 bg-primary dark:bg-white group-hover:bg-white dark:group-hover:bg-primary border border-primary dark:border-white transition-all duration-500" />
                     </Link>
                 </motion.div>
 

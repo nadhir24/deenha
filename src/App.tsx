@@ -12,6 +12,8 @@ import Footer from './components/layout/Footer';
 import { AuthProvider } from './context/AuthContext';
 import { NotificationProvider } from './context/NotificationContext';
 import ProtectedRoute from './components/layout/ProtectedRoute';
+import { ThemeProvider } from './context/ThemeContext';
+import ScrollToTop from './components/ScrollToTop';
 
 // Page Components - Lazy Loaded
 const AboutPage = lazy(() => import('./pages/AboutPage'));
@@ -31,6 +33,7 @@ import Hero from './components/home/Hero';
 import Benefits from './components/home/Benefits';
 const InstagramFeed = lazy(() => import('./components/home/InstagramFeed'));
 const HomeCollections = lazy(() => import('./components/home/HomeCollections'));
+import MaintenancePage from './pages/MaintenancePage';
 
 // Floating Components
 import WhatsAppButton from './components/floating/WhatsAppButton';
@@ -69,64 +72,81 @@ function App() {
 
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
+    // Toggle this to true to enable Maintenance Mode
+    const isMaintenanceMode = true;
+    const bypassMode = new URLSearchParams(window.location.search).get('bypass') === 'true';
+
+    if (isMaintenanceMode && !bypassMode) {
+        return (
+            <ThemeProvider>
+                <div className="min-h-screen bg-white dark:bg-primary transition-colors duration-300">
+                    <MaintenancePage />
+                </div>
+            </ThemeProvider>
+        );
+    }
+
     return (
-        <Router>
-            <AuthProvider>
-                <NotificationProvider>
-                    <WishlistProvider>
-                        <CartProvider>
-                            <div className="min-h-screen bg-white">
-                                <AnnouncementBar />
-                                <Navbar onMenuClick={() => setMobileMenuOpen(true)} />
-                                <MobileMenu isOpen={mobileMenuOpen} onClose={() => setMobileMenuOpen(false)} />
+        <ThemeProvider>
+            <Router>
+                <AuthProvider>
+                    <NotificationProvider>
+                        <WishlistProvider>
+                            <CartProvider>
+                                <div className="min-h-screen bg-white dark:bg-primary transition-colors duration-300">
+                                    <AnnouncementBar />
+                                    <Navbar onMenuClick={() => setMobileMenuOpen(true)} />
+                                    <MobileMenu isOpen={mobileMenuOpen} onClose={() => setMobileMenuOpen(false)} />
 
-                                <Suspense fallback={<div className="min-h-screen flex items-center justify-center bg-white"><div className="w-12 h-12 border-2 border-accent-gold border-t-transparent rounded-full animate-spin" /></div>}>
-                                    <Routes>
-                                        <Route path="/" element={
-                                            <>
-                                                <SEOHead
-                                                    title="Modest Fashion Elegant & Syar'i"
-                                                    description="Koleksi eksklusif DEENHA Hijab. Temukan kemewahan dan keanggunan dalam setiap helai Scarves, Dresses, dan Mukena premium kami."
-                                                    jsonLd={organizationJsonLd}
-                                                />
-                                                <main>
-                                                    <Hero />
-                                                    <Benefits />
-                                                    <HomeCollections />
-                                                    <InstagramFeed />
-                                                </main>
-                                            </>
-                                        } />
+                                    <ScrollToTop />
+                                    <Suspense fallback={<div className="min-h-screen flex items-center justify-center bg-white dark:bg-primary"><div className="w-12 h-12 border-2 border-accent-gold border-t-transparent rounded-full animate-spin" /></div>}>
+                                        <Routes>
+                                            <Route path="/" element={
+                                                <>
+                                                    <SEOHead
+                                                        title="Modest Fashion Elegant & Syar'i"
+                                                        description="Koleksi eksklusif DEENHA Hijab. Temukan kemewahan dan keanggunan dalam setiap helai Scarves, Dresses, dan Mukena premium kami."
+                                                        jsonLd={organizationJsonLd}
+                                                    />
+                                                    <main>
+                                                        <Hero />
+                                                        <Benefits />
+                                                        <HomeCollections />
+                                                        <InstagramFeed />
+                                                    </main>
+                                                </>
+                                            } />
 
-                                        <Route path="/shop" element={<ShopPage />} />
-                                        <Route path="/ramadan" element={<RamadanPage />} />
-                                        <Route path="/about" element={<AboutPage />} />
-                                        <Route path="/faq" element={<FAQPage />} />
-                                        <Route path="/journal" element={<JournalPage />} />
-                                        <Route path="/journal/:slug" element={<JournalDetailsPage />} />
-                                        <Route path="/product/:id" element={<ProductDetailsPage />} />
-                                        <Route path="/wishlist" element={<WishlistPage />} />
-                                        <Route path="/login" element={<LoginPage />} />
-                                        <Route path="/admin" element={
-                                            <ProtectedRoute allowedRoles={['admin', 'employee']}>
-                                                <AdminDashboard />
-                                            </ProtectedRoute>
-                                        } />
-                                        <Route path="*" element={<NotFoundPage />} />
-                                    </Routes>
-                                </Suspense>
+                                            <Route path="/shop" element={<ShopPage />} />
+                                            <Route path="/ramadan" element={<RamadanPage />} />
+                                            <Route path="/about" element={<AboutPage />} />
+                                            <Route path="/faq" element={<FAQPage />} />
+                                            <Route path="/journal" element={<JournalPage />} />
+                                            <Route path="/journal/:slug" element={<JournalDetailsPage />} />
+                                            <Route path="/product/:id" element={<ProductDetailsPage />} />
+                                            <Route path="/wishlist" element={<WishlistPage />} />
+                                            <Route path="/login" element={<LoginPage />} />
+                                            <Route path="/admin" element={
+                                                <ProtectedRoute allowedRoles={['admin', 'employee']}>
+                                                    <AdminDashboard />
+                                                </ProtectedRoute>
+                                            } />
+                                            <Route path="*" element={<NotFoundPage />} />
+                                        </Routes>
+                                    </Suspense>
 
-                                <Footer />
-                                <WhatsAppButton />
-                                <CartDrawer />
-                                <RamadanPopup />
-                                <PromoPopup />
-                            </div>
-                        </CartProvider>
-                    </WishlistProvider>
-                </NotificationProvider>
-            </AuthProvider>
-        </Router>
+                                    <Footer />
+                                    <WhatsAppButton />
+                                    <CartDrawer />
+                                    <RamadanPopup />
+                                    <PromoPopup />
+                                </div>
+                            </CartProvider>
+                        </WishlistProvider>
+                    </NotificationProvider>
+                </AuthProvider>
+            </Router>
+        </ThemeProvider>
     );
 }
 

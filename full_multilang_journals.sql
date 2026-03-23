@@ -79,7 +79,7 @@ INSERT INTO journals (
     NULL, NULL, NULL, NULL  -- Kosongkan dulu untuk ZH
 ),
 (
-    'eid-2026-palette-guide', 'https://tdvkvhozebzetchmgzhb.supabase.co/storage/v1/object/public/products/Arabic_Series/MAIN_1770873530013_DSCF5668%20Copy.jpg', '2026-03-08',
+    'eid-2026-palette-guide', 'https://tdvkvhozebzetchmgzhb.supabase.co/storage/v1/object/public/products/Arabic_Series/MAIN_1770873530013_DSCF5668 Copy.jpg', '2026-03-08',
     'Eid 2026: Choosing the Perfect Palette', 'Explore curated color palettes...', '<p>Content...</p>', 'Collections',
     'Idul Fitri 2026: Memilih Palet Sempurna', 'Jelajahi palet warna terkurasi...', '<p>Konten...</p>', 'Koleksi',
     NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL
@@ -91,7 +91,7 @@ INSERT INTO journals (
     NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL
 ),
 (
-    'monogram-professional-style', 'https://tdvkvhozebzetchmgzhb.supabase.co/storage/v1/object/public/products/Monogram_D_Series/1770655455962_IMG_3048.jpg', '2026-03-06',
+    'monogram-professional-style', '/images/1770655455962_IMG_3048.jpg', '2026-03-06',
     'The Power of Monogram', 'Make a statement in the boardroom...', '<p>Content...</p>', 'Style Tips',
     'Kekuatan Monogram', 'Berikan pernyataan di ruang rapat...', '<p>Konten...</p>', 'Tips Gaya',
     NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL

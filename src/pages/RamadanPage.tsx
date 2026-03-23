@@ -6,7 +6,7 @@ import FeaturedProducts from '../components/home/FeaturedProducts';
 
 const RamadanPage = () => {
     return (
-        <main className="bg-[#FCFCFC]">
+        <main className="bg-[#FCFCFC] dark:bg-primary transition-colors duration-300">
             <SEOHead
                 title="Ramadan Collection 2026 - DEENHA"
                 description="Rayakan bulan suci dengan koleksi Ramadan 2026 DEENHA. Mukena, Scarves, dan Hampers eksklusif dengan sentuhan warisan budaya."
@@ -15,7 +15,7 @@ const RamadanPage = () => {
             {/* Hero Section - Split Layout for Premium Feel */}
             <section className="relative min-h-[90vh] grid grid-cols-1 lg:grid-cols-2">
                 {/* Left Content */}
-                <div className="relative z-10 flex flex-col justify-center px-6 lg:px-20 py-20 bg-white order-2 lg:order-1">
+                <div className="relative z-10 flex flex-col justify-center px-6 lg:px-20 py-20 bg-white dark:bg-primary order-2 lg:order-1 transition-colors duration-300">
                     {/* Decorative Islamic Pattern Watermark */}
                     <div className="absolute top-0 left-0 w-64 h-64 opacity-[0.03] pointer-events-none">
                         <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
@@ -35,13 +35,13 @@ const RamadanPage = () => {
                             </span>
                         </div>
 
-                        <h1 className="font-display text-6xl lg:text-8xl text-[#1A1A1A] leading-[1.1] mb-8">
+                        <h1 className="font-display text-6xl lg:text-8xl text-[#1A1A1A] dark:text-white leading-[1.1] mb-8">
                             Graceful <br />
                             <span className="italic text-[#D4AF37] font-serif">Modesty</span> <br />
                             For Ramadan
                         </h1>
 
-                        <p className="text-gray-600 text-lg leading-relaxed max-w-lg mb-12 font-light">
+                        <p className="text-gray-600 dark:text-white/60 text-lg leading-relaxed max-w-lg mb-12 font-light">
                             Embrace the spiritual journey with our exclusive 2026 Ramadan Collection.
                             Featuring heritage motifs, breathable luxurious fabrics, and timeless silhouettes
                             crafted for your comfort during prayers and gatherings.
@@ -56,7 +56,7 @@ const RamadanPage = () => {
                                 <div className="absolute inset-0 bg-[#D4AF37] transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></div>
                             </Link>
 
-                            <button className="group flex items-center gap-3 px-6 py-5 text-[#1A1A1A] hover:text-[#D4AF37] transition-colors">
+                            <button className="group flex items-center gap-3 px-6 py-5 text-[#1A1A1A] dark:text-white hover:text-[#D4AF37] transition-colors">
                                 <span className="text-sm font-bold tracking-[0.2em] uppercase">View Lookbook</span>
                                 <svg className="w-5 h-5 transform group-hover:translate-x-2 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -83,17 +83,17 @@ const RamadanPage = () => {
                         initial={{ opacity: 0, x: 50 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ delay: 0.5, duration: 0.8 }}
-                        className="absolute bottom-12 left-12 z-20 bg-white/90 backdrop-blur-md p-8 max-w-xs shadow-xl border-l-4 border-[#D4AF37] hidden md:block"
+                        className="absolute bottom-12 left-12 z-20 bg-white/90 dark:bg-primary/90 backdrop-blur-md p-8 max-w-xs shadow-xl border-l-4 border-[#D4AF37] hidden md:block"
                     >
-                        <p className="font-display text-2xl mb-2 text-[#1A1A1A]">Hampers Series</p>
-                        <p className="text-sm text-gray-600 mb-4">The perfect gift of elegance for your loved ones.</p>
+                        <p className="font-display text-2xl mb-2 text-[#1A1A1A] dark:text-white">Hampers Series</p>
+                        <p className="text-sm text-gray-600 dark:text-white/60 mb-4">The perfect gift of elegance for your loved ones.</p>
                         <span className="text-[#D4AF37] text-xs font-bold uppercase tracking-widest border-b border-[#D4AF37] pb-1">Discover</span>
                     </motion.div>
                 </div>
             </section>
 
             {/* Ornamental Section Break */}
-            <div className="relative py-24 overflow-hidden">
+            <div className="relative py-24 overflow-hidden bg-white dark:bg-primary transition-colors duration-300">
                 <div className="absolute inset-0 flex items-center justify-center opacity-5">
                     <span className="font-display text-[20vw] leading-none select-none text-[#D4AF37]">KAREEM</span>
                 </div>
@@ -111,7 +111,7 @@ const RamadanPage = () => {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: idx * 0.2 }}
-                                className="group relative aspect-[4/5] overflow-hidden bg-[#F5F5F5]"
+                                className="group relative aspect-[4/5] overflow-hidden bg-[#F5F5F5] dark:bg-white/5"
                             >
                                 <img
                                     src={item.img}
@@ -133,17 +133,17 @@ const RamadanPage = () => {
             <Benefits />
 
             {/* Products Section */}
-            <section className="py-24 bg-[#FCFCFC]">
+            <section className="py-24 bg-[#FCFCFC] dark:bg-primary transition-colors duration-300">
                 <div className="text-center mb-16">
                     <div className="inline-flex items-center justify-center w-12 h-12 rounded-full border border-[#D4AF37]/30 mb-6">
                         <svg className="w-6 h-6 text-[#D4AF37]" viewBox="0 0 24 24" fill="none" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
                         </svg>
                     </div>
-                    <h2 className="font-display text-4xl md:text-5xl text-[#1A1A1A] mb-4">
+                    <h2 className="font-display text-4xl md:text-5xl text-[#1A1A1A] dark:text-white mb-4">
                         Ramadan Essentials
                     </h2>
-                    <p className="text-gray-500 font-light max-w-xl mx-auto">
+                    <p className="text-gray-500 dark:text-white/40 font-light max-w-xl mx-auto">
                         Curated pieces to elevate your style during this blessed month.
                     </p>
                 </div>

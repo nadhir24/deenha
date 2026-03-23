@@ -39,10 +39,10 @@ const ProductDetailsPage = () => {
 
     if (loading) {
         return (
-            <div className="min-h-screen flex items-center justify-center bg-white">
+            <div className="min-h-screen flex items-center justify-center bg-white dark:bg-primary transition-colors duration-300">
                 <div className="flex flex-col items-center">
                     <div className="w-12 h-12 border-2 border-accent-gold border-t-transparent rounded-full animate-spin mb-4" />
-                    <p className="text-[10px] uppercase font-bold tracking-[0.3em] text-secondary">{t('product.loading')}</p>
+                    <p className="text-[10px] uppercase font-bold tracking-[0.3em] text-secondary dark:text-white/40">{t('product.loading')}</p>
                 </div>
             </div>
         );
@@ -50,8 +50,8 @@ const ProductDetailsPage = () => {
 
     if (!product) {
         return (
-            <div className="min-h-screen flex items-center justify-center bg-white">
-                <div className="text-center">
+            <div className="min-h-screen flex items-center justify-center bg-white dark:bg-primary transition-colors duration-300">
+                <div className="text-center text-primary dark:text-white">
                     <h2 className="font-display text-3xl mb-4">{t('product.not_found')}</h2>
                     <Link to="/" className="text-accent-gold hover:underline">{t('product.back_to_home')}</Link>
                 </div>
@@ -77,8 +77,8 @@ const ProductDetailsPage = () => {
     };
 
     return (
-        <main className="pt-44 pb-24 bg-white">
-            {product && (
+        <main className="pt-44 pb-24 bg-white dark:bg-primary transition-colors duration-300">
+            Broadway            {product && (
                 <SEOHead
                     title={product.name}
                     description={`Beli ${product.name} premium dari DEENHA. Koleksi ${product.category} elegant dan syar'i. Material berkualitas, desain eksklusif.`}
@@ -89,12 +89,12 @@ const ProductDetailsPage = () => {
             )}
             <div className="max-w-[1440px] mx-auto px-6 lg:px-12">
                 {/* Breadcrumbs */}
-                <nav className="flex items-center gap-2 mb-12 text-[10px] uppercase font-bold tracking-widest text-secondary">
-                    <Link to="/" className="hover:text-primary transition-colors">{t('nav.home')}</Link>
+                <nav className="flex items-center gap-2 mb-12 text-[10px] uppercase font-bold tracking-widest text-secondary dark:text-white/40">
+                    <Link to="/" className="hover:text-primary dark:hover:text-white transition-colors">{t('nav.home')}</Link>
                     <span>/</span>
-                    <Link to={`/shop?category=${product.category}`} className="hover:text-primary transition-colors">{product.category}</Link>
+                    <Link to={`/shop?category=${product.category}`} className="hover:text-primary dark:hover:text-white transition-colors">{product.category}</Link>
                     <span>/</span>
-                    <span className="text-primary">{product.name}</span>
+                    <span className="text-primary dark:text-white">{product.name}</span>
                 </nav>
 
                 <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 mb-32">
@@ -143,7 +143,7 @@ const ProductDetailsPage = () => {
                                     <button
                                         key={idx}
                                         onClick={() => setSelectedVariant(idx)}
-                                        className={`aspect-[3/4] overflow-hidden border-2 transition-all ${selectedVariant === idx ? 'border-accent-gold shadow-md' : 'border-transparent opacity-60 hover:opacity-100'
+                                        className={`aspect-[3/4] overflow-hidden border-2 transition-all ${selectedVariant === idx ? 'border-accent-gold shadow-md' : 'border-transparent opacity-60 hover:opacity-100 dark:border-white/10'
                                             }`}
                                     >
                                         <img
@@ -168,25 +168,25 @@ const ProductDetailsPage = () => {
                             <span className="text-accent-gold text-[10px] uppercase font-bold tracking-[0.4em] mb-4 block">
                                 {product.category} {product.badge && `• ${t(`product.badge.${product.badge.toLowerCase()}`)}`}
                             </span>
-                            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-normal tracking-tight mb-6">
+                            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-normal tracking-tight mb-6 text-primary dark:text-white">
                                 {product.name}
                             </h1>
                             <div className="flex items-center gap-4 mb-8">
-                                <span className="text-2xl font-bold tracking-widest text-primary notranslate">
+                                <span className="text-2xl font-bold tracking-widest text-primary dark:text-white notranslate">
                                     {formatPrice(product.price)}
                                 </span>
                                 {product.originalPrice && (
-                                    <span className="text-lg text-secondary line-through opacity-50 notranslate">
+                                    <span className="text-lg text-secondary dark:text-white/40 line-through opacity-50 notranslate">
                                         {formatPrice(product.originalPrice)}
                                     </span>
                                 )}
                             </div>
-                        </div>
+                            Broadway                        </div>
 
                         <div className="space-y-10 mb-12">
                             <div>
-                                <span className="text-[10px] uppercase font-bold tracking-[0.3em] mb-4 block">
-                                    Warna: <span className="text-secondary">{displayColor}</span>
+                                <span className="text-[10px] uppercase font-bold tracking-[0.3em] mb-4 block text-primary dark:text-white">
+                                    Warna: <span className="text-secondary dark:text-white/60">{displayColor}</span>
                                 </span>
                                 <div className="flex flex-wrap gap-3">
                                     {product.variants && product.variants.length > 0 ? (
@@ -214,15 +214,15 @@ const ProductDetailsPage = () => {
 
                             {product.size.length > 0 && (
                                 <div>
-                                    <span className="text-[10px] uppercase font-bold tracking-[0.3em] mb-4 block">Pilih Ukuran</span>
+                                    <span className="text-[10px] uppercase font-bold tracking-[0.3em] mb-4 block text-primary dark:text-white">Pilih Ukuran</span>
                                     <div className="flex flex-wrap gap-3">
                                         {product.size.map(s => (
                                             <button
                                                 key={s}
                                                 onClick={() => setSelectedSize(s)}
                                                 className={`min-w-[60px] h-12 flex items-center justify-center border text-[11px] font-bold tracking-widest transition-all duration-300 ${selectedSize === s
-                                                    ? 'bg-primary text-white border-primary'
-                                                    : 'border-black/10 text-primary hover:border-primary'
+                                                    ? 'bg-primary dark:bg-white text-white dark:text-primary border-primary dark:border-white'
+                                                    : 'border-black/10 dark:border-white/10 text-primary dark:text-white hover:border-primary'
                                                     }`}
                                             >
                                                 {s}
@@ -233,25 +233,25 @@ const ProductDetailsPage = () => {
                             )}
 
                             <div>
-                                <span className="text-[10px] uppercase font-bold tracking-[0.3em] mb-4 block">Jumlah</span>
-                                <div className="inline-flex items-center border border-black/10">
+                                <span className="text-[10px] uppercase font-bold tracking-[0.3em] mb-4 block text-primary dark:text-white">Jumlah</span>
+                                <div className="inline-flex items-center border border-black/10 dark:border-white/10">
                                     <button
                                         onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                                        className="w-12 h-12 flex items-center justify-center hover:bg-surface-secondary transition-colors"
+                                        className="w-12 h-12 flex items-center justify-center hover:bg-surface-secondary dark:hover:bg-white/5 transition-colors text-primary dark:text-white"
                                     >—</button>
-                                    <span className="w-12 text-center text-sm font-bold">{quantity}</span>
+                                    <span className="w-12 text-center text-sm font-bold text-primary dark:text-white">{quantity}</span>
                                     <button
                                         onClick={() => setQuantity(quantity + 1)}
-                                        className="w-12 h-12 flex items-center justify-center hover:bg-surface-secondary transition-colors"
+                                        className="w-12 h-12 flex items-center justify-center hover:bg-surface-secondary dark:hover:bg-white/5 transition-colors text-primary dark:text-white"
                                     >+</button>
                                 </div>
                             </div>
                         </div>
 
                         <div className="flex flex-col gap-6 mb-16">
-                            <div className="flex items-center justify-between py-4 border-y border-black/5">
-                                <span className="text-[10px] uppercase font-bold tracking-widest text-secondary">STATUS INVENTARIS</span>
-                                <span className={`text-[11px] font-bold tracking-widest ${(displayStock || 0) > 0 ? 'text-green-600' : 'text-red-500'
+                            <div className="flex items-center justify-between py-4 border-y border-black/5 dark:border-white/5">
+                                <span className="text-[10px] uppercase font-bold tracking-widest text-secondary dark:text-white/40">STATUS INVENTARIS</span>
+                                <span className={`text-[11px] font-bold tracking-widest ${(displayStock || 0) > 0 ? 'text-green-600 dark:text-green-400' : 'text-red-500'
                                     }`}>
                                     {(displayStock || 0) > 0
                                         ? (displayStock! <= 5 ? `HANYA TERSISA ${displayStock} PCS` : 'TERSEDIA DI ATELIER')
@@ -273,7 +273,7 @@ const ProductDetailsPage = () => {
                                 </motion.button>
                                 <motion.button
                                     onClick={() => toggleWishlist(product.id)}
-                                    className={`w-16 h-16 flex items-center justify-center border transition-all duration-500 ${isWishlisted ? 'bg-accent-gold border-accent-gold text-white shadow-lg' : 'border-black/10 text-primary hover:border-primary'
+                                    className={`w-16 h-16 flex items-center justify-center border transition-all duration-500 ${isWishlisted ? 'bg-accent-gold border-accent-gold text-white shadow-lg' : 'border-black/10 dark:border-white/10 text-primary dark:text-white hover:border-primary'
                                         }`}
                                     whileTap={{ scale: 0.92 }}
                                 >
@@ -290,7 +290,7 @@ const ProductDetailsPage = () => {
                                     <button
                                         key={tab.id}
                                         onClick={() => setActiveTab(tab.id)}
-                                        className={`text-[10px] uppercase font-bold tracking-[0.2em] relative pb-2 transition-colors ${activeTab === tab.id ? 'text-primary' : 'text-secondary hover:text-primary'
+                                        className={`text-[10px] uppercase font-bold tracking-[0.2em] relative pb-2 transition-colors ${activeTab === tab.id ? 'text-primary dark:text-white' : 'text-secondary dark:text-white/40 hover:text-primary dark:hover:text-white'
                                             }`}
                                     >
                                         {tab.label}
@@ -333,12 +333,12 @@ const ProductDetailsPage = () => {
                 </div>
 
                 {relatedProducts.length > 0 && (
-                    <section className="pt-24 border-t border-black/5">
+                    <section className="pt-24 border-t border-black/5 dark:border-white/5">
                         <div className="text-center mb-16">
                             <span className="text-accent-gold text-[10px] uppercase font-bold tracking-[0.4em] mb-4 block">
                                 {t('product.complementary')}
                             </span>
-                            <h2 className="font-display text-4xl font-normal tracking-tight mb-4 italic">
+                            <h2 className="font-display text-4xl font-normal tracking-tight mb-4 italic text-primary dark:text-white">
                                 {t('product.you_may_also_like')}
                             </h2>
                         </div>

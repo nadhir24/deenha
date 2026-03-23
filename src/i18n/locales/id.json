@@ -161,7 +161,8 @@
         "total": "Total",
         "checkout_wa": "Bayar via WhatsApp",
         "qty": "Jml",
-        "error": "Maaf, terjadi kesalahan saat memproses pesanan Anda. Silakan coba lagi."
+        "error": "Maaf, terjadi kesalahan saat memproses pesanan Anda. Silakan coba lagi.",
+        "popup_warning": "💡 Catatan: Nonaktifkan 'Popup Blocker' jika WhatsApp tidak terbuka otomatis."
     },
     "whatsapp": {
         "greeting": "Halo Deenha! Saya tertarik dengan produk Anda.",

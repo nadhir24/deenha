@@ -9,12 +9,15 @@ import LanguageSelector from './LanguageSelector';
 import { useTranslation } from 'react-i18next';
 import { formatPrice } from '../../lib/currency';
 
+import { useTheme } from '../../context/ThemeContext';
+
 interface NavbarProps {
     onMenuClick: () => void;
 }
 
 const Navbar = ({ onMenuClick }: NavbarProps) => {
     const { t } = useTranslation();
+    const { theme, toggleTheme } = useTheme();
     const [scrolled, setScrolled] = useState(false);
     const [searchOpen, setSearchOpen] = useState(false);
     const { wishlistCount } = useWishlist();
@@ -53,11 +56,22 @@ const Navbar = ({ onMenuClick }: NavbarProps) => {
     // Navbar should be solid if not on home page or if scrolled
     const isSolid = !isHome || scrolled;
 
+    // Helper for visibility based on scroll/home/theme
+    const getTextColor = () => {
+        if (theme === 'dark') return 'text-white hover:text-accent-gold';
+        return isSolid ? 'text-black hover:text-accent-gold' : 'text-white hover:text-accent-gold';
+    };
+
+    const getIconColor = () => {
+        if (theme === 'dark') return 'text-white';
+        return isSolid ? 'text-black' : 'text-white';
+    };
+
     return (
         <header
             className={`fixed left-0 right-0 z-[60] transition-all duration-500 ${scrolled
-                ? 'bg-white shadow-sm py-2 top-0'
-                : `top-[36px] ${isHome ? 'bg-transparent py-8' : 'bg-white py-4 shadow-sm'}`
+                ? 'bg-white dark:bg-primary shadow-sm py-2 top-0'
+                : `top-[36px] ${isHome ? 'bg-transparent py-8' : 'bg-white dark:bg-primary py-4 shadow-sm'}`
                 }`}
         >
             <div className="max-w-[1440px] mx-auto px-6 lg:px-12">
@@ -69,8 +83,7 @@ const Navbar = ({ onMenuClick }: NavbarProps) => {
                             <Link
                                 key={link.name}
                                 to={link.href}
-                                className={`text-[11px] font-bold uppercase tracking-[0.3em] transition-colors duration-300 ${isSolid ? 'text-black hover:text-accent-gold' : 'text-white hover:text-accent-gold'
-                                    }`}
+                                className={`text-[11px] font-bold uppercase tracking-[0.3em] transition-colors duration-300 ${getTextColor()}`}
                             >
                                 {link.name}
                             </Link>
@@ -81,7 +94,7 @@ const Navbar = ({ onMenuClick }: NavbarProps) => {
                     <div className="lg:hidden flex items-center">
                         <button
                             onClick={onMenuClick}
-                            className={`p-2 ${isSolid ? 'text-black' : 'text-white'}`}
+                            className={`p-2 ${getIconColor()}`}
                             aria-label={t('nav.open_menu', 'Open Mobile Menu')}
                         >
                             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -96,7 +109,7 @@ const Navbar = ({ onMenuClick }: NavbarProps) => {
                             <img
                                 src="/assets/logo.png"
                                 alt="DEENHA"
-                                className={`h-12 md:h-16 w-auto transition-all duration-700 ${isSolid ? 'brightness-0' : 'brightness-0 invert'
+                                className={`h-12 md:h-16 w-auto transition-all duration-700 ${theme === 'dark' || (!isSolid && isHome) ? 'brightness-0 invert' : 'brightness-0'
                                     }`}
                                 width={215}
                                 height={215}
@@ -112,8 +125,7 @@ const Navbar = ({ onMenuClick }: NavbarProps) => {
                                 <Link
                                     key={link.name}
                                     to={link.href}
-                                    className={`text-[11px] font-bold uppercase tracking-[0.3em] transition-colors duration-300 ${isSolid ? 'text-black hover:text-accent-gold' : 'text-white hover:text-accent-gold'
-                                        }`}
+                                    className={`text-[11px] font-bold uppercase tracking-[0.3em] transition-colors duration-300 ${getTextColor()}`}
                                 >
                                     {link.name}
                                 </Link>
@@ -125,10 +137,27 @@ const Navbar = ({ onMenuClick }: NavbarProps) => {
                             <LanguageSelector isSolid={isSolid} />
                         </div>
 
+                        {/* Theme Toggle */}
+                        <button
+                            onClick={toggleTheme}
+                            className={`p-2 transition-colors duration-300 ${isSolid ? 'text-black' : 'text-white'}`}
+                            aria-label="Toggle Theme"
+                        >
+                            {theme === 'light' ? (
+                                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.2} d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                                </svg>
+                            ) : (
+                                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.2} d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m12.728 0l-.707-.707M6.343 6.343l-.707-.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                                </svg>
+                            )}
+                        </button>
+
                         {/* Search Icon */}
                         <button
                             onClick={() => setSearchOpen(!searchOpen)}
-                            className={`p-2 transition-colors duration-300 ${isSolid ? 'text-black' : 'text-white'}`}
+                            className={`p-2 transition-colors duration-300 ${getIconColor()}`}
                             aria-label={t('nav.toggle_search', 'Toggle Search')}
                         >
                             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -139,7 +168,7 @@ const Navbar = ({ onMenuClick }: NavbarProps) => {
                         {/* Wishlist */}
                         <Link
                             to="/wishlist"
-                            className={`relative p-2 transition-colors duration-300 ${isSolid ? 'text-black' : 'text-white'}`}
+                            className={`relative p-2 transition-colors duration-300 ${getIconColor()}`}
                             aria-label={t('nav.wishlist', 'Wishlist')}
                         >
                             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -153,7 +182,7 @@ const Navbar = ({ onMenuClick }: NavbarProps) => {
                         {/* Cart */}
                         <button
                             onClick={() => setIsCartOpen(true)}
-                            className={`relative p-2 transition-colors duration-300 ${isSolid ? 'text-black' : 'text-white'}`}
+                            className={`relative p-2 transition-colors duration-300 ${getIconColor()}`}
                             aria-label={t('nav.cart', 'Shopping Cart')}
                         >
                             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -175,14 +204,14 @@ const Navbar = ({ onMenuClick }: NavbarProps) => {
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             exit={{ opacity: 0 }}
-                            className="fixed inset-0 bg-white z-[70] pt-32 overflow-y-auto"
+                            className="fixed inset-0 bg-white dark:bg-primary z-[70] pt-32 overflow-y-auto transition-colors duration-300"
                         >
                             <div className="max-w-5xl mx-auto px-6 lg:px-12">
                                 <div className="relative mb-12">
                                     <input
                                         type="text"
                                         placeholder={t('nav.search_placeholder')}
-                                        className="w-full text-4xl md:text-6xl font-display italic border-b border-black/10 py-6 focus:outline-none focus:border-accent-gold transition-colors bg-transparent"
+                                        className="w-full text-4xl md:text-6xl font-display italic border-b border-black/10 dark:border-white/10 py-6 focus:outline-none focus:border-accent-gold transition-colors bg-transparent dark:text-white"
                                         autoFocus
                                         value={searchQuery}
                                         onChange={(e) => setSearchQuery(e.target.value)}
@@ -192,7 +221,7 @@ const Navbar = ({ onMenuClick }: NavbarProps) => {
                                             setSearchOpen(false);
                                             setSearchQuery('');
                                         }}
-                                        className="absolute right-0 top-1/2 -translate-y-1/2 p-4 text-secondary hover:text-primary transition-colors"
+                                        className="absolute right-0 top-1/2 -translate-y-1/2 p-4 text-secondary dark:text-white/60 hover:text-primary dark:hover:text-white transition-colors"
                                         aria-label={t('nav.close_search', 'Close Search')}
                                     >
                                         <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -208,8 +237,8 @@ const Navbar = ({ onMenuClick }: NavbarProps) => {
                                         animate={{ opacity: 1, y: 0 }}
                                         className="pb-20"
                                     >
-                                        <div className="flex items-center justify-between mb-8 border-b border-black/5 pb-4">
-                                            <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-secondary">
+                                        <div className="flex items-center justify-between mb-8 border-b border-black/5 dark:border-white/5 pb-4">
+                                            <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-secondary dark:text-white/40">
                                                 {t('nav.search_results')} ({liveProducts.filter((p: Product) => {
                                                     const q = normalizeText(searchQuery);
                                                     const name = normalizeText(p.name);
@@ -261,7 +290,7 @@ const Navbar = ({ onMenuClick }: NavbarProps) => {
                                                             }}
                                                             className="group"
                                                         >
-                                                            <div className="relative aspect-[3/4] overflow-hidden bg-surface-secondary mb-4">
+                                                            <div className="relative aspect-[3/4] overflow-hidden bg-surface-secondary dark:bg-white/5 mb-4">
                                                                 <img
                                                                     src={product.image}
                                                                     alt={displayName}
@@ -275,10 +304,10 @@ const Navbar = ({ onMenuClick }: NavbarProps) => {
                                                                     </div>
                                                                 )}
                                                             </div>
-                                                            <h3 className="text-[10px] font-bold uppercase tracking-widest mb-1 group-hover:text-accent-gold transition-colors notranslate">
+                                                            <h3 className="text-[10px] font-bold uppercase tracking-widest mb-1 text-primary dark:text-white group-hover:text-accent-gold transition-colors notranslate">
                                                                 {displayName}
                                                             </h3>
-                                                            <p className="text-[10px] text-secondary font-medium tracking-widest notranslate">
+                                                            <p className="text-[10px] text-secondary dark:text-white/60 font-medium tracking-widest notranslate">
                                                                 {formatPrice(product.price)}
                                                             </p>
                                                         </Link>

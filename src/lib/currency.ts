@@ -3,7 +3,7 @@ import i18n from 'i18next';
 // Current exchange rates (Base: 1 IDR)
 let EXCHANGE_RATES: Record<string, number> = {
     IDR: 1,
-    USD: 0.000064, 
+    USD: 0.000064,
     EUR: 0.000059,
     CNY: 0.00046,
 };
@@ -14,7 +14,7 @@ export const fetchLatestRates = async () => {
         const response = await fetch('https://api.frankfurter.app/latest?from=IDR&to=USD,EUR,CNY');
         if (!response.ok) throw new Error('Network response was not ok');
         const data = await response.json();
-        
+
         EXCHANGE_RATES = {
             ...EXCHANGE_RATES,
             ...data.rates,
@@ -35,13 +35,16 @@ const CURRENCY_MAP: Record<string, { code: string; symbol: string; locale: strin
 
 export const formatPrice = (priceInIdr: number) => {
     // Crucial: Get language from i18next instance to ensure reactivity
-    const lang = i18n.language || 'id';
-    
+    let lang = i18n.language || 'id';
+
     // Normalize language (e.g., 'id-ID' -> 'id')
-    const shortLang = lang.split('-')[0];
-    
+    let shortLang = lang.split('-')[0].toLowerCase();
+
+    // Default to 'id' if 'dev' or empty
+    if (shortLang === 'dev' || !shortLang) shortLang = 'id';
+
     const config = CURRENCY_MAP[shortLang] || CURRENCY_MAP.id;
-    
+
     // Convert price
     const convertedPrice = priceInIdr * EXCHANGE_RATES[config.code];
 

@@ -1,26 +1,29 @@
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 
 const BrandStory = () => {
+    const { t } = useTranslation();
+
     const ethos = [
         {
             number: '01',
-            title: 'Empowering Confidence',
-            text: 'Deenha is crafted to elevate the confidence of every woman. With its elegant designs, soft textures, and vibrant hues, Deenha embraces femininity, making you feel graceful and poised with every wear.'
+            title: t('brand_story.ethos_1_title'),
+            text: t('brand_story.ethos_1_desc')
         },
         {
             number: '02',
-            title: 'Global Inspiration',
-            text: 'Deenha draws inspiration from global heritage, blending timeless designs with cultural richness from around the world. Each piece reflects a unique story, creating an elegant fusion of tradition and contemporary style.'
+            title: t('brand_story.ethos_2_title'),
+            text: t('brand_story.ethos_2_desc')
         },
         {
             number: '03',
-            title: 'Our Mission',
-            text: "Our mission is to create high-quality clothing for Muslim women, blending elegance and comfort to empower every wearer with confidence and style."
+            title: t('brand_story.ethos_3_title'),
+            text: t('brand_story.ethos_3_desc')
         }
     ];
 
     return (
-        <section className="py-24 bg-white overflow-hidden" id="about">
+        <section className="py-24 bg-white dark:bg-primary transition-colors duration-300 overflow-hidden" id="about">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Main Story Grid */}
                 <div className="grid lg:grid-cols-2 gap-16 items-center mb-32">
@@ -32,7 +35,7 @@ const BrandStory = () => {
                         viewport={{ once: true }}
                         transition={{ duration: 1 }}
                     >
-                        <div className="aspect-[4/5] overflow-hidden bg-surface-secondary shadow-2xl">
+                        <div className="aspect-[4/5] overflow-hidden bg-surface-secondary dark:bg-white/5 shadow-2xl">
                             <img
                                 src="/images/our-mission-d951KpkZjLHz3841.jpg"
                                 alt="Deenha Brand Story"
@@ -53,36 +56,26 @@ const BrandStory = () => {
                         transition={{ duration: 0.8 }}
                     >
                         <span className="text-accent-gold text-[10px] uppercase font-bold tracking-[0.5em] mb-6 block">
-                            The Narrative
+                            {t('brand_story.narrative_label')}
                         </span>
-                        <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-normal tracking-tight mb-8">
-                            Elegance in Every <span className="italic">Thread</span>
+                        <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-normal tracking-tight mb-8 text-primary dark:text-white">
+                            {t('brand_story.heading_1')} <span className="italic">{t('brand_story.heading_2')}</span>
                         </h2>
-                        <div className="space-y-6 text-secondary leading-relaxed text-lg">
-                            <p>
-                                Deenha Hijab offers a stunning collection that embodies elegance and sophistication.
-                                Crafted with the utmost care, each piece is designed with soft and vibrant materials,
-                                ensuring both comfort and style.
-                            </p>
-                            <p>
-                                Our scarves come in a variety of exquisite motifs, making it easy to find
-                                the perfect match for any occasion. Not just limited to scarves, Deenha also
-                                presents a beautifully curated range of pray sets and dresses, each piece
-                                reflecting timeless elegance and attention to detail.
-                            </p>
-                            <p className="font-medium text-primary">
-                                Whether you're looking to elevate your daily wear or prepare for a special event,
-                                Deenha Hijab brings you a world of versatility and grace.
+                        <div className="space-y-6 text-secondary dark:text-white/60 leading-relaxed text-lg">
+                            <p>{t('brand_story.p1')}</p>
+                            <p>{t('brand_story.p2')}</p>
+                            <p className="font-medium text-primary dark:text-white/80">
+                                {t('brand_story.p3')}
                             </p>
                         </div>
-                        <div className="mt-10 border-t border-black/5 pt-8">
-                            <p className="font-display italic text-xl text-primary">— THE DEENHA TEAM</p>
+                        <div className="mt-10 border-t border-black/5 dark:border-white/10 pt-8">
+                            <p className="font-display italic text-xl text-primary dark:text-white">{t('brand_story.team_sign')}</p>
                         </div>
                     </motion.div>
                 </div>
 
                 {/* Our Ethos Section */}
-                <div className="pt-20 border-t border-black/5">
+                <div className="pt-20 border-t border-black/5 dark:border-white/10">
                     <motion.div
                         className="text-center mb-20"
                         initial={{ opacity: 0, y: 20 }}
@@ -90,9 +83,11 @@ const BrandStory = () => {
                         viewport={{ once: true }}
                     >
                         <span className="text-accent-gold text-[10px] uppercase font-bold tracking-[0.4em] mb-4 block">
-                            Core Philosophy
+                            {t('brand_story.core_philosophy')}
                         </span>
-                        <h2 className="font-display text-4xl md:text-5xl font-normal tracking-tight">Our Ethos</h2>
+                        <h2 className="font-display text-4xl md:text-5xl font-normal tracking-tight text-primary dark:text-white">
+                            {t('brand_story.our_ethos')}
+                        </h2>
                     </motion.div>
 
                     <div className="grid md:grid-cols-3 gap-12 lg:gap-20">
@@ -105,13 +100,13 @@ const BrandStory = () => {
                                 viewport={{ once: true }}
                                 transition={{ delay: index * 0.2 }}
                             >
-                                <span className="absolute -top-10 left-0 font-display text-8xl text-black/[0.03] pointer-events-none group-hover:text-accent-gold/10 transition-colors duration-500">
+                                <span className="absolute -top-10 left-0 font-display text-8xl text-black/[0.03] dark:text-white/[0.03] pointer-events-none group-hover:text-accent-gold/10 transition-colors duration-500">
                                     {item.number}
                                 </span>
-                                <h3 className="font-display text-2xl mb-4 text-primary relative z-10">
+                                <h3 className="font-display text-2xl mb-4 text-primary dark:text-white relative z-10">
                                     {item.title}
                                 </h3>
-                                <p className="text-secondary leading-relaxed text-sm lg:text-base relative z-10">
+                                <p className="text-secondary dark:text-white/60 leading-relaxed text-sm lg:text-base relative z-10">
                                     {item.text}
                                 </p>
                             </motion.div>

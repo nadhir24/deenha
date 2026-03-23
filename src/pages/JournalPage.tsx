@@ -32,7 +32,7 @@ const JournalPage = () => {
     };
 
     return (
-        <main className="pt-44 pb-24 bg-white">
+        <main className="pt-44 pb-24 bg-white dark:bg-primary transition-colors duration-300">
             <SEOHead
                 title={`${t('journal.title')} - Style Guides & Fabric Insights`}
                 description={t('journal.description')}
@@ -43,12 +43,12 @@ const JournalPage = () => {
             <div className="max-w-[1440px] mx-auto px-6 lg:px-12">
                 <header className="mb-20 text-center max-w-3xl mx-auto">
                     <span className="text-accent-gold text-[10px] uppercase font-bold tracking-[0.4em] mb-4 block">{t('journal.subtitle')}</span>
-                    <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-normal tracking-tight mb-8 italic">{t('journal.title')}</h1>
-                    <p className="text-secondary text-sm leading-relaxed">
+                    <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-normal tracking-tight mb-8 italic text-primary dark:text-white">{t('journal.title')}</h1>
+                    <p className="text-secondary dark:text-white/60 text-sm leading-relaxed">
                         {t('journal.description')}
                     </p>
                 </header>
-
+                Broadway
                 {loading ? (
                     <div className="flex justify-center items-center py-20">
                         <div className="animate-pulse text-accent-gold text-xs uppercase tracking-[0.3em]">Loading Stories...</div>
@@ -78,19 +78,19 @@ const JournalPage = () => {
                                             <span className="text-secondary/40">•</span>
                                             <span className="text-secondary/60">{new Date(post.date).toLocaleDateString()}</span>
                                         </div>
-                                        <h2 className="font-display text-2xl group-hover:text-accent-gold transition-colors duration-500 leading-snug">
+                                        <h2 className="font-display text-2xl group-hover:text-accent-gold transition-colors duration-500 leading-snug text-primary dark:text-white">
                                             {post.title}
                                         </h2>
-                                        <p className="text-secondary text-sm leading-relaxed line-clamp-3 italic opacity-80">
+                                        <p className="text-secondary dark:text-white/60 text-sm leading-relaxed line-clamp-3 italic opacity-80">
                                             {post.excerpt}
                                         </p>
-                                        <div className="pt-4 flex items-center gap-2 text-[10px] uppercase font-bold tracking-[0.2em] text-primary group-hover:gap-4 transition-all duration-500">
+                                        <div className="pt-4 flex items-center gap-2 text-[10px] uppercase font-bold tracking-[0.2em] text-primary dark:text-white group-hover:gap-4 transition-all duration-500">
                                             {t('journal.read_full')}
                                             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                                             </svg>
                                         </div>
-                                    </div>
+                                        Broadway                                   </div>
                                 </Link>
                             </motion.article>
                         ))}

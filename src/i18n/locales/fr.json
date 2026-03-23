@@ -34,18 +34,18 @@
         "premium_service_desc": "Support 24/7"
     },
     "collections": {
-        "hampers_title": "Pre-Raya Special",
-        "hampers_name": "Luxury Hampers",
-        "hampers_desc": "The perfect gift of gratitude. Our Raya hampers are elegantly packaged with our signature touch, making them the best way to share happiness.",
-        "scarves_title": "Raya Exclusive",
-        "scarves_name": "Signature Scarves",
-        "scarves_desc": "Discover the most loved Monogram and Crystal series. Crafted from premium voal for effortless elegance during your Raya celebrations.",
-        "new_title": "New Season",
-        "new_name": "Pre-Raya Catalog",
-        "new_desc": "From timeless silhouettes to modern modest wear, explore our latest releases designed specifically for the upcoming holy season.",
-        "pray_title": "Spiritual Series",
-        "pray_name": "Prayer Essentials",
-        "pray_desc": "Experience serenity in every prayer with our premium prayer sets, featuring delicate lace and breathable materials for ultimate comfort."
+        "hampers_title": "Spécial Pré-Raya",
+        "hampers_name": "Coffrets de Luxe",
+        "hampers_desc": "Le cadeau de gratitude parfait. Nos coffrets Raya sont élégamment emballés avec notre touche signature, la meilleure façon de partager le bonheur.",
+        "scarves_title": "Exclusivité Raya",
+        "scarves_name": "Écharpes Signature",
+        "scarves_desc": "Découvrez les séries Monogram et Crystal les plus appréciées. Conçues en voile premium pour une élégance sans effort lors de vos célébrations de Raya.",
+        "new_title": "Nouvelle Saison",
+        "new_name": "Catalogue Pré-Raya",
+        "new_desc": "Des silhouettes intemporelles aux tenues modestes modernes, explorez nos dernières créations conçues spécifiquement pour la saison sacrée à venir.",
+        "pray_title": "Série Spirituelle",
+        "pray_name": "Essentiels de Prière",
+        "pray_desc": "Vivez la sérénité dans chaque prière avec nos ensembles de prière premium, dotés de dentelle délicate et de matériaux respirants pour un confort ultime."
     },
     "shop": {
         "title": "Toute Notre Collection",
@@ -79,7 +79,7 @@
         "quantity": "Quantité",
         "inventory": "STATUT DU STOCK",
         "only_left": "PLUS QUE {{count}} PIÈCES",
-        "available": "AVAILABLE IN ATELIER",
+        "available": "DISPONIBLE À L'ATELIER",
         "unavailable": "ACTUELLEMENT INDISPONIBLE",
         "sold_out": "Épuisé",
         "add_to_cart": "AJOUTER À LA COLLECTION",
@@ -95,39 +95,39 @@
             "details": "Détails & Entretien",
             "shipping": "Livraison & Retours"
         },
-        "default_description": "This premium series is designed with the modern woman in mind. Blending traditional modesty with global style, it features exceptional craftsmanship and the highest quality materials selected for elegance and durability.",
-        "default_shipping": "Deenha provides worldwide shipping. Orders are usually processed within 1-2 business days. Complimentary shipping is available for certain regions over specific thresholds. Returns are accepted within 7 days of receipt in original condition."
+        "default_description": "Cette série premium est conçue pour la femme moderne. Alliant modestie traditionnelle et style global, elle présente un savoir-faire exceptionnel et des matériaux de la plus haute qualité.",
+        "default_shipping": "Deenha propose une livraison dans le monde entier. Les retours sont acceptés sous 7 jours."
     },
     "brand_story": {
         "identity_label": "Notre Identité",
-        "story_heading": "The Story of Deenha",
+        "story_heading": "L'Histoire de Deenha",
         "narrative_label": "Le Récit",
-        "heading_1": "Elegance in Every",
-        "heading_2": "Thread",
-        "p1": "Deenha Hijab offers a stunning collection that embodies elegance and sophistication. Crafted with the utmost care, each piece is designed with soft and vibrant materials, ensuring both comfort and style.",
-        "p2": "Our scarves come in a variety of exquisite motifs, making it easy to find the perfect match for any occasion. Not just limited to scarves, Deenha also presents a beautifully curated range of pray sets and dresses, each piece reflecting timeless elegance and attention to detail.",
-        "p3": "Whether you're looking to elevate your daily wear or prepare for a special event, Deenha Hijab brings you a world of versatility and grace.",
-        "team_sign": "— THE DEENHA TEAM",
+        "heading_1": "L'élégance dans chaque",
+        "heading_2": "Fil",
+        "p1": "Deenha Hijab propose une collection magnifique qui incarne l'élégance et la sophistication. Conçue avec le plus grand soin, chaque pièce est fabriquée avec des matériaux doux et éclatants.",
+        "p2": "Nos écharpes sont disponibles dans une variété de motifs exquis. Deenha présente également une gamme d'ensembles de prière et de robes, chaque pièce reflétant une élégance intemporelle.",
+        "p3": "Que vous cherchiez à sublimer votre tenue quotidienne ou à vous préparer pour un événement spécial, Deenha Hijab vous apporte un monde de polyvalence et de grâce.",
+        "team_sign": "— L'ÉQUIPE DEENHA",
         "core_philosophy": "Philosophie Fondamentale",
         "our_ethos": "Notre Éthique",
-        "ethos_1_title": "Empowering Confidence",
-        "ethos_1_desc": "Deenha is crafted to elevate the confidence of every woman. With its elegant designs, soft textures, and vibrant hues, Deenha embraces femininity, making you feel graceful and poised with every wear.",
-        "ethos_2_title": "Global Inspiration",
-        "ethos_2_desc": "Deenha draws inspiration from global heritage, blending timeless designs with cultural richness from around the world. Each piece reflects a unique story, creating an elegant fusion of tradition and contemporary style.",
-        "ethos_3_title": "Our Mission",
-        "ethos_3_desc": "Our mission is to create high-quality clothing for Muslim women, blending elegance and comfort to empower every wearer with confidence and style."
+        "ethos_1_title": "Renforcer la Confiance",
+        "ethos_1_desc": "Deenha est conçu pour sublimer la confiance de chaque femme. Avec ses designs élégants, il vous fait vous sentir gracieuse à chaque instant.",
+        "ethos_2_title": "Inspiration Globale",
+        "ethos_2_desc": "Deenha puise son inspiration dans l'héritage mondial, mêlant designs intemporels et richesse culturelle du monde entier.",
+        "ethos_3_title": "Notre Mission",
+        "ethos_3_desc": "Notre mission est de créer des vêtements de haute qualité pour les femmes musulmanes, alliant élégance et confort."
     },
     "journal": {
         "title": "Journal DEENHA",
         "subtitle": "Histoires de l'Atelier",
-        "description": "An editorial space dedicated to the art of modest living. From deep-dives into our premium fabrics to curated styling guides, discover the essence of Deenha.",
+        "description": "Un espace éditorial dédié à l'art de vivre modestement. Des plongées au cœur de nos tissus premium aux guides de style curatés, découvrez l'essence de Deenha.",
         "read_full": "Lire l'histoire complète"
     },
     "ramadan_popup": {
         "label": "Ramadan 1447 H",
         "title": "Bienvenue",
         "title_highlight": "Ramadhan",
-        "description": "Welcome the blessed month with the latest collection from DEENHA. Look graceful and modest with an elegant touch that radiates beauty.",
+        "description": "Accueillez le mois sacré avec la dernière collection de DEENHA. Soyez gracieuse et modeste avec une touche d'élégance.",
         "cta": "Voir la Collection Ramadan",
         "close": "Appuyez pour fermer"
     },
@@ -161,7 +161,8 @@
         "total": "Total",
         "checkout_wa": "WhatsApp Checkout",
         "qty": "Qté",
-        "error": "Désolé, une erreur est survenue lors de la commande. Veuillez réessayer."
+        "error": "Désolé, une erreur est survenue lors de la commande. Veuillez réessayer.",
+        "popup_warning": "💡 Note : Désactivez le 'Bloqueur de fenêtres surgissantes' si WhatsApp ne s'ouvre pas."
     },
     "whatsapp": {
         "greeting": "Bonjour Deenha ! Je suis intéressée par vos produits.",

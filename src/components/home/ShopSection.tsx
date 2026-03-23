@@ -103,14 +103,14 @@ const ShopSection = () => {
 
     if (loading && products.length === 0) {
         return (
-            <section className="py-20 bg-white min-h-[400px] flex items-center justify-center">
-                <p className="text-secondary animate-pulse">{t('product.loading')}</p>
+            <section className="py-20 bg-white dark:bg-primary transition-colors duration-300 min-h-[400px] flex items-center justify-center">
+                <p className="text-secondary dark:text-white/60 animate-pulse">{t('product.loading')}</p>
             </section>
         );
     }
 
     return (
-        <section className="py-20 bg-white" id="all-products">
+        <section className="py-20 bg-white dark:bg-primary transition-colors duration-300" id="all-products">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Section Header */}
                 <motion.div
@@ -122,7 +122,7 @@ const ShopSection = () => {
                     <span className="text-accent-gold text-[10px] uppercase font-bold tracking-[0.4em] mb-4 block">
                         {t('shop.title')}
                     </span>
-                    <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-normal tracking-tight">
+                    <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-normal tracking-tight text-primary dark:text-white">
                         {t('shop.subtitle')}
                     </h2>
                 </motion.div>
@@ -132,7 +132,7 @@ const ShopSection = () => {
                     <div className="lg:hidden flex items-center justify-between mb-4">
                         <button
                             onClick={() => setShowMobileFilters(!showMobileFilters)}
-                            className="flex items-center gap-2 px-4 py-2 border border-border rounded-lg"
+                            className="flex items-center gap-2 px-4 py-2 border border-border dark:border-white/10 rounded-lg text-primary dark:text-white"
                         >
                             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" />
@@ -151,12 +151,12 @@ const ShopSection = () => {
                     <AnimatePresence>
                         {showMobileFilters && (
                             <motion.div
-                                className="lg:hidden bg-white overflow-hidden"
+                                className="lg:hidden bg-white dark:bg-primary overflow-hidden"
                                 initial={{ opacity: 0, height: 0 }}
                                 animate={{ opacity: 1, height: 'auto' }}
                                 exit={{ opacity: 0, height: 0 }}
                             >
-                                <div className="p-4 border border-border rounded-xl mb-4">
+                                <div className="p-4 border border-border dark:border-white/10 rounded-xl mb-4">
                                     <FilterSidebar filters={filters} onFilterChange={handleFilterChange} />
                                 </div>
                             </motion.div>
@@ -172,7 +172,7 @@ const ShopSection = () => {
                     <div className="flex-1 min-h-[600px]">
                         {/* Top Bar */}
                         <div className="hidden lg:flex items-center justify-between mb-6">
-                            <p className="text-secondary text-sm">
+                            <p className="text-secondary dark:text-white/60 text-sm">
                                 {t('shop.showing', { count: filteredProducts.length })}
                             </p>
                             <SortDropdown value={sortBy} onChange={setSortBy} />
@@ -203,10 +203,10 @@ const ShopSection = () => {
                                 </AnimatePresence>
                             </motion.div>
                         ) : (
-                            <div className="text-center py-20 bg-surface-secondary/30 rounded-2xl">
+                            <div className="text-center py-20 bg-surface-secondary/30 dark:bg-white/5 rounded-2xl">
                                 <div className="text-6xl mb-4">🔍</div>
-                                <h3 className="font-display text-xl mb-2">{t('shop.no_products')}</h3>
-                                <p className="text-secondary mb-4">{t('shop.adjust_filters')}</p>
+                                <h3 className="font-display text-xl mb-2 text-primary dark:text-white">{t('shop.no_products')}</h3>
+                                <p className="text-secondary dark:text-white/60 mb-4">{t('shop.adjust_filters')}</p>
                                 <button
                                     onClick={() => handleFilterChange({
                                         categories: [],

@@ -28,7 +28,7 @@ const LoginPage = () => {
     };
 
     return (
-        <main className="min-h-screen pt-32 pb-20 bg-surface-secondary flex items-center justify-center px-6">
+        <main className="min-h-screen pt-32 pb-20 bg-surface-secondary dark:bg-primary flex items-center justify-center px-6 transition-colors duration-300">
             <SEOHead
                 title="Admin Login - DEENHA"
                 description="Portal akses khusus staf dan admin DEENHA Atelier."
@@ -37,7 +37,7 @@ const LoginPage = () => {
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="max-w-md w-full bg-white p-12 shadow-2xl"
+                className="max-w-md w-full bg-white dark:bg-white/5 p-12 shadow-2xl border border-black/5 dark:border-white/5"
             >
                 <div className="text-center mb-12">
                     <img src="/assets/logo.png" alt="DEENHA" className="h-16 w-auto mx-auto mb-6 brightness-0" />
@@ -53,24 +53,24 @@ const LoginPage = () => {
                     )}
 
                     <div className="space-y-2">
-                        <label className="text-[10px] uppercase font-bold tracking-widest text-secondary ml-1">Email Address</label>
+                        <label className="text-[10px] uppercase font-bold tracking-widest text-secondary dark:text-white/40 ml-1">Email Address</label>
                         <input
                             type="email"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
-                            className="w-full bg-surface-secondary border-b border-black/5 p-4 text-[11px] font-bold tracking-[0.2em] focus:outline-none focus:border-accent-gold transition-colors"
+                            className="w-full bg-surface-secondary dark:bg-white/5 border-b border-black/5 dark:border-white/10 p-4 text-[11px] font-bold tracking-[0.2em] focus:outline-none focus:border-accent-gold transition-colors text-primary dark:text-white"
                             placeholder="ADMIN@DEENHA.COM"
                             required
                         />
                     </div>
 
                     <div className="space-y-2">
-                        <label className="text-[10px] uppercase font-bold tracking-widest text-secondary ml-1">Password</label>
+                        <label className="text-[10px] uppercase font-bold tracking-widest text-secondary dark:text-white/40 ml-1">Password</label>
                         <input
                             type="password"
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
-                            className="w-full bg-surface-secondary border-b border-black/5 p-4 text-[11px] font-bold tracking-[0.2em] focus:outline-none focus:border-accent-gold transition-colors"
+                            className="w-full bg-surface-secondary dark:bg-white/5 border-b border-black/5 dark:border-white/10 p-4 text-[11px] font-bold tracking-[0.2em] focus:outline-none focus:border-accent-gold transition-colors text-primary dark:text-white"
                             placeholder="••••••••"
                             required
                         />
@@ -79,13 +79,13 @@ const LoginPage = () => {
                     <button
                         type="submit"
                         disabled={loading}
-                        className="w-full bg-primary text-white py-5 text-[11px] font-bold uppercase tracking-[0.4em] hover:bg-accent-gold transition-all duration-500 shadow-xl disabled:opacity-50"
+                        className="w-full bg-primary dark:bg-white text-white dark:text-primary py-5 text-[11px] font-bold uppercase tracking-[0.4em] hover:bg-accent-gold transition-all duration-500 shadow-xl disabled:opacity-50"
                     >
                         {loading ? 'Authenticating...' : 'Enter Atelier'}
                     </button>
                 </form>
 
-                <p className="text-center mt-12 text-[9px] uppercase tracking-widest text-secondary leading-relaxed">
+                <p className="text-center mt-12 text-[9px] uppercase tracking-widest text-secondary dark:text-white/40 leading-relaxed">
                     Access restricted to authorized Deenha personnel only.
                     Unauthorized attempts are logged.
                 </p>

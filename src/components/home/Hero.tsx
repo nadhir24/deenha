@@ -14,35 +14,35 @@ interface Slide {
 const DEFAULT_SLIDES: Slide[] = [
     {
         type: 'video',
-        src: "https://tdvkvhozebzetchmgzhb.supabase.co/storage/v1/object/public/products/hero/promo_video.mp4",
+        src: "/videos/promo_video.mp4",
         title: "",
         subtitle: "",
         description: "."
     },
     {
         type: 'video',
-        src: "https://tdvkvhozebzetchmgzhb.supabase.co/storage/v1/object/public/products/hero/summer_collection.mp4",
+        src: "/videos/summer_collection.mp4",
         title: "",
         subtitle: "",
         description: "."
     },
     {
         type: 'video',
-        src: "https://tdvkvhozebzetchmgzhb.supabase.co/storage/v1/object/public/products/hero/vintage_flower.mp4",
+        src: "/videos/vintage_flower.mp4",
         title: "",
         subtitle: "",
         description: "  ."
     },
     {
         type: 'video',
-        src: "https://tdvkvhozebzetchmgzhb.supabase.co/storage/v1/object/public/products/hero/pashmina_crinkle.mp4",
+        src: "/videos/pashmina_crinkle.mp4",
         title: "",
         subtitle: "",
         description: ""
     },
     {
         type: 'video',
-        src: "https://tdvkvhozebzetchmgzhb.supabase.co/storage/v1/object/public/products/hero/hampers_mukena.mp4",
+        src: "/videos/hampers_mukena.mp4",
         title: "",
         subtitle: "",
         description: ""

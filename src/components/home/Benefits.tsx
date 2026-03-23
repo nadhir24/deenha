@@ -94,7 +94,7 @@ const Benefits = () => {
     ];
 
     return (
-        <section className="py-24 bg-white border-y border-black/5">
+        <section className="py-24 bg-white dark:bg-primary border-y border-black/5 dark:border-white/5 transition-colors duration-300">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-y-16 gap-x-8">
                     {benefits.map((benefit, index) => (
@@ -109,10 +109,10 @@ const Benefits = () => {
                             <MagneticIcon>
                                 {benefit.icon}
                             </MagneticIcon>
-                            <h3 className="text-[11px] uppercase font-bold tracking-[0.4em] mb-3 text-primary">
+                            <h3 className="text-[11px] uppercase font-bold tracking-[0.4em] mb-3 text-primary dark:text-white">
                                 {benefit.title}
                             </h3>
-                            <p className="text-[10px] uppercase tracking-[0.2em] text-secondary opacity-60">
+                            <p className="text-[10px] uppercase tracking-[0.2em] text-secondary dark:text-white/40 opacity-60">
                                 {benefit.description}
                             </p>
                         </motion.div>
