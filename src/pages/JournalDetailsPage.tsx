@@ -89,7 +89,7 @@ const JournalDetailsPage = () => {
 
                     <div
                         className="prose prose-lg max-w-none journal-content text-secondary dark:text-white/60 italic leading-relaxed space-y-6"
-                        dangerouslySetInnerHTML={{ __html: article.content }}
+                        dangerouslySetInnerHTML={{ __html: article.content || '' }}
                     />
 
                     <div className="mt-20 pt-12 border-t border-black/5 dark:border-white/5 flex justify-between items-center">

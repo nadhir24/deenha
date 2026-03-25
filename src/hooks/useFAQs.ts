@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
-import { faqs as staticFaqs, FAQ as FAQInterface } from '../data/faqs';
+import { faqs as staticFaqs } from '../data/faqs';
 import { useTranslation } from 'react-i18next';
 
 export interface FAQ {
