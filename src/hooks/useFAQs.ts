@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
-import { supabase } from '../lib/supabase';
+import { faqs as staticFaqs, FAQ as FAQInterface } from '../data/faqs';
 import { useTranslation } from 'react-i18next';
 
 export interface FAQ {
@@ -18,16 +18,9 @@ export const useFAQs = () => {
     const fetchFaqs = useCallback(async () => {
         try {
             setLoading(true);
-            const { data, error } = await supabase
-                .from('faqs')
-                .select('*')
-                .order('sort_order', { ascending: true });
-
-            if (error) throw error;
-
             const lang = i18n.language;
-            
-            const mappedData: FAQ[] = (data || []).map((item: any) => ({
+
+            const mappedData: FAQ[] = staticFaqs.map((item: any) => ({
                 id: item.id,
                 question: item[`question_${lang}`] || item.question_en,
                 answer: item[`answer_${lang}`] || item.answer_en,

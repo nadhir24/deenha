@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
-import { supabase } from '../lib/supabase';
+import { siteSettings as staticSettings } from '../data/siteSettings';
 
 export const useSiteSettings = () => {
     const [settings, setSettings] = useState<Record<string, any>>({});
@@ -8,18 +8,7 @@ export const useSiteSettings = () => {
     const fetchSettings = useCallback(async () => {
         try {
             setLoading(true);
-            const { data, error } = await supabase
-                .from('site_settings')
-                .select('*');
-
-            if (error) throw error;
-
-            const settingsMap = (data || []).reduce((acc: any, item: any) => {
-                acc[item.key] = item.value;
-                return acc;
-            }, {});
-
-            setSettings(settingsMap);
+            setSettings(staticSettings);
         } catch (err) {
             console.error('Error fetching site settings:', err);
         } finally {
@@ -28,19 +17,10 @@ export const useSiteSettings = () => {
     }, []);
 
     const updateSetting = async (key: string, value: any) => {
-        try {
-            const { error } = await supabase
-                .from('site_settings')
-                .upsert({ key, value, updated_at: new Date().toISOString() });
-
-            if (error) throw error;
-
-            setSettings(prev => ({ ...prev, [key]: value }));
-            return { success: true };
-        } catch (err: any) {
-            console.error(`Error updating setting ${key}:`, err);
-            return { success: false, error: err.message };
-        }
+        // Disabled for static setup to ensure 0 egress
+        console.log(`Update ignored for ${key}: static mode enabled.`);
+        setSettings(prev => ({ ...prev, [key]: value }));
+        return { success: true };
     };
 
     useEffect(() => {
