@@ -38,10 +38,10 @@ const resources = {
         related: 'PRODUK TERKAIT'
       },
       ramadan: {
-        title: 'Marhaban Ya',
-        subtitle: 'Ramadhan',
-        desc: 'Sambut bulan penuh berkah dengan koleksi terbaru dari DEENHA. Tampil anggun dan syar\'i dengan sentuhan elegan yang memancarkan keindahaan.',
-        cta: 'LIHAT KOLEKSI RAMADAN',
+        title: 'Selected',
+        subtitle: 'Item',
+        desc: "get 50 %* disc\njust contact our Customer Via Button WA",
+        cta: 'HUBUNGI VIA WHATSAPP',
         whatsapp: 'CHAT VIA WHATSAPP',
         close: 'TAP UNTUK MENUTUP'
       },
@@ -100,10 +100,10 @@ const resources = {
         related: 'RELATED PRODUCTS'
       },
       ramadan: {
-        title: 'Marhaban Ya',
-        subtitle: 'Ramadhan',
-        desc: 'Welcome the blessed month with the latest collection from DEENHA. Look graceful and modest with an elegant touch that radiates beauty.',
-        cta: 'VIEW RAMADAN COLLECTION',
+        title: 'Selected',
+        subtitle: 'Item',
+        desc: "get 50 %* disc\njust contact our Customer Via Button WA",
+        cta: 'CONTACT VIA WHATSAPP',
         whatsapp: 'CHAT VIA WHATSAPP',
         close: 'TAP TO CLOSE'
       },
@@ -162,10 +162,10 @@ const resources = {
         related: 'PRODUITS CONNEXES'
       },
       ramadan: {
-        title: 'Marhaban Ya',
-        subtitle: 'Ramadhan',
-        desc: 'Accueillez le mois sacré avec la dernière collection de DEENHA. Soyez élégante et pudique avec une touche de grâce qui rayonne de beauté.',
-        cta: 'VOIR LA COLLECTION RAMADAN',
+        title: 'Selected',
+        subtitle: 'Item',
+        desc: "get 50 %* disc\njust contact our Customer Via Button WA",
+        cta: 'CONTACTER VIA WHATSAPP',
         whatsapp: 'CONTACTER VIA WHATSAPP',
         close: 'TAPPER POUR FERMER'
       },
@@ -224,10 +224,10 @@ const resources = {
         related: '相关产品'
       },
       ramadan: {
-        title: '你好',
-        subtitle: '斋月',
-        desc: '欢迎来到 DEENHA 的最新系列，迎接神圣的月份。优雅端庄，散发出美丽的光芒。',
-        cta: '查看斋月系列',
+        title: 'Selected',
+        subtitle: 'Item',
+        desc: "get 50 %* disc\njust contact our Customer Via Button WA",
+        cta: '通过 WhatsApp 联系',
         whatsapp: '通过 WHATSAPP 聊天',
         close: '点击关闭'
       },

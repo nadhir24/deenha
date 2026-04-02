@@ -124,11 +124,11 @@
         "read_full": "Lire l'histoire complète"
     },
     "ramadan_popup": {
-        "label": "Ramadan 1447 H",
-        "title": "Bienvenue",
-        "title_highlight": "Ramadhan",
-        "description": "Accueillez le mois sacré avec la dernière collection de DEENHA. Soyez gracieuse et modeste avec une touche d'élégance.",
-        "cta": "Voir la Collection Ramadan",
+        "label": "PROMO",
+        "title": "Selected",
+        "title_highlight": "Item",
+        "description": "get 50 %* disc\njust contact our Customer Via Button WA",
+        "cta": "Contactez-nous via WhatsApp",
         "close": "Appuyez pour fermer"
     },
     "footer": {

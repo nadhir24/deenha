@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
 const RamadanPopup = () => {
@@ -23,10 +22,6 @@ const RamadanPopup = () => {
         sessionStorage.setItem('hasSeenRamadan', 'true');
     };
 
-    const handleShopNow = (e: React.MouseEvent) => {
-        e.stopPropagation();
-        handleClose();
-    };
 
     // Floating star animation variants
     const starVariants = {
@@ -166,7 +161,7 @@ const RamadanPopup = () => {
                                 initial={{ opacity: 0, y: 10 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: 0.6 }}
-                                className="text-[11px] sm:text-xs md:text-sm leading-relaxed text-white/60 mb-5 md:mb-7 max-w-[280px] font-light"
+                                className="text-[11px] sm:text-xs md:text-sm leading-relaxed text-white/60 mb-5 md:mb-7 max-w-[280px] font-light whitespace-pre-line"
                             >
                                 {t('ramadan_popup.description')}
                             </motion.p>
@@ -177,13 +172,15 @@ const RamadanPopup = () => {
                                 transition={{ delay: 0.7 }}
                                 className="w-full max-w-[260px]"
                             >
-                                <Link
-                                    to="/shop"
-                                    onClick={handleShopNow}
+                                <a
+                                    href="https://wa.me/6281919234222?text=Halo%20Deenha!%20Saya%20tertarik%20dengan%20promo%20Selected%20Item%2050%25%20discount."
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    onClick={handleClose}
                                     className="block w-full bg-gradient-to-r from-[#D4AF37] to-[#B8962E] text-white py-3 md:py-3.5 text-[10px] md:text-[11px] font-bold uppercase tracking-[0.3em] hover:from-[#E5C048] hover:to-[#D4AF37] transition-all duration-500 shadow-lg shadow-[#D4AF37]/20 text-center"
                                 >
                                     {t('ramadan_popup.cta')}
-                                </Link>
+                                </a>
                             </motion.div>
 
                             <button
