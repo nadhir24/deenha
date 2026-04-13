@@ -20,8 +20,8 @@ const LoginPage = () => {
         try {
             await login(email, password);
             navigate('/admin');
-        } catch (err: any) {
-            setError(err.message || 'Failed to login');
+        } catch (_err) {
+            setError('Invalid email or password');
         } finally {
             setLoading(false);
         }

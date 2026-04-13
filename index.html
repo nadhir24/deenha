@@ -99,15 +99,18 @@
         }, 500);
       }
     }
-    // Add Google Translate Script Lazily
+    // Add Google Translate Script Lazily - AFTER fonts are loaded
     window.addEventListener('load', function () {
-      setTimeout(function () {
-        var gtScript = document.createElement('script');
-        gtScript.type = 'text/javascript';
-        gtScript.src = '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
-        gtScript.defer = true;
-        document.body.appendChild(gtScript);
-      }, 1500); // Wait 1.5s after load to inject, freeing up main thread
+      // Wait for fonts to load before injecting Google Translate
+      document.fonts.ready.then(function() {
+        setTimeout(function () {
+          var gtScript = document.createElement('script');
+          gtScript.type = 'text/javascript';
+          gtScript.src = '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+          gtScript.defer = true;
+          document.body.appendChild(gtScript);
+        }, 500); // Reduced from 1500ms since fonts are ready
+      });
     });
   </script>
   <script type="module" src="/src/main.tsx"></script>

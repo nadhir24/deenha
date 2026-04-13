@@ -212,6 +212,7 @@ export const products: Product[] = [
         color: "Sage Teal",
         colorHex: "#7A9E8E",
         badge: "new",
+        description: "Inspired by the timeless beauty of Egyptian architecture. The Cairo Series features intricate geometric patterns on premium voal, available in four earthy tones that pair effortlessly with any outfit.",
         variants: [
             { name: "Cairo Series", color: "Sage Teal", colorHex: "#7A9E8E", image: "/images/CAIRO SERIES-20260211T044831Z-1-001/CAIRO SERIES/DSCF2139 Copy.jpg", stock: 50 },
             { name: "Cairo Series", color: "Rose Brown", colorHex: "#A67B6B", image: "/images/CAIRO SERIES-20260211T044831Z-1-001/CAIRO SERIES/1614405676264.jpg", stock: 50 },
@@ -229,6 +230,7 @@ export const products: Product[] = [
         color: "Lavender",
         colorHex: "#8B7D9A",
         badge: "new",
+        description: "A tribute to Istanbul's iconic landmark. The Hagia Sophia Series blends mosaic-inspired motifs with a modern silhouette, crafted from silky-smooth fabric that drapes beautifully and feels luxurious against the skin.",
         variants: [
             { name: "Hagia Sophia Series", color: "Lavender", colorHex: "#8B7D9A", image: "/images/HAGIA SOPHIA SERIES (285K)-20260211T044838Z-1-001/HAGIA SOPHIA SERIES (285K)/DSCF2052 Copy.jpg", stock: 50 },
             { name: "Hagia Sophia Series", color: "Brown Olive", colorHex: "#8B6B3A", image: "/images/HAGIA SOPHIA SERIES (285K)-20260211T044838Z-1-001/HAGIA SOPHIA SERIES (285K)/1614405675905.jpg", stock: 50 },
@@ -246,6 +248,7 @@ export const products: Product[] = [
         color: "Beige Gold",
         colorHex: "#C4A46C",
         badge: "new",
+        description: "Embrace the art of imperfection. The Kintsugi Japan Series draws from the Japanese philosophy of finding beauty in broken things, featuring delicate gold-veined patterns on premium voal fabric.",
         variants: [
             { name: "Kintsugi Japan Series", color: "Beige Gold", colorHex: "#C4A46C", image: "/images/KINTSUGI JAPAN SERIES-20260211T044833Z-1-001/KINTSUGI JAPAN SERIES/FEED 1.jpg", stock: 50 },
             { name: "Kintsugi Japan Series", color: "Sage Green", colorHex: "#9CAF88", image: "/images/KINTSUGI JAPAN SERIES-20260211T044833Z-1-001/KINTSUGI JAPAN SERIES/IMG_4326.jpg", stock: 50 },
@@ -262,6 +265,7 @@ export const products: Product[] = [
         color: "Mauve",
         colorHex: "#9B8B7A",
         badge: "new",
+        description: "Part of our Warisan Nusantara collection. The Borneo Scarves celebrate the rich textile heritage of Kalimantan with nature-inspired motifs, printed on soft voal that flows gracefully with every movement.",
         variants: [
             { name: "Borneo Scarves", color: "Mauve", colorHex: "#9B8B7A", image: "/images/Warisan Nusantara-20260211T044846Z-1-001/Warisan Nusantara/Borneo Scarves Series/_DSC1648 Copy.jpg", stock: 50 },
             { name: "Borneo Scarves", color: "Teal", colorHex: "#5F7A7E", image: "/images/Warisan Nusantara-20260211T044846Z-1-001/Warisan Nusantara/Borneo Scarves Series/_DSC1681 Copy.jpg", stock: 50 },
@@ -278,6 +282,7 @@ export const products: Product[] = [
         color: "Dusty Rose",
         colorHex: "#8B7090",
         badge: "new",
+        description: "Rooted in Javanese tradition. The Kawung Scarves feature the iconic kawung batik pattern — a symbol of purity and wisdom — reimagined in contemporary colorways on lightweight, breathable voal.",
         variants: [
             { name: "Kawung Scarves", color: "Dusty Rose", colorHex: "#8B7090", image: "/images/Warisan Nusantara-20260211T044846Z-1-001/Warisan Nusantara/Kawung Scarves Series/IMG_6310.jpg", stock: 50 },
             { name: "Kawung Scarves", color: "Sage Grey", colorHex: "#8A9488", image: "/images/Warisan Nusantara-20260211T044846Z-1-001/Warisan Nusantara/Kawung Scarves Series/IMG_6315.jpg", stock: 50 },
@@ -295,6 +300,7 @@ export const products: Product[] = [
         color: "Camel",
         colorHex: "#A07050",
         badge: "new",
+        description: "The Parang motif represents strength and continuity. Our Parang Scarves bring this powerful Javanese batik pattern to life with rich, warm tones on premium voal — perfect for making a bold yet modest statement.",
         variants: [
             { name: "Parang Scarves", color: "Camel", colorHex: "#A07050", image: "/images/Warisan Nusantara-20260211T044846Z-1-001/Warisan Nusantara/Parang Scarves Series/_DSC9499 copy IG.jpg", stock: 50 },
             { name: "Parang Scarves", color: "Emerald Teal", colorHex: "#3A6B5A", image: "/images/Warisan Nusantara-20260211T044846Z-1-001/Warisan Nusantara/Parang Scarves Series/IMG_0577.jpeg", stock: 50 },
@@ -312,6 +318,7 @@ export const products: Product[] = [
         color: "Navy Blue",
         colorHex: "#5A6B7B",
         badge: "new",
+        description: "Woven with heritage. The Songket Scarves draw from the intricate gold-threaded songket weaving tradition of Sumatra and Malaysia, translated into elegant printed patterns on silky voal fabric.",
         variants: [
             { name: "Songket Scarves", color: "Navy Blue", colorHex: "#5A6B7B", image: "/images/Warisan Nusantara-20260211T044846Z-1-001/Warisan Nusantara/Songket Scarves Series/IMG_6351.jpg", stock: 50 },
             { name: "Songket Scarves", color: "Rose Pink", colorHex: "#C06080", image: "/images/Warisan Nusantara-20260211T044846Z-1-001/Warisan Nusantara/Songket Scarves Series/IMG_6370.jpg", stock: 50 },
@@ -329,6 +336,7 @@ export const products: Product[] = [
         color: "Terracotta",
         colorHex: "#C25B4E",
         badge: "new",
+        description: "As far as the eye can see. The Lombok Scarves capture the island's breathtaking landscapes — from terracotta sunsets to emerald coastlines — in vivid prints on premium voal that feels as light as a tropical breeze.",
         variants: [
             { name: "Lombok Scarves", color: "Terracotta", colorHex: "#C25B4E", image: "/images/Warisan Nusantara-20260211T044846Z-1-001/Warisan Nusantara/Lombok Scarves Series (Sejauh Mata Memandang)/DSCF2189 Copy.jpg", stock: 50 },
             { name: "Lombok Scarves", color: "Emerald Green", colorHex: "#2E6B4A", image: "/images/Warisan Nusantara-20260211T044846Z-1-001/Warisan Nusantara/Lombok Scarves Series (Sejauh Mata Memandang)/DSCF2493 Copy.jpg", stock: 50 },
@@ -347,6 +355,7 @@ export const products: Product[] = [
         color: "Multi",
         colorHex: "#D4A5A5",
         badge: "new",
+        description: "Blooming with elegance. The Alyssum Flowers Series features delicate floral prints inspired by the sweet alyssum flower, printed on soft voal in five romantic colorways. Perfect for adding a feminine touch to any look.",
         variants: [
             { name: "Alyssum 1", color: "Rose Pink", colorHex: "#D8BFD8", image: "/images/Alyssum Flowers Series/DSCF9444 Copy.jpg", stock: 30 },
             { name: "Alyssum 2", color: "Silver Grey", colorHex: "#C0C0C0", image: "/images/Alyssum Flowers Series/DSCF9447 Copy.jpg", stock: 30 },
@@ -365,6 +374,7 @@ export const products: Product[] = [
         color: "Deep Teal",
         colorHex: "#2C3E50",
         badge: "new",
+        description: "Calligraphy meets couture. The Arabic Series showcases flowing Arabic-inspired patterns in rich, jewel-toned colorways. Crafted from premium voal with a silky finish that elevates your everyday hijab style.",
         variants: [
             { name: "Arabic 1", color: "Purple Magenta", colorHex: "#7D3C5C", image: "/images/Arabic Series/DSCF5668 Copy.jpg", stock: 40 },
             { name: "Arabic 2", color: "Grey Mauve", colorHex: "#8E7C84", image: "/images/Arabic Series/DSCF5826 Copy.jpg", stock: 40 },
@@ -383,6 +393,7 @@ export const products: Product[] = [
         color: "Monochrome",
         colorHex: "#1A1A1A",
         badge: "new",
+        description: "A symbol of solidarity and style. Our Keffiyeh Series reinterprets the traditional Palestinian keffiyeh pattern into a modern hijab scarf, available in five versatile colors. Lightweight and easy to style for daily wear.",
         variants: [
             { name: "Keffiyeh 1", color: "Grey", colorHex: "#A9A9A9", image: "/images/Keffiyeh/HJB211224A-1-mockupD.jpg", stock: 100 },
             { name: "Keffiyeh 2", color: "Cream", colorHex: "#F5F5DC", image: "/images/Keffiyeh/HJB211224A-2-mockupD.jpg", stock: 100 },
@@ -401,6 +412,7 @@ export const products: Product[] = [
         color: "Burgundy",
         colorHex: "#4A2028",
         badge: "new",
+        description: "Our signature, elevated. The Monogram Gradasi features the DEENHA monogram in a stunning gradient effect, creating a subtle yet luxurious look. A statement piece that tells the world you value quality and craftsmanship.",
         variants: [
             { name: "Monogram 1", color: "Burgundy", colorHex: "#4A2028", image: "/images/Monogram Gradasi/251224AA-1-mockupD.jpg", stock: 50 },
             { name: "Monogram 2", color: "Cream", colorHex: "#B5A48A", image: "/images/Monogram Gradasi/251224AA-2-mockupD.jpg", stock: 50 },

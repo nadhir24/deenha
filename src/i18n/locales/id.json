@@ -96,6 +96,13 @@
             "shipping": "Pengiriman & Pengembalian"
         },
         "default_description": "Seri premium ini dirancang untuk wanita modern. Memadukan kesopanan tradisional dengan gaya global.",
+        "default_details": [
+            "Bahan premium berkualitas — lembut, breathable, dan tahan lama",
+            "Desain cetak eksklusif DEENHA",
+            "Pinggiran dijahit tangan untuk tampilan yang rapi",
+            "Disarankan cuci lembut, jangan gunakan pemutih",
+            "Setrika suhu rendah jika diperlukan"
+        ],
         "default_shipping": "Deenha menyediakan pengiriman ke seluruh dunia. Pengembalian diterima dalam waktu 7 hari."
     },
     "brand_story": {

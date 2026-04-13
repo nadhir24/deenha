@@ -48,7 +48,6 @@ const JournalPage = () => {
                         {t('journal.description')}
                     </p>
                 </header>
-                Broadway
                 {loading ? (
                     <div className="flex justify-center items-center py-20">
                         <div className="animate-pulse text-accent-gold text-xs uppercase tracking-[0.3em]">Loading Stories...</div>
@@ -90,7 +89,7 @@ const JournalPage = () => {
                                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                                             </svg>
                                         </div>
-                                        Broadway                                   </div>
+                                    </div>
                                 </Link>
                             </motion.article>
                         ))}

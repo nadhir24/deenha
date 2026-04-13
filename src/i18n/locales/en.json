@@ -96,6 +96,13 @@
             "shipping": "Shipping & Returns"
         },
         "default_description": "This premium series is designed with the modern woman in mind. Blending traditional modesty with global style.",
+        "default_details": [
+            "Premium quality fabric — soft, breathable, and durable",
+            "Exclusive DEENHA print design",
+            "Hand-finished edges for a refined look",
+            "Gentle wash recommended, do not bleach",
+            "Iron on low heat if needed"
+        ],
         "default_shipping": "Deenha provides worldwide shipping. Returns are accepted within 7 days of receipt."
     },
     "brand_story": {

@@ -1,0 +1,148 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "provider": {
+    "enowxlabs": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "enowX Labs",
+      "options": {
+        "baseURL": "http://localhost:1430/v1",
+        "apiKey": "enx-f58cf0a0b444c1fa501cf79e7c35c73182ea0cb607d949b676a749c23bb3d40d"
+      },
+      "models": {
+        "claude-sonnet-4.5": {
+          "name": "Claude Sonnet 4.5 (enowX Labs)",
+          "limit": {
+            "context": 200000,
+            "output": 64000
+          },
+          "modalities": {
+            "input": ["text", "image", "pdf"],
+            "output": ["text"]
+          }
+        },
+        "claude-opus-4-6": {
+          "name": "Claude Opus 4.6 (enowX Labs)",
+          "limit": {
+            "context": 1000000,
+            "output": 243303
+          },
+          "modalities": {
+            "input": ["text", "image", "pdf"],
+            "output": ["text"]
+          }
+        },
+        "claude-haiku-4.5": {
+          "name": "Claude Haiku 4.5 (enowX Labs)",
+          "limit": {
+            "context": 200000,
+            "output": 64000
+          },
+          "modalities": {
+            "input": ["text", "image", "pdf"],
+            "output": ["text"]
+          }
+        },
+        "enowx-default": {
+          "name": "enowX Default (enowX Labs)",
+          "limit": {
+            "context": 200000,
+            "output": 64000
+          },
+          "modalities": {
+            "input": ["text", "image"],
+            "output": ["text"]
+          }
+        },
+        "glm-5.0": {
+          "name": "GLM 5.0 (enowX Labs)",
+          "limit": {
+            "context": 200000,
+            "output": 128000
+          },
+          "modalities": {
+            "input": ["text", "image"],
+            "output": ["text"]
+          }
+        },
+        "gemini-3.0-pro": {
+          "name": "Gemini 3.0 Pro (enowX Labs)",
+          "limit": {
+            "context": 1000000,
+            "output": 65536
+          },
+          "modalities": {
+            "input": ["text", "image", "video", "pdf"],
+            "output": ["text"]
+          }
+        },
+        "gemini-3.1-pro": {
+          "name": "Gemini 3.1 Pro (enowX Labs)",
+          "limit": {
+            "context": 1000000,
+            "output": 65536
+          },
+          "modalities": {
+            "input": ["text", "image", "video", "pdf"],
+            "output": ["text"]
+          }
+        },
+        "gpt-5": {
+          "name": "GPT 5 (enowX Labs)",
+          "limit": {
+            "context": 400000,
+            "output": 128000
+          },
+          "modalities": {
+            "input": ["text", "image"],
+            "output": ["text"]
+          }
+        },
+        "gpt-5.3-codex": {
+          "name": "GPT 5.3 Codex (enowX Labs)",
+          "limit": {
+            "context": 400000,
+            "output": 128000
+          },
+          "modalities": {
+            "input": ["text", "image"],
+            "output": ["text"]
+          }
+        },
+        "gpt-5.4": {
+          "name": "GPT 5.4 (enowX Labs)",
+          "limit": {
+            "context": 400000,
+            "output": 128000
+          },
+          "modalities": {
+            "input": ["text", "image"],
+            "output": ["text"]
+          }
+        },
+        "gpt-5.2": {
+          "name": "GPT 5.2 (enowX Labs)",
+          "limit": {
+            "context": 400000,
+            "output": 128000
+          },
+          "modalities": {
+            "input": ["text", "image"],
+            "output": ["text"]
+          }
+        },
+        "kimi-k2.5": {
+          "name": "Kimi K2.5 (enowX Labs)",
+          "limit": {
+            "context": 250000,
+            "output": 65536
+          },
+          "modalities": {
+            "input": ["text", "image"],
+            "output": ["text"]
+          }
+        }
+      }
+    }
+  },
+  "plugin": ["oh-my-openagent@latest"]
+}

@@ -1,5 +1,6 @@
 import { useParams, Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import DOMPurify from 'dompurify';
 import SEOHead from '../components/SEOHead';
 import { useTranslation } from 'react-i18next';
 import { fetchJournalBySlug, JournalArticle } from '../hooks/useJournals';
@@ -89,7 +90,7 @@ const JournalDetailsPage = () => {
 
                     <div
                         className="prose prose-lg max-w-none journal-content text-secondary dark:text-white/60 italic leading-relaxed space-y-6"
-                        dangerouslySetInnerHTML={{ __html: article.content || '' }}
+                        dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(article.content || '') }}
                     />
 
                     <div className="mt-20 pt-12 border-t border-black/5 dark:border-white/5 flex justify-between items-center">

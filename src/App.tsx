@@ -14,6 +14,7 @@ import { NotificationProvider } from './context/NotificationContext';
 import ProtectedRoute from './components/layout/ProtectedRoute';
 import { ThemeProvider } from './context/ThemeContext';
 import ScrollToTop from './components/ScrollToTop';
+import ErrorBoundary from './components/common/ErrorBoundary';
 
 // Page Components - Lazy Loaded
 const AboutPage = lazy(() => import('./pages/AboutPage'));
@@ -99,8 +100,9 @@ function App() {
                                     <MobileMenu isOpen={mobileMenuOpen} onClose={() => setMobileMenuOpen(false)} />
 
                                     <ScrollToTop />
-                                    <Suspense fallback={<div className="min-h-screen flex items-center justify-center bg-white dark:bg-primary"><div className="w-12 h-12 border-2 border-accent-gold border-t-transparent rounded-full animate-spin" /></div>}>
-                                        <Routes>
+                                    <ErrorBoundary>
+                                        <Suspense fallback={<div className="min-h-screen flex items-center justify-center bg-white dark:bg-primary"><div className="w-12 h-12 border-2 border-accent-gold border-t-transparent rounded-full animate-spin" /></div>}>
+                                            <Routes>
                                             <Route path="/" element={
                                                 <>
                                                     <SEOHead
@@ -132,8 +134,9 @@ function App() {
                                                 </ProtectedRoute>
                                             } />
                                             <Route path="*" element={<NotFoundPage />} />
-                                        </Routes>
-                                    </Suspense>
+                                            </Routes>
+                                        </Suspense>
+                                    </ErrorBoundary>
 
                                     <Footer />
                                     <WhatsAppButton />

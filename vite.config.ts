@@ -4,7 +4,7 @@ import react from '@vitejs/plugin-react'
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  //@ts-ignore
+  // @ts-expect-error -- vitest injects test config into Vite's config
   test: {
     globals: true,
     environment: 'jsdom',
@@ -17,8 +17,7 @@ export default defineConfig({
           vendor: ['react', 'react-dom'],
           framer: ['framer-motion'],
           supabase: ['@supabase/supabase-js'],
-          ui: ['react-router-dom', 'react-i18next', 'i18next'],
-          store: ['@reduxjs/toolkit', 'react-redux']
+          ui: ['react-router-dom', 'react-i18next', 'i18next']
         }
       }
     }

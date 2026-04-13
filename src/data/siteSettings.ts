@@ -1,4 +1,5 @@
 export const siteSettings: Record<string, any> = {
+    whatsapp_phone: '6281919234222',
     announcements: [
         "🌙 Pre-Raya Special: Luxury Hampers & Signature Scarves Highlights",
         "🌍 International Shipping Available",

@@ -3,10 +3,19 @@ import { supabase } from '../../lib/supabase';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useNotification } from '../../context/NotificationContext';
 
+interface OrderItem {
+    id: number;
+    name: string;
+    size: string;
+    color: string;
+    quantity: number;
+    price: number;
+}
+
 interface Order {
     id: number;
     order_number: string;
-    items: any[];
+    items: OrderItem[];
     total_price: number;
     status: 'pending' | 'paid' | 'shipped' | 'cancelled';
     created_at: string;

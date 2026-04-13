@@ -95,8 +95,15 @@
             "details": "详情与保养",
             "shipping": "配送与退换"
         },
-        "default_description": "This premium series is designed with the modern woman in mind. Blending traditional modesty with global style, it features exceptional craftsmanship and the highest quality materials selected for elegance and durability.",
-        "default_shipping": "Deenha provides worldwide shipping. Orders are usually processed within 1-2 business days. Complimentary shipping is available for certain regions over specific thresholds. Returns are accepted within 7 days of receipt in original condition."
+        "default_description": "这个高端系列专为现代女性设计。将传统端庄与全球时尚融为一体，展现卓越工艺和最高品质的面料。",
+        "default_details": [
+            "优质面料 — 柔软、透气、耐用",
+            "DEENHA 独家印花设计",
+            "手工精修边缘，打造精致外观",
+            "建议轻柔洗涤，请勿漂白",
+            "如需熨烫请使用低温"
+        ],
+        "default_shipping": "Deenha 提供全球配送。订单通常在 1-2 个工作日内处理。部分地区满额可享免费配送。收货后 7 天内可退货。"
     },
     "brand_story": {
         "identity_label": "我们的身份",

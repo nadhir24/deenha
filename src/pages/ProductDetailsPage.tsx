@@ -78,7 +78,7 @@ const ProductDetailsPage = () => {
 
     return (
         <main className="pt-44 pb-24 bg-white dark:bg-primary transition-colors duration-300">
-            Broadway            {product && (
+            {product && (
                 <SEOHead
                     title={product.name}
                     description={`Beli ${product.name} premium dari DEENHA. Koleksi ${product.category} elegant dan syar'i. Material berkualitas, desain eksklusif.`}
@@ -181,7 +181,7 @@ const ProductDetailsPage = () => {
                                     </span>
                                 )}
                             </div>
-                            Broadway                        </div>
+                        </div>
 
                         <div className="space-y-10 mb-12">
                             <div>

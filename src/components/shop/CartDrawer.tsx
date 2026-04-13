@@ -5,12 +5,12 @@ import { supabase } from '../../lib/supabase';
 import { useTranslation } from 'react-i18next';
 import { formatPrice } from '../../lib/currency';
 
+const WHATSAPP_PHONE = import.meta.env.VITE_WHATSAPP_PHONE || '6281919234222';
+
 const CartDrawer = () => {
     const { t } = useTranslation();
     const { cartItems, removeFromCart, cartTotal, isCartOpen, setIsCartOpen, clearCart } = useCart();
     const [isCheckingOut, setIsCheckingOut] = useState(false);
-
-    const phoneNumber = '6281919234222';
 
     const generateOrderNumber = () => {
         const date = new Date().toISOString().slice(0, 10).replace(/-/g, '');
@@ -54,7 +54,7 @@ const CartDrawer = () => {
             message += `\n*${t('whatsapp.total')}: ${formatPrice(cartTotal)}*\n\n`;
             message += t('whatsapp.instructions');
 
-            const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+            const whatsappUrl = `https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(message)}`;
 
             // 3. Clear cart and redirect
             clearCart();

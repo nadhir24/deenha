@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, ReactNode } from 'react';
+import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 import { Product } from '../data/products';
 
 export interface CartItem extends Product {
@@ -18,11 +18,30 @@ interface CartContextType {
     clearCart: () => void;
 }
 
+const CART_STORAGE_KEY = 'deenha-cart';
+
+const loadCartFromStorage = (): CartItem[] => {
+    try {
+        const saved = localStorage.getItem(CART_STORAGE_KEY);
+        return saved ? JSON.parse(saved) : [];
+    } catch {
+        return [];
+    }
+};
+
 const CartContext = createContext<CartContextType | undefined>(undefined);
 
 export const CartProvider = ({ children }: { children: ReactNode }) => {
-    const [cartItems, setCartItems] = useState<CartItem[]>([]);
+    const [cartItems, setCartItems] = useState<CartItem[]>(loadCartFromStorage);
     const [isCartOpen, setIsCartOpen] = useState(false);
+
+    useEffect(() => {
+        try {
+            localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(cartItems));
+        } catch {
+            // localStorage unavailable — cart will be in-memory only
+        }
+    }, [cartItems]);
 
     const addToCart = (product: Product, size: string, color: string, quantity: number = 1) => {
         setCartItems(prev => {

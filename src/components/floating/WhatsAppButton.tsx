@@ -5,12 +5,12 @@ import { useTranslation } from 'react-i18next';
 import { useCart } from '../../context/CartContext';
 import { formatPrice } from '../../lib/currency';
 
+const WHATSAPP_PHONE = import.meta.env.VITE_WHATSAPP_PHONE || '6281919234222';
+
 const WhatsAppButton = () => {
     const { t } = useTranslation();
     const [showTooltip, setShowTooltip] = useState(false);
     const { cartItems, cartTotal } = useCart();
-
-    const phoneNumber = '6281919234222';
 
     const generateMessage = () => {
         if (cartItems.length === 0) {
@@ -26,7 +26,7 @@ const WhatsAppButton = () => {
         return encodeURIComponent(message);
     };
 
-    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${generateMessage()}`;
+    const whatsappUrl = `https://wa.me/${WHATSAPP_PHONE}?text=${generateMessage()}`;
 
     return (
         <div className="fixed bottom-6 right-6 z-40">

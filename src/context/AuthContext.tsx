@@ -47,15 +47,14 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
             if (!isMounted.current) return;
 
             if ('timeout' in result) {
-                console.warn('Profile fetch timed out after 5s');
-                const role = email.includes('admin') ? 'admin' : 'employee';
-                setUser({ id, email, role });
+                console.warn('Profile fetch timed out after 5s — defaulting to employee role');
+                setUser({ id, email, role: 'employee' });
             } else {
                 const { data, error } = result;
 
                 if (error) {
-                    const role = email.includes('admin') ? 'admin' : 'employee';
-                    setUser({ id, email, role });
+                    console.warn('Profile fetch error — defaulting to employee role:', error.message);
+                    setUser({ id, email, role: 'employee' });
                 } else {
                     setUser({ id, email, role: data.role });
                 }
@@ -63,8 +62,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
         } catch (err) {
             console.error('Exception fetching profile:', err);
             if (isMounted.current) {
-                const role = email.includes('admin') ? 'admin' : 'employee';
-                setUser({ id, email, role });
+                setUser({ id, email, role: 'employee' });
             }
         } finally {
             if (isMounted.current) {

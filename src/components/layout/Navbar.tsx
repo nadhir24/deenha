@@ -75,7 +75,7 @@ const Navbar = ({ onMenuClick }: NavbarProps) => {
                 }`}
         >
             <div className="max-w-[1440px] mx-auto px-6 lg:px-12">
-                <div className="grid grid-cols-3 items-center">
+                <div className="grid grid-cols-[1fr_auto_1fr] items-center">
 
                     {/* Left: Menu Links (Desktop) */}
                     <div className="hidden lg:flex items-center space-x-10">
@@ -118,14 +118,14 @@ const Navbar = ({ onMenuClick }: NavbarProps) => {
                     </div>
 
                     {/* Right: Actions & Links */}
-                    <div className="flex items-center justify-end space-x-4 md:space-x-8">
+                    <div className="flex items-center justify-end space-x-4 md:space-x-6">
                         {/* More Links on Desktop */}
-                        <div className="hidden lg:flex items-center space-x-10 mr-4">
+                        <div className="hidden lg:flex items-center space-x-8 mr-2">
                             {navLinks.slice(2).map((link) => (
                                 <Link
                                     key={link.name}
                                     to={link.href}
-                                    className={`text-[11px] font-bold uppercase tracking-[0.3em] transition-colors duration-300 ${getTextColor()}`}
+                                    className={`text-[11px] font-bold uppercase tracking-[0.3em] transition-colors duration-300 whitespace-nowrap ${getTextColor()}`}
                                 >
                                     {link.name}
                                 </Link>

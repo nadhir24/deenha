@@ -96,6 +96,13 @@
             "shipping": "Livraison & Retours"
         },
         "default_description": "Cette série premium est conçue pour la femme moderne. Alliant modestie traditionnelle et style global, elle présente un savoir-faire exceptionnel et des matériaux de la plus haute qualité.",
+        "default_details": [
+            "Tissu de qualité premium — doux, respirant et durable",
+            "Design imprimé exclusif DEENHA",
+            "Bords finis à la main pour un look raffiné",
+            "Lavage délicat recommandé, ne pas javelliser",
+            "Repasser à basse température si nécessaire"
+        ],
         "default_shipping": "Deenha propose une livraison dans le monde entier. Les retours sont acceptés sous 7 jours."
     },
     "brand_story": {

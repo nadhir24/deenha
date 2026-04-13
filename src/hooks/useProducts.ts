@@ -9,11 +9,9 @@ export const useProducts = () => {
     const fetchProducts = async () => {
         try {
             setLoading(true);
-            // Simulate a small delay for consistency
-            await new Promise(resolve => setTimeout(resolve, 100));
             setProducts(staticProducts);
-        } catch (err: any) {
-            setError(err.message);
+        } catch (err) {
+            setError(err instanceof Error ? err.message : 'Failed to load products');
         } finally {
             setLoading(false);
         }
