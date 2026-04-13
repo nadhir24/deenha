@@ -357,7 +357,7 @@ export const products: Product[] = [
         badge: "new",
         description: "Blooming with elegance. The Alyssum Flowers Series features delicate floral prints inspired by the sweet alyssum flower, printed on soft voal in five romantic colorways. Perfect for adding a feminine touch to any look.",
         variants: [
-            { name: "Alyssum 1", color: "Rose Pink", colorHex: "#D8BFD8", image: "/images/Alyssum Flowers Series/DSCF9444 Copy.jpg", stock: 30 },
+            { name: "Alyssum 1", color: "Rose Pink", colorHex: "#D8BFD8", image: "/images/Alyssum Flowers Series/DSCF9442 Copy.jpg", stock: 30 },
             { name: "Alyssum 2", color: "Silver Grey", colorHex: "#C0C0C0", image: "/images/Alyssum Flowers Series/DSCF9447 Copy.jpg", stock: 30 },
             { name: "Alyssum 3", color: "Dusty Blue", colorHex: "#708090", image: "/images/Alyssum Flowers Series/DSCF9451 Copy.jpg", stock: 30 },
             { name: "Alyssum 4", color: "Mauve", colorHex: "#9370DB", image: "/images/Alyssum Flowers Series/DSCF9462 Copy.jpg", stock: 30 },
