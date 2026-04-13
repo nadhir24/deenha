@@ -7,7 +7,7 @@ import { useProducts } from '../../hooks/useProducts';
 import { Product } from '../../data/products';
 import LanguageSelector from './LanguageSelector';
 import { useTranslation } from 'react-i18next';
-import { formatPrice } from '../../lib/currency';
+import { useFormatPrice } from '../../hooks/useFormatPrice';
 
 import { useTheme } from '../../context/ThemeContext';
 
@@ -17,6 +17,7 @@ interface NavbarProps {
 
 const Navbar = ({ onMenuClick }: NavbarProps) => {
     const { t } = useTranslation();
+    const formatPrice = useFormatPrice();
     const { theme, toggleTheme } = useTheme();
     const [scrolled, setScrolled] = useState(false);
     const [searchOpen, setSearchOpen] = useState(false);

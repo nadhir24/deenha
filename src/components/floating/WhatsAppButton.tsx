@@ -3,12 +3,13 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 
 import { useCart } from '../../context/CartContext';
-import { formatPrice } from '../../lib/currency';
+import { useFormatPrice } from '../../hooks/useFormatPrice';
 
 const WHATSAPP_PHONE = import.meta.env.VITE_WHATSAPP_PHONE || '6281919234222';
 
 const WhatsAppButton = () => {
     const { t } = useTranslation();
+    const formatPrice = useFormatPrice();
     const [showTooltip, setShowTooltip] = useState(false);
     const { cartItems, cartTotal } = useCart();
 

@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { colors } from '../../data/products';
-import { formatPrice } from '../../lib/currency';
 import { useTranslation } from 'react-i18next';
+import { useFormatPrice } from '../../hooks/useFormatPrice';
 
 interface FilterState {
     categories: string[];
@@ -18,6 +18,7 @@ interface FilterSidebarProps {
 
 const FilterSidebar = ({ filters, onFilterChange }: FilterSidebarProps) => {
     const { t } = useTranslation();
+    const formatPrice = useFormatPrice();
     const [openSections, setOpenSections] = useState<string[]>([
         t('shop.categories'),
         t('shop.sizes'),

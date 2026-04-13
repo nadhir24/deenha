@@ -3,12 +3,13 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useCart } from '../../context/CartContext';
 import { supabase } from '../../lib/supabase';
 import { useTranslation } from 'react-i18next';
-import { formatPrice } from '../../lib/currency';
+import { useFormatPrice } from '../../hooks/useFormatPrice';
 
 const WHATSAPP_PHONE = import.meta.env.VITE_WHATSAPP_PHONE || '6281919234222';
 
 const CartDrawer = () => {
     const { t } = useTranslation();
+    const formatPrice = useFormatPrice();
     const { cartItems, removeFromCart, cartTotal, isCartOpen, setIsCartOpen, clearCart } = useCart();
     const [isCheckingOut, setIsCheckingOut] = useState(false);
 

@@ -7,11 +7,12 @@ import { useWishlist } from '../context/WishlistContext';
 import ProductCard from '../components/shop/ProductCard';
 import SEOHead from '../components/SEOHead';
 import { useTranslation } from 'react-i18next';
-import { formatPrice } from '../lib/currency';
+import { useFormatPrice } from '../hooks/useFormatPrice';
 import { getOptimizedImage } from '../lib/images';
 
 const ProductDetailsPage = () => {
     const { t } = useTranslation();
+    const formatPrice = useFormatPrice();
     const { id } = useParams<{ id: string }>();
     const { products, loading } = useProducts();
     const { addToCart } = useCart();

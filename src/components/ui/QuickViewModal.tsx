@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { Product } from '../../data/products';
 import { useCart } from '../../context/CartContext';
 import { useTranslation } from 'react-i18next';
-import { formatPrice } from '../../lib/currency';
+import { useFormatPrice } from '../../hooks/useFormatPrice';
 import { getOptimizedImage } from '../../lib/images';
 
 interface QuickViewModalProps {
@@ -15,6 +15,7 @@ interface QuickViewModalProps {
 
 const QuickViewModal = ({ product, isOpen, onClose }: QuickViewModalProps) => {
     const { t } = useTranslation();
+    const formatPrice = useFormatPrice();
     const { addToCart } = useCart();
     const [selectedSize, setSelectedSize] = useState<string>('');
 

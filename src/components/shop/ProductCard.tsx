@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useWishlist } from '../../context/WishlistContext';
 import { Product } from '../../data/products';
 import { useTranslation } from 'react-i18next';
-import { formatPrice } from '../../lib/currency';
+import { useFormatPrice } from '../../hooks/useFormatPrice';
 import { getOptimizedImage } from '../../lib/images';
 
 interface ProductCardProps {
@@ -13,6 +13,7 @@ interface ProductCardProps {
 
 const ProductCard = ({ product, onQuickView }: ProductCardProps) => {
     const { t } = useTranslation();
+    const formatPrice = useFormatPrice();
     const { isInWishlist, toggleWishlist } = useWishlist();
     const isWishlisted = isInWishlist(product.id);
 

@@ -8,10 +8,12 @@ let EXCHANGE_RATES: Record<string, number> = {
     CNY: 0.00046,
 };
 
+let ratesFetched = false;
+
 // Function to fetch latest rates
 export const fetchLatestRates = async () => {
+    if (ratesFetched) return;
     try {
-        // Use exchangerate.host (free, no CORS issues) with fallback
         const response = await fetch('https://open.er-api.com/v6/latest/IDR');
         if (!response.ok) throw new Error('Network response was not ok');
         const data = await response.json();
@@ -23,9 +25,10 @@ export const fetchLatestRates = async () => {
                 EUR: data.rates.EUR || EXCHANGE_RATES.EUR,
                 CNY: data.rates.CNY || EXCHANGE_RATES.CNY,
             };
+            ratesFetched = true;
         }
     } catch {
-        // Silently fall back to hardcoded rates
+        // Silently fall back to hardcoded rates — retry on next call
     }
 };
 
@@ -36,22 +39,19 @@ const CURRENCY_MAP: Record<string, { code: string; symbol: string; locale: strin
     zh: { code: 'CNY', symbol: '¥', locale: 'zh-CN' },
 };
 
-export const formatPrice = (priceInIdr: number) => {
-    // Crucial: Get language from i18next instance to ensure reactivity
-    let lang = i18n.language || 'id';
+const getLang = (): string => {
+    const lang = i18n.language || 'id';
+    const shortLang = lang.split('-')[0].toLowerCase();
+    if (shortLang === 'dev' || !shortLang) return 'id';
+    return shortLang;
+};
 
-    // Normalize language (e.g., 'id-ID' -> 'id')
-    let shortLang = lang.split('-')[0].toLowerCase();
+export const formatPrice = (priceInIdr: number, langOverride?: string) => {
+    const resolvedLang = langOverride || getLang();
+    const config = CURRENCY_MAP[resolvedLang] || CURRENCY_MAP.id;
 
-    // Default to 'id' if 'dev' or empty
-    if (shortLang === 'dev' || !shortLang) shortLang = 'id';
-
-    const config = CURRENCY_MAP[shortLang] || CURRENCY_MAP.id;
-
-    // Convert price
     const convertedPrice = priceInIdr * EXCHANGE_RATES[config.code];
 
-    // Format using Intl.NumberFormat
     return new Intl.NumberFormat(config.locale, {
         style: 'currency',
         currency: config.code,
