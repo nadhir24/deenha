@@ -103,7 +103,34 @@
             "Gentle wash recommended, do not bleach",
             "Iron on low heat if needed"
         ],
-        "default_shipping": "Deenha provides worldwide shipping. Returns are accepted within 7 days of receipt."
+        "default_shipping": "Deenha provides worldwide shipping. Returns are accepted within 7 days of receipt.",
+        "product_descriptions": {
+            "1": "Elegant and versatile, the Eliza Premium Voal Scarf is a wardrobe essential. Crafted from high-quality voal, it offers a soft touch and easy styling for any occasion.",
+            "2": "Soft. Shiny. Sophisticated. Our Luna Silk Scarf Collection brings a touch of luxury to your everyday style. The smooth texture ensures a flawless drape.",
+            "3": "Slip on a polished look in seconds. The Amira Cotton Bergo is designed for women who want full coverage without the fuss of pinning.",
+            "4": "Graceful and timeless, the Zahra Elegant Dress features a flowing silhouette that flatters every figure. Perfect for weddings, Eid, or formal gatherings.",
+            "5": "Experience spiritual comfort with the Fatima Premium Pray Set. Crafted from soft, breathable material. Includes a matching bag for easy travel.",
+            "6": "Add a pop of pattern to your look with the Safa Printed Scarf. Featuring unique designs and lightweight fabric for expressing your personal style.",
+            "7": "Your go-to for daily comfort. The Mariam Daily Bergo offers a practical, pin-less solution for busy days. Lightweight and durable.",
+            "8": "Make a statement with the Aisha Maxi Dress. Its rich color and elegant cut create a stunning look for any special occasion.",
+            "9": "Compact and convenient. The Nadia Travel Pray Set is lightweight and folds easily, the perfect companion for your journeys.",
+            "10": "Lightweight, breathable, and elegant — our Khadijah Chiffon Scarf keeps you cool and covered all summer long.",
+            "11": "Stay active and modest with the Yasmin Sport Bergo. Designed with moisture-wicking fabric for workouts. Secure fit stays in place.",
+            "12": "The epitome of modest elegance. The Halima Abaya Dress offers a loose, flowing fit with maximum coverage without sacrificing style.",
+            "13": "Share the love with our Signature Gift Box. Curated with our finest products, beautifully packaged for every special moment.",
+            "15": "Inspired by Egyptian architecture. The Cairo Series features intricate geometric patterns on premium voal in four earthy tones.",
+            "16": "A tribute to Istanbul's iconic landmark. The Hagia Sophia Series blends mosaic-inspired motifs with silky-smooth fabric.",
+            "17": "Embrace the art of imperfection. The Kintsugi Japan Series features delicate gold-veined patterns on premium voal fabric.",
+            "18": "Part of our Warisan Nusantara collection. The Borneo Scarves celebrate Kalimantan's textile heritage with nature-inspired motifs.",
+            "19": "Rooted in Javanese tradition. The Kawung Scarves feature the iconic kawung batik pattern — a symbol of purity and wisdom.",
+            "20": "The Parang motif represents strength and continuity. Our Parang Scarves bring this powerful Javanese batik pattern to life.",
+            "21": "Woven with heritage. The Songket Scarves draw from the gold-threaded songket weaving tradition of Sumatra and Malaysia.",
+            "22": "The Lombok Scarves capture the island's breathtaking landscapes — from terracotta sunsets to emerald coastlines.",
+            "23": "Blooming with elegance. The Alyssum Flowers Series features delicate floral prints in five romantic colorways.",
+            "24": "Calligraphy meets couture. The Arabic Series showcases flowing Arabic-inspired patterns in rich, jewel-toned colorways.",
+            "25": "A symbol of solidarity and style. Our Keffiyeh Series reinterprets the traditional Palestinian keffiyeh pattern into a modern hijab scarf.",
+            "26": "Our signature, elevated. The Monogram Gradasi features the DEENHA monogram in a stunning gradient effect."
+        }
     },
     "brand_story": {
         "identity_label": "Our Identity",

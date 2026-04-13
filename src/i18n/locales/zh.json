@@ -103,7 +103,34 @@
             "建议轻柔洗涤，请勿漂白",
             "如需熨烫请使用低温"
         ],
-        "default_shipping": "Deenha 提供全球配送。订单通常在 1-2 个工作日内处理。部分地区满额可享免费配送。收货后 7 天内可退货。"
+        "default_shipping": "Deenha 提供全球配送。订单通常在 1-2 个工作日内处理。部分地区满额可享免费配送。收货后 7 天内可退货。",
+        "product_descriptions": {
+            "1": "优雅百搭，Eliza Premium Voal Scarf 是衣橱必备单品。采用优质棉纱制成，触感柔软，易于搭配各种场合。",
+            "2": "柔软。光泽。精致。Luna Silk Scarf Collection 为您的日常造型增添奢华气息。丝滑质地确保完美垂坠感。",
+            "3": "几秒钟内打造精致造型。Amira Cotton Bergo 专为追求全面遮盖又不想别针麻烦的女性设计。",
+            "4": "优雅永恒，Zahra Elegant Dress 采用飘逸廓形，衬托各种身材。适合婚礼、开斋节或正式聚会。",
+            "5": "体验精神层面的舒适。Fatima Premium Pray Set 采用柔软透气面料制成。附赠配套收纳袋，方便出行。",
+            "6": "用 Safa Printed Scarf 为您的造型增添图案亮点。独特设计和轻盈面料，展现您的个人风格。",
+            "7": "日常舒适的首选。Mariam Daily Bergo 为忙碌的日子提供实用的无针解决方案。轻盈耐用。",
+            "8": "用 Aisha Maxi Dress 彰显个性。浓郁的色调和优雅的剪裁为任何特殊场合打造惊艳造型。",
+            "9": "紧凑便捷。Nadia Travel Pray Set 轻便易折叠，是您旅途的完美伴侣。",
+            "10": "轻盈、透气、优雅 —— Khadijah Chiffon Scarf 让您整个夏天保持凉爽和得体。",
+            "11": "保持活力与端庄。Yasmin Sport Bergo 采用吸湿排汗面料设计，适合运动。稳固贴合，不易移位。",
+            "12": "端庄优雅的典范。Halima Abaya Dress 采用宽松飘逸的剪裁，提供最大遮盖度，同时不失时尚感。",
+            "13": "用我们的 Signature Gift Box 分享爱意。精选我们最优质的产品，精美包装，适合每个特别时刻。",
+            "15": "灵感源自埃及建筑。Cairo Series 在优质棉纱上呈现复杂的几何图案，有四种大地色调可选。",
+            "16": "向伊斯坦布尔标志性地标致敬。Hagia Sophia Series 将马赛克灵感图案与丝滑面料完美融合。",
+            "17": "拥抱不完美的艺术。Kintsugi Japan Series 在优质棉纱上呈现精致的金色脉络图案。",
+            "18": "我们 Warisan Nusantara 系列的一部分。Borneo Scarves 以自然灵感图案庆祝加里曼丹的纺织传统。",
+            "19": "植根于爪哇传统。Kawung Scarves 采用标志性的 kawung 蜡染图案 —— 纯洁与智慧的象征。",
+            "20": "Parang 图案代表力量与延续。我们的 Parang Scarves 将这一强大的爪哇蜡染图案栩栩如生地呈现。",
+            "21": "编织传承。Songket Scarves 汲取苏门答腊和马来西亚金线 songket 编织传统的精髓。",
+            "22": "Lombok Scarves 捕捉岛屿的壮丽景观 —— 从赤陶色日落到翡翠海岸线。",
+            "23": "优雅绽放。Alyssum Flowers Series 呈现精致的花卉印花，有五种浪漫色调可选。",
+            "24": "书法遇见高级定制。Arabic Series 展示流畅的阿拉伯风格图案，采用丰富的宝石色调。",
+            "25": "团结与风格的象征。我们的 Keffiyeh Series 将传统巴勒斯坦 keffiyeh 图案重新诠释为现代头巾。",
+            "26": "我们的标志，升华呈现。Monogram Gradasi 以惊艳的渐变效果展示 DEENHA 字母图案。"
+        }
     },
     "brand_story": {
         "identity_label": "我们的身份",

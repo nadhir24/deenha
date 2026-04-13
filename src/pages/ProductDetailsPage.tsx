@@ -314,7 +314,7 @@ const ProductDetailsPage = () => {
                                         transition={{ duration: 0.3 }}
                                     >
                                         {activeTab === 'description' && (
-                                            <p>{product.description || t('product.default_description')}</p>
+                                            <p>{t(`product.product_descriptions.${product.id}`, product.description || t('product.default_description'))}</p>
                                         )}
                                         {activeTab === 'details' && (
                                             <ul className="list-disc pl-4 space-y-2">

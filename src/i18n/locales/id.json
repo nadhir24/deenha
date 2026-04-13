@@ -103,7 +103,34 @@
             "Disarankan cuci lembut, jangan gunakan pemutih",
             "Setrika suhu rendah jika diperlukan"
         ],
-        "default_shipping": "Deenha menyediakan pengiriman ke seluruh dunia. Pengembalian diterima dalam waktu 7 hari."
+        "default_shipping": "Deenha menyediakan pengiriman ke seluruh dunia. Pengembalian diterima dalam waktu 7 hari.",
+        "product_descriptions": {
+            "1": "Elegan dan serbaguna, Eliza Premium Voal Scarf adalah kebutuhan lemari pakaian Anda. Dibuat dari voal berkualitas tinggi dengan sentuhan lembut untuk berbagai kesempatan.",
+            "2": "Lembut. Berkilau. Berkelas. Luna Silk Scarf Collection menghadirkan sentuhan kemewahan pada gaya sehari-hari Anda. Tekstur halusnya memberikan jatuh yang sempurna.",
+            "3": "Tampil rapi dalam sekejap. Amira Cotton Bergo dirancang untuk wanita yang menginginkan penutup penuh tanpa repot peniti.",
+            "4": "Anggun dan abadi, Zahra Elegant Dress memiliki siluet mengalir yang cocok untuk setiap bentuk tubuh. Sempurna untuk pernikahan, Lebaran, atau acara formal.",
+            "5": "Rasakan kenyamanan spiritual dengan Fatima Premium Pray Set. Dibuat dari bahan lembut dan breathable. Termasuk tas serasi untuk perjalanan mudah.",
+            "6": "Tambahkan sentuhan pola pada penampilan Anda dengan Safa Printed Scarf. Menampilkan desain unik dan kain ringan untuk mengekspresikan gaya pribadi Anda.",
+            "7": "Pilihan tepat untuk kenyamanan harian. Mariam Daily Bergo menawarkan solusi praktis tanpa peniti untuk hari yang sibuk. Ringan dan tahan lama.",
+            "8": "Buat pernyataan dengan Aisha Maxi Dress. Warna kaya dan potongan elegannya menciptakan tampilan memukau untuk setiap momen spesial.",
+            "9": "Ringkas dan praktis. Nadia Travel Pray Set ringan dan mudah dilipat, teman sempurna untuk perjalanan Anda.",
+            "10": "Ringan, breathable, dan anggun — Khadijah Chiffon Scarf membuat Anda tetap sejuk dan tertutup sepanjang musim panas.",
+            "11": "Tetap aktif dan sopan dengan Yasmin Sport Bergo. Dirancang dengan kain yang menyerap keringat untuk olahraga. Pas yang aman dan tidak bergeser.",
+            "12": "Puncak kesopanan yang elegan. Halima Abaya Dress menawarkan potongan longgar mengalir dengan cakupan maksimal tanpa mengorbankan gaya.",
+            "13": "Bagikan kasih sayang dengan Signature Gift Box kami. Dikurasi dengan produk terbaik kami, dikemas indah untuk setiap momen spesial.",
+            "15": "Terinspirasi dari arsitektur Mesir. Cairo Series menampilkan pola geometris rumit pada voal premium dalam empat warna earthy.",
+            "16": "Penghormatan untuk landmark ikonik Istanbul. Hagia Sophia Series memadukan motif terinspirasi mosaik dengan kain sehalus sutra.",
+            "17": "Rayakan seni ketidaksempurnaan. Kintsugi Japan Series menampilkan pola urat emas yang halus pada kain voal premium.",
+            "18": "Bagian dari koleksi Warisan Nusantara kami. Borneo Scarves merayakan warisan tekstil Kalimantan dengan motif terinspirasi alam.",
+            "19": "Berakar dari tradisi Jawa. Kawung Scarves menampilkan motif batik kawung yang ikonik — simbol kesucian dan kebijaksanaan.",
+            "20": "Motif Parang melambangkan kekuatan dan kesinambungan. Parang Scarves kami menghidupkan pola batik Jawa yang kuat ini.",
+            "21": "Ditenun dengan warisan. Songket Scarves terinspirasi dari tradisi tenun songket berbenang emas dari Sumatra dan Malaysia.",
+            "22": "Lombok Scarves menangkap pemandangan menakjubkan pulau tersebut — dari matahari terbenam terrakota hingga garis pantai zamrud.",
+            "23": "Mekar dengan keanggunan. Alyssum Flowers Series menampilkan cetakan bunga yang halus dalam lima varian warna romantis.",
+            "24": "Kaligrafi bertemu dengan busana tinggi. Arabic Series memamerkan pola terinspirasi kaligrafi Arab dalam warna-warna kaya permata.",
+            "25": "Simbol solidaritas dan gaya. Keffiyeh Series menafsirkan ulang pola keffiyeh Palestina tradisional menjadi hijab modern.",
+            "26": "Tanda tangan kami, ditingkatkan. Monogram Gradasi menampilkan monogram DEENHA dengan efek gradasi yang memukau."
+        }
     },
     "brand_story": {
         "identity_label": "Identitas Kami",

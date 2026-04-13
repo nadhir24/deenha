@@ -103,7 +103,34 @@
             "Lavage délicat recommandé, ne pas javelliser",
             "Repasser à basse température si nécessaire"
         ],
-        "default_shipping": "Deenha propose une livraison dans le monde entier. Les retours sont acceptés sous 7 jours."
+        "default_shipping": "Deenha propose une livraison dans le monde entier. Les retours sont acceptés sous 7 jours.",
+        "product_descriptions": {
+            "1": "Élégant et polyvalent, l'Eliza Premium Voal Scarf est un essentiel de garde-robe. Confectionné en voile de haute qualité, il offre une touche douce et un style facile pour toute occasion.",
+            "2": "Doux. Brillant. Sophistiqué. Notre Collection Luna Silk apporte une touche de luxe à votre style quotidien. La texture soyeuse assure une draperie impeccable.",
+            "3": "Enfilez une allure raffinée en quelques secondes. L'Amira Cotton Bergo est conçu pour les femmes qui souhaitent une couverture complète sans le tracas des épingles.",
+            "4": "Gracieuse et intemporelle, la Zahra Elegant Dress présente une silhouette fluide qui met en valeur toutes les morphologies. Parfaite pour les mariages, l'Aïd ou les réceptions.",
+            "5": "Vivez le confort spirituel avec le Fatima Premium Pray Set. Confectionné dans un matériau doux et respirant. Inclut une pochette assortie pour vos voyages.",
+            "6": "Ajoutez une touche de motif à votre look avec le Safa Printed Scarf. Des designs uniques et un tissu léger pour exprimer votre style personnel.",
+            "7": "Votre allié au quotidien. Le Mariam Daily Bergo offre une solution pratique sans épingles pour les journées chargées. Léger et durable.",
+            "8": "Faites sensation avec la Aisha Maxi Dress. Sa couleur riche et sa coupe élégante créent un look sublime pour toute occasion spéciale.",
+            "9": "Compact et pratique. Le Nadia Travel Pray Set est léger et se plie facilement, le compagnon idéal pour vos voyages.",
+            "10": "Léger, respirant et élégant — notre Khadijah Chiffon Scarf vous garde au frais et couvert tout l'été.",
+            "11": "Restez active et modeste avec le Yasmin Sport Bergo. Conçu en tissu absorbant pour le sport. Tenue sécurisée qui reste en place.",
+            "12": "L'incarnation de l'élégance modeste. La Halima Abaya Dress offre une coupe ample et fluide avec une couverture maximale sans sacrifier le style.",
+            "13": "Partagez l'amour avec notre Signature Gift Box. Curaté avec nos meilleurs produits, magnifiquement emballé pour chaque moment spécial.",
+            "15": "Inspirée par l'architecture égyptienne. La Cairo Series présente des motifs géométriques complexes sur du voile premium en quatre tons terreux.",
+            "16": "Un hommage au monument emblématique d'Istanbul. La Hagia Sophia Series mêle motifs inspirés des mosaïques à un tissu d'une douceur soyeuse.",
+            "17": "Célébrez l'art de l'imperfection. La Kintsugi Japan Series présente de délicats motifs veinés d'or sur du voile premium.",
+            "18": "Issue de notre collection Warisan Nusantara. Les Borneo Scarves célèbrent le patrimoine textile du Kalimantan avec des motifs inspirés de la nature.",
+            "19": "Enracinée dans la tradition javanaise. Les Kawung Scarves présentent le motif batik kawung iconique — symbole de pureté et de sagesse.",
+            "20": "Le motif Parang représente la force et la continuité. Nos Parang Scarves donnent vie à ce puissant motif batik javanais.",
+            "21": "Tissé avec héritage. Les Songket Scarves s'inspirent de la tradition de tissage songket à fils d'or de Sumatra et de Malaisie.",
+            "22": "Les Lombok Scarves capturent les paysages à couper le souffle de l'île — des couchers de soleil terracotta aux côtes émeraude.",
+            "23": "Éclosion d'élégance. La Alyssum Flowers Series présente de délicates impressions florales en cinq déclinaisons romantiques.",
+            "24": "La calligraphie rencontre la haute couture. La Arabic Series met en valeur des motifs inspirés de la calligraphie arabe dans des tons riches et précieux.",
+            "25": "Un symbole de solidarité et de style. Notre Keffiyeh Series réinterprète le motif traditionnel du keffiyeh palestinien en un hijab moderne.",
+            "26": "Notre signature, sublimée. Le Monogram Gradasi présente le monogramme DEENHA dans un effet dégradé époustouflant."
+        }
     },
     "brand_story": {
         "identity_label": "Notre Identité",
