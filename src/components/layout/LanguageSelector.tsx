@@ -53,7 +53,7 @@ const LanguageSelector = ({ isSolid, isMobileMenu }: { isSolid?: boolean; isMobi
               onClick={() => handleLanguageChange(lang)}
               className={`flex items-center justify-center min-w-[60px] px-3 py-2 rounded-sm border transition-all duration-300 ${currentLang.code === lang.code
                 ? 'border-accent-gold bg-accent-gold/5 text-primary dark:text-white'
-                : 'border-black/5 dark:border-white/5 hover:border-black/20 dark:hover:border-white/20 text-secondary dark:text-white/60'
+                : 'border-black/5 dark:border-white/5 hover:border-black/20 dark:hover:border-white/20 text-secondary dark:text-white/75'
                 }`}
             >
               <span className="text-[11px] font-bold uppercase tracking-widest" translate="no">

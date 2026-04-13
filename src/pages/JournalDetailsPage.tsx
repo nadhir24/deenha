@@ -89,7 +89,7 @@ const JournalDetailsPage = () => {
                     </div>
 
                     <div
-                        className="prose prose-lg max-w-none journal-content text-secondary dark:text-white/60 italic leading-relaxed space-y-6"
+                        className="prose prose-lg max-w-none journal-content text-secondary dark:text-white/75 italic leading-relaxed space-y-6"
                         dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(article.content || '') }}
                     />
 

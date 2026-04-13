@@ -41,7 +41,7 @@ const RamadanPage = () => {
                             For Ramadan
                         </h1>
 
-                        <p className="text-gray-600 dark:text-white/60 text-lg leading-relaxed max-w-lg mb-12 font-light">
+                        <p className="text-gray-600 dark:text-white/75 text-lg leading-relaxed max-w-lg mb-12 font-light">
                             Embrace the spiritual journey with our exclusive 2026 Ramadan Collection.
                             Featuring heritage motifs, breathable luxurious fabrics, and timeless silhouettes
                             crafted for your comfort during prayers and gatherings.
@@ -86,7 +86,7 @@ const RamadanPage = () => {
                         className="absolute bottom-12 left-12 z-20 bg-white/90 dark:bg-primary/90 backdrop-blur-md p-8 max-w-xs shadow-xl border-l-4 border-[#D4AF37] hidden md:block"
                     >
                         <p className="font-display text-2xl mb-2 text-[#1A1A1A] dark:text-white">Hampers Series</p>
-                        <p className="text-sm text-gray-600 dark:text-white/60 mb-4">The perfect gift of elegance for your loved ones.</p>
+                        <p className="text-sm text-gray-600 dark:text-white/75 mb-4">The perfect gift of elegance for your loved ones.</p>
                         <span className="text-[#D4AF37] text-xs font-bold uppercase tracking-widest border-b border-[#D4AF37] pb-1">Discover</span>
                     </motion.div>
                 </div>
@@ -120,7 +120,7 @@ const RamadanPage = () => {
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-90 transition-opacity"></div>
                                 <div className="absolute bottom-0 left-0 p-8 w-full border-t border-white/10">
-                                    <p className="text-white/60 text-xs uppercase tracking-[0.2em] mb-2">{item.desc}</p>
+                                    <p className="text-white/75 text-xs uppercase tracking-[0.2em] mb-2">{item.desc}</p>
                                     <h3 className="font-display text-2xl text-white italic">{item.title}</h3>
                                 </div>
                             </motion.div>

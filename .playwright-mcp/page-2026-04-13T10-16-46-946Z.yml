@@ -1,0 +1,281 @@
+- generic [ref=e3]:
+  - generic [ref=e6]:
+    - generic [ref=e7]: "🌙 Pre-Raya Special: Luxury Hampers & Signature Scarves Highlights"
+    - generic [ref=e8]: 🌍 International Shipping Available
+    - generic [ref=e9]: ✨ Complimentary Shipping on Orders over Rp 500.000
+    - generic [ref=e10]: 🎁 Use DEENHA10 for 10% off your first purchase
+    - generic [ref=e11]: "🌙 Pre-Raya Special: Luxury Hampers & Signature Scarves Highlights"
+    - generic [ref=e12]: 🌍 International Shipping Available
+    - generic [ref=e13]: ✨ Complimentary Shipping on Orders over Rp 500.000
+    - generic [ref=e14]: 🎁 Use DEENHA10 for 10% off your first purchase
+  - banner [ref=e15]:
+    - generic [ref=e17]:
+      - button "Open Mobile Menu" [ref=e19] [cursor=pointer]:
+        - img [ref=e20]
+      - link "DEENHA" [ref=e23] [cursor=pointer]:
+        - /url: /
+        - img "DEENHA" [ref=e24]
+      - generic [ref=e25]:
+        - button "Toggle Theme" [ref=e26] [cursor=pointer]:
+          - img [ref=e27]
+        - button "Toggle Search" [ref=e29] [cursor=pointer]:
+          - img [ref=e30]
+        - link "Wishlist" [ref=e32] [cursor=pointer]:
+          - /url: /wishlist
+          - img [ref=e33]
+        - button "Shopping Cart" [ref=e35] [cursor=pointer]:
+          - img [ref=e36]
+  - main [ref=e38]:
+    - generic [ref=e39]:
+      - generic [ref=e45]:
+        - paragraph [ref=e48]: .
+        - generic [ref=e49]:
+          - generic [ref=e50]:
+            - link "View Collection" [ref=e51] [cursor=pointer]:
+              - /url: /shop
+            - link "About Us" [ref=e52] [cursor=pointer]:
+              - /url: /about
+          - generic [ref=e53]:
+            - button "01" [ref=e54] [cursor=pointer]:
+              - generic [ref=e58]: "01"
+            - button "02" [ref=e59] [cursor=pointer]:
+              - generic [ref=e63]: "02"
+            - button "03" [ref=e64] [cursor=pointer]:
+              - generic [ref=e68]: "03"
+        - generic [ref=e71]: Scroll
+      - button "Unmute" [ref=e72] [cursor=pointer]:
+        - img [ref=e73]
+      - generic [ref=e77]: Playing
+    - generic [ref=e83]:
+      - generic [ref=e84]:
+        - img [ref=e88] [cursor=pointer]
+        - heading "Global Shipping" [level=3] [ref=e90]
+        - paragraph [ref=e91]: Worldwide Delivery
+      - generic [ref=e92]:
+        - img [ref=e96] [cursor=pointer]
+        - heading "Easy Exchange" [level=3] [ref=e98]
+        - paragraph [ref=e99]: 7-Day Guarantee
+      - generic [ref=e100]:
+        - img [ref=e104] [cursor=pointer]
+        - heading "Secure Payment" [level=3] [ref=e106]
+        - paragraph [ref=e107]: SSL Encryption
+      - generic [ref=e108]:
+        - img [ref=e112] [cursor=pointer]
+        - heading "Premium Service" [level=3] [ref=e114]
+        - paragraph [ref=e115]: 24/7 Support
+    - generic [ref=e116]:
+      - generic [ref=e118]:
+        - heading "Pre-Raya Special" [level=3] [ref=e120]
+        - img "Luxury Hampers" [ref=e122]
+        - generic [ref=e124]:
+          - heading "Luxury Hampers" [level=2] [ref=e125]
+          - paragraph [ref=e127]: The perfect gift of gratitude. Our Raya hampers are elegantly packaged with our signature touch, making them the best way to share happiness.
+          - link "SHOP NOW" [ref=e128] [cursor=pointer]:
+            - /url: /shop?category=Hampers
+            - text: SHOP NOW
+        - generic [ref=e132]:
+          - link "Signature Gift Box NEW" [ref=e133] [cursor=pointer]:
+            - /url: /product/13
+            - img "Signature Gift Box" [ref=e134]
+            - generic [ref=e136]: NEW
+          - button "Add to Wishlist" [ref=e137] [cursor=pointer]:
+            - img [ref=e138]
+          - button "QUICK VIEW" [ref=e141] [cursor=pointer]
+          - generic [ref=e142]:
+            - link "Hampers Signature Gift Box $28.80" [ref=e143] [cursor=pointer]:
+              - /url: /product/13
+              - generic [ref=e144]: Hampers
+              - heading "Signature Gift Box" [level=3] [ref=e145]
+              - generic [ref=e147]: $28.80
+            - generic [ref=e150]: Gold
+      - generic [ref=e152]:
+        - heading "Raya Exclusive" [level=3] [ref=e154]
+        - img "Signature Scarves" [ref=e156]
+        - generic [ref=e158]:
+          - heading "Signature Scarves" [level=2] [ref=e159]
+          - paragraph [ref=e161]: Discover the most loved Monogram and Crystal series. Crafted from premium voal for effortless elegance during your Raya celebrations.
+          - link "SHOP NOW" [ref=e162] [cursor=pointer]:
+            - /url: /shop?category=Scarves
+            - text: SHOP NOW
+        - generic [ref=e164]:
+          - generic [ref=e166]:
+            - link "Eliza Premium Voal Scarf NEW" [ref=e167] [cursor=pointer]:
+              - /url: /product/1
+              - img "Eliza Premium Voal Scarf" [ref=e168]
+              - generic [ref=e170]: NEW
+            - button "Add to Wishlist" [ref=e171] [cursor=pointer]:
+              - img [ref=e172]
+            - button "QUICK VIEW" [ref=e175] [cursor=pointer]
+            - generic [ref=e176]:
+              - link "Scarves Eliza Premium Voal Scarf $12.10" [ref=e177] [cursor=pointer]:
+                - /url: /product/1
+                - generic [ref=e178]: Scarves
+                - heading "Eliza Premium Voal Scarf" [level=3] [ref=e179]
+                - generic [ref=e181]: $12.10
+              - generic [ref=e184]: Dusty Rose
+          - generic [ref=e186]:
+            - link "Luna Silk Scarf Collection MUST HAVE" [ref=e187] [cursor=pointer]:
+              - /url: /product/2
+              - img "Luna Silk Scarf Collection" [ref=e188]
+              - generic [ref=e190]: MUST HAVE
+            - button "Add to Wishlist" [ref=e191] [cursor=pointer]:
+              - img [ref=e192]
+            - button "QUICK VIEW" [ref=e195] [cursor=pointer]
+            - generic [ref=e196]:
+              - link "Scarves Luna Silk Scarf Collection $16.58" [ref=e197] [cursor=pointer]:
+                - /url: /product/2
+                - generic [ref=e198]: Scarves
+                - heading "Luna Silk Scarf Collection" [level=3] [ref=e199]
+                - generic [ref=e201]: $16.58
+              - generic [ref=e204]: Sage Green
+          - generic [ref=e206]:
+            - link "Safa Printed Scarf" [ref=e207] [cursor=pointer]:
+              - /url: /product/6
+              - img "Safa Printed Scarf" [ref=e208]
+            - button "Add to Wishlist" [ref=e210] [cursor=pointer]:
+              - img [ref=e211]
+            - button "QUICK VIEW" [ref=e214] [cursor=pointer]
+            - generic [ref=e215]:
+              - link "Scarves Safa Printed Scarf $10.18" [ref=e216] [cursor=pointer]:
+                - /url: /product/6
+                - generic [ref=e217]: Scarves
+                - heading "Safa Printed Scarf" [level=3] [ref=e218]
+                - generic [ref=e220]: $10.18
+              - generic [ref=e223]: Cream
+          - generic [ref=e225]:
+            - link "Khadijah Chiffon Scarf" [ref=e226] [cursor=pointer]:
+              - /url: /product/10
+              - img "Khadijah Chiffon Scarf" [ref=e227]
+            - button "Add to Wishlist" [ref=e229] [cursor=pointer]:
+              - img [ref=e230]
+            - button "QUICK VIEW" [ref=e233] [cursor=pointer]
+            - generic [ref=e234]:
+              - link "Scarves Khadijah Chiffon Scarf $11.46" [ref=e235] [cursor=pointer]:
+                - /url: /product/10
+                - generic [ref=e236]: Scarves
+                - heading "Khadijah Chiffon Scarf" [level=3] [ref=e237]
+                - generic [ref=e239]: $11.46
+              - generic [ref=e242]: Blush Pink
+    - generic [ref=e244]:
+      - generic [ref=e245]:
+        - generic [ref=e246]: Our Atmosphere
+        - heading "The Atelier Journal" [level=2] [ref=e247]
+        - link "Follow @deenha.official" [ref=e248] [cursor=pointer]:
+          - /url: https://www.instagram.com/deenha.official/
+      - generic [ref=e249]:
+        - link "Deenha Instagram View Post" [ref=e250] [cursor=pointer]:
+          - /url: https://www.instagram.com/p/DUS3CqAASqn/
+          - img "Deenha Instagram" [ref=e251]
+          - generic:
+            - generic:
+              - generic: View Post
+        - link "Deenha Instagram View Post" [ref=e252] [cursor=pointer]:
+          - /url: https://www.instagram.com/p/DULpUtgktmX/
+          - img "Deenha Instagram" [ref=e253]
+          - generic:
+            - generic:
+              - generic: View Post
+        - link "Deenha Instagram View Post" [ref=e254] [cursor=pointer]:
+          - /url: https://www.instagram.com/p/DSZaBWSk7QF/
+          - img "Deenha Instagram" [ref=e255]
+          - generic:
+            - generic:
+              - generic: View Post
+        - link "Deenha Instagram Play Reel" [ref=e256] [cursor=pointer]:
+          - /url: https://www.instagram.com/p/DKboZc1zJ13/
+          - img "Deenha Instagram" [ref=e257]
+          - generic:
+            - generic:
+              - generic:
+                - img
+                - text: Play Reel
+        - link "Deenha Instagram View Post" [ref=e259] [cursor=pointer]:
+          - /url: https://www.instagram.com/p/DSUfzZEE6CN/
+          - img "Deenha Instagram" [ref=e260]
+          - generic:
+            - generic:
+              - generic: View Post
+        - link "Deenha Instagram View Post" [ref=e261] [cursor=pointer]:
+          - /url: https://www.instagram.com/p/DSHVo4yk2F4/
+          - img "Deenha Instagram" [ref=e262]
+          - generic:
+            - generic:
+              - generic: View Post
+  - contentinfo [ref=e263]:
+    - generic [ref=e264]:
+      - generic [ref=e265]:
+        - generic [ref=e266]:
+          - link "DEENHA" [ref=e267] [cursor=pointer]:
+            - /url: /
+            - img "DEENHA" [ref=e268]
+          - paragraph [ref=e269]: Crafting exquisite modesty for the modern woman who values elegance and tradition.
+        - generic [ref=e270]:
+          - heading "Shop" [level=4] [ref=e271]
+          - list [ref=e272]:
+            - listitem [ref=e273]:
+              - link "Scarf" [ref=e274] [cursor=pointer]:
+                - /url: /shop?category=Scarves
+            - listitem [ref=e275]:
+              - link "Dress" [ref=e276] [cursor=pointer]:
+                - /url: /shop?category=Dresses
+            - listitem [ref=e277]:
+              - link "Bergo" [ref=e278] [cursor=pointer]:
+                - /url: /shop?category=Bergo
+            - listitem [ref=e279]:
+              - link "Pray Set" [ref=e280] [cursor=pointer]:
+                - /url: /shop?category=Pray Set
+            - listitem [ref=e281]:
+              - link "New Arrival" [ref=e282] [cursor=pointer]:
+                - /url: /shop?badge=new
+        - generic [ref=e283]:
+          - heading "Support" [level=4] [ref=e284]
+          - list [ref=e285]:
+            - listitem [ref=e286]:
+              - link "Contact Us" [ref=e287] [cursor=pointer]:
+                - /url: /contact
+            - listitem [ref=e288]:
+              - link "Shipping Info" [ref=e289] [cursor=pointer]:
+                - /url: /shipping
+            - listitem [ref=e290]:
+              - link "Returns" [ref=e291] [cursor=pointer]:
+                - /url: /returns
+            - listitem [ref=e292]:
+              - link "Size Guide" [ref=e293] [cursor=pointer]:
+                - /url: /size-guide
+            - listitem [ref=e294]:
+              - link "FAQ" [ref=e295] [cursor=pointer]:
+                - /url: /faq
+        - generic [ref=e296]:
+          - heading "Company" [level=4] [ref=e297]
+          - list [ref=e298]:
+            - listitem [ref=e299]:
+              - link "About Us" [ref=e300] [cursor=pointer]:
+                - /url: /about
+            - listitem [ref=e301]:
+              - link "Our Story" [ref=e302] [cursor=pointer]:
+                - /url: /about#story
+            - listitem [ref=e303]:
+              - link "Journal" [ref=e304] [cursor=pointer]:
+                - /url: /journal
+      - generic [ref=e305]:
+        - generic [ref=e306]:
+          - link "Instagram" [ref=e307] [cursor=pointer]:
+            - /url: https://www.instagram.com/deenha.official/
+            - img [ref=e308]
+          - link "TikTok" [ref=e310] [cursor=pointer]:
+            - /url: https://www.tiktok.com/@deenha.id
+            - img [ref=e311]
+          - link "Shopee" [ref=e313] [cursor=pointer]:
+            - /url: https://shopee.co.id/deenha
+            - img "Shopee" [ref=e314]
+          - link "Tokopedia" [ref=e315] [cursor=pointer]:
+            - /url: https://www.tokopedia.com/deenha
+            - img "Tokopedia" [ref=e316]
+        - generic [ref=e317]:
+          - generic [ref=e318]:
+            - img "QRIS" [ref=e319]
+            - img "BCA" [ref=e320]
+          - paragraph [ref=e321]: © 2026 DEENHA HIJAB. ALL RIGHTS RESERVED.
+  - link "WhatsApp" [ref=e323] [cursor=pointer]:
+    - /url: https://wa.me/6281919234222?text=Hello%20Deenha!%20I%20am%20interested%20in%20your%20products.
+    - img "WhatsApp" [ref=e324]

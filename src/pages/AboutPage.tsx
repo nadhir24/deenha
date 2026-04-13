@@ -78,7 +78,7 @@ const AboutPage = () => {
                             <h2 className="font-display text-4xl md:text-5xl lg:text-5xl font-normal tracking-tight mb-8 text-primary dark:text-white">
                                 {t('brand_story.heading_1')} <span className="italic">{t('brand_story.heading_2')}</span>
                             </h2>
-                            <div className="space-y-6 text-secondary dark:text-white/60 leading-relaxed text-lg">
+                            <div className="space-y-6 text-secondary dark:text-white/75 leading-relaxed text-lg">
                                 <p>
                                     {t('brand_story.p1')}
                                 </p>

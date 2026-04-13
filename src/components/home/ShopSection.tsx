@@ -104,7 +104,7 @@ const ShopSection = () => {
     if (loading && products.length === 0) {
         return (
             <section className="py-20 bg-white dark:bg-primary transition-colors duration-300 min-h-[400px] flex items-center justify-center">
-                <p className="text-secondary dark:text-white/60 animate-pulse">{t('product.loading')}</p>
+                <p className="text-secondary dark:text-white/75 animate-pulse">{t('product.loading')}</p>
             </section>
         );
     }
@@ -172,7 +172,7 @@ const ShopSection = () => {
                     <div className="flex-1 min-h-[600px]">
                         {/* Top Bar */}
                         <div className="hidden lg:flex items-center justify-between mb-6">
-                            <p className="text-secondary dark:text-white/60 text-sm">
+                            <p className="text-secondary dark:text-white/75 text-sm">
                                 {t('shop.showing', { count: filteredProducts.length })}
                             </p>
                             <SortDropdown value={sortBy} onChange={setSortBy} />
@@ -206,7 +206,7 @@ const ShopSection = () => {
                             <div className="text-center py-20 bg-surface-secondary/30 dark:bg-white/5 rounded-2xl">
                                 <div className="text-6xl mb-4">🔍</div>
                                 <h3 className="font-display text-xl mb-2 text-primary dark:text-white">{t('shop.no_products')}</h3>
-                                <p className="text-secondary dark:text-white/60 mb-4">{t('shop.adjust_filters')}</p>
+                                <p className="text-secondary dark:text-white/75 mb-4">{t('shop.adjust_filters')}</p>
                                 <button
                                     onClick={() => handleFilterChange({
                                         categories: [],

@@ -94,7 +94,7 @@ const CartDrawer = () => {
                             <h2 className="font-display text-xl font-semibold text-primary dark:text-white">{t('cart.title')} ({cartItems.length})</h2>
                             <button
                                 onClick={() => setIsCartOpen(false)}
-                                className="p-2 hover:bg-surface-secondary dark:hover:bg-white/5 rounded-full transition-colors text-secondary dark:text-white/60"
+                                className="p-2 hover:bg-surface-secondary dark:hover:bg-white/5 rounded-full transition-colors text-secondary dark:text-white/75"
                             >
                                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M6 18L18 6M6 6l12 12" />
@@ -157,7 +157,7 @@ const CartDrawer = () => {
                                     {t('cart.popup_warning')}
                                 </p>
                                 <div className="flex justify-between items-center mb-6">
-                                    <span className="text-secondary dark:text-white/60 uppercase text-[10px] font-bold tracking-[0.2em]">{t('cart.total')}</span>
+                                    <span className="text-secondary dark:text-white/75 uppercase text-[10px] font-bold tracking-[0.2em]">{t('cart.total')}</span>
                                     <span className="text-2xl font-display italic text-primary dark:text-white notranslate">
                                         {formatPrice(cartTotal)}
                                     </span>

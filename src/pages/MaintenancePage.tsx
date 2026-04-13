@@ -42,7 +42,7 @@ const MaintenancePage = () => {
 
                     <div className="w-12 h-[1px] bg-accent-gold mx-auto mb-10" />
 
-                    <p className="text-secondary dark:text-white/60 text-sm md:text-lg leading-relaxed mb-16 px-4 font-light italic max-w-lg mx-auto">
+                    <p className="text-secondary dark:text-white/75 text-sm md:text-lg leading-relaxed mb-16 px-4 font-light italic max-w-lg mx-auto">
                         Kami sedang melakukan pemeliharaan sistem berkala untuk memastikan pengalaman berbelanja Anda tetap istimewa dan lancar. Silakan kembali sesaat lagi.
                     </p>
 

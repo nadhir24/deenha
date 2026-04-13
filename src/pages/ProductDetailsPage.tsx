@@ -186,7 +186,7 @@ const ProductDetailsPage = () => {
                         <div className="space-y-10 mb-12">
                             <div>
                                 <span className="text-[10px] uppercase font-bold tracking-[0.3em] mb-4 block text-primary dark:text-white">
-                                    Warna: <span className="text-secondary dark:text-white/60">{displayColor}</span>
+                                    Warna: <span className="text-secondary dark:text-white/75">{displayColor}</span>
                                 </span>
                                 <div className="flex flex-wrap gap-3">
                                     {product.variants && product.variants.length > 0 ? (

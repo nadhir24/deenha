@@ -221,7 +221,7 @@ const Navbar = ({ onMenuClick }: NavbarProps) => {
                                             setSearchOpen(false);
                                             setSearchQuery('');
                                         }}
-                                        className="absolute right-0 top-1/2 -translate-y-1/2 p-4 text-secondary dark:text-white/60 hover:text-primary dark:hover:text-white transition-colors"
+                                        className="absolute right-0 top-1/2 -translate-y-1/2 p-4 text-secondary dark:text-white/75 hover:text-primary dark:hover:text-white transition-colors"
                                         aria-label={t('nav.close_search', 'Close Search')}
                                     >
                                         <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -307,7 +307,7 @@ const Navbar = ({ onMenuClick }: NavbarProps) => {
                                                             <h3 className="text-[10px] font-bold uppercase tracking-widest mb-1 text-primary dark:text-white group-hover:text-accent-gold transition-colors notranslate">
                                                                 {displayName}
                                                             </h3>
-                                                            <p className="text-[10px] text-secondary dark:text-white/60 font-medium tracking-widest notranslate">
+                                                            <p className="text-[10px] text-secondary dark:text-white/75 font-medium tracking-widest notranslate">
                                                                 {formatPrice(product.price)}
                                                             </p>
                                                         </Link>

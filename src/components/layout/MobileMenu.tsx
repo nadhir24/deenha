@@ -134,7 +134,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                                     href="https://www.instagram.com/deenha.official/"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="text-[10px] font-bold tracking-[0.3em] text-secondary hover:text-primary dark:text-white/60 dark:hover:text-white transition-colors uppercase"
+                                    className="text-[10px] font-bold tracking-[0.3em] text-secondary hover:text-primary dark:text-white/75 dark:hover:text-white transition-colors uppercase"
                                 >
                                     Instagram
                                 </a>
@@ -142,7 +142,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                                     href="https://shopee.co.id/deenha"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="text-[10px] font-bold tracking-[0.3em] text-secondary hover:text-primary dark:text-white/60 dark:hover:text-white transition-colors uppercase"
+                                    className="text-[10px] font-bold tracking-[0.3em] text-secondary hover:text-primary dark:text-white/75 dark:hover:text-white transition-colors uppercase"
                                 >
                                     Shopee
                                 </a>
@@ -150,7 +150,7 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
                                     href="https://www.tokopedia.com/deenha"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="text-[10px] font-bold tracking-[0.3em] text-secondary hover:text-primary dark:text-white/60 dark:hover:text-white transition-colors uppercase"
+                                    className="text-[10px] font-bold tracking-[0.3em] text-secondary hover:text-primary dark:text-white/75 dark:hover:text-white transition-colors uppercase"
                                 >
                                     Tokopedia
                                 </a>

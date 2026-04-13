@@ -43,7 +43,7 @@ const Footer = () => {
                         <Link to="/" className="inline-block mb-8">
                             <img src="/assets/logo.png" alt="DEENHA" className="h-16 w-auto brightness-0 dark:invert transition-all duration-300" width={215} height={215} />
                         </Link>
-                        <p className="text-secondary dark:text-white/60 text-[11px] leading-relaxed tracking-wide max-w-[200px]">
+                        <p className="text-secondary dark:text-white/75 text-[11px] leading-relaxed tracking-wide max-w-[200px]">
                             {t('footer.description')}
                         </p>
                     </div>
@@ -58,7 +58,7 @@ const Footer = () => {
                                     <li key={link.name}>
                                         <Link
                                             to={link.href}
-                                            className="text-[11px] font-medium text-secondary dark:text-white/60 hover:text-primary dark:hover:text-white transition-colors uppercase tracking-widest"
+                                            className="text-[11px] font-medium text-secondary dark:text-white/75 hover:text-primary dark:hover:text-white transition-colors uppercase tracking-widest"
                                         >
                                             {link.name}
                                         </Link>

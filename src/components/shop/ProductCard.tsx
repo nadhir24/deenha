@@ -125,7 +125,7 @@ const ProductCard = ({ product, onQuickView }: ProductCardProps) => {
             <div className="py-6 px-4 flex flex-col items-center">
                 <Link to={`/product/${product.id}`} className="flex flex-col items-center">
                     {/* Category/Collection */}
-                    <span className="text-[10px] uppercase tracking-[0.2em] text-secondary dark:text-white/60 mb-2">
+                    <span className="text-[10px] uppercase tracking-[0.2em] text-secondary dark:text-white/75 mb-2">
                         {product.category}
                     </span>
 

@@ -15,37 +15,37 @@ const DEFAULT_SLIDES: Slide[] = [
     {
         type: 'video',
         src: "/videos/promo_video.mp4",
-        title: "",
-        subtitle: "",
-        description: "."
+        title: "The Art of Modesty",
+        subtitle: "New Collection",
+        description: "Where elegance meets devotion"
     },
     {
         type: 'video',
         src: "/videos/summer_collection.mp4",
-        title: "",
-        subtitle: "",
-        description: "."
+        title: "Warisan Nusantara",
+        subtitle: "Heritage Series",
+        description: "Inspired by Indonesian textile traditions"
     },
     {
         type: 'video',
         src: "/videos/vintage_flower.mp4",
-        title: "",
-        subtitle: "",
-        description: "  ."
+        title: "Vintage Florals",
+        subtitle: "Timeless Beauty",
+        description: "Delicate prints for the modern woman"
     },
     {
         type: 'video',
         src: "/videos/pashmina_crinkle.mp4",
-        title: "",
-        subtitle: "",
-        description: ""
+        title: "Pashmina Crinkle",
+        subtitle: "Everyday Luxury",
+        description: "Effortless style, exceptional comfort"
     },
     {
         type: 'video',
         src: "/videos/hampers_mukena.mp4",
-        title: "",
-        subtitle: "",
-        description: ""
+        title: "Luxury Hampers",
+        subtitle: "The Perfect Gift",
+        description: "Curated sets for every occasion"
     }
 ];
 
@@ -184,19 +184,10 @@ const Hero = () => {
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-16">
                         <motion.a
                             href="/shop"
-                            className="bg-accent-gold text-white rounded-none px-12 py-4 text-sm font-bold uppercase tracking-[0.2em] hover:bg-white hover:text-black transition-all duration-500 shadow-2xl"
-                            whileHover={{ y: -5, scale: 1.02 }}
-                            whileTap={{ scale: 0.98 }}
+                            className="text-[11px] uppercase tracking-[0.4em] font-medium text-white border-b border-white/50 pb-2 hover:border-accent-gold hover:text-accent-gold transition-all duration-500"
+                            whileHover={{ y: -2 }}
                         >
                             {t('hero.view_collection')}
-                        </motion.a>
-                        <motion.a
-                            href="/about"
-                            className="border border-white/40 text-white rounded-none px-12 py-4 text-sm font-bold uppercase tracking-[0.2em] backdrop-blur-sm hover:bg-white hover:text-black transition-all duration-500"
-                            whileHover={{ y: -5, scale: 1.02 }}
-                            whileTap={{ scale: 0.98 }}
-                        >
-                            {t('hero.about_us')}
                         </motion.a>
                     </div>
 
@@ -269,7 +260,7 @@ const Hero = () => {
                 transition={{ delay: 0.5 }}
                 className="absolute top-32 left-6 z-20"
             >
-                <span className="text-[9px] uppercase font-bold tracking-[0.3em] text-white/60 flex items-center gap-2">
+                <span className="text-[9px] uppercase font-bold tracking-[0.3em] text-white/75 flex items-center gap-2">
                     {slides[currentSlide].type === 'video' ? (
                         <>
                             <span className="w-2 h-2 bg-red-500 rounded-full animate-pulse" />

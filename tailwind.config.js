@@ -9,7 +9,7 @@ export default {
         extend: {
             colors: {
                 primary: '#1A1A1A',
-                secondary: '#6B6B6B',
+                secondary: '#545454',
                 accent: {
                     gold: '#C9A86C',
                     rose: '#D4A5A5',

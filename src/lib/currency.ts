@@ -11,18 +11,21 @@ let EXCHANGE_RATES: Record<string, number> = {
 // Function to fetch latest rates
 export const fetchLatestRates = async () => {
     try {
-        const response = await fetch('https://api.frankfurter.app/latest?from=IDR&to=USD,EUR,CNY');
+        // Use exchangerate.host (free, no CORS issues) with fallback
+        const response = await fetch('https://open.er-api.com/v6/latest/IDR');
         if (!response.ok) throw new Error('Network response was not ok');
         const data = await response.json();
 
-        EXCHANGE_RATES = {
-            ...EXCHANGE_RATES,
-            ...data.rates,
-            IDR: 1
-        };
-        console.log('Exchange rates updated successfully');
-    } catch (error) {
-        console.error('Failed to fetch latest exchange rates:', error);
+        if (data.rates) {
+            EXCHANGE_RATES = {
+                IDR: 1,
+                USD: data.rates.USD || EXCHANGE_RATES.USD,
+                EUR: data.rates.EUR || EXCHANGE_RATES.EUR,
+                CNY: data.rates.CNY || EXCHANGE_RATES.CNY,
+            };
+        }
+    } catch {
+        // Silently fall back to hardcoded rates
     }
 };
 

@@ -161,7 +161,7 @@ const RamadanPopup = () => {
                                 initial={{ opacity: 0, y: 10 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: 0.6 }}
-                                className="text-[11px] sm:text-xs md:text-sm leading-relaxed text-white/60 mb-5 md:mb-7 max-w-[280px] font-light whitespace-pre-line"
+                                className="text-[11px] sm:text-xs md:text-sm leading-relaxed text-white/75 mb-5 md:mb-7 max-w-[280px] font-light whitespace-pre-line"
                             >
                                 {t('ramadan_popup.description')}
                             </motion.p>
@@ -185,7 +185,7 @@ const RamadanPopup = () => {
 
                             <button
                                 onClick={handleClose}
-                                className="mt-4 md:mt-5 text-[8px] md:text-[9px] uppercase font-bold tracking-widest text-white/30 hover:text-white/60 transition-colors"
+                                className="mt-4 md:mt-5 text-[8px] md:text-[9px] uppercase font-bold tracking-widest text-white/30 hover:text-white/75 transition-colors"
                             >
                                 {t('ramadan_popup.close')}
                             </button>

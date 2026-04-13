@@ -44,7 +44,7 @@ const JournalPage = () => {
                 <header className="mb-20 text-center max-w-3xl mx-auto">
                     <span className="text-accent-gold text-[10px] uppercase font-bold tracking-[0.4em] mb-4 block">{t('journal.subtitle')}</span>
                     <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-normal tracking-tight mb-8 italic text-primary dark:text-white">{t('journal.title')}</h1>
-                    <p className="text-secondary dark:text-white/60 text-sm leading-relaxed">
+                    <p className="text-secondary dark:text-white/75 text-sm leading-relaxed">
                         {t('journal.description')}
                     </p>
                 </header>
@@ -80,7 +80,7 @@ const JournalPage = () => {
                                         <h2 className="font-display text-2xl group-hover:text-accent-gold transition-colors duration-500 leading-snug text-primary dark:text-white">
                                             {post.title}
                                         </h2>
-                                        <p className="text-secondary dark:text-white/60 text-sm leading-relaxed line-clamp-3 italic opacity-80">
+                                        <p className="text-secondary dark:text-white/75 text-sm leading-relaxed line-clamp-3 italic opacity-80">
                                             {post.excerpt}
                                         </p>
                                         <div className="pt-4 flex items-center gap-2 text-[10px] uppercase font-bold tracking-[0.2em] text-primary dark:text-white group-hover:gap-4 transition-all duration-500">

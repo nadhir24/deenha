@@ -21,7 +21,7 @@ const InstagramFeed = () => {
                         href="https://www.instagram.com/deenha.official/"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-[10px] uppercase font-bold tracking-[0.4em] text-primary dark:text-white/60 hover:text-accent-gold transition-colors duration-500 border-b border-primary/20 dark:border-white/10 pb-1"
+                        className="text-[10px] uppercase font-bold tracking-[0.4em] text-primary dark:text-white/75 hover:text-accent-gold transition-colors duration-500 border-b border-primary/20 dark:border-white/10 pb-1"
                     >
                         Follow @deenha.official
                     </a>

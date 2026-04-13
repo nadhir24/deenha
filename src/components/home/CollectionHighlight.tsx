@@ -36,15 +36,8 @@ const CollectionHighlight = ({
         offset: ["start end", "end start"]
     });
 
-    // Parallax & Reveal Transforms
+    // Parallax Transform
     const yBanner = useTransform(scrollYProgress, [0, 1], ["-15%", "15%"]);
-    const clipPath = useTransform(
-        scrollYProgress,
-        [0, 0.4],
-        ["inset(15% 10% 15% 10%)", "inset(0% 0% 0% 0%)"]
-    );
-    const letterSpacing = useTransform(scrollYProgress, [0, 0.6], ["-0.05em", "0.2em"]);
-    const opacityTitle = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
 
     // Filter products by IDs if provided, otherwise by category
     const collectionProducts = productIds && productIds.length > 0
@@ -59,78 +52,96 @@ const CollectionHighlight = ({
     if (loading && products.length === 0) return null;
 
     return (
-        <section ref={sectionRef} className="py-24 bg-white dark:bg-primary overflow-hidden transition-colors duration-300">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                {/* Small Title on Top */}
+        <section ref={sectionRef} className="py-16 bg-white dark:bg-primary overflow-hidden transition-colors duration-300">
+            <div className="w-full">
+                {/* Main Banner Image - Full Width Editorial Style */}
                 <motion.div
-                    className="text-center mb-12"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                >
-                    <h3 className="text-primary dark:text-white/40 text-[10px] uppercase font-bold tracking-[0.4em]">
-                        {title}
-                    </h3>
-                </motion.div>
-
-                {/* Main Banner Image - Premium Framed Style with Parallax */}
-                <motion.div
-                    className="relative w-full aspect-[21/10] md:aspect-[21/8] overflow-hidden mb-16 shadow-2xl rounded-sm"
-                    style={{ clipPath }}
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
+                    className="relative w-full h-[70vh] md:h-[85vh] overflow-hidden mb-16"
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
                     transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1] }}
                     viewport={{ once: true }}
                 >
                     <motion.img
-                        src={getOptimizedImage(bannerImage, 1200, 80)}
+                        src={getOptimizedImage(bannerImage, 2000, 85)}
                         alt={collectionTitle}
-                        className="absolute inset-0 w-full h-[140%] object-cover"
-                        style={{ y: yBanner }}
+                        className="absolute inset-0 w-full h-[120%] object-cover"
+                        style={{ y: yBanner, scale: 1.05 }}
+                        transition={{ duration: 10, ease: "linear", repeat: Infinity, repeatType: "reverse" }}
                     />
-                    <div className="absolute inset-0 bg-black/10 transition-opacity duration-700 hover:opacity-0" />
-                </motion.div>
-
-                {/* Collection Text Content with Kinetic Typography */}
-                <motion.div
-                    className="text-center mb-20 max-w-4xl mx-auto"
-                    style={{ opacity: opacityTitle }}
-                >
-                    <motion.h2
-                        className="font-display text-4xl md:text-6xl lg:text-7xl font-normal mb-8 uppercase text-primary dark:text-white inline-block"
-                        style={{ letterSpacing }}
-                    >
-                        {collectionTitle}
-                    </motion.h2>
-                    <div className="w-12 h-[1px] bg-accent-gold mx-auto mb-8" />
-                    <p className="text-secondary dark:text-white/60 text-sm md:text-lg leading-relaxed mb-10 px-4 font-light italic max-w-2xl mx-auto">
-                        {collectionDescription}
-                    </p>
-                    <Link
-                        to={`/shop?${productIds && productIds.length > 0 ? `ids=${productIds.join(',')}` : `category=${encodeURIComponent(category === 'New Arrival' ? '' : category)}`}`}
-                        className="inline-block relative px-12 py-4 text-[10px] font-bold uppercase tracking-[0.4em] group overflow-hidden"
-                    >
-                        <span className="relative z-10 text-white dark:text-primary group-hover:text-primary dark:group-hover:text-white transition-colors duration-500">{t('product.shop_now')}</span>
-                        <div className="absolute inset-0 bg-primary dark:bg-white group-hover:bg-white dark:group-hover:bg-primary border border-primary dark:border-white transition-all duration-500" />
-                    </Link>
-                </motion.div>
-
-                {/* Related Products Grid */}
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-10">
-                    {collectionProducts.map((product, index) => (
-                        <motion.div
-                            key={product.id}
-                            initial={{ opacity: 0, y: 40 }}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                    
+                    {/* Integrated Text Overlay */}
+                    <div className="absolute bottom-0 left-0 w-full p-6 md:p-16 lg:p-24 flex flex-col items-start justify-end text-left z-10">
+                        <motion.h3 
+                            className="text-white/80 text-[10px] md:text-xs uppercase font-bold tracking-[0.4em] mb-4"
+                            initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            transition={{ delay: 0.2 + (index * 0.1), duration: 0.8 }}
+                            transition={{ delay: 0.2 }}
                         >
-                            <ProductCard
-                                product={product}
-                                onQuickView={setQuickViewProduct}
-                            />
+                            {title}
+                        </motion.h3>
+                        
+                        <motion.h2
+                            className="font-display text-5xl md:text-7xl lg:text-8xl font-normal mb-6 text-white drop-shadow-lg max-w-4xl"
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: 0.3, duration: 0.8 }}
+                        >
+                            {collectionTitle}
+                        </motion.h2>
+                        
+                        <motion.p 
+                            className="text-white/90 text-sm md:text-lg font-light italic max-w-2xl mb-10 drop-shadow-md"
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: 0.5 }}
+                        >
+                            {collectionDescription.split('\n')[0]}
+                        </motion.p>
+                        
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: 0.7 }}
+                        >
+                            <Link
+                                to={`/shop?${productIds && productIds.length > 0 ? `ids=${productIds.join(',')}` : `category=${encodeURIComponent(category === 'New Arrival' ? '' : category)}`}`}
+                                className="text-[11px] uppercase tracking-[0.3em] font-medium text-white border-b border-white pb-1 hover:border-accent-gold hover:text-accent-gold transition-all duration-500 inline-block"
+                            >
+                                {t('product.discover', 'Discover the Collection')}
+                            </Link>
                         </motion.div>
-                    ))}
+                    </div>
+                </motion.div>
+
+                {/* Section Divider */}
+                <div className="flex justify-center mb-16">
+                    <div className="w-[60px] h-[1px] bg-accent-gold/60" />
+                </div>
+
+                {/* Related Products Grid */}
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
+                        {collectionProducts.map((product, index) => (
+                            <motion.div
+                                key={product.id}
+                                initial={{ opacity: 0, y: 40 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: 0.2 + (index * 0.1), duration: 0.8 }}
+                            >
+                                <ProductCard
+                                    product={product}
+                                    onQuickView={setQuickViewProduct}
+                                />
+                            </motion.div>
+                        ))}
+                    </div>
                 </div>
             </div>
 

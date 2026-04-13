@@ -61,7 +61,7 @@ const BrandStory = () => {
                         <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-normal tracking-tight mb-8 text-primary dark:text-white">
                             {t('brand_story.heading_1')} <span className="italic">{t('brand_story.heading_2')}</span>
                         </h2>
-                        <div className="space-y-6 text-secondary dark:text-white/60 leading-relaxed text-lg">
+                        <div className="space-y-6 text-secondary dark:text-white/75 leading-relaxed text-lg">
                             <p>{t('brand_story.p1')}</p>
                             <p>{t('brand_story.p2')}</p>
                             <p className="font-medium text-primary dark:text-white/80">
@@ -106,7 +106,7 @@ const BrandStory = () => {
                                 <h3 className="font-display text-2xl mb-4 text-primary dark:text-white relative z-10">
                                     {item.title}
                                 </h3>
-                                <p className="text-secondary dark:text-white/60 leading-relaxed text-sm lg:text-base relative z-10">
+                                <p className="text-secondary dark:text-white/75 leading-relaxed text-sm lg:text-base relative z-10">
                                     {item.text}
                                 </p>
                             </motion.div>
