@@ -28,6 +28,10 @@ const WishlistPage = lazy(() => import('./pages/WishlistPage'));
 const LoginPage = lazy(() => import('./pages/LoginPage'));
 const AdminDashboard = lazy(() => import('./pages/AdminDashboard'));
 const RamadanPage = lazy(() => import('./pages/RamadanPage'));
+const ContactPage = lazy(() => import('./pages/ContactPage'));
+const ShippingPage = lazy(() => import('./pages/ShippingPage'));
+const ReturnsPage = lazy(() => import('./pages/ReturnsPage'));
+const SizeGuidePage = lazy(() => import('./pages/SizeGuidePage'));
 
 // Home Components
 import Hero from './components/home/Hero';
@@ -119,6 +123,10 @@ function App() {
 
                                             <Route path="/shop" element={<ShopPage />} />
                                             <Route path="/ramadan" element={<RamadanPage />} />
+                                            <Route path="/contact" element={<ContactPage />} />
+                                            <Route path="/shipping" element={<ShippingPage />} />
+                                            <Route path="/returns" element={<ReturnsPage />} />
+                                            <Route path="/size-guide" element={<SizeGuidePage />} />
                                             <Route path="/about" element={<AboutPage />} />
                                             <Route path="/faq" element={<FAQPage />} />
                                             <Route path="/journal" element={<JournalPage />} />

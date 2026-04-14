@@ -1,9 +1,11 @@
 import { motion } from 'framer-motion';
 import SEOHead from '../components/SEOHead';
 import { useTranslation } from 'react-i18next';
+import { useHashScroll } from '../hooks/useHashScroll';
 
 const AboutPage = () => {
     const { t } = useTranslation();
+    useHashScroll();
 
     const ethos = [
         {
@@ -96,7 +98,7 @@ const AboutPage = () => {
                     </div>
 
                     {/* Our Ethos Section */}
-                    <div className="pt-20 border-t border-black/5 mb-24">
+                    <div id="story" className="pt-20 border-t border-black/5 mb-24">
                         <motion.div
                             className="text-center mb-20"
                             initial={{ opacity: 0, y: 20 }}
