@@ -141,7 +141,7 @@ const Navbar = ({ onMenuClick }: NavbarProps) => {
                         {/* Theme Toggle */}
                         <button
                             onClick={toggleTheme}
-                            className={`p-2 transition-colors duration-300 ${isSolid ? 'text-black' : 'text-white'}`}
+                            className={`p-2 transition-colors duration-300 ${theme === 'dark' ? 'text-white' : isSolid ? 'text-black' : 'text-white'}`}
                             aria-label="Toggle Theme"
                         >
                             {theme === 'light' ? (
