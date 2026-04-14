@@ -1,5 +1,6 @@
 import { useState, lazy, Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 import { WishlistProvider } from './context/WishlistContext';
 import { CartProvider } from './context/CartContext';
 
@@ -139,6 +140,7 @@ function App() {
                                     <Footer />
                                     <WhatsAppButton />
                                     <CartDrawer />
+                                    <SpeedInsights />
                                 </div>
                             </CartProvider>
                         </WishlistProvider>
