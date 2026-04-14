@@ -1,0 +1,540 @@
+- generic [ref=e3]:
+  - generic [ref=e6]:
+    - generic [ref=e7]: "🌙 Pre-Raya Special: Luxury Hampers & Signature Scarves Highlights"
+    - generic [ref=e8]: 🌍 International Shipping Available
+    - generic [ref=e9]: ✨ Complimentary Shipping on Orders over Rp 500.000
+    - generic [ref=e10]: 🎁 Use DEENHA10 for 10% off your first purchase
+    - generic [ref=e11]: "🌙 Pre-Raya Special: Luxury Hampers & Signature Scarves Highlights"
+    - generic [ref=e12]: 🌍 International Shipping Available
+    - generic [ref=e13]: ✨ Complimentary Shipping on Orders over Rp 500.000
+    - generic [ref=e14]: 🎁 Use DEENHA10 for 10% off your first purchase
+  - banner [ref=e15]:
+    - generic [ref=e17]:
+      - button "Open Mobile Menu" [ref=e19] [cursor=pointer]:
+        - img [ref=e20]
+      - link "DEENHA" [ref=e23] [cursor=pointer]:
+        - /url: /
+        - img "DEENHA" [ref=e24]
+      - generic [ref=e25]:
+        - button "Toggle Theme" [ref=e26] [cursor=pointer]:
+          - img [ref=e27]
+        - button "Toggle Search" [ref=e29] [cursor=pointer]:
+          - img [ref=e30]
+        - link "Wishlist" [ref=e32] [cursor=pointer]:
+          - /url: /wishlist
+          - img [ref=e33]
+        - button "Shopping Cart" [ref=e35] [cursor=pointer]:
+          - img [ref=e36]
+  - main [ref=e38]:
+    - generic [ref=e41]:
+      - generic [ref=e42]:
+        - generic [ref=e43]: Our Entire Collection
+        - heading "Explore All Products" [level=2] [ref=e44]
+      - generic [ref=e45]:
+        - generic [ref=e46]:
+          - button "Filter Products" [ref=e47] [cursor=pointer]:
+            - img [ref=e48]
+            - text: Filter Products
+          - button "Newest" [ref=e51] [cursor=pointer]:
+            - generic [ref=e52]: Newest
+            - img [ref=e53]
+        - generic [ref=e56]:
+          - generic [ref=e58]:
+            - link "Monogram Gradasi NEW" [ref=e59] [cursor=pointer]:
+              - /url: /product/26
+              - img "Monogram Gradasi" [ref=e60]
+              - generic [ref=e62]: NEW
+            - button "Add to Wishlist" [ref=e63] [cursor=pointer]:
+              - img [ref=e64]
+            - button "QUICK VIEW" [ref=e67] [cursor=pointer]
+            - generic [ref=e68]:
+              - link "Scarves Monogram Gradasi $14.44" [ref=e69] [cursor=pointer]:
+                - /url: /product/26
+                - generic [ref=e70]: Scarves
+                - heading "Monogram Gradasi" [level=3] [ref=e71]
+                - generic [ref=e73]: $14.44
+              - generic [ref=e74]:
+                - generic "Burgundy" [ref=e75]
+                - generic "Cream" [ref=e76]
+                - generic "Dusty Rose" [ref=e77]
+                - generic [ref=e78]: "+2"
+          - generic [ref=e80]:
+            - link "Keffiyeh Series NEW" [ref=e81] [cursor=pointer]:
+              - /url: /product/25
+              - img "Keffiyeh Series" [ref=e82]
+              - generic [ref=e84]: NEW
+            - button "Add to Wishlist" [ref=e85] [cursor=pointer]:
+              - img [ref=e86]
+            - button "QUICK VIEW" [ref=e89] [cursor=pointer]
+            - generic [ref=e90]:
+              - link "Scarves Keffiyeh Series $14.44" [ref=e91] [cursor=pointer]:
+                - /url: /product/25
+                - generic [ref=e92]: Scarves
+                - heading "Keffiyeh Series" [level=3] [ref=e93]
+                - generic [ref=e95]: $14.44
+              - generic [ref=e96]:
+                - generic "Grey" [ref=e97]
+                - generic "Cream" [ref=e98]
+                - generic "Black" [ref=e99]
+                - generic [ref=e100]: "+2"
+          - generic [ref=e102]:
+            - link "Arabic Series NEW" [ref=e103] [cursor=pointer]:
+              - /url: /product/24
+              - img "Arabic Series" [ref=e104]
+              - generic [ref=e106]: NEW
+            - button "Add to Wishlist" [ref=e107] [cursor=pointer]:
+              - img [ref=e108]
+            - button "QUICK VIEW" [ref=e111] [cursor=pointer]
+            - generic [ref=e112]:
+              - link "Scarves Arabic Series $14.44" [ref=e113] [cursor=pointer]:
+                - /url: /product/24
+                - generic [ref=e114]: Scarves
+                - heading "Arabic Series" [level=3] [ref=e115]
+                - generic [ref=e117]: $14.44
+              - generic [ref=e118]:
+                - generic "Purple Magenta" [ref=e119]
+                - generic "Grey Mauve" [ref=e120]
+                - generic "Beige Cream" [ref=e121]
+                - generic [ref=e122]: "+2"
+          - generic [ref=e124]:
+            - link "Alyssum Flowers Series NEW" [ref=e125] [cursor=pointer]:
+              - /url: /product/23
+              - img "Alyssum Flowers Series" [ref=e126]
+              - generic [ref=e128]: NEW
+            - button "Add to Wishlist" [ref=e129] [cursor=pointer]:
+              - img [ref=e130]
+            - button "QUICK VIEW" [ref=e133] [cursor=pointer]
+            - generic [ref=e134]:
+              - link "Scarves Alyssum Flowers Series $14.44" [ref=e135] [cursor=pointer]:
+                - /url: /product/23
+                - generic [ref=e136]: Scarves
+                - heading "Alyssum Flowers Series" [level=3] [ref=e137]
+                - generic [ref=e139]: $14.44
+              - generic [ref=e140]:
+                - generic "Rose Pink" [ref=e141]
+                - generic "Silver Grey" [ref=e142]
+                - generic "Dusty Blue" [ref=e143]
+                - generic [ref=e144]: "+2"
+          - generic [ref=e146]:
+            - link "Lombok Scarves NEW" [ref=e147] [cursor=pointer]:
+              - /url: /product/22
+              - img "Lombok Scarves" [ref=e148]
+              - generic [ref=e150]: NEW
+            - button "Add to Wishlist" [ref=e151] [cursor=pointer]:
+              - img [ref=e152]
+            - button "QUICK VIEW" [ref=e155] [cursor=pointer]
+            - generic [ref=e156]:
+              - link "Scarves Lombok Scarves $14.44" [ref=e157] [cursor=pointer]:
+                - /url: /product/22
+                - generic [ref=e158]: Scarves
+                - heading "Lombok Scarves" [level=3] [ref=e159]
+                - generic [ref=e161]: $14.44
+              - generic [ref=e162]:
+                - generic "Terracotta" [ref=e163]
+                - generic "Emerald Green" [ref=e164]
+                - generic "White Blue" [ref=e165]
+                - generic [ref=e166]: "+1"
+          - generic [ref=e168]:
+            - link "Songket Scarves NEW" [ref=e169] [cursor=pointer]:
+              - /url: /product/21
+              - img "Songket Scarves" [ref=e170]
+              - generic [ref=e172]: NEW
+            - button "Add to Wishlist" [ref=e173] [cursor=pointer]:
+              - img [ref=e174]
+            - button "QUICK VIEW" [ref=e177] [cursor=pointer]
+            - generic [ref=e178]:
+              - link "Scarves Songket Scarves $14.44" [ref=e179] [cursor=pointer]:
+                - /url: /product/21
+                - generic [ref=e180]: Scarves
+                - heading "Songket Scarves" [level=3] [ref=e181]
+                - generic [ref=e183]: $14.44
+              - generic [ref=e184]:
+                - generic "Navy Blue" [ref=e185]
+                - generic "Rose Pink" [ref=e186]
+                - generic "Teal Brown" [ref=e187]
+                - generic [ref=e188]: "+1"
+          - generic [ref=e190]:
+            - link "Parang Scarves NEW" [ref=e191] [cursor=pointer]:
+              - /url: /product/20
+              - img "Parang Scarves" [ref=e192]
+              - generic [ref=e194]: NEW
+            - button "Add to Wishlist" [ref=e195] [cursor=pointer]:
+              - img [ref=e196]
+            - button "QUICK VIEW" [ref=e199] [cursor=pointer]
+            - generic [ref=e200]:
+              - link "Scarves Parang Scarves $14.44" [ref=e201] [cursor=pointer]:
+                - /url: /product/20
+                - generic [ref=e202]: Scarves
+                - heading "Parang Scarves" [level=3] [ref=e203]
+                - generic [ref=e205]: $14.44
+              - generic [ref=e206]:
+                - generic "Camel" [ref=e207]
+                - generic "Emerald Teal" [ref=e208]
+                - generic "Blue Turquoise" [ref=e209]
+                - generic [ref=e210]: "+1"
+          - generic [ref=e212]:
+            - link "Kawung Scarves NEW" [ref=e213] [cursor=pointer]:
+              - /url: /product/19
+              - img "Kawung Scarves" [ref=e214]
+              - generic [ref=e216]: NEW
+            - button "Add to Wishlist" [ref=e217] [cursor=pointer]:
+              - img [ref=e218]
+            - button "QUICK VIEW" [ref=e221] [cursor=pointer]
+            - generic [ref=e222]:
+              - link "Scarves Kawung Scarves $14.44" [ref=e223] [cursor=pointer]:
+                - /url: /product/19
+                - generic [ref=e224]: Scarves
+                - heading "Kawung Scarves" [level=3] [ref=e225]
+                - generic [ref=e227]: $14.44
+              - generic [ref=e228]:
+                - generic "Dusty Rose" [ref=e229]
+                - generic "Sage Grey" [ref=e230]
+                - generic "Maroon Beige" [ref=e231]
+                - generic [ref=e232]: "+1"
+          - generic [ref=e234]:
+            - link "Borneo Scarves NEW" [ref=e235] [cursor=pointer]:
+              - /url: /product/18
+              - img "Borneo Scarves" [ref=e236]
+              - generic [ref=e238]: NEW
+            - button "Add to Wishlist" [ref=e239] [cursor=pointer]:
+              - img [ref=e240]
+            - button "QUICK VIEW" [ref=e243] [cursor=pointer]
+            - generic [ref=e244]:
+              - link "Scarves Borneo Scarves $14.44" [ref=e245] [cursor=pointer]:
+                - /url: /product/18
+                - generic [ref=e246]: Scarves
+                - heading "Borneo Scarves" [level=3] [ref=e247]
+                - generic [ref=e249]: $14.44
+              - generic [ref=e250]:
+                - generic "Mauve" [ref=e251]
+                - generic "Teal" [ref=e252]
+                - generic "Light Grey" [ref=e253]
+          - generic [ref=e255]:
+            - link "Kintsugi Japan Series NEW" [ref=e256] [cursor=pointer]:
+              - /url: /product/17
+              - img "Kintsugi Japan Series" [ref=e257]
+              - generic [ref=e259]: NEW
+            - button "Add to Wishlist" [ref=e260] [cursor=pointer]:
+              - img [ref=e261]
+            - button "QUICK VIEW" [ref=e264] [cursor=pointer]
+            - generic [ref=e265]:
+              - link "Scarves Kintsugi Japan Series $14.44" [ref=e266] [cursor=pointer]:
+                - /url: /product/17
+                - generic [ref=e267]: Scarves
+                - heading "Kintsugi Japan Series" [level=3] [ref=e268]
+                - generic [ref=e270]: $14.44
+              - generic [ref=e271]:
+                - generic "Beige Gold" [ref=e272]
+                - generic "Sage Green" [ref=e273]
+                - generic "Light Blue" [ref=e274]
+          - generic [ref=e276]:
+            - link "Hagia Sophia Series NEW" [ref=e277] [cursor=pointer]:
+              - /url: /product/16
+              - img "Hagia Sophia Series" [ref=e278]
+              - generic [ref=e280]: NEW
+            - button "Add to Wishlist" [ref=e281] [cursor=pointer]:
+              - img [ref=e282]
+            - button "QUICK VIEW" [ref=e285] [cursor=pointer]
+            - generic [ref=e286]:
+              - link "Scarves Hagia Sophia Series $16.53" [ref=e287] [cursor=pointer]:
+                - /url: /product/16
+                - generic [ref=e288]: Scarves
+                - heading "Hagia Sophia Series" [level=3] [ref=e289]
+                - generic [ref=e291]: $16.53
+              - generic [ref=e292]:
+                - generic "Lavender" [ref=e293]
+                - generic "Brown Olive" [ref=e294]
+                - generic "Blue Mosaic" [ref=e295]
+                - generic [ref=e296]: "+1"
+          - generic [ref=e298]:
+            - link "Cairo Series NEW" [ref=e299] [cursor=pointer]:
+              - /url: /product/15
+              - img "Cairo Series" [ref=e300]
+              - generic [ref=e302]: NEW
+            - button "Add to Wishlist" [ref=e303] [cursor=pointer]:
+              - img [ref=e304]
+            - button "QUICK VIEW" [ref=e307] [cursor=pointer]
+            - generic [ref=e308]:
+              - link "Scarves Cairo Series $14.44" [ref=e309] [cursor=pointer]:
+                - /url: /product/15
+                - generic [ref=e310]: Scarves
+                - heading "Cairo Series" [level=3] [ref=e311]
+                - generic [ref=e313]: $14.44
+              - generic [ref=e314]:
+                - generic "Sage Teal" [ref=e315]
+                - generic "Rose Brown" [ref=e316]
+                - generic "Olive Brown" [ref=e317]
+                - generic [ref=e318]: "+1"
+          - generic [ref=e320]:
+            - link "Signature Gift Box NEW" [ref=e321] [cursor=pointer]:
+              - /url: /product/13
+              - img "Signature Gift Box" [ref=e322]
+              - generic [ref=e324]: NEW
+            - button "Add to Wishlist" [ref=e325] [cursor=pointer]:
+              - img [ref=e326]
+            - button "QUICK VIEW" [ref=e329] [cursor=pointer]
+            - generic [ref=e330]:
+              - link "Hampers Signature Gift Box $26.10" [ref=e331] [cursor=pointer]:
+                - /url: /product/13
+                - generic [ref=e332]: Hampers
+                - heading "Signature Gift Box" [level=3] [ref=e333]
+                - generic [ref=e335]: $26.10
+              - generic [ref=e338]: Gold
+          - generic [ref=e340]:
+            - link "Yasmin Sport Bergo NEW" [ref=e341] [cursor=pointer]:
+              - /url: /product/11
+              - img "Yasmin Sport Bergo" [ref=e342]
+              - generic [ref=e344]: NEW
+            - button "Add to Wishlist" [ref=e345] [cursor=pointer]:
+              - img [ref=e346]
+            - button "QUICK VIEW" [ref=e349] [cursor=pointer]
+            - generic [ref=e350]:
+              - link "Bergo Yasmin Sport Bergo $8.06" [ref=e351] [cursor=pointer]:
+                - /url: /product/11
+                - generic [ref=e352]: Bergo
+                - heading "Yasmin Sport Bergo" [level=3] [ref=e353]
+                - generic [ref=e355]: $8.06
+              - generic [ref=e358]: Olive
+          - generic [ref=e360]:
+            - link "Mariam Daily Bergo NEW" [ref=e361] [cursor=pointer]:
+              - /url: /product/7
+              - img "Mariam Daily Bergo" [ref=e362]
+              - generic [ref=e364]: NEW
+            - button "Add to Wishlist" [ref=e365] [cursor=pointer]:
+              - img [ref=e366]
+            - button "QUICK VIEW" [ref=e369] [cursor=pointer]
+            - generic [ref=e370]:
+              - link "Bergo Mariam Daily Bergo $7.48" [ref=e371] [cursor=pointer]:
+                - /url: /product/7
+                - generic [ref=e372]: Bergo
+                - heading "Mariam Daily Bergo" [level=3] [ref=e373]
+                - generic [ref=e375]: $7.48
+              - generic [ref=e378]: Camel
+          - generic [ref=e380]:
+            - link "Eliza Premium Voal Scarf NEW" [ref=e381] [cursor=pointer]:
+              - /url: /product/1
+              - img "Eliza Premium Voal Scarf" [ref=e382]
+              - generic [ref=e384]: NEW
+            - button "Add to Wishlist" [ref=e385] [cursor=pointer]:
+              - img [ref=e386]
+            - button "QUICK VIEW" [ref=e389] [cursor=pointer]
+            - generic [ref=e390]:
+              - link "Scarves Eliza Premium Voal Scarf $10.96" [ref=e391] [cursor=pointer]:
+                - /url: /product/1
+                - generic [ref=e392]: Scarves
+                - heading "Eliza Premium Voal Scarf" [level=3] [ref=e393]
+                - generic [ref=e395]: $10.96
+              - generic [ref=e398]: Dusty Rose
+          - generic [ref=e400]:
+            - link "Luna Silk Scarf Collection MUST HAVE" [ref=e401] [cursor=pointer]:
+              - /url: /product/2
+              - img "Luna Silk Scarf Collection" [ref=e402]
+              - generic [ref=e404]: MUST HAVE
+            - button "Add to Wishlist" [ref=e405] [cursor=pointer]:
+              - img [ref=e406]
+            - button "QUICK VIEW" [ref=e409] [cursor=pointer]
+            - generic [ref=e410]:
+              - link "Scarves Luna Silk Scarf Collection $15.02" [ref=e411] [cursor=pointer]:
+                - /url: /product/2
+                - generic [ref=e412]: Scarves
+                - heading "Luna Silk Scarf Collection" [level=3] [ref=e413]
+                - generic [ref=e415]: $15.02
+              - generic [ref=e418]: Sage Green
+          - generic [ref=e420]:
+            - link "Amira Cotton Bergo" [ref=e421] [cursor=pointer]:
+              - /url: /product/3
+              - img "Amira Cotton Bergo" [ref=e422]
+            - button "Add to Wishlist" [ref=e424] [cursor=pointer]:
+              - img [ref=e425]
+            - button "QUICK VIEW" [ref=e428] [cursor=pointer]
+            - generic [ref=e429]:
+              - link "Bergo Amira Cotton Bergo $8.64" [ref=e430] [cursor=pointer]:
+                - /url: /product/3
+                - generic [ref=e431]: Bergo
+                - heading "Amira Cotton Bergo" [level=3] [ref=e432]
+                - generic [ref=e434]: $8.64
+              - generic [ref=e437]: Black
+          - generic [ref=e439]:
+            - link "Zahra Elegant Dress OFFER" [ref=e440] [cursor=pointer]:
+              - /url: /product/4
+              - img "Zahra Elegant Dress" [ref=e441]
+              - generic [ref=e443]: OFFER
+            - button "Add to Wishlist" [ref=e444] [cursor=pointer]:
+              - img [ref=e445]
+            - button "QUICK VIEW" [ref=e448] [cursor=pointer]
+            - generic [ref=e449]:
+              - link "Dresses Zahra Elegant Dress $26.62 $34.74" [ref=e450] [cursor=pointer]:
+                - /url: /product/4
+                - generic [ref=e451]: Dresses
+                - heading "Zahra Elegant Dress" [level=3] [ref=e452]
+                - generic [ref=e453]:
+                  - generic [ref=e454]: $26.62
+                  - generic [ref=e455]: $34.74
+              - generic [ref=e458]: Navy
+          - generic [ref=e460]:
+            - link "Fatima Premium Pray Set MUST HAVE" [ref=e461] [cursor=pointer]:
+              - /url: /product/5
+              - img "Fatima Premium Pray Set" [ref=e462]
+              - generic [ref=e464]: MUST HAVE
+            - button "Add to Wishlist" [ref=e465] [cursor=pointer]:
+              - img [ref=e466]
+            - button "QUICK VIEW" [ref=e469] [cursor=pointer]
+            - generic [ref=e470]:
+              - link "Pray Set Fatima Premium Pray Set $22.56" [ref=e471] [cursor=pointer]:
+                - /url: /product/5
+                - generic [ref=e472]: Pray Set
+                - heading "Fatima Premium Pray Set" [level=3] [ref=e473]
+                - generic [ref=e475]: $22.56
+              - generic [ref=e478]: White
+          - generic [ref=e480]:
+            - link "Safa Printed Scarf" [ref=e481] [cursor=pointer]:
+              - /url: /product/6
+              - img "Safa Printed Scarf" [ref=e482]
+            - button "Add to Wishlist" [ref=e484] [cursor=pointer]:
+              - img [ref=e485]
+            - button "QUICK VIEW" [ref=e488] [cursor=pointer]
+            - generic [ref=e489]:
+              - link "Scarves Safa Printed Scarf $9.22" [ref=e490] [cursor=pointer]:
+                - /url: /product/6
+                - generic [ref=e491]: Scarves
+                - heading "Safa Printed Scarf" [level=3] [ref=e492]
+                - generic [ref=e494]: $9.22
+              - generic [ref=e497]: Cream
+          - generic [ref=e499]:
+            - link "Aisha Maxi Dress" [ref=e500] [cursor=pointer]:
+              - /url: /product/8
+              - img "Aisha Maxi Dress" [ref=e501]
+            - button "Add to Wishlist" [ref=e503] [cursor=pointer]:
+              - img [ref=e504]
+            - button "QUICK VIEW" [ref=e507] [cursor=pointer]
+            - generic [ref=e508]:
+              - link "Dresses Aisha Maxi Dress $30.68" [ref=e509] [cursor=pointer]:
+                - /url: /product/8
+                - generic [ref=e510]: Dresses
+                - heading "Aisha Maxi Dress" [level=3] [ref=e511]
+                - generic [ref=e513]: $30.68
+              - generic [ref=e516]: Burgundy
+          - generic [ref=e518]:
+            - link "Nadia Travel Pray Set OFFER" [ref=e519] [cursor=pointer]:
+              - /url: /product/9
+              - img "Nadia Travel Pray Set" [ref=e520]
+              - generic [ref=e522]: OFFER
+            - button "Add to Wishlist" [ref=e523] [cursor=pointer]:
+              - img [ref=e524]
+            - button "QUICK VIEW" [ref=e527] [cursor=pointer]
+            - generic [ref=e528]:
+              - link "Pray Set Nadia Travel Pray Set $20.24 $24.88" [ref=e529] [cursor=pointer]:
+                - /url: /product/9
+                - generic [ref=e530]: Pray Set
+                - heading "Nadia Travel Pray Set" [level=3] [ref=e531]
+                - generic [ref=e532]:
+                  - generic [ref=e533]: $20.24
+                  - generic [ref=e534]: $24.88
+              - generic [ref=e537]: Grey
+          - generic [ref=e539]:
+            - link "Khadijah Chiffon Scarf" [ref=e540] [cursor=pointer]:
+              - /url: /product/10
+              - img "Khadijah Chiffon Scarf" [ref=e541]
+            - button "Add to Wishlist" [ref=e543] [cursor=pointer]:
+              - img [ref=e544]
+            - button "QUICK VIEW" [ref=e547] [cursor=pointer]
+            - generic [ref=e548]:
+              - link "Scarves Khadijah Chiffon Scarf $10.38" [ref=e549] [cursor=pointer]:
+                - /url: /product/10
+                - generic [ref=e550]: Scarves
+                - heading "Khadijah Chiffon Scarf" [level=3] [ref=e551]
+                - generic [ref=e553]: $10.38
+              - generic [ref=e556]: Blush Pink
+          - generic [ref=e558]:
+            - link "Halima Abaya Dress MUST HAVE" [ref=e559] [cursor=pointer]:
+              - /url: /product/12
+              - img "Halima Abaya Dress" [ref=e560]
+              - generic [ref=e562]: MUST HAVE
+            - button "Add to Wishlist" [ref=e563] [cursor=pointer]:
+              - img [ref=e564]
+            - button "QUICK VIEW" [ref=e567] [cursor=pointer]
+            - generic [ref=e568]:
+              - link "Dresses Halima Abaya Dress $39.38" [ref=e569] [cursor=pointer]:
+                - /url: /product/12
+                - generic [ref=e570]: Dresses
+                - heading "Halima Abaya Dress" [level=3] [ref=e571]
+                - generic [ref=e573]: $39.38
+              - generic [ref=e576]: Black
+  - contentinfo [ref=e577]:
+    - generic [ref=e578]:
+      - generic [ref=e579]:
+        - generic [ref=e580]:
+          - link "DEENHA" [ref=e581] [cursor=pointer]:
+            - /url: /
+            - img "DEENHA" [ref=e582]
+          - paragraph [ref=e583]: Crafting exquisite modesty for the modern woman who values elegance and tradition.
+        - generic [ref=e584]:
+          - heading "Shop" [level=4] [ref=e585]
+          - list [ref=e586]:
+            - listitem [ref=e587]:
+              - link "Scarf" [ref=e588] [cursor=pointer]:
+                - /url: /shop?category=Scarves
+            - listitem [ref=e589]:
+              - link "Dress" [ref=e590] [cursor=pointer]:
+                - /url: /shop?category=Dresses
+            - listitem [ref=e591]:
+              - link "Bergo" [ref=e592] [cursor=pointer]:
+                - /url: /shop?category=Bergo
+            - listitem [ref=e593]:
+              - link "Pray Set" [ref=e594] [cursor=pointer]:
+                - /url: /shop?category=Pray Set
+            - listitem [ref=e595]:
+              - link "New Arrival" [ref=e596] [cursor=pointer]:
+                - /url: /shop?badge=new
+        - generic [ref=e597]:
+          - heading "Support" [level=4] [ref=e598]
+          - list [ref=e599]:
+            - listitem [ref=e600]:
+              - link "Contact Us" [ref=e601] [cursor=pointer]:
+                - /url: /contact
+            - listitem [ref=e602]:
+              - link "Shipping Info" [ref=e603] [cursor=pointer]:
+                - /url: /shipping
+            - listitem [ref=e604]:
+              - link "Returns" [ref=e605] [cursor=pointer]:
+                - /url: /returns
+            - listitem [ref=e606]:
+              - link "Size Guide" [ref=e607] [cursor=pointer]:
+                - /url: /size-guide
+            - listitem [ref=e608]:
+              - link "FAQ" [ref=e609] [cursor=pointer]:
+                - /url: /faq
+        - generic [ref=e610]:
+          - heading "Company" [level=4] [ref=e611]
+          - list [ref=e612]:
+            - listitem [ref=e613]:
+              - link "About Us" [ref=e614] [cursor=pointer]:
+                - /url: /about
+            - listitem [ref=e615]:
+              - link "Our Story" [ref=e616] [cursor=pointer]:
+                - /url: /about#story
+            - listitem [ref=e617]:
+              - link "Journal" [ref=e618] [cursor=pointer]:
+                - /url: /journal
+      - generic [ref=e619]:
+        - generic [ref=e620]:
+          - link "Instagram" [ref=e621] [cursor=pointer]:
+            - /url: https://www.instagram.com/deenha.official/
+            - img [ref=e622]
+          - link "TikTok" [ref=e624] [cursor=pointer]:
+            - /url: https://www.tiktok.com/@deenha.id
+            - img [ref=e625]
+          - link "Shopee" [ref=e627] [cursor=pointer]:
+            - /url: https://shopee.co.id/deenha
+            - img "Shopee" [ref=e628]
+          - link "Tokopedia" [ref=e629] [cursor=pointer]:
+            - /url: https://www.tokopedia.com/deenha
+            - img "Tokopedia" [ref=e630]
+        - generic [ref=e631]:
+          - generic [ref=e632]:
+            - img "QRIS" [ref=e633]
+            - img "BCA" [ref=e634]
+          - paragraph [ref=e635]: © 2026 DEENHA HIJAB. ALL RIGHTS RESERVED.
+  - link "WhatsApp" [ref=e637] [cursor=pointer]:
+    - /url: https://wa.me/6281919234222?text=Hello%20Deenha!%20I%20am%20interested%20in%20your%20products.
+    - img "WhatsApp" [ref=e638]

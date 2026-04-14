@@ -1,0 +1,133 @@
+- generic [ref=e3]:
+  - generic [ref=e6]:
+    - generic [ref=e7]: "🌙 Pre-Raya Special: Luxury Hampers & Signature Scarves Highlights"
+    - generic [ref=e8]: 🌍 International Shipping Available
+    - generic [ref=e9]: ✨ Complimentary Shipping on Orders over Rp 500.000
+    - generic [ref=e10]: 🎁 Use DEENHA10 for 10% off your first purchase
+    - generic [ref=e11]: "🌙 Pre-Raya Special: Luxury Hampers & Signature Scarves Highlights"
+    - generic [ref=e12]: 🌍 International Shipping Available
+    - generic [ref=e13]: ✨ Complimentary Shipping on Orders over Rp 500.000
+    - generic [ref=e14]: 🎁 Use DEENHA10 for 10% off your first purchase
+  - banner [ref=e15]:
+    - generic [ref=e17]:
+      - generic [ref=e18]:
+        - link "Home" [ref=e19] [cursor=pointer]:
+          - /url: /
+        - link "Shop" [ref=e20] [cursor=pointer]:
+          - /url: /shop
+      - link "DEENHA" [ref=e22] [cursor=pointer]:
+        - /url: /
+        - img "DEENHA" [ref=e23]
+      - generic [ref=e24]:
+        - generic [ref=e25]:
+          - link "Journal" [ref=e26] [cursor=pointer]:
+            - /url: /journal
+          - link "About Us" [ref=e27] [cursor=pointer]:
+            - /url: /about
+        - button "ID" [ref=e30] [cursor=pointer]:
+          - generic [ref=e31]: ID
+          - img [ref=e32]
+        - button "Toggle Theme" [ref=e34] [cursor=pointer]:
+          - img [ref=e35]
+        - button "Toggle Search" [ref=e37] [cursor=pointer]:
+          - img [ref=e38]
+        - link "Wishlist" [ref=e40] [cursor=pointer]:
+          - /url: /wishlist
+          - img [ref=e41]
+        - button "Shopping Cart" [ref=e43] [cursor=pointer]:
+          - img [ref=e44]
+  - main [ref=e46]:
+    - generic [ref=e47]:
+      - generic [ref=e48]:
+        - generic [ref=e49]: Assistance
+        - heading "Help Center" [level=1] [ref=e50]
+        - paragraph [ref=e51]: Your questions answered. If you can''t find what you''re looking for, our team is always available via WhatsApp for personalized assistance.
+      - generic [ref=e52]:
+        - generic [ref=e53]:
+          - heading "Product" [level=2] [ref=e54]
+          - button "What materials do you use for your hijabs? +" [ref=e57] [cursor=pointer]:
+            - generic [ref=e58]: What materials do you use for your hijabs?
+            - generic [ref=e59]: +
+        - generic [ref=e60]:
+          - heading "Shipping" [level=2] [ref=e61]
+          - button "Do you ship internationally? +" [ref=e64] [cursor=pointer]:
+            - generic [ref=e65]: Do you ship internationally?
+            - generic [ref=e66]: +
+  - contentinfo [ref=e67]:
+    - generic [ref=e68]:
+      - generic [ref=e69]:
+        - generic [ref=e70]:
+          - link "DEENHA" [ref=e71] [cursor=pointer]:
+            - /url: /
+            - img "DEENHA" [ref=e72]
+          - paragraph [ref=e73]: Crafting exquisite modesty for the modern woman who values elegance and tradition.
+        - generic [ref=e74]:
+          - heading "Shop" [level=4] [ref=e75]
+          - list [ref=e76]:
+            - listitem [ref=e77]:
+              - link "Scarf" [ref=e78] [cursor=pointer]:
+                - /url: /shop?category=Scarves
+            - listitem [ref=e79]:
+              - link "Dress" [ref=e80] [cursor=pointer]:
+                - /url: /shop?category=Dresses
+            - listitem [ref=e81]:
+              - link "Bergo" [ref=e82] [cursor=pointer]:
+                - /url: /shop?category=Bergo
+            - listitem [ref=e83]:
+              - link "Pray Set" [ref=e84] [cursor=pointer]:
+                - /url: /shop?category=Pray Set
+            - listitem [ref=e85]:
+              - link "New Arrival" [ref=e86] [cursor=pointer]:
+                - /url: /shop?badge=new
+        - generic [ref=e87]:
+          - heading "Support" [level=4] [ref=e88]
+          - list [ref=e89]:
+            - listitem [ref=e90]:
+              - link "Contact Us" [ref=e91] [cursor=pointer]:
+                - /url: /contact
+            - listitem [ref=e92]:
+              - link "Shipping Info" [ref=e93] [cursor=pointer]:
+                - /url: /shipping
+            - listitem [ref=e94]:
+              - link "Returns" [ref=e95] [cursor=pointer]:
+                - /url: /returns
+            - listitem [ref=e96]:
+              - link "Size Guide" [ref=e97] [cursor=pointer]:
+                - /url: /size-guide
+            - listitem [ref=e98]:
+              - link "FAQ" [ref=e99] [cursor=pointer]:
+                - /url: /faq
+        - generic [ref=e100]:
+          - heading "Company" [level=4] [ref=e101]
+          - list [ref=e102]:
+            - listitem [ref=e103]:
+              - link "About Us" [ref=e104] [cursor=pointer]:
+                - /url: /about
+            - listitem [ref=e105]:
+              - link "Our Story" [ref=e106] [cursor=pointer]:
+                - /url: /about#story
+            - listitem [ref=e107]:
+              - link "Journal" [ref=e108] [cursor=pointer]:
+                - /url: /journal
+      - generic [ref=e109]:
+        - generic [ref=e110]:
+          - link "Instagram" [ref=e111] [cursor=pointer]:
+            - /url: https://www.instagram.com/deenha.official/
+            - img [ref=e112]
+          - link "TikTok" [ref=e114] [cursor=pointer]:
+            - /url: https://www.tiktok.com/@deenha.id
+            - img [ref=e115]
+          - link "Shopee" [ref=e117] [cursor=pointer]:
+            - /url: https://shopee.co.id/deenha
+            - img "Shopee" [ref=e118]
+          - link "Tokopedia" [ref=e119] [cursor=pointer]:
+            - /url: https://www.tokopedia.com/deenha
+            - img "Tokopedia" [ref=e120]
+        - generic [ref=e121]:
+          - generic [ref=e122]:
+            - img "QRIS" [ref=e123]
+            - img "BCA" [ref=e124]
+          - paragraph [ref=e125]: © 2026 DEENHA HIJAB. ALL RIGHTS RESERVED.
+  - link "WhatsApp" [ref=e127] [cursor=pointer]:
+    - /url: https://wa.me/6281919234222?text=Hello%20Deenha!%20I%20am%20interested%20in%20your%20products.
+    - img "WhatsApp" [ref=e128]

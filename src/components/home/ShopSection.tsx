@@ -24,6 +24,8 @@ const ShopSection = () => {
     const { products, loading } = useProducts();
     const [searchParams, setSearchParams] = useSearchParams();
 
+    const badge = searchParams.get('badge');
+
     // Initialize state from URL only once
     const [filters, setFilters] = useState<FilterState>(() => {
         const category = searchParams.get('category');
@@ -44,6 +46,11 @@ const ShopSection = () => {
     // Filter and sort products (Memoized)
     const filteredProducts = useMemo(() => {
         let result = [...products];
+
+        // Filter by badge (e.g. ?badge=new for New Arrivals)
+        if (badge) {
+            result = result.filter(p => p.badge === badge);
+        }
 
         if (filters.ids && filters.ids.length > 0) {
             result = result.filter(p => filters.ids!.includes(String(p.id)));
@@ -71,7 +78,7 @@ const ShopSection = () => {
         }
 
         return result;
-    }, [filters, sortBy, products]);
+    }, [filters, sortBy, products, badge]);
 
     // Update URL sync with debounce
     useEffect(() => {

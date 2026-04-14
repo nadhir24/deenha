@@ -1,0 +1,148 @@
+- generic [ref=e3]:
+  - generic [ref=e6]:
+    - generic [ref=e7]: "🌙 Pre-Raya Special: Luxury Hampers & Signature Scarves Highlights"
+    - generic [ref=e8]: 🌍 International Shipping Available
+    - generic [ref=e9]: ✨ Complimentary Shipping on Orders over Rp 500.000
+    - generic [ref=e10]: 🎁 Use DEENHA10 for 10% off your first purchase
+    - generic [ref=e11]: "🌙 Pre-Raya Special: Luxury Hampers & Signature Scarves Highlights"
+    - generic [ref=e12]: 🌍 International Shipping Available
+    - generic [ref=e13]: ✨ Complimentary Shipping on Orders over Rp 500.000
+    - generic [ref=e14]: 🎁 Use DEENHA10 for 10% off your first purchase
+  - banner [ref=e15]:
+    - generic [ref=e17]:
+      - generic [ref=e18]:
+        - link "Home" [ref=e19] [cursor=pointer]:
+          - /url: /
+        - link "Shop" [ref=e20] [cursor=pointer]:
+          - /url: /shop
+      - link "DEENHA" [ref=e22] [cursor=pointer]:
+        - /url: /
+        - img "DEENHA" [ref=e23]
+      - generic [ref=e24]:
+        - generic [ref=e25]:
+          - link "Journal" [ref=e26] [cursor=pointer]:
+            - /url: /journal
+          - link "About Us" [ref=e27] [cursor=pointer]:
+            - /url: /about
+        - button "ID" [ref=e30] [cursor=pointer]:
+          - generic [ref=e31]: ID
+          - img [ref=e32]
+        - button "Toggle Theme" [ref=e34] [cursor=pointer]:
+          - img [ref=e35]
+        - button "Toggle Search" [ref=e37] [cursor=pointer]:
+          - img [ref=e38]
+        - link "Wishlist" [ref=e40] [cursor=pointer]:
+          - /url: /wishlist
+          - img [ref=e41]
+        - button "Shopping Cart" [ref=e43] [cursor=pointer]:
+          - img [ref=e44]
+  - main [ref=e46]:
+    - generic [ref=e48]:
+      - generic [ref=e49]: Our Identity
+      - heading "The Story of Deenha" [level=1] [ref=e50]
+    - generic [ref=e52]:
+      - generic [ref=e53]:
+        - img "Deenha Brand Story" [ref=e56]
+        - generic [ref=e58]:
+          - generic [ref=e59]: The Narrative
+          - heading "Elegance in Every Thread" [level=2] [ref=e60]
+          - generic [ref=e61]:
+            - paragraph [ref=e62]: Deenha Hijab offers a stunning collection that embodies elegance and sophistication. Crafted with the utmost care, each piece is designed with soft and vibrant materials, ensuring both comfort and style.
+            - paragraph [ref=e63]: Our scarves come in a variety of exquisite motifs, making it easy to find the perfect match for any occasion.
+            - paragraph [ref=e64]: Whether you're looking to elevate your daily wear or prepare for a special event, Deenha Hijab brings you a world of versatility and grace.
+          - paragraph [ref=e66]: — THE DEENHA TEAM
+      - generic [ref=e67]:
+        - generic [ref=e68]:
+          - generic [ref=e69]: Core Philosophy
+          - heading "Our Ethos" [level=2] [ref=e70]
+        - generic [ref=e71]:
+          - generic [ref=e72]:
+            - generic: "01"
+            - heading "Empowering Confidence" [level=3] [ref=e73]
+            - paragraph [ref=e74]: Deenha is crafted to elevate the confidence of every woman.
+          - generic [ref=e75]:
+            - generic: "02"
+            - heading "Global Inspiration" [level=3] [ref=e76]
+            - paragraph [ref=e77]: Deenha draws inspiration from global heritage, blending timeless designs.
+          - generic [ref=e78]:
+            - generic: "03"
+            - heading "Our Mission" [level=3] [ref=e79]
+            - paragraph [ref=e80]: Our mission is to create high-quality clothing for Muslim women.
+  - contentinfo [ref=e81]:
+    - generic [ref=e82]:
+      - generic [ref=e83]:
+        - generic [ref=e84]:
+          - link "DEENHA" [ref=e85] [cursor=pointer]:
+            - /url: /
+            - img "DEENHA" [ref=e86]
+          - paragraph [ref=e87]: Crafting exquisite modesty for the modern woman who values elegance and tradition.
+        - generic [ref=e88]:
+          - heading "Shop" [level=4] [ref=e89]
+          - list [ref=e90]:
+            - listitem [ref=e91]:
+              - link "Scarf" [ref=e92] [cursor=pointer]:
+                - /url: /shop?category=Scarves
+            - listitem [ref=e93]:
+              - link "Dress" [ref=e94] [cursor=pointer]:
+                - /url: /shop?category=Dresses
+            - listitem [ref=e95]:
+              - link "Bergo" [ref=e96] [cursor=pointer]:
+                - /url: /shop?category=Bergo
+            - listitem [ref=e97]:
+              - link "Pray Set" [ref=e98] [cursor=pointer]:
+                - /url: /shop?category=Pray Set
+            - listitem [ref=e99]:
+              - link "New Arrival" [ref=e100] [cursor=pointer]:
+                - /url: /shop?badge=new
+        - generic [ref=e101]:
+          - heading "Support" [level=4] [ref=e102]
+          - list [ref=e103]:
+            - listitem [ref=e104]:
+              - link "Contact Us" [ref=e105] [cursor=pointer]:
+                - /url: /contact
+            - listitem [ref=e106]:
+              - link "Shipping Info" [ref=e107] [cursor=pointer]:
+                - /url: /shipping
+            - listitem [ref=e108]:
+              - link "Returns" [ref=e109] [cursor=pointer]:
+                - /url: /returns
+            - listitem [ref=e110]:
+              - link "Size Guide" [ref=e111] [cursor=pointer]:
+                - /url: /size-guide
+            - listitem [ref=e112]:
+              - link "FAQ" [ref=e113] [cursor=pointer]:
+                - /url: /faq
+        - generic [ref=e114]:
+          - heading "Company" [level=4] [ref=e115]
+          - list [ref=e116]:
+            - listitem [ref=e117]:
+              - link "About Us" [ref=e118] [cursor=pointer]:
+                - /url: /about
+            - listitem [ref=e119]:
+              - link "Our Story" [ref=e120] [cursor=pointer]:
+                - /url: /about#story
+            - listitem [ref=e121]:
+              - link "Journal" [ref=e122] [cursor=pointer]:
+                - /url: /journal
+      - generic [ref=e123]:
+        - generic [ref=e124]:
+          - link "Instagram" [ref=e125] [cursor=pointer]:
+            - /url: https://www.instagram.com/deenha.official/
+            - img [ref=e126]
+          - link "TikTok" [ref=e128] [cursor=pointer]:
+            - /url: https://www.tiktok.com/@deenha.id
+            - img [ref=e129]
+          - link "Shopee" [ref=e131] [cursor=pointer]:
+            - /url: https://shopee.co.id/deenha
+            - img "Shopee" [ref=e132]
+          - link "Tokopedia" [ref=e133] [cursor=pointer]:
+            - /url: https://www.tokopedia.com/deenha
+            - img "Tokopedia" [ref=e134]
+        - generic [ref=e135]:
+          - generic [ref=e136]:
+            - img "QRIS" [ref=e137]
+            - img "BCA" [ref=e138]
+          - paragraph [ref=e139]: © 2026 DEENHA HIJAB. ALL RIGHTS RESERVED.
+  - link "WhatsApp" [ref=e141] [cursor=pointer]:
+    - /url: https://wa.me/6281919234222?text=Hello%20Deenha!%20I%20am%20interested%20in%20your%20products.
+    - img "WhatsApp" [ref=e142]

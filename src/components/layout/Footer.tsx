@@ -18,10 +18,10 @@ const Footer = () => {
         {
             title: t('footer.support'),
             links: [
-                { name: t('footer.links.contact_us'), href: '/contact' },
-                { name: t('footer.links.shipping_info'), href: '/shipping' },
-                { name: t('footer.links.returns'), href: '/returns' },
-                { name: t('footer.links.size_guide'), href: '/size-guide' },
+                { name: t('footer.links.contact_us'), href: '/faq#contact' },
+                { name: t('footer.links.shipping_info'), href: '/faq#shipping' },
+                { name: t('footer.links.returns'), href: '/faq#returns' },
+                { name: t('footer.links.size_guide'), href: '/faq#size-guide' },
                 { name: t('footer.links.faq'), href: '/faq' },
             ]
         },

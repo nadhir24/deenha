@@ -1,0 +1,228 @@
+- generic [ref=e3]:
+  - generic [ref=e6]:
+    - generic [ref=e7]: "🌙 Pre-Raya Special: Luxury Hampers & Signature Scarves Highlights"
+    - generic [ref=e8]: 🌍 International Shipping Available
+    - generic [ref=e9]: ✨ Complimentary Shipping on Orders over Rp 500.000
+    - generic [ref=e10]: 🎁 Use DEENHA10 for 10% off your first purchase
+    - generic [ref=e11]: "🌙 Pre-Raya Special: Luxury Hampers & Signature Scarves Highlights"
+    - generic [ref=e12]: 🌍 International Shipping Available
+    - generic [ref=e13]: ✨ Complimentary Shipping on Orders over Rp 500.000
+    - generic [ref=e14]: 🎁 Use DEENHA10 for 10% off your first purchase
+  - banner [ref=e15]:
+    - generic [ref=e17]:
+      - button "Open Mobile Menu" [ref=e19] [cursor=pointer]:
+        - img [ref=e20]
+      - link "DEENHA" [ref=e23] [cursor=pointer]:
+        - /url: /
+        - img "DEENHA" [ref=e24]
+      - generic [ref=e25]:
+        - button "Toggle Theme" [ref=e26] [cursor=pointer]:
+          - img [ref=e27]
+        - button "Toggle Search" [ref=e29] [cursor=pointer]:
+          - img [ref=e30]
+        - link "Wishlist" [ref=e32] [cursor=pointer]:
+          - /url: /wishlist
+          - img [ref=e33]
+        - button "Shopping Cart" [ref=e35] [cursor=pointer]:
+          - img [ref=e36]
+  - main [ref=e38]:
+    - generic [ref=e39]:
+      - navigation [ref=e40]:
+        - link "Home" [ref=e41] [cursor=pointer]:
+          - /url: /
+        - generic [ref=e42]: /
+        - link "Scarves" [ref=e43] [cursor=pointer]:
+          - /url: /shop?category=Scarves
+        - generic [ref=e44]: /
+        - generic [ref=e45]: Kawung Scarves
+      - generic [ref=e46]:
+        - generic [ref=e47]:
+          - generic [ref=e48]:
+            - img "Kawung Scarves" [ref=e50]
+            - generic: Hover to Explore Detail
+          - generic [ref=e51]:
+            - button "Dusty Rose" [ref=e52] [cursor=pointer]:
+              - img "Dusty Rose" [ref=e53]
+            - button "Sage Grey" [ref=e54] [cursor=pointer]:
+              - img "Sage Grey" [ref=e55]
+            - button "Maroon Beige" [ref=e56] [cursor=pointer]:
+              - img "Maroon Beige" [ref=e57]
+            - button "Dark Teal" [ref=e58] [cursor=pointer]:
+              - img "Dark Teal" [ref=e59]
+        - generic [ref=e60]:
+          - generic [ref=e61]:
+            - generic [ref=e62]: Scarves • NEW
+            - heading "Kawung Scarves" [level=1] [ref=e63]
+            - generic [ref=e65]: $14.44
+          - generic [ref=e66]:
+            - generic [ref=e67]:
+              - generic [ref=e68]: "Warna: Dusty Rose"
+              - generic [ref=e69]:
+                - button "Dusty Rose" [ref=e70] [cursor=pointer]
+                - button "Sage Grey" [ref=e72] [cursor=pointer]
+                - button "Maroon Beige" [ref=e74] [cursor=pointer]
+                - button "Dark Teal" [ref=e76] [cursor=pointer]
+            - generic [ref=e78]:
+              - generic [ref=e79]: Pilih Ukuran
+              - button "115x115" [ref=e81] [cursor=pointer]
+            - generic [ref=e82]:
+              - generic [ref=e83]: Jumlah
+              - generic [ref=e84]:
+                - button "—" [ref=e85] [cursor=pointer]
+                - generic [ref=e86]: "1"
+                - button "+" [ref=e87] [cursor=pointer]
+          - generic [ref=e88]:
+            - generic [ref=e89]:
+              - generic [ref=e90]: STATUS INVENTARIS
+              - generic [ref=e91]: TERSEDIA DI ATELIER
+            - generic [ref=e92]:
+              - button "TAMBAHKAN KE KOLEKSI" [ref=e93] [cursor=pointer]
+              - button [ref=e94] [cursor=pointer]:
+                - img [ref=e95]
+          - generic [ref=e97]:
+            - generic [ref=e98]:
+              - button "Description" [ref=e99] [cursor=pointer]: Description
+              - button "Details & Care" [ref=e101] [cursor=pointer]
+              - button "Shipping & Returns" [ref=e102] [cursor=pointer]
+            - paragraph [ref=e105]: Rooted in Javanese tradition. The Kawung Scarves feature the iconic kawung batik pattern — a symbol of purity and wisdom.
+      - generic [ref=e106]:
+        - generic [ref=e107]:
+          - generic [ref=e108]: Complementary
+          - heading "You May Also Like" [level=2] [ref=e109]
+        - generic [ref=e110]:
+          - generic [ref=e111]:
+            - link "Eliza Premium Voal Scarf NEW" [ref=e112] [cursor=pointer]:
+              - /url: /product/1
+              - img "Eliza Premium Voal Scarf" [ref=e113]
+              - generic [ref=e115]: NEW
+            - button "Add to Wishlist" [ref=e116] [cursor=pointer]:
+              - img [ref=e117]
+            - button "QUICK VIEW" [ref=e120] [cursor=pointer]
+            - generic [ref=e121]:
+              - link "Scarves Eliza Premium Voal Scarf $10.96" [ref=e122] [cursor=pointer]:
+                - /url: /product/1
+                - generic [ref=e123]: Scarves
+                - heading "Eliza Premium Voal Scarf" [level=3] [ref=e124]
+                - generic [ref=e126]: $10.96
+              - generic [ref=e129]: Dusty Rose
+          - generic [ref=e130]:
+            - link "Luna Silk Scarf Collection MUST HAVE" [ref=e131] [cursor=pointer]:
+              - /url: /product/2
+              - img "Luna Silk Scarf Collection" [ref=e132]
+              - generic [ref=e134]: MUST HAVE
+            - button "Add to Wishlist" [ref=e135] [cursor=pointer]:
+              - img [ref=e136]
+            - button "QUICK VIEW" [ref=e139] [cursor=pointer]
+            - generic [ref=e140]:
+              - link "Scarves Luna Silk Scarf Collection $15.02" [ref=e141] [cursor=pointer]:
+                - /url: /product/2
+                - generic [ref=e142]: Scarves
+                - heading "Luna Silk Scarf Collection" [level=3] [ref=e143]
+                - generic [ref=e145]: $15.02
+              - generic [ref=e148]: Sage Green
+          - generic [ref=e149]:
+            - link "Safa Printed Scarf" [ref=e150] [cursor=pointer]:
+              - /url: /product/6
+              - img "Safa Printed Scarf" [ref=e151]
+            - button "Add to Wishlist" [ref=e153] [cursor=pointer]:
+              - img [ref=e154]
+            - button "QUICK VIEW" [ref=e157] [cursor=pointer]
+            - generic [ref=e158]:
+              - link "Scarves Safa Printed Scarf $9.22" [ref=e159] [cursor=pointer]:
+                - /url: /product/6
+                - generic [ref=e160]: Scarves
+                - heading "Safa Printed Scarf" [level=3] [ref=e161]
+                - generic [ref=e163]: $9.22
+              - generic [ref=e166]: Cream
+          - generic [ref=e167]:
+            - link "Khadijah Chiffon Scarf" [ref=e168] [cursor=pointer]:
+              - /url: /product/10
+              - img "Khadijah Chiffon Scarf" [ref=e169]
+            - button "Add to Wishlist" [ref=e171] [cursor=pointer]:
+              - img [ref=e172]
+            - button "QUICK VIEW" [ref=e175] [cursor=pointer]
+            - generic [ref=e176]:
+              - link "Scarves Khadijah Chiffon Scarf $10.38" [ref=e177] [cursor=pointer]:
+                - /url: /product/10
+                - generic [ref=e178]: Scarves
+                - heading "Khadijah Chiffon Scarf" [level=3] [ref=e179]
+                - generic [ref=e181]: $10.38
+              - generic [ref=e184]: Blush Pink
+  - contentinfo [ref=e185]:
+    - generic [ref=e186]:
+      - generic [ref=e187]:
+        - generic [ref=e188]:
+          - link "DEENHA" [ref=e189] [cursor=pointer]:
+            - /url: /
+            - img "DEENHA" [ref=e190]
+          - paragraph [ref=e191]: Crafting exquisite modesty for the modern woman who values elegance and tradition.
+        - generic [ref=e192]:
+          - heading "Shop" [level=4] [ref=e193]
+          - list [ref=e194]:
+            - listitem [ref=e195]:
+              - link "Scarf" [ref=e196] [cursor=pointer]:
+                - /url: /shop?category=Scarves
+            - listitem [ref=e197]:
+              - link "Dress" [ref=e198] [cursor=pointer]:
+                - /url: /shop?category=Dresses
+            - listitem [ref=e199]:
+              - link "Bergo" [ref=e200] [cursor=pointer]:
+                - /url: /shop?category=Bergo
+            - listitem [ref=e201]:
+              - link "Pray Set" [ref=e202] [cursor=pointer]:
+                - /url: /shop?category=Pray Set
+            - listitem [ref=e203]:
+              - link "New Arrival" [ref=e204] [cursor=pointer]:
+                - /url: /shop?badge=new
+        - generic [ref=e205]:
+          - heading "Support" [level=4] [ref=e206]
+          - list [ref=e207]:
+            - listitem [ref=e208]:
+              - link "Contact Us" [ref=e209] [cursor=pointer]:
+                - /url: /contact
+            - listitem [ref=e210]:
+              - link "Shipping Info" [ref=e211] [cursor=pointer]:
+                - /url: /shipping
+            - listitem [ref=e212]:
+              - link "Returns" [ref=e213] [cursor=pointer]:
+                - /url: /returns
+            - listitem [ref=e214]:
+              - link "Size Guide" [ref=e215] [cursor=pointer]:
+                - /url: /size-guide
+            - listitem [ref=e216]:
+              - link "FAQ" [ref=e217] [cursor=pointer]:
+                - /url: /faq
+        - generic [ref=e218]:
+          - heading "Company" [level=4] [ref=e219]
+          - list [ref=e220]:
+            - listitem [ref=e221]:
+              - link "About Us" [ref=e222] [cursor=pointer]:
+                - /url: /about
+            - listitem [ref=e223]:
+              - link "Our Story" [ref=e224] [cursor=pointer]:
+                - /url: /about#story
+            - listitem [ref=e225]:
+              - link "Journal" [ref=e226] [cursor=pointer]:
+                - /url: /journal
+      - generic [ref=e227]:
+        - generic [ref=e228]:
+          - link "Instagram" [ref=e229] [cursor=pointer]:
+            - /url: https://www.instagram.com/deenha.official/
+            - img [ref=e230]
+          - link "TikTok" [ref=e232] [cursor=pointer]:
+            - /url: https://www.tiktok.com/@deenha.id
+            - img [ref=e233]
+          - link "Shopee" [ref=e235] [cursor=pointer]:
+            - /url: https://shopee.co.id/deenha
+            - img "Shopee" [ref=e236]
+          - link "Tokopedia" [ref=e237] [cursor=pointer]:
+            - /url: https://www.tokopedia.com/deenha
+            - img "Tokopedia" [ref=e238]
+        - generic [ref=e239]:
+          - generic [ref=e240]:
+            - img "QRIS" [ref=e241]
+            - img "BCA" [ref=e242]
+          - paragraph [ref=e243]: © 2026 DEENHA HIJAB. ALL RIGHTS RESERVED.
+  - link "WhatsApp" [ref=e245] [cursor=pointer]:
+    - /url: https://wa.me/6281919234222?text=Hello%20Deenha!%20I%20am%20interested%20in%20your%20products.
+    - img "WhatsApp" [ref=e246]
