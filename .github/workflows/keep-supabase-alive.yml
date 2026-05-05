@@ -12,36 +12,19 @@ jobs:
     steps:
       - name: Ping Supabase Health
         run: |
-          # Extract project ref from URL (e.g., https://xxxxx.supabase.co -> xxxxx)
           SUPABASE_URL="${{ secrets.SUPABASE_URL }}"
           
-          # Ping the health endpoint - more reliable than REST API
-          response=$(curl -s -o /dev/null -w "%{http_code}" \
-            "${SUPABASE_URL}/health" \
-            -H "apikey: ${{ secrets.SUPABASE_ANON_KEY }}")
-          
-          echo "Supabase health check responded with HTTP $response"
-          
-          if [ "$response" -eq "200" ]; then
-            echo "✓ Supabase is alive!"
-            exit 0
-          fi
-          
-          # Fallback: try REST API with a simple query (requires table exists)
-          echo "Health endpoint failed, trying REST API..."
           response=$(curl -s -o /dev/null -w "%{http_code}" \
             "${SUPABASE_URL}/rest/v1/" \
             -H "apikey: ${{ secrets.SUPABASE_ANON_KEY }}" \
-            -H "Authorization: Bearer ${{ secrets.SUPABASE_ANON_KEY }}" \
-            -H "Accept: application/json")
+            -H "Authorization: Bearer ${{ secrets.SUPABASE_ANON_KEY }}")
           
-          echo "Supabase REST API responded with HTTP $response"
+          echo "Supabase responded with HTTP $response"
           
-          # 200 = OK, 404 = endpoint exists but no table (still means Supabase is up)
-          if [ "$response" -eq "200" ] || [ "$response" -eq "404" ]; then
-            echo "✓ Supabase is alive!"
+          if [ "$response" = "200" ] || [ "$response" = "404" ]; then
+            echo "Supabase is alive!"
             exit 0
           else
-            echo "✗ WARNING: Supabase returned $response"
+            echo "WARNING: Supabase returned $response"
             exit 1
           fi
