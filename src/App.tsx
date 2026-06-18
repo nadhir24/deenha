@@ -1,5 +1,6 @@
 import { useState, lazy, Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Analytics } from '@vercel/analytics/react';
 import { WishlistProvider } from './context/WishlistContext';
 import { CartProvider } from './context/CartContext';
 
@@ -152,6 +153,7 @@ function App() {
                         </WishlistProvider>
                     </NotificationProvider>
                 </AuthProvider>
+                <Analytics />
             </Router>
         </ThemeProvider>
     );
