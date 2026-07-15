@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { supabase } from '../../lib/supabase';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useNotification } from '../../hooks/useAppNotification';
+import { useNotification } from '../../context/NotificationContext';
 
 interface OrderItem {
     id: number;

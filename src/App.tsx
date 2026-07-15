@@ -1,7 +1,7 @@
 import { useState, lazy, Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { Provider } from 'react-redux';
-import { store } from './store';
+import { WishlistProvider } from './context/WishlistContext';
+import { CartProvider } from './context/CartContext';
 
 // Layout Components
 import AnnouncementBar from './components/layout/AnnouncementBar';
@@ -9,14 +9,12 @@ import Navbar from './components/layout/Navbar';
 import MobileMenu from './components/layout/MobileMenu';
 import Footer from './components/layout/Footer';
 
+import { AuthProvider } from './context/AuthContext';
+import { NotificationProvider } from './context/NotificationContext';
 import ProtectedRoute from './components/layout/ProtectedRoute';
+import { ThemeProvider } from './context/ThemeContext';
 import ScrollToTop from './components/ScrollToTop';
 import ErrorBoundary from './components/common/ErrorBoundary';
-
-// Redux side-effects (theme sync, auth init, notification toasts)
-import ThemeEffect from './components/app/ThemeEffect';
-import AuthEffect from './components/app/AuthEffect';
-import NotificationToast from './components/app/NotificationToast';
 
 // Page Components - Lazy Loaded
 const AboutPage = lazy(() => import('./pages/AboutPage'));
@@ -83,82 +81,88 @@ function App() {
         },
         "contactPoint": {
             "@type": "ContactPoint",
-            "telephone": "+628****4222",
+            "telephone": "+6281919234222",
             "contactType": "customer service"
         }
     };
 
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+    // Toggle this to true to enable Maintenance Mode
     const isMaintenanceMode = false;
     const bypassMode = new URLSearchParams(window.location.search).get('bypass') === 'true';
 
     if (isMaintenanceMode && !bypassMode) {
         return (
-            <Provider store={store}>
-                <ThemeEffect />
+            <ThemeProvider>
                 <div className="min-h-screen bg-white dark:bg-primary transition-colors duration-300">
                     <MaintenancePage />
                 </div>
-            </Provider>
+            </ThemeProvider>
         );
     }
 
     return (
-        <Provider store={store}>
-            <ThemeEffect />
-            <AuthEffect />
+        <ThemeProvider>
             <Router>
-                <div className="min-h-screen bg-white dark:bg-primary transition-colors duration-300">
-                    <AnnouncementBar />
-                    <Navbar onMenuClick={() => setMobileMenuOpen(true)} />
-                    <MobileMenu isOpen={mobileMenuOpen} onClose={() => setMobileMenuOpen(false)} />
-                    <ScrollToTop />
+                <AuthProvider>
+                    <NotificationProvider>
+                        <WishlistProvider>
+                            <CartProvider>
+                                <div className="min-h-screen bg-white dark:bg-primary transition-colors duration-300">
+                                    <AnnouncementBar />
+                                    <Navbar onMenuClick={() => setMobileMenuOpen(true)} />
+                                    <MobileMenu isOpen={mobileMenuOpen} onClose={() => setMobileMenuOpen(false)} />
 
-                    <Routes>
-                        <Route path="/" element={
-                            <>
-                                <SEOHead
-                                    title="Modest Fashion Elegant & Syar'i"
-                                    description="Koleksi eksklusif DEENHA Hijab. Temukan kemewahan dan keanggunan dalam setiap helai Scarves, Dresses, dan Mukena premium kami."
-                                    jsonLd={organizationJsonLd}
-                                />
-                                <main>
-                                    <Hero />
-                                    <Benefits />
-                                    <HomeCollections />
-                                    <InstagramFeed />
-                                </main>
-                            </>
-                        } />
+                                    <ScrollToTop />
+                                        <Routes>
+                                        <Route path="/" element={
+                                            <>
+                                                <SEOHead
+                                                    title="Modest Fashion Elegant & Syar'i"
+                                                    description="Koleksi eksklusif DEENHA Hijab. Temukan kemewahan dan keanggunan dalam setiap helai Scarves, Dresses, dan Mukena premium kami."
+                                                    jsonLd={organizationJsonLd}
+                                                />
+                                                <main>
+                                                    <Hero />
+                                                    <Benefits />
+                                                    <HomeCollections />
+                                                    <InstagramFeed />
+                                                </main>
+                                            </>
+                                        } />
 
-                        <Route path="/shop" element={<LazyRoute><ShopPage /></LazyRoute>} />
-                        <Route path="/ramadan" element={<LazyRoute><RamadanPage /></LazyRoute>} />
-                        <Route path="/contact" element={<LazyRoute><ContactPage /></LazyRoute>} />
-                        <Route path="/shipping" element={<LazyRoute><ShippingPage /></LazyRoute>} />
-                        <Route path="/returns" element={<LazyRoute><ReturnsPage /></LazyRoute>} />
-                        <Route path="/size-guide" element={<LazyRoute><SizeGuidePage /></LazyRoute>} />
-                        <Route path="/about" element={<LazyRoute><AboutPage /></LazyRoute>} />
-                        <Route path="/faq" element={<LazyRoute><FAQPage /></LazyRoute>} />
-                        <Route path="/journal" element={<LazyRoute><JournalPage /></LazyRoute>} />
-                        <Route path="/journal/:slug" element={<LazyRoute><JournalDetailsPage /></LazyRoute>} />
-                        <Route path="/product/:id" element={<LazyRoute><ProductDetailsPage /></LazyRoute>} />
-                        <Route path="/wishlist" element={<LazyRoute><WishlistPage /></LazyRoute>} />
-                        <Route path="/login" element={<LazyRoute><LoginPage /></LazyRoute>} />
-                        <Route path="/admin" element={
-                            <ProtectedRoute allowedRoles={['admin', 'employee']}>
-                                <LazyRoute><AdminDashboard /></LazyRoute>
-                            </ProtectedRoute>
-                        } />
-                        <Route path="*" element={<NotFoundPage />} />
-                    </Routes>
+                                        <Route path="/shop" element={<LazyRoute><ShopPage /></LazyRoute>} />
+                                        <Route path="/ramadan" element={<LazyRoute><RamadanPage /></LazyRoute>} />
+                                        <Route path="/contact" element={<LazyRoute><ContactPage /></LazyRoute>} />
+                                        <Route path="/shipping" element={<LazyRoute><ShippingPage /></LazyRoute>} />
+                                        <Route path="/returns" element={<LazyRoute><ReturnsPage /></LazyRoute>} />
+                                        <Route path="/size-guide" element={<LazyRoute><SizeGuidePage /></LazyRoute>} />
+                                        <Route path="/about" element={<LazyRoute><AboutPage /></LazyRoute>} />
+                                        <Route path="/faq" element={<LazyRoute><FAQPage /></LazyRoute>} />
+                                        <Route path="/journal" element={<LazyRoute><JournalPage /></LazyRoute>} />
+                                        <Route path="/journal/:slug" element={<LazyRoute><JournalDetailsPage /></LazyRoute>} />
+                                        <Route path="/product/:id" element={<LazyRoute><ProductDetailsPage /></LazyRoute>} />
+                                        <Route path="/wishlist" element={<LazyRoute><WishlistPage /></LazyRoute>} />
+                                        <Route path="/login" element={<LazyRoute><LoginPage /></LazyRoute>} />
+                                        <Route path="/admin" element={
+                                            <ProtectedRoute allowedRoles={['admin', 'employee']}>
+                                                <LazyRoute><AdminDashboard /></LazyRoute>
+                                            </ProtectedRoute>
+                                        } />
+                                        <Route path="*" element={<NotFoundPage />} />
+                                        </Routes>
 
-                    <Footer />
-                    <WhatsAppButton />
-                    <CartDrawer />
-                    <NotificationToast />
-                </div>
+                                    <Footer />
+                                    <WhatsAppButton />
+                                    <CartDrawer />
+                                </div>
+                            </CartProvider>
+                        </WishlistProvider>
+                    </NotificationProvider>
+                </AuthProvider>
             </Router>
-        </Provider>
+        </ThemeProvider>
     );
 }
 

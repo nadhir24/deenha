@@ -1,15 +1,15 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link, useLocation } from 'react-router-dom';
-import { useWishlist } from '../../hooks/useAppWishlist';
-import { useCart } from '../../hooks/useAppCart';
+import { useWishlist } from '../../context/WishlistContext';
+import { useCart } from '../../context/CartContext';
 import { useProducts } from '../../hooks/useProducts';
 import { Product } from '../../data/products';
 import LanguageSelector from './LanguageSelector';
 import { useTranslation } from 'react-i18next';
 import { useFormatPrice } from '../../hooks/useFormatPrice';
 
-import { useTheme } from '../../hooks/useAppTheme';
+import { useTheme } from '../../context/ThemeContext';
 
 interface NavbarProps {
     onMenuClick: () => void;

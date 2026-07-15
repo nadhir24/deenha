@@ -1,7 +1,7 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import LanguageSelector from './LanguageSelector';
-import { useTheme } from '../../hooks/useAppTheme';
+import { useTheme } from '../../context/ThemeContext';
 import { useTranslation } from 'react-i18next';
 
 interface MobileMenuProps {

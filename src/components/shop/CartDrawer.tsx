@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useCart } from '../../hooks/useAppCart';
+import { useCart } from '../../context/CartContext';
 import { supabase } from '../../lib/supabase';
 import { useTranslation } from 'react-i18next';
 import { useFormatPrice } from '../../hooks/useFormatPrice';

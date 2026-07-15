@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { supabase } from '../../lib/supabase';
 import { useProducts } from '../../hooks/useProducts';
-import { useNotification } from '../../hooks/useAppNotification';
+import { useNotification } from '../../context/NotificationContext';
 
 // Define Variant Interface
 interface Variant {

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import SEOHead from '../components/SEOHead';
 import { useNavigate } from 'react-router-dom';
-import { useAuth } from '../hooks/useAppAuth';
+import { useAuth } from '../context/AuthContext';
 
 const LoginPage = () => {
     const [email, setEmail] = useState('');

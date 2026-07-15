@@ -3,7 +3,7 @@ import { useSiteSettings } from '../../hooks/useSiteSettings';
 import { supabase } from '../../lib/supabase';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useProducts } from '../../hooks/useProducts';
-import { useNotification } from '../../hooks/useAppNotification';
+import { useNotification } from '../../context/NotificationContext';
 
 const DEFAULT_ANNOUNCEMENTS = [
     "🌙 Pre-Raya Special: Luxury Hampers & Signature Scarves Highlights",

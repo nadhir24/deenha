@@ -1,7 +1,7 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import SEOHead from '../components/SEOHead';
-import { useWishlist } from '../hooks/useAppWishlist';
+import { useWishlist } from '../context/WishlistContext';
 import { useProducts } from '../hooks/useProducts';
 import ProductCard from '../components/shop/ProductCard';
 

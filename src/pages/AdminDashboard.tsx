@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useAuth } from '../hooks/useAppAuth';
+import { useAuth } from '../context/AuthContext';
 import ProductManager from '../components/admin/ProductManager';
 import InstagramManager from '../components/admin/InstagramManager';
 import OrderManager from '../components/admin/OrderManager';
