@@ -241,32 +241,6 @@ app.delete('/api/products/:id', async (req, res) => {
     }
 });
 
-app.put('/api/products/:id', upload.single('image'), validateProductInput, async (req, res) => {
-    try {
-        const id = parseInt(req.params.id, 10);
-        if (!Number.isInteger(id) || id <= 0) {
-            return res.status(400).json({ error: 'Invalid product ID' });
-        }
-
-        const { name, price, originalPrice, category, size, color, colorHex, badge } = req.body;
-        const imagePath = req.file ? `/images/${req.file.filename}` : req.body.image;
-
-        const result = await db.run(
-            `UPDATE products SET name = ?, price = ?, originalPrice = ?, image = ?, category = ?, size = ?, color = ?, colorHex = ?, badge = ? WHERE id = ?`,
-            [name, price, originalPrice, imagePath, category, size, color, colorHex, badge, id]
-        );
-
-        if (result.changes === 0) {
-            return res.status(404).json({ error: 'Product not found' });
-        }
-
-        res.json({ success: true });
-    } catch (error) {
-        console.error('Error updating product:', error);
-        res.status(500).json({ error: 'Internal server error' });
-    }
-});
-
 // ===== SECURITY: Error Handling Middleware =====
 app.use((err, req, res, next) => {
     console.error('Unhandled error:', err);
