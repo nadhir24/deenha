@@ -121,19 +121,16 @@ const ProductManager = () => {
         }, 100);
     };
 
-    // Image Upload Handler
+    // Image Upload Handler — upload ke R2 via Express API (zero Supabase egress)
     const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>, field: 'main' | 'variant' | 'edit_variant', variantIndex?: number) => {
         if (!e.target.files || e.target.files.length === 0) return;
 
         const file = e.target.files[0];
-        const fileExt = file.name.split('.').pop();
-        const fileName = `${Date.now()}-${Math.random().toString(36).substring(2)}.${fileExt}`;
-        const filePath = `admin_uploads/${fileName}`;
 
         setUploading(true);
         setUploadProgress(0);
 
-        // Simulate progress since Supabase client doesn't expose it easily for simple uploads
+        // Simulate progress
         const progressInterval = setInterval(() => {
             setUploadProgress(prev => {
                 if (prev >= 90) return prev;
@@ -142,32 +139,34 @@ const ProductManager = () => {
         }, 200);
 
         try {
-            const { error: uploadError } = await supabase.storage
-                .from('products')
-                .upload(filePath, file, {
-                    cacheControl: '3600',
-                    upsert: false
-                });
+            // Upload ke Express API -> R2
+            const formData = new FormData();
+            formData.append('image', file);
 
-            if (uploadError) throw uploadError;
+            const res = await fetch('/api/r2-upload', {
+                method: 'POST',
+                body: formData,
+            });
+
+            if (!res.ok) {
+                const errData = await res.json().catch(() => ({}));
+                throw new Error(errData.error || `HTTP ${res.status}`);
+            }
+
+            const data = await res.json();
+            const imageUrl = data.url;
 
             // Clear simulated progress
             clearInterval(progressInterval);
             setUploadProgress(100);
 
-            const { data } = supabase.storage
-                .from('products')
-                .getPublicUrl(filePath);
-
-            const publicUrl = data.publicUrl;
-
             if (field === 'main') {
-                setFormData({ ...formData, image: publicUrl });
+                setFormData({ ...formData, image: imageUrl });
             } else if (field === 'variant') {
-                setNewVariant({ ...newVariant, image: publicUrl });
+                setNewVariant({ ...newVariant, image: imageUrl });
             } else if (field === 'edit_variant' && variantIndex !== undefined) {
                 const updated = [...formData.variants];
-                updated[variantIndex] = { ...updated[variantIndex], image: publicUrl };
+                updated[variantIndex] = { ...updated[variantIndex], image: imageUrl };
                 setFormData({ ...formData, variants: updated });
             }
 
@@ -176,7 +175,6 @@ const ProductManager = () => {
             showNotification('Error uploading image: ' + error.message, 'error');
         } finally {
             clearInterval(progressInterval);
-            // Delay turning off uploading state slightly so user sees 100%
             setTimeout(() => {
                 setUploading(false);
                 setUploadProgress(0);

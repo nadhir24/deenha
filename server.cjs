@@ -185,10 +185,54 @@ let db;
     // Cek jika tabel kosong, masukkan data awal dari products.ts
     const count = await db.get('SELECT COUNT(*) as count FROM products');
     if (count.count === 0) {
-        // Data awal bisa dimasukkan di sini jika perlu
-        console.log("Database initialized.");
+        console.log("Database initialized — empty. Seed products manually via admin.");
     }
+    
+    // Wait for DB to be ready before serving requests
+    await db.get('SELECT 1');
+    console.log("Database ready.");
 })();
+
+// ===== R2 UPLOAD ENDPOINT =====
+const { r2Client, R2_BUCKET_NAME } = require('./src/lib/r2-server.cjs');
+
+// Multer storage untuk R2 upload (simpan sementara di disk, lalu upload ke R2)
+const r2Storage = multer.diskStorage({
+    destination: (req, file, cb) => cb(null, 'tmp/'),
+    filename: (req, file, cb) => cb(null, `${Date.now()}-${file.originalname}`),
+});
+const r2Upload = multer({ storage: r2Storage, limits: { fileSize: 10 * 1024 * 1024 } }); // 10MB max
+
+app.post('/api/r2-upload', r2Upload.single('image'), async (req, res) => {
+    try {
+        if (!req.file) {
+            return res.status(400).json({ error: 'No file uploaded' });
+        }
+
+        const buffer = fs.readFileSync(req.file.path);
+        const key = `products/${Date.now()}-${req.file.originalname}`;
+
+        await r2Client.send(new PutObjectCommand({
+            Bucket: R2_BUCKET_NAME,
+            Key: key,
+            Body: buffer,
+            ContentType: req.file.mimetype,
+        }));
+
+        // Clean up local temp file
+        fs.unlinkSync(req.file.path);
+
+        // Return public URL
+        const accountId = process.env.R2_ACCOUNT_ID || '9f44eca5c8a6dd7bc48de4203794cf51';
+        const publicUrl = `https://pub-46758be9.r2.cloudflarestorage.com/${key}`;
+        res.json({ url: publicUrl, key });
+    } catch (error) {
+        console.error('R2 upload error:', error);
+        // Clean up on error
+        try { fs.unlinkSync(req.file.path); } catch (_) {}
+        res.status(500).json({ error: 'R2 upload failed: ' + error.message });
+    }
+});
 
 // API Routes
 app.get('/api/products', async (req, res) => {
