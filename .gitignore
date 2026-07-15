@@ -30,7 +30,8 @@ dist-ssr
 .env.test.local
 .env.production.local
 
-# Supabase
+// Supabase
 .supabase/
+audit-screenshots/
 nul
 opencode.agents.json

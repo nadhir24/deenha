@@ -9,27 +9,42 @@ let EXCHANGE_RATES: Record<string, number> = {
 };
 
 let ratesFetched = false;
+let fetchPromise: Promise<void> | null = null;
 
-// Function to fetch latest rates
-export const fetchLatestRates = async () => {
+// Function to fetch latest rates with retry
+export const fetchLatestRates = async (): Promise<void> => {
     if (ratesFetched) return;
-    try {
-        const response = await fetch('https://open.er-api.com/v6/latest/IDR');
-        if (!response.ok) throw new Error('Network response was not ok');
-        const data = await response.json();
+    if (fetchPromise) return fetchPromise; // Deduplicate concurrent calls
 
-        if (data.rates) {
-            EXCHANGE_RATES = {
-                IDR: 1,
-                USD: data.rates.USD || EXCHANGE_RATES.USD,
-                EUR: data.rates.EUR || EXCHANGE_RATES.EUR,
-                CNY: data.rates.CNY || EXCHANGE_RATES.CNY,
-            };
-            ratesFetched = true;
+    fetchPromise = (async () => {
+        const maxRetries = 3;
+        for (let attempt = 0; attempt < maxRetries; attempt++) {
+            try {
+                const response = await fetch('https://open.er-api.com/v6/latest/IDR');
+                if (!response.ok) throw new Error('Network response was not ok');
+                const data = await response.json();
+
+                if (data.rates) {
+                    EXCHANGE_RATES = {
+                        IDR: 1,
+                        USD: data.rates.USD || EXCHANGE_RATES.USD,
+                        EUR: data.rates.EUR || EXCHANGE_RATES.EUR,
+                        CNY: data.rates.CNY || EXCHANGE_RATES.CNY,
+                    };
+                    ratesFetched = true;
+                    return;
+                }
+            } catch {
+                if (attempt < maxRetries - 1) {
+                    // Exponential backoff: 1s, 2s, 4s
+                    await new Promise(r => setTimeout(r, Math.pow(2, attempt) * 1000));
+                }
+            }
         }
-    } catch {
-        // Silently fall back to hardcoded rates — retry on next call
-    }
+        // All retries exhausted — silently fall back to hardcoded rates
+    })();
+
+    return fetchPromise;
 };
 
 const CURRENCY_MAP: Record<string, { code: string; symbol: string; locale: string }> = {

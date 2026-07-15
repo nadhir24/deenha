@@ -5,6 +5,7 @@ const path = require('path');
 const sqlite3 = require('sqlite3');
 const { open } = require('sqlite');
 const fs = require('fs');
+const crypto = require('crypto');
 
 const app = express();
 const port = 3001;
@@ -28,6 +29,19 @@ const corsOptions = {
 const rateLimitStore = new Map();
 const RATE_LIMIT_WINDOW = 15 * 60 * 1000; // 15 minutes
 const RATE_LIMIT_MAX = 100; // requests per window
+
+// Cleanup expired IPs every 15 minutes to prevent memory leak
+setInterval(() => {
+    const now = Date.now();
+    for (const [ip, timestamps] of rateLimitStore.entries()) {
+        const active = timestamps.filter(time => now - time < RATE_LIMIT_WINDOW);
+        if (active.length === 0) {
+            rateLimitStore.delete(ip);
+        } else {
+            rateLimitStore.set(ip, active);
+        }
+    }
+}, RATE_LIMIT_WINDOW);
 
 const rateLimitMiddleware = (req, res, next) => {
     const ip = req.ip || req.connection.remoteAddress;
@@ -65,11 +79,29 @@ const httpsRedirectMiddleware = (req, res, next) => {
     next();
 };
 
+// ===== SECURITY: Simple CSRF Middleware =====
+const csrfMiddleware = (req, res, next) => {
+    // Only check state-changing methods
+    if (['POST', 'PUT', 'PATCH', 'DELETE'].includes(req.method)) {
+        const headerToken = req.headers['x-csrf-token'];
+        const cookieToken = req.cookies?.['csrf-token'];
+        
+        // Skip CSRF check if no token configured (opt-in)
+        if (process.env.CSRF_SECRET) {
+            if (!headerToken || headerToken !== cookieToken) {
+                return res.status(403).json({ error: 'Invalid CSRF token' });
+            }
+        }
+    }
+    next();
+};
+
 // Middleware
 app.use(httpsRedirectMiddleware);
 app.use(securityHeadersMiddleware);
 app.use(rateLimitMiddleware);
 app.use(cors(corsOptions));
+app.use(csrfMiddleware);
 app.use(express.json({ limit: '10mb' }));
 app.use('/public/images', express.static(path.join(__dirname, 'public/images')));
 
@@ -81,7 +113,9 @@ const storage = multer.diskStorage({
         cb(null, dir);
     },
     filename: (req, file, cb) => {
-        cb(null, Date.now() + '-' + file.originalname);
+        // Sanitize: use UUID instead of user-supplied originalname to prevent path traversal
+        const ext = path.extname(file.originalname).toLowerCase() || '.jpg';
+        cb(null, crypto.randomUUID() + ext);
     }
 });
 
@@ -192,10 +226,10 @@ app.post('/api/products', upload.single('image'), validateProductInput, async (r
 
 app.delete('/api/products/:id', async (req, res) => {
     try {
-        const id = req.params.id;
+        const id = parseInt(req.params.id, 10);
         
-        // Validate ID is a number
-        if (!Number.isInteger(parseInt(id))) {
+        // Validate ID is a positive integer
+        if (!Number.isInteger(id) || id <= 0) {
             return res.status(400).json({ error: 'Invalid product ID' });
         }
         
@@ -228,6 +262,37 @@ app.use((err, req, res, next) => {
     res.status(500).json({ error: 'Internal server error' });
 });
 
-app.listen(port, () => {
+const server = app.listen(port, () => {
     console.log(`Backend running at http://localhost:${port}`);
+});
+
+// ===== Graceful Shutdown =====
+process.on('SIGTERM', () => {
+    console.log('SIGTERM received. Closing server & database...');
+    server.close(() => {
+        if (db) {
+            db.close().then(() => {
+                console.log('Database closed. Exiting.');
+                process.exit(0);
+            });
+        } else {
+            console.log('Server closed. Exiting.');
+            process.exit(0);
+        }
+    });
+});
+
+process.on('SIGINT', () => {
+    console.log('SIGINT received. Closing server & database...');
+    server.close(() => {
+        if (db) {
+            db.close().then(() => {
+                console.log('Database closed. Exiting.');
+                process.exit(0);
+            });
+        } else {
+            console.log('Server closed. Exiting.');
+            process.exit(0);
+        }
+    });
 });
