@@ -18,7 +18,7 @@ i18n
             zh: { translation: zhTranslations }
         },
         fallbackLng: 'id', // Default to Indonesian
-        // Removed hardcoded 'lng' to allow LanguageDetector to work
+        lng: 'id', // Force Indonesian as initial language — prevents auto-dollar/auto-translate
         interpolation: {
             escapeValue: false
         },
