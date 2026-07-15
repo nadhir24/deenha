@@ -55,9 +55,10 @@ const CURRENCY_MAP: Record<string, { code: string; symbol: string; locale: strin
 };
 
 const getLang = (): string => {
+    // Always default to Indonesian — prevents auto-dollar bug
     const lang = i18n.language || 'id';
     const shortLang = lang.split('-')[0].toLowerCase();
-    if (shortLang === 'dev' || !shortLang) return 'id';
+    if (shortLang === 'dev' || !shortLang || shortLang === 'en') return 'id';
     return shortLang;
 };
 
