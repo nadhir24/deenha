@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Product } from '../../data/products';
-import { useCart } from '../../context/CartContext';
+import { useCart } from '../../hooks/useAppCart';
 import { useTranslation } from 'react-i18next';
 import { useFormatPrice } from '../../hooks/useFormatPrice';
 import { getOptimizedImage } from '../../lib/images';

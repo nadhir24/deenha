@@ -9,7 +9,7 @@ const languages = [
   { code: 'zh-CN', name: 'ZH', flag: '🇨🇳', labelKey: 'language.zh', subLabel: '中文' },
 ];
 
-import { useTheme } from '../../context/ThemeContext';
+import { useTheme } from '../../hooks/useAppTheme';
 
 const LanguageSelector = ({ isSolid, isMobileMenu }: { isSolid?: boolean; isMobileMenu?: boolean }) => {
   const { i18n, t } = useTranslation();

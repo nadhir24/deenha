@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { supabase } from '../../lib/supabase';
 import { useInstagram } from '../../hooks/useInstagram';
-import { useNotification } from '../../context/NotificationContext';
+import { useNotification } from '../../hooks/useAppNotification';
 
 const InstagramManager = () => {
     const { posts, refresh } = useInstagram();

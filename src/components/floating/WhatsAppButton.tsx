@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 
-import { useCart } from '../../context/CartContext';
+import { useCart } from '../../hooks/useAppCart';
 import { useFormatPrice } from '../../hooks/useFormatPrice';
 
 const WHATSAPP_PHONE = import.meta.env.VITE_WHATSAPP_PHONE || '6281919234222';

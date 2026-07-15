@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { useWishlist } from '../../context/WishlistContext';
+import { useWishlist } from '../../hooks/useAppWishlist';
 import { Product } from '../../data/products';
 import { useTranslation } from 'react-i18next';
 import { useFormatPrice } from '../../hooks/useFormatPrice';
