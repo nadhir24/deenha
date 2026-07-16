@@ -1,8 +1,9 @@
 import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { supabase } from '../../lib/supabase';
 import { useProducts } from '../../hooks/useProducts';
 import { useNotification } from '../../context/NotificationContext';
+
+const API_BASE = import.meta.env.VITE_API_URL || '';
 
 // Define Variant Interface
 interface Variant {
@@ -220,26 +221,34 @@ const ProductManager = () => {
                 category: formData.category,
                 image: formData.image,
                 color: formData.color,
-                color_hex: formData.color_hex,
+                colorHex: formData.color_hex,
                 badge: formData.badge,
-                size: formData.size.split(',').map(s => s.trim()),
+                size: Array.isArray(formData.size) ? formData.size.join(', ') : formData.size,
                 price: Number(formData.price),
-                original_price: formData.original_price ? Number(formData.original_price) : null,
-                stock: totalStock, // Update main stock based on variants sum
-                variants: formData.variants
+                originalPrice: formData.original_price ? Number(formData.original_price) : null,
+                stock: totalStock,
             };
 
             if (editingId) {
-                const { error } = await supabase
-                    .from('products')
-                    .update(payload)
-                    .eq('id', editingId);
-                if (error) throw error;
+                const res = await fetch(`${API_BASE}/api/products/${editingId}`, {
+                    method: 'PUT',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload),
+                });
+                if (!res.ok) {
+                    const errData = await res.json().catch(() => ({}));
+                    throw new Error(errData.error || `HTTP ${res.status}`);
+                }
             } else {
-                const { error } = await supabase
-                    .from('products')
-                    .insert([payload]);
-                if (error) throw error;
+                const res = await fetch(`${API_BASE}/api/products`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload),
+                });
+                if (!res.ok) {
+                    const errData = await res.json().catch(() => ({}));
+                    throw new Error(errData.error || `HTTP ${res.status}`);
+                }
             }
 
             resetForm();
@@ -254,8 +263,8 @@ const ProductManager = () => {
     const handleDelete = async (id: number) => {
         if (!confirm('Are you sure you want to delete this product?')) return;
         try {
-            const { error } = await supabase.from('products').delete().eq('id', id);
-            if (error) throw error;
+            const res = await fetch(`${API_BASE}/api/products/${id}`, { method: 'DELETE' });
+            if (!res.ok) throw new Error(`HTTP ${res.status}`);
             showNotification('Product deleted successfully', 'success');
             refresh();
         } catch (err: any) {

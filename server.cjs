@@ -178,9 +178,13 @@ let db;
             color TEXT,
             colorHex TEXT,
             badge TEXT,
+            stock INTEGER DEFAULT 0,
             soldCount INTEGER DEFAULT 0
         )
     `);
+
+    // Add stock column if missing (migration for existing DBs)
+    try { await db.exec('ALTER TABLE products ADD COLUMN stock INTEGER DEFAULT 0'); } catch (_) {}
 
     // Cek jika tabel kosong, masukkan data awal dari products.ts
     const count = await db.get('SELECT COUNT(*) as count FROM products');
@@ -250,20 +254,40 @@ app.get('/api/products', async (req, res) => {
     }
 });
 
-app.post('/api/products', upload.single('image'), validateProductInput, async (req, res) => {
+app.post('/api/products', express.json(), async (req, res) => {
     try {
-        const { name, price, originalPrice, category, size, color, colorHex, badge } = req.body;
-        const imagePath = req.file ? `/images/${req.file.filename}` : '';
+        const { name, price, originalPrice, category, size, color, colorHex, badge, image, stock } = req.body;
 
         const result = await db.run(
-            `INSERT INTO products (name, price, originalPrice, image, category, size, color, colorHex, badge) 
-             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`,
-            [name, price, originalPrice, imagePath, category, size, color, colorHex, badge]
+            `INSERT INTO products (name, price, originalPrice, image, category, size, color, colorHex, badge, stock) 
+             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+            [name, price, originalPrice || 0, image || '', category, size, color, colorHex, badge || '', stock || 0]
         );
 
         res.json({ id: result.lastID, success: true });
     } catch (error) {
         console.error('Error creating product:', error);
+        res.status(500).json({ error: 'Internal server error' });
+    }
+});
+
+app.put('/api/products/:id', express.json(), async (req, res) => {
+    try {
+        const id = parseInt(req.params.id, 10);
+        if (!Number.isInteger(id) || id <= 0) {
+            return res.status(400).json({ error: 'Invalid product ID' });
+        }
+
+        const { name, price, originalPrice, category, size, color, colorHex, badge, image, stock } = req.body;
+
+        await db.run(
+            `UPDATE products SET name=?, price=?, originalPrice=?, image=?, category=?, size=?, color=?, colorHex=?, badge=?, stock=? WHERE id=?`,
+            [name, price, originalPrice || 0, image || '', category, size, color, colorHex, badge || '', stock || 0, id]
+        );
+
+        res.json({ success: true });
+    } catch (error) {
+        console.error('Error updating product:', error);
         res.status(500).json({ error: 'Internal server error' });
     }
 });

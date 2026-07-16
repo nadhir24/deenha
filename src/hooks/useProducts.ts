@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
-import { products as staticProducts, Product } from '../data/products';
+import { Product } from '../data/products';
+
+const API_BASE = import.meta.env.VITE_API_URL || '';
 
 export const useProducts = () => {
     const [products, setProducts] = useState<Product[]>([]);
@@ -9,7 +11,10 @@ export const useProducts = () => {
     const fetchProducts = async () => {
         try {
             setLoading(true);
-            setProducts(staticProducts);
+            const res = await fetch(`${API_BASE}/api/products`);
+            if (!res.ok) throw new Error(`HTTP ${res.status}`);
+            const data = await res.json();
+            setProducts(data);
         } catch (err) {
             setError(err instanceof Error ? err.message : 'Failed to load products');
         } finally {
