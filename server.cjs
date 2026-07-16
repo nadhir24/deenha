@@ -228,7 +228,7 @@ app.post('/api/r2-upload', r2Upload.single('image'), async (req, res) => {
 
         // Return public URL
         const accountId = process.env.R2_ACCOUNT_ID || '9f44eca5c8a6dd7bc48de4203794cf51';
-        const publicUrl = `https://pub-46758be9.r2.cloudflarestorage.com/${key}`;
+        const publicUrl = `https://pub-ff6d6f9405b741cbb0a6c4607c001d0c.r2.dev/${key}`;
         res.json({ url: publicUrl, key });
     } catch (error) {
         console.error('R2 upload error:', error);
