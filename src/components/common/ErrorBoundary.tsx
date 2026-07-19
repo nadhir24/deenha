@@ -49,7 +49,7 @@ class ErrorBoundary extends React.Component<Props, State> {
               <p className="text-primary dark:text-white/80 mb-8 text-sm leading-relaxed">
                 We encountered an unexpected error. Please try again or contact support if the problem persists.
               </p>
-              {process.env.NODE_ENV === 'development' && this.state.error && (
+              {import.meta.env.DEV && this.state.error && (
                 <div className="mb-8 p-4 bg-red-50 dark:bg-red-900/20 rounded border border-red-200 dark:border-red-800">
                   <p className="text-xs text-red-600 dark:text-red-400 font-mono text-left break-words">
                     {this.state.error.message}

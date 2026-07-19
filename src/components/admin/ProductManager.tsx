@@ -141,12 +141,12 @@ const ProductManager = () => {
 
         try {
             // Upload ke Express API -> R2
-            const formData = new FormData();
-            formData.append('image', file);
+            const uploadFormData = new FormData();
+            uploadFormData.append('image', file);
 
             const res = await fetch('/api/r2-upload', {
                 method: 'POST',
-                body: formData,
+                body: uploadFormData,
             });
 
             if (!res.ok) {
