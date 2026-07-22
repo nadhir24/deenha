@@ -89,8 +89,8 @@ function App() {
 
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-    // Toggle this to true to enable Maintenance Mode
-    const isMaintenanceMode = true;
+    // World Series is publicly visible; switch to true only for planned maintenance.
+    const isMaintenanceMode = false;
     const bypassMode = new URLSearchParams(window.location.search).get('bypass') === 'true';
 
     if (isMaintenanceMode && !bypassMode) {
