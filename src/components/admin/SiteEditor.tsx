@@ -122,7 +122,13 @@ const SiteEditor = () => {
                 announcements: settings.announcements || DEFAULT_ANNOUNCEMENTS,
                 hero_slides: settings.hero_slides || DEFAULT_SLIDES,
                 home_highlights: settings.home_highlights || DEFAULT_HIGHLIGHTS,
-                tiktok_live_settings: settings.tiktok_live_settings || { mode: 'auto', is_live: false }
+                tiktok_live_settings: settings.tiktok_live_settings || { mode: 'auto', is_live: false },
+                world_series: settings.world_series || {
+                    featured_world: 'songket',
+                    categories: { scarves: true, dailywear: false, instant_hijab: false, pashmina: false, prayset: false, prive_deenha: false },
+                    worlds: { heritage: true, new_series: true, abstract: true },
+                    collections: { songket: true, parang: true, lombok: true, kawung: true, borneo: true, hagia_sophia: true, cairo: true, abstract: true }
+                }
             });
         }
     }, [loading, settings]);
@@ -221,6 +227,49 @@ const SiteEditor = () => {
     return (
         <div className="p-8 space-y-12">
             <h2 className="font-display text-2xl mb-8">Site Appearance Editor</h2>
+
+            <section className="bg-white border border-black/5 p-8 shadow-sm">
+                <div className="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
+                    <div>
+                        <h3 className="text-[11px] uppercase font-bold tracking-widest">World Series Visibility</h3>
+                        <p className="text-[10px] text-secondary mt-1 italic">Enable categories, worlds, and collections without changing code.</p>
+                    </div>
+                    <button onClick={() => handleSave('world_series')} disabled={isSaving} className="bg-primary text-white text-[10px] uppercase font-bold tracking-widest px-6 py-3 hover:bg-accent-gold transition-colors disabled:opacity-50">
+                        {isSaving ? 'Saving...' : 'Save World Series'}
+                    </button>
+                </div>
+
+                <div className="mt-8 grid gap-8 lg:grid-cols-3">
+                    {[
+                        { key: 'categories', title: 'Categories' },
+                        { key: 'worlds', title: 'Worlds' },
+                        { key: 'collections', title: 'Collections' }
+                    ].map((group) => (
+                        <div key={group.key}>
+                            <p className="mb-4 text-[9px] font-bold uppercase tracking-widest text-secondary">{group.title}</p>
+                            <div className="space-y-2">
+                                {Object.entries(localSettings.world_series[group.key] || {}).map(([key, enabled]) => (
+                                    <label key={key} className="flex min-h-11 items-center justify-between border border-black/10 px-4 py-3 text-[10px] font-bold uppercase tracking-wider">
+                                        <span>{key.replace(/_/g, ' ')}</span>
+                                        <input
+                                            type="checkbox"
+                                            checked={Boolean(enabled)}
+                                            onChange={(event) => setLocalSettings({
+                                                ...localSettings,
+                                                world_series: {
+                                                    ...localSettings.world_series,
+                                                    [group.key]: { ...localSettings.world_series[group.key], [key]: event.target.checked }
+                                                }
+                                            })}
+                                            className="h-5 w-5 accent-black"
+                                        />
+                                    </label>
+                                ))}
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </section>
 
             {/* TikTok Live Management Section */}
             <section className="bg-white border border-black/5 p-8 shadow-sm">

@@ -14,11 +14,10 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
     const { theme, toggleTheme } = useTheme();
 
     const menuItems = [
-        { name: t('nav.home'), href: '/' },
-        { name: t('nav.shop'), href: '/shop' },
+        { name: 'World Series', href: '/world' },
+        { name: 'Scarves', href: '/scarves' },
         { name: t('nav.journal'), href: '/journal' },
-        { name: t('nav.about'), href: '/about' },
-        { name: t('nav.contact'), href: '/contact' }
+        { name: 'Shop', href: '/shop' }
     ];
 
     const menuVariants = {

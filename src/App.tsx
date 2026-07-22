@@ -32,6 +32,10 @@ const ContactPage = lazy(() => import('./pages/ContactPage'));
 const ShippingPage = lazy(() => import('./pages/ShippingPage'));
 const ReturnsPage = lazy(() => import('./pages/ReturnsPage'));
 const SizeGuidePage = lazy(() => import('./pages/SizeGuidePage'));
+const WorldPage = lazy(() => import('./pages/WorldPage'));
+const WorldCollectionPage = lazy(() => import('./pages/WorldCollectionPage'));
+const WorldDetailPage = lazy(() => import('./pages/WorldDetailPage'));
+const ScarvesPage = lazy(() => import('./pages/ScarvesPage'));
 
 // Per-route wrapper: each lazy route gets its own ErrorBoundary + Suspense
 const LazyRoute = ({ children }: { children: React.ReactNode }) => (
@@ -46,11 +50,8 @@ const LazyRoute = ({ children }: { children: React.ReactNode }) => (
     </ErrorBoundary>
 );
 
-// Home Components
-import Hero from './components/home/Hero';
-import Benefits from './components/home/Benefits';
-const InstagramFeed = lazy(() => import('./components/home/InstagramFeed'));
-const HomeCollections = lazy(() => import('./components/home/HomeCollections'));
+// World Series home replaces the legacy storefront landing page.
+const WorldSeriesHome = lazy(() => import('./components/world/WorldSeriesHome'));
 import MaintenancePage from './pages/MaintenancePage';
 
 // Floating Components
@@ -124,14 +125,15 @@ function App() {
                                                     jsonLd={organizationJsonLd}
                                                 />
                                                 <main>
-                                                    <Hero />
-                                                    <Benefits />
-                                                    <HomeCollections />
-                                                    <InstagramFeed />
+                                                    <LazyRoute><WorldSeriesHome /></LazyRoute>
                                                 </main>
                                             </>
                                         } />
 
+                                        <Route path="/world" element={<LazyRoute><WorldPage /></LazyRoute>} />
+                                        <Route path="/world/:group" element={<LazyRoute><WorldCollectionPage /></LazyRoute>} />
+                                        <Route path="/world/:group/:slug" element={<LazyRoute><WorldDetailPage /></LazyRoute>} />
+                                        <Route path="/scarves" element={<LazyRoute><ScarvesPage /></LazyRoute>} />
                                         <Route path="/shop" element={<LazyRoute><ShopPage /></LazyRoute>} />
                                         <Route path="/ramadan" element={<LazyRoute><RamadanPage /></LazyRoute>} />
                                         <Route path="/contact" element={<LazyRoute><ContactPage /></LazyRoute>} />

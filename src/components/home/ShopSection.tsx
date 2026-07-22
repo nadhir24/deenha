@@ -19,7 +19,12 @@ interface FilterState {
     ids?: string[];
 }
 
-const ShopSection = () => {
+interface ShopSectionProps {
+    initialCategory?: string;
+    hideHeader?: boolean;
+}
+
+const ShopSection = ({ initialCategory, hideHeader = false }: ShopSectionProps) => {
     const { t } = useTranslation();
     const { products, loading } = useProducts();
     const [searchParams, setSearchParams] = useSearchParams();
@@ -31,7 +36,7 @@ const ShopSection = () => {
         const category = searchParams.get('category');
         const ids = searchParams.get('ids');
         return {
-            categories: category ? [category] : [],
+            categories: category ? [category] : initialCategory ? [initialCategory] : [],
             sizes: [],
             colors: [],
             priceRange: [0, 2000000],
@@ -120,7 +125,7 @@ const ShopSection = () => {
         <section className="py-20 bg-white dark:bg-primary transition-colors duration-300" id="all-products">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Section Header */}
-                <motion.div
+                {!hideHeader && <motion.div
                     className="text-center mb-16"
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -132,7 +137,7 @@ const ShopSection = () => {
                     <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-normal tracking-tight text-primary dark:text-white">
                         {t('shop.subtitle')}
                     </h2>
-                </motion.div>
+                </motion.div>}
 
                 <div className="flex flex-col lg:flex-row gap-8">
                     {/* Mobile Filter Toggle */}

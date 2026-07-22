@@ -1,5 +1,31 @@
 export const siteSettings: Record<string, any> = {
     whatsapp_phone: '6281919234222',
+    world_series: {
+        featured_world: 'songket',
+        categories: {
+            scarves: true,
+            dailywear: false,
+            instant_hijab: false,
+            pashmina: false,
+            prayset: false,
+            prive_deenha: false
+        },
+        worlds: {
+            heritage: true,
+            new_series: true,
+            abstract: true
+        },
+        collections: {
+            songket: true,
+            parang: true,
+            lombok: true,
+            kawung: true,
+            borneo: true,
+            hagia_sophia: true,
+            cairo: true,
+            abstract: true
+        }
+    },
     announcements: [
         "🌙 Pre-Raya Special: Luxury Hampers & Signature Scarves Highlights",
         "🌍 International Shipping Available",

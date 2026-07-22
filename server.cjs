@@ -21,7 +21,7 @@ const corsOptions = {
         }
     },
     credentials: true,
-    methods: ['GET', 'POST', 'DELETE', 'OPTIONS'],
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type']
 };
 
@@ -183,6 +183,14 @@ let db;
         )
     `);
 
+    await db.exec(`
+        CREATE TABLE IF NOT EXISTS site_settings (
+            key TEXT PRIMARY KEY,
+            value TEXT NOT NULL,
+            updatedAt TEXT DEFAULT CURRENT_TIMESTAMP
+        )
+    `);
+
     // Add stock column if missing (migration for existing DBs)
     try { await db.exec('ALTER TABLE products ADD COLUMN stock INTEGER DEFAULT 0'); } catch (_) {}
 
@@ -239,6 +247,38 @@ app.post('/api/r2-upload', r2Upload.single('image'), async (req, res) => {
 });
 
 // API Routes
+app.get('/api/site-settings', async (req, res) => {
+    try {
+        const rows = await db.all('SELECT key, value FROM site_settings');
+        const settings = {};
+        for (const row of rows) {
+            try { settings[row.key] = JSON.parse(row.value); } catch (_) { settings[row.key] = row.value; }
+        }
+        res.json(settings);
+    } catch (error) {
+        console.error('Error fetching site settings:', error);
+        res.status(500).json({ error: 'Internal server error' });
+    }
+});
+
+app.put('/api/site-settings/:key', async (req, res) => {
+    try {
+        const key = String(req.params.key || '');
+        if (!/^[a-z0-9_]{1,64}$/i.test(key)) return res.status(400).json({ error: 'Invalid setting key' });
+        const value = JSON.stringify(req.body?.value);
+        if (value === undefined || value.length > 100000) return res.status(400).json({ error: 'Invalid setting value' });
+        await db.run(
+            `INSERT INTO site_settings (key, value, updatedAt) VALUES (?, ?, CURRENT_TIMESTAMP)
+             ON CONFLICT(key) DO UPDATE SET value=excluded.value, updatedAt=CURRENT_TIMESTAMP`,
+            [key, value]
+        );
+        res.json({ success: true });
+    } catch (error) {
+        console.error('Error updating site setting:', error);
+        res.status(500).json({ error: 'Internal server error' });
+    }
+});
+
 app.get('/api/products', async (req, res) => {
     try {
         const products = await db.all('SELECT * FROM products');

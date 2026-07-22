@@ -1,72 +1,60 @@
-import { describe, it, expect } from 'vitest';
-import { renderHook, waitFor } from '@testing-library/react';
+import { beforeEach, describe, expect, it, vi } from 'vitest';
+import { act, renderHook, waitFor } from '@testing-library/react';
 import { useSiteSettings } from './useSiteSettings';
 
+const fetchMock = vi.fn();
+
+beforeEach(() => {
+    fetchMock.mockReset();
+    fetchMock.mockResolvedValue({ ok: true, json: async () => ({}) });
+    vi.stubGlobal('fetch', fetchMock);
+});
+
 describe('useSiteSettings', () => {
-    it('should return settings after loading', async () => {
+    it('returns static settings merged with remote overrides', async () => {
+        fetchMock.mockResolvedValueOnce({ ok: true, json: async () => ({ whatsapp_phone: '6200000000000' }) });
         const { result } = renderHook(() => useSiteSettings());
 
-        await waitFor(() => {
-            expect(result.current.loading).toBe(false);
-        });
-
-        expect(result.current.settings).toBeDefined();
-        expect(typeof result.current.settings).toBe('object');
-    });
-
-    it('should have announcements', async () => {
-        const { result } = renderHook(() => useSiteSettings());
-
-        await waitFor(() => {
-            expect(result.current.loading).toBe(false);
-        });
-
-        expect(result.current.settings.announcements).toBeDefined();
-        expect(Array.isArray(result.current.settings.announcements)).toBe(true);
+        await waitFor(() => expect(result.current.loading).toBe(false));
         expect(result.current.settings.announcements.length).toBeGreaterThan(0);
+        expect(result.current.settings.hero_slides.length).toBeGreaterThan(0);
+        expect(result.current.settings.whatsapp_phone).toBe('6200000000000');
+        expect(result.current.settings.world_series.categories.scarves).toBe(true);
     });
 
-    it('should have whatsapp_phone', async () => {
+    it('falls back to static settings when remote fetch fails', async () => {
+        fetchMock.mockRejectedValueOnce(new Error('offline'));
         const { result } = renderHook(() => useSiteSettings());
-
-        await waitFor(() => {
-            expect(result.current.loading).toBe(false);
-        });
-
-        expect(result.current.settings.whatsapp_phone).toBeDefined();
-        expect(result.current.settings.whatsapp_phone).toBeTypeOf('string');
+        await waitFor(() => expect(result.current.loading).toBe(false));
+        expect(result.current.settings.whatsapp_phone).toBe('6281919234222');
     });
 
-    it('should have hero_slides', async () => {
+    it('persists an update through the API and updates local state', async () => {
         const { result } = renderHook(() => useSiteSettings());
+        await waitFor(() => expect(result.current.loading).toBe(false));
 
-        await waitFor(() => {
-            expect(result.current.loading).toBe(false);
+        let response: { success: boolean } | undefined;
+        await act(async () => {
+            response = await result.current.updateSetting('world_series', { worlds: { heritage: false } });
         });
 
-        expect(result.current.settings.hero_slides).toBeDefined();
-        expect(Array.isArray(result.current.settings.hero_slides)).toBe(true);
-    });
-
-    it('should provide updateSetting and refresh functions', async () => {
-        const { result } = renderHook(() => useSiteSettings());
-
-        await waitFor(() => {
-            expect(result.current.loading).toBe(false);
-        });
-
-        expect(result.current.updateSetting).toBeTypeOf('function');
-        expect(result.current.refresh).toBeTypeOf('function');
-    });
-
-    it('updateSetting should return success', async () => {
-        const { result } = renderHook(() => useSiteSettings());
-
-        await waitFor(() => {
-            expect(result.current.loading).toBe(false);
-        });
-
-        const response = await result.current.updateSetting('test_key', 'test_value');
         expect(response).toEqual({ success: true });
+        expect(fetchMock).toHaveBeenLastCalledWith('/api/site-settings/world_series', expect.objectContaining({ method: 'PUT' }));
+        expect(result.current.settings.world_series.worlds.heritage).toBe(false);
+    });
+
+    it('reports a failed update without mutating settings', async () => {
+        const { result } = renderHook(() => useSiteSettings());
+        await waitFor(() => expect(result.current.loading).toBe(false));
+        const previous = result.current.settings.world_series;
+        fetchMock.mockResolvedValueOnce({ ok: false });
+
+        let response: { success: boolean } | undefined;
+        await act(async () => {
+            response = await result.current.updateSetting('world_series', { worlds: {} });
+        });
+
+        expect(response).toEqual({ success: false });
+        expect(result.current.settings.world_series).toEqual(previous);
     });
 });

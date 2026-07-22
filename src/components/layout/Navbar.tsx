@@ -39,10 +39,10 @@ const Navbar = ({ onMenuClick }: NavbarProps) => {
     }, []);
 
     const navLinks = [
-        { name: t('nav.home'), href: '/' },
-        { name: t('nav.shop'), href: '/shop' },
+        { name: 'World Series', href: '/world' },
+        { name: 'Scarves', href: '/scarves' },
         { name: t('nav.journal'), href: '/journal' },
-        { name: t('nav.about'), href: '/about' }
+        { name: 'Shop', href: '/shop' }
     ];
 
     // Helper to normalize text for searching (removes accents/diacritics)
