@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>DEENHA Songket — Scroll Experience</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#0b0b0c;--ink:#f4f1ec;--dim:#8d8a84;--gold:#c9a227;--line:rgba(244,241,236,.14)}
+html,body{font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--ink)}
+.serif{font-family:'Cormorant Garamond',serif}
+.eyebrow{font-size:10px;letter-spacing:.32em;text-transform:uppercase;color:var(--dim)}
+
+#track{position:relative;width:100%}
+#sticky{position:sticky;top:0;height:100vh;width:100%;overflow:hidden;display:grid;place-items:center}
+#videoEl{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .6s}
+#videoEl.ready{opacity:1}
+#poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:1;transition:opacity .5s}
+#poster.hidden{opacity:0}
+#fallback{position:absolute;inset:0;display:none;grid-template-columns:repeat(3,1fr);gap:0;height:100%}
+#fallback img{width:100%;height:100%;object-fit:cover}
+.vignette{position:absolute;inset:0;pointer-events:none;box-shadow:inset 0 0 200px 80px rgba(0,0,0,.8)}
+
+.copy{position:absolute;left:clamp(24px,6vw,80px);bottom:clamp(80px,14vh,160px);z-index:10;max-width:min(440px,42vw);transition:opacity .5s,transform .5s}
+.copy h1{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:clamp(38px,6vw,80px);line-height:.98;margin:12px 0 14px}
+.copy p{font-size:13px;color:rgba(244,241,236,.78);line-height:1.7;max-width:38ch}
+.progress{position:absolute;left:0;right:0;bottom:0;height:2px;background:rgba(244,241,236,.08);z-index:10}
+.progress i{display:block;height:100%;width:0%;background:var(--gold);transition:width .1s linear}
+
+.panel{position:relative;z-index:5;min-height:100vh;background:var(--bg);padding:clamp(60px,12vh,120px) clamp(24px,6vw,80px);display:flex;flex-direction:column;justify-content:center;opacity:0;transform:translateY(30px);transition:opacity .8s,transform .8s}
+.panel.visible{opacity:1;transform:none}
+.panel h2{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:clamp(32px,5vw,56px);line-height:1.05;margin-bottom:18px}
+.panel p{font-size:14px;color:var(--dim);line-height:1.8;max-width:60ch}
+.specs{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:24px;margin-top:36px;max-width:720px}
+.specs div{border-top:1px solid var(--line);padding-top:14px}
+.specs span{display:block;font-size:9px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin-bottom:6px}
+.specs b{font-size:13px;color:var(--ink);font-weight:400}
+
+.products{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px;max-width:1000px;margin-top:40px}
+.product{border:1px solid var(--line);aspect-ratio:3/4;position:relative;overflow:hidden;cursor:pointer}
+.product img{width:100%;height:100%;object-fit:cover;filter:brightness(.72);transition:.8s}
+.product:hover img{transform:scale(1.05);filter:brightness(.88)}
+.product::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(6,6,7,.95) 2%,rgba(6,6,7,.25) 50%,transparent)}
+.product .c{position:absolute;left:16px;right:16px;bottom:16px;z-index:2}
+.product h4{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:24px}
+.product .price{margin-top:6px;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+
+#back{position:fixed;top:22px;left:24px;z-index:50;background:rgba(11,11,12,.6);border:1px solid var(--line);border-radius:999px;padding:8px 16px;color:var(--dim);font-size:10px;letter-spacing:.24em;text-transform:uppercase;cursor:pointer;backdrop-filter:blur(8px);transition:.3s}
+#back:hover{color:var(--ink);border-color:var(--gold)}
+
+#cta{position:fixed;bottom:24px;right:24px;z-index:50;background:var(--gold);color:#0b0b0c;border:0;border-radius:999px;padding:12px 22px;font-size:11px;letter-spacing:.18em;text-transform:uppercase;cursor:pointer;opacity:0;transition:opacity .5s;pointer-events:none}
+#cta.show{opacity:1;pointer-events:auto}
+
+@media(max-width:900px){
+  .copy{left:24px;right:24px;max-width:none;bottom:90px}
+  .copy h1{font-size:clamp(30px,9vw,48px)}
+  .panel{min-height:auto}
+}
+@media(max-width:640px){
+  #videoEl{display:none}
+  #poster{display:block}
+  #fallback{display:grid}
+  #poster.hidden+#fallback{display:grid}
+}
+</style>
+</head>
+<body>
+
+<button id="back" onclick="history.back()">← Kembali</button>
+
+<div id="track">
+  <div id="sticky">
+    <video id="videoEl" preload="auto" muted playsinline></video>
+    <img id="poster" src="img/songket.jpg" alt="Songket">
+    <div id="fallback">
+      <img src="img/songket.jpg"><img src="img/parang.jpg"><img src="img/lombok.jpg">
+    </div>
+    <div class="vignette"></div>
+
+    <div class="copy" id="heroCopy">
+      <div class="eyebrow">World 01 — Wastra Nusantara</div>
+      <h1>Songket</h1>
+      <p>Threads of ceremony, translated for today. A heritage textile woven with metallic threads, now reimagined as a scarf you can wear every day.</p>
+    </div>
+
+    <div class="progress"><i id="bar"></i></div>
+  </div>
+
+  <div class="panel" data-threshold=".20">
+    <div class="eyebrow">The Motif</div>
+    <h2>Floral geometry, muted gold, and slate blue.</h2>
+    <p>Each Songket scarf carries the rhythm of hand-woven flowers and vine work. We kept the palette restrained so the heritage stays wearable — not costume.</p>
+  </div>
+
+  <div class="panel" data-threshold=".45">
+    <div class="eyebrow">The Drape</div>
+    <h2>Soft enough to fold, structured enough to hold.</h2>
+    <p>The weave gives it a subtle weight. It sits well on the shoulder, falls clean in a headscarf, and softens after the first few wears.</p>
+  </div>
+
+  <div class="panel" data-threshold=".70">
+    <div class="eyebrow">Specifications</div>
+    <h2>Made to be worn, not archived.</h2>
+    <div class="specs">
+      <div><span>Material</span><b>Silk-cotton blend with metallic thread accents</b></div>
+      <div><span>Size</span><b>110 × 110 cm square</b></div>
+      <div><span>Finish</span><b>Hand-rolled hem, soft drape</b></div>
+      <div><span>Care</span><b>Dry clean recommended</b></div>
+    </div>
+  </div>
+
+  <div class="panel" data-threshold=".85">
+    <div class="eyebrow">Shop Songket</div>
+    <h2>Choose your piece.</h2>
+    <div class="products">
+      <div class="product"><img src="img/songket.jpg" alt="Classic"><div class="c"><h4>Classic</h4><div class="price">Rp 389.000</div></div></div>
+      <div class="product"><img src="img/lombok.jpg" alt="Slate Panel"><div class="c"><h4>Slate Panel</h4><div class="price">Rp 389.000</div></div></div>
+      <div class="product"><img src="img/parang.jpg" alt="Ceremony"><div class="c"><h4>Ceremony</h4><div class="price">Rp 425.000</div></div></div>
+    </div>
+  </div>
+</div>
+
+<button id="cta">Add to cart — Rp 389.000</button>
+
+<script>
+const video = document.getElementById('videoEl');
+const poster = document.getElementById('poster');
+const track = document.getElementById('track');
+const bar = document.getElementById('bar');
+const heroCopy = document.getElementById('heroCopy');
+const cta = document.getElementById('cta');
+const panels = [...document.querySelectorAll('.panel')];
+
+const src = '../media/songket/hero-final.mp4';
+video.src = src;
+
+let duration=0, scrubOk=true, lastFrame=0, loaded=false, isMobile=window.innerWidth<640;
+
+video.addEventListener('loadedmetadata',()=>{duration=video.duration;loaded=true;video.classList.add('ready');poster.classList.add('hidden');});
+video.addEventListener('canplay',()=>{poster.classList.add('hidden');});
+
+function setProgress(p){
+  p=Math.max(0,Math.min(1,p));
+  bar.style.width=(p*100)+'%';
+  if(loaded && duration && scrubOk && !isMobile){
+    try{video.currentTime = p*duration;}catch(e){scrubOk=false;}
+  }
+  // copy fade out after 18% to let video breathe
+  if(p>.22){heroCopy.style.opacity=Math.max(0,1-(p-.22)*4);heroCopy.style.transform='translateY('+((p-.22)*-20)+'px)'}
+  else{heroCopy.style.opacity=1;heroCopy.style.transform='none'}
+  // panels reveal
+  panels.forEach(panel=>{
+    const t=parseFloat(panel.dataset.threshold);
+    if(p>=t)panel.classList.add('visible');
+    else panel.classList.remove('visible');
+  });
+  // cta
+  cta.classList.toggle('show',p>=.88);
+}
+
+let raf=0;
+function onScroll(){
+  cancelAnimationFrame(raf);
+  raf=requestAnimationFrame(()=>{
+    const max = track.scrollHeight - innerHeight;
+    const y = window.scrollY;
+    const p = max>0 ? y/max : 0;
+    setProgress(p);
+  });
+}
+addEventListener('scroll',onScroll,{passive:true});
+
+// fallback: if scrub stutters, switch to muted autoplay loop
+let stutterCheck=0;
+video.addEventListener('seeked',()=>{
+  const now=performance.now();
+  if(now-stutterCheck<120)scrubOk=false;
+  stutterCheck=now;
+});
+
+// mobile fallback: play muted loop on poster, hide video
+if(isMobile){
+  video.style.display='none';
+  poster.style.display='block';
+  poster.classList.remove('hidden');
+  // try to play video as background loop anyway
+  video.muted=true; video.loop=true; video.playsInline=true;
+  video.play().catch(()=>{});
+}
+
+onScroll();
+</script>
+</body>
+</html>
