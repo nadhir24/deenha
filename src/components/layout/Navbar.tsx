@@ -38,11 +38,11 @@ const Navbar = ({ onMenuClick }: NavbarProps) => {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
+    // /world index hidden — World Series entry is home hero (direct to collection rooms).
     const navLinks = [
-        { name: 'World Series', href: '/world' },
         { name: 'Scarves', href: '/scarves' },
         { name: t('nav.journal'), href: '/journal' },
-        { name: 'Shop', href: '/shop' }
+        { name: 'Shop', href: '/shop' },
     ];
 
     // Helper to normalize text for searching (removes accents/diacritics)

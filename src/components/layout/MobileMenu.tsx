@@ -14,10 +14,9 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
     const { theme, toggleTheme } = useTheme();
 
     const menuItems = [
-        { name: 'World Series', href: '/world' },
         { name: 'Scarves', href: '/scarves' },
         { name: t('nav.journal'), href: '/journal' },
-        { name: 'Shop', href: '/shop' }
+        { name: 'Shop', href: '/shop' },
     ];
 
     const menuVariants = {
