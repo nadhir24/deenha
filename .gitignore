@@ -35,3 +35,7 @@ dist-ssr
 audit-screenshots/
 nul
 opencode.agents.json
+
+# Python virtual environments
+venv/
+public/proto/img/venv/
