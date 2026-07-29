@@ -5,7 +5,9 @@ import SEOHead from '../components/SEOHead';
 import { heritageItems, worldItemHref } from '../data/worldSeries';
 
 const ScarvesPage = () => {
-    useEffect(() => window.scrollTo(0, 0), []);
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
 
     return (
         <main className="bg-world-paper pb-20 pt-32 text-world-ink">

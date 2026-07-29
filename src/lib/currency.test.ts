@@ -22,10 +22,15 @@ describe('formatPrice', () => {
         expect(result).toMatch(/Rp.*150\.000/);
     });
 
-    it('should format USD correctly when language is en', () => {
+    it('should stay in IDR when i18n language is en (anti auto-dollar guard)', () => {
         // @ts-ignore
         i18n.language = 'en';
         const result = formatPrice(150000);
+        expect(result).toMatch(/Rp.*150\.000/);
+    });
+
+    it('should format USD when explicitly overridden to en', () => {
+        const result = formatPrice(150000, 'en');
         // 150000 * 0.000064 = 9.6
         expect(result).toMatch(/\$9\.60/);
     });
